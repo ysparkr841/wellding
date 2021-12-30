@@ -24,10 +24,12 @@ public class WDHallService {
 		
 		List<WDHall> list = null;
 		
-		try {
-			list = wdHallDao.WDHallRanking();
+		try 
+		{
+				list = wdHallDao.WDHallRanking();
 		}
-		catch(Exception e) {
+		catch(Exception e) 
+		{
 			logger.error("[HallService] WDHallRanking Exception : ", e);
 		}		
 		
