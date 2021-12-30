@@ -56,24 +56,28 @@
 			          <p>Best Wedding Hall</p>
 			        </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="event-item">
-                        <div class="thumb">
-                            <a href="event-details.html"><img src="resources/images/608.jpg" alt=""></a>
-                        </div>
-                        <div class="down-content">
-                            <a href="event-details.html"><h4>임페리얼 팰리스 서울</h4></a>
-                            <ul>
-                                <li><i class="fa fa-map-marker"></i> 서울 강남구 언주로 640</li>
-                                <li><i class="fa fa-user"></i> 500명 수용 가능</li>
-                            </ul>
-	                        <div class="main-white-button">
-	                            <a href="ticket-details.html">VIEW MORE ▶</a>
+                <c:forEach var="hallList" items="${hall}" varStatus="status">
+	                <div class="col-lg-4">
+	                    <div class="event-item">
+	                        <div class="thumb">
+	                            <a href="event-details.html"><img src="resources/hsdm/${hallList.HImgName}" alt=""></a>
 	                        </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
+	                        <div class="down-content">
+	                            <a href="event-details.html"><h4>${hallList.HName}</h4></a>
+	                            <ul>
+	                                <li><i class="fa fa-map-marker"></i> 서울 강남구 언주로 640</li>
+	                                <li><i class="fa fa-user"></i> ${hallList.HMax}명 수용 가능</li>
+	                            </ul>
+		                        <div class="main-white-button">
+		                            <a href="ticket-details.html">VIEW MORE ▶</a>
+		                        </div>
+	                        </div>
+	                    </div>
+	                </div>
+                </c:forEach>
+                
+                
+                <!--  div class="col-lg-4">
                     <div class="event-item">
                         <div class="thumb">
                             <a href="event-details.html"><img src="resources/images/201.jpg" alt=""></a>
@@ -106,7 +110,7 @@
 	                        </div>
                         </div>
                     </div>
-                </div>
+                </div-->
             </div>
         </div>
     </div>
@@ -162,9 +166,11 @@
     <div class="slider">
         <div class="innerbox">
             <ul class="bxslider" style="text-align: center;"> 
-                <li><img src="resources/images/201.jpg" style="width: 80%; height: 350px;" /></li> 
-                <li><img src="resources/images/305.jpg" style="width: 80%; height: 350px;" /></li> 
-                <li><img src="resources/images/608.jpg" style="width: 80%; height: 350px;" /></li> 
+             <c:forEach var="eboard" items="${wdEBoard}" varStatus="status">
+                <li><img src="resources/board/${eboard.eBImgName}" style="width: 80%; height: 350px;" /></li> 
+             </c:forEach>
+                <!--li><img src="resources/images/305.jpg" style="width: 80%; height: 350px;" /></li> 
+                <li><img src="resources/images/608.jpg" style="width: 80%; height: 350px;" /></li--> 
             </ul>
         </div>
     </div>
@@ -228,14 +234,16 @@
                           <div class="text-button"><a href="show-events-details.html"><span id="plusssss">더 보기</span></a></div>
                         <div class="lisylebox">
                             <ul class="listyle">
+                               <c:forEach var="fboard" items="${wdFBoard}" varStatus="status"> 
                                 <li>
                                     <div class="board">
-                                        <div class="btitle active"><a href="#">여기에 무엇이 들어가야 하져? 여기서 글이 더 들어가면 창이 내려가요!ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</a></div>
-                                        <div class="bwriter"><p>bohyong222222222</p></div>
-                                        <div class="bdate"><p>22.08.28</p></div>
+                                        <div class="btitle active"><a href="#"><c:out value="${fboard.bTitle}"/></a></div>
+                                        <div class="bwriter"><p><c:out value="${fboard.userId}"/></p></div>
+                                        <div class="bdate"><p><c:out value="${fboard.regDate}"/></p></div>
                                     </div>
                                 </li>
-                                <li>
+                               </c:forEach> 
+                                <!-- li>
                                     <div class="board">
                                         <div class="btitle"><a href="#">자유게시판 내용? 글을 더 써도 이제 안내려가요!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</a></div>
                                         <div class="bwriter"><p>bohyong2</p></div>
@@ -262,7 +270,7 @@
                                         <div class="bwriter"><p>bohyong2</p></div>
                                         <div class="bdate"><p>21.12.28</p></div>
                                     </div>
-                                </li>
+                                </li-->
                             </ul>
                         </div>
                     </div>

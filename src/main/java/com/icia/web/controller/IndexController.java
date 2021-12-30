@@ -124,14 +124,14 @@ public class IndexController
 		
 		//자유게시판 글
 		WDFBoard fSearch = new WDFBoard();
-		fSearch.setStartRow(1);
-		fSearch.setEndRow(5);
+		fSearch.setStartRow(5);
+		fSearch.setEndRow(10);
 		
 		List<WDFBoard> wdFBoard = null;
 		
 		wdFBoard = wdFBoardService.fBoardList(fSearch);
 		
-		model.addAttribute("wdFboard", wdFBoard);
+		model.addAttribute("wdFBoard", wdFBoard);
 		
 		return "/index";
 	}
