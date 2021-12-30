@@ -28,6 +28,7 @@ import com.icia.web.model.WDFBoard;
 import com.icia.web.model.WDHall;
 import com.icia.web.model.WDUser;
 import com.icia.web.service.WDEBoardService;
+import com.icia.web.service.WDFBoardService;
 import com.icia.web.service.WDHallService;
 import com.icia.web.service.WDUserService;
 import com.icia.web.util.CookieUtil;
@@ -61,6 +62,10 @@ public class IndexController
 	//이벤트 서비스
 	@Autowired
 	private WDEBoardService wdEBoardService;
+	
+	//자유게시판 서비스
+	@Autowired
+	private WDFBoardService wdFBoardService;
 		
 	@RequestMapping(value = "/index", method=RequestMethod.GET)
 	public String index(ModelMap model, HttpServletRequest request, HttpServletResponse response)
@@ -124,6 +129,9 @@ public class IndexController
 		
 		List<WDFBoard> wdFBoard = null;
 		
+		wdFBoard = wdFBoardService.fBoardList(fSearch);
+		
+		model.addAttribute("wdFboard", wdFBoard);
 		
 		return "/index";
 	}
