@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icia.web.dao.WDFBoardDao">
+
+<!-- 게시물에 대한 resultMap 시작 -->
+<resultMap id="WDFBoardResultMap" type="com.icia.web.model.WDFBoard" >
+   <id column="B_SEQ" property="bSeq" />
+   <result column="USER_ID" property="userId" />
+   <result column="B_TITLE" property="bTitle" />
+   <result column="B_CONTENT" property="bContent" />
+   <result column="B_READ_CNT" property="bReadCnt" />
+   <result column="REG_DATE" property="regDate" />
+   <result column="B_GROUP" property="bGroup" />
+   <result column="B_ORDER" property="bOrder" />
+   <result column="B_INDENT" property="bIndent" />
+   
+   <result column="U_NAME" property="uName" />
+   <result column="U_EMAIL" property="uEmail" />   
+</resultMap>
+<!-- 게시물에 대한 resultMap 종료-->
+
+<!-- 첨부파일 resultMap 시작 -->
+<resultMap id="WDBFileResultMap" type="com.icia.web.model.WDBoardFile">
+    <id column="B_SEQ" property="bSeq" />
+    <id column="B_FILE_SEQ" property="bFileSeq" />
+    <result column="B_FILE_ORG_NAME" property="bFileOrgName" />
+    <result column="B_FILE_NAME" property="bFileName" />
+    <result column="B_FILE_EXT" property="bFileExt" />
+    <result column="B_FILE_SIZE" property="bFileSize" />
+    <result column="REG_DATE" property="regDate" />
+</resultMap>
+<!-- 첨부파일 resultMap 종료 -->
+
+<!-- 자유게시판 리스트 시작 -->
+<select id="fBoardList" parameterType="com.icia.web.model.WDFBoard" resultMap="WDFBoardResultMap">
+SELECT
+    B_SEQ,
+    USER_ID,
+    U_NAME,
+    U_EMAIL,
+    B_TITLE,
+    B_CONTENT,
+    B_READ_CNT,
+    REG_DATE,
+    B_GROUP,
+    B_ORDER,
+    B_INDENT
+FROM(
+        SELECT 
+            ROWNUM AS RNUM,
+            B_SEQ,
+            USER_ID,
+            U_NAME,
+            U_EMAIL,
+            B_TITLE,
+            B_CONTENT,
+            B_READ_CNT,
+            REG_DATE,
+            B_GROUP,
+            B_ORDER,
+            B_INDENT
+        FROM(
+                SELECT
+                    A.B_SEQ AS B_SEQ,
+                    A.USER_ID AS USER_ID,
+                    NVL(B.U_NAME, '') AS U_NAME,
+                    NVL(B.U_EMAIL, '') AS U_EMAIL,
+                    NVL(A.B_TITLE, '') AS B_TITLE,
+                    NVL(A.B_CONTENT, '') AS B_CONTENT,
+                    NVL(A.B_READ_CNT, 0) AS B_READ_CNT,
+                    NVL(A.REG_DATE, '') AS REG_DATE,
+                    NVL(A.B_GROUP, 0) AS B_GROUP,
+                    NVL(A.B_ORDER, 0) AS B_ORDER,
+                    NVL(A.B_INDENT, 0) AS B_INDENT
+                FROM
+                    WD_FBOARD A, WD_USER B
+                WHERE
+                    A.USER_ID = B.USER_ID
+<if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
+   <choose>                
+      <when test='searchType == "1"'> 
+                AND
+                    B.U_NAME LIKE '%' || #{searchValue} || '%'
+      </when>
+      <when test='searchType == "2"'>          
+                AND
+                    A.B_TITLE LIKE '%' || #{searchValue} || '%'
+      </when>
+      <when test='searchType == "3"'>                
+                AND
+                    DBMS_LOB.INSTR(A.B_CONTENT, #{searchValue}) > 0
+      </when>
+   </choose>                 
+</if>                 
+                ORDER BY 
+                    A.B_GROUP DESC, A.B_ORDER ASC))
+WHERE 
+    RNUM <![CDATA[>=]]> #{startRow}
+AND 
+    RNUM <![CDATA[<=]]> #{endRow}
+</select>
+<!-- 자유게시판 리스트 종료 -->
+
+<!-- 자유게시판 리스트 총 수 시작 -->
+<select id="fBoardListCount" parameterType="com.icia.web.model.WDFBoard" resultType="long">
+SELECT
+    COUNT(B_SEQ) AS CNT
+FROM
+    WD_FBOARD F, WD_USER U
+WHERE
+    F.USER_ID = U.USER_ID
+<if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
+	<choose>
+		<when test='searchType =="1"'>
+AND
+    U.U_NAME LIKE '%' || #{searchValue} || '%'
+		</when>
+		<when test='searchType =="2"'>
+AND
+    F.B_TITLE LIKE '%' || #{searchValue} ||'%'
+    	</when>
+    	<when test='searchType =="3"'>
+AND
+    DBMS_LOB.INSTR(F.B_CONTENT, #{searchValue}) > 0
+		</when>
+	</choose>
+</if>
+</select>
+<!-- 자유게시판 리스트 총 수 종료 -->
+
+</mapper>

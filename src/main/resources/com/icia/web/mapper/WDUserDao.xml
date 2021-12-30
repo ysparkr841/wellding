@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icia.web.dao.WDUserDao">
+
+<resultMap type="com.icia.web.model.WDUser" id="userResultMap"> 
+	<id column="USER_ID" property="userId" />		
+	<result column="U_PWD" property="userPwd" />  
+	<result column="U_NAME" property="userName" />
+	<result column="U_NICKNAME" property="userNickname" />
+	<result column="U_EMAIL" property="userEmail" />
+	<result column="U_GENDER" property="userGender" />
+	<result column="U_STATUS" property="status" />
+	<result column="REG_DATE" property="regDate" />
+	<result column="U_MARRTDATE" property="marrtDate" />
+	<result column="U_POINT" property="userPoint" />
+
+</resultMap>
+
+<select id="userSelect" parameterType="string" resultMap="userResultMap">	
+SELECT
+    USER_ID,
+    NVL(U_PWD,'') AS U_PWD,
+    NVL(U_NAME,'') AS U_NAME,
+    NVL(U_NICKNAME,'') AS U_NICKNAME,
+    NVL(U_NUMBER,'') AS U_NUMBER,
+    NVL(U_EMAIL,'') AS U_EMAIL,
+    NVL(U_GENDER, '') AS U_GENDER,
+    NVL(U_STATUS,'N') AS U_STATUS,
+    NVL(REG_DATE, '') AS REG_DATE,
+    NVL(U_MARRYDATE , '') AS U_MARRYDATE,
+    NVL(U_POINT,0) AS U_POINT
+FROM
+    WD_USER
+WHERE 
+    USER_ID = #{value};
+</select>
+
+
+<insert id="userInsert" parameterType ="com.icia.web.model.WDUser">
+   INSERT INTO WD_USER (
+    USER_ID,
+    U_PWD,
+    U_NAME,
+    U_NICKNAME,
+    U_NUMBER,
+    U_EMAIL,
+    U_GENDER,
+    U_STATUS,
+    REG_DATE,
+    U_MARRYDATE,
+    U_POINT
+) VALUES (
+    #{userId},
+    #{userPwd},
+    #{userName},
+    #{userNickname},
+    #{userNumber},
+    #{userEmail},
+    #{userGender},
+    #{status},
+    SYSDATE,
+    #{marrytDate},
+    0
+    
+)
+
+</insert>
+
+
+<update id="userUpdate"  parameterType = "com.icia.web.model.WDUser">
+UPDATE WD_USER
+SET
+    U_PWD = #{userPwd},
+    U_NAME = #{userName},
+    U_NICKNAME = #{userNickname},
+    U_NUMBER = #{userNumber},
+    U_EMAIL =  #{userEmail},
+    U_GENDER =  #{userGender},
+    U_STATUS = #{status},
+    U_MARRYDATE =  #{marrytDate}
+WHERE
+        USER_ID = #{userId}
+        
+    </update>
+    
+</mapper>

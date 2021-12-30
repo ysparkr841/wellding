@@ -1,0 +1,40 @@
+/** 보현수정 **/
+.slider 
+{
+	text-align: center;
+	padding: 0 0 110px 0;
+	border-bottom: dashed 1px #d3d3d3;
+	background:linear-gradient(#ffefe5, white);
+}
+.bx-wrapper {position: relative;}
+.bx-controls-direction {font-size: 100px;}
+.bx-controls-direction a 
+{
+	position:absolute; 
+	top:50%; 
+	display: block; 
+	width:100px; 
+	height:100px; 
+	overflow:hidden; 
+	transform: translateY(-50%); 
+	color:#e68e8e;
+}
+.bx-controls-direction .bx-prev {left:0;}
+.bx-controls-direction .bx-next {right:0;}
+.bx-controls-direction .bx-prev:before { content:"\e93c"; font-family: 'xeicon';}
+.bx-controls-direction .bx-next:before { content:"\e93f"; font-family: 'xeicon';}
+.bx-pager { position:absolute; left:0; bottom:-50px; width:100%; text-align: center;}
+.bx-pager div {display: inline-block; padding:0 5px;}
+.bx-pager div a 
+{
+	display: inline-block; 
+	width:30px; 
+	height:3px; 
+	background:#d5d5d5;
+	font-size:0; 
+	color:transparent;
+}
+.bx-pager div a.active 
+{
+	background: #a08472;
+}

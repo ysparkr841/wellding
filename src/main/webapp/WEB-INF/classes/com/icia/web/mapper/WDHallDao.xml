@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icia.web.dao.WDHallDao">
+
+<!-- 홀 resultMap 시작 -->
+<resultMap id="hallResultMap" type="com.icia.web.model.WDHall">
+	<id column="WH_CODE" property="WHCode" />
+    <result column="H_CODE" property="HCode" />
+    <result column="H_NAME" property="HName" />
+    <result column="H_PRICE" property="HPrice" />
+    <result column="H_FOOD" property="HFood" />
+    <result column="H_MIN" property="HMin" />
+    <result column="H_MAX" property="HMax" />
+    <result column="H_CONTENT" property="HContent" />
+    <result column="H_IMGNAME" property="HImgName" />
+    <result column="REZCOUNT" property="RezCount" />
+</resultMap>
+<!-- 홀 resultMap 끝 -->
+
+<!-- 홀 파일 resultMap 시작 -->
+<resultMap id="hallFileResultMap" type="com.icia.web.model.WDHallFile">
+	<id column="WH_CODE" property="WHCode" />
+    <id column="H_CODE" property="HCode" />
+    <id column="H_FILE_SEQ" property="HFileSeq" />
+    <result column="H_FILE_NAME" property="HFileName" />
+    <result column="H_FILE_ORG_NAME" property="HFileOrgName" />
+    <result column="H_FILE_EXT" property="HFileExt" />
+    <result column="H_FILE_SIZE" property="HFileSize" />
+    <result column="REG_DATE" property="RegDate" />
+</resultMap>
+<!-- 홀 파일 resultMap 끝 -->
+
+<!-- 홀 랭킹 조회 시작 -->
+<select id="WDHallRanking" resultMap="hallResultMap">
+SELECT
+    WH_CODE,
+    H_CODE,
+    H_NAME,
+    H_PRICE,
+    H_FOOD,
+    H_MIN,
+    H_MAX,
+    H_CONTENT,
+    H_IMGNAME,
+    REZCOUNT
+FROM (SELECT
+            ROWNUM RNUM,
+            WH_CODE,
+            H_CODE,
+            H_NAME,
+            H_PRICE,
+            H_FOOD,
+            H_MIN,
+            H_MAX,
+            H_CONTENT,
+            H_IMGNAME,
+            REZCOUNT
+        FROM (SELECT
+                    WH_CODE,
+                    H_CODE,
+                    NVL(H_NAME, '') H_NAME,
+                    NVL(H_PRICE, 0) H_PRICE,
+                    NVL(H_FOOD, 0) H_FOOD,
+                    NVL(H_MIN, 0) H_MIN,
+                    NVL(H_MAX, 0) H_MAX,
+                    NVL(H_CONTENT, '') H_CONTENT,
+                    NVL(H_IMGNAME, '') H_IMGNAME,
+                    NVL(REZCOUNT, 0) REZCOUNT
+                FROM
+                    WD_HALL
+                    ORDER BY REZCOUNT DESC))
+WHERE
+    RNUM <![CDATA[>=]]> 1
+AND
+    RNUM <![CDATA[<=]]> 3
+</select>
+<!-- 홀 랭킹 조회 끝 -->
+
+<!-- 홀 조회 시작 -->
+<select id="WDHallSelect" parameterType="com.icia.web.model.WDHall" resultMap="hallResultMap">
+SELECT
+    WH_CODE,
+    H_CODE,
+    NVL(H_NAME, '') H_NAME,
+    NVL(H_PRICE, 0) H_PRICE,
+    NVL(H_FOOD, 0) H_FOOD,
+    NVL(H_MIN, 0) H_MIN,
+    NVL(H_MAX, 0) H_MAX,
+    NVL(H_CONTENT, '') H_CONTENT,
+    NVL(H_IMGNAME, '') H_IMGNAME,
+    NVL(REZCOUNT, 0) REZCOUNT
+FROM
+    WD_HALL
+WHERE
+    WH_CODE = #{WHCode}
+AND
+    H_CODE = #{HCode}
+
+</select>
+<!-- 홀 조회 끝 -->
+
+<!-- 홀 첨부파일 조회 시작 -->
+<select id="WDHallFileSelect" parameterType="com.icia.web.model.WDHallFile" resultMap="hallFileResultMap">
+SELECT
+    WH_CODE,
+    H_CODE,
+    H_FILE_SEQ,
+    NVL(H_FILE_NAME, '') H_FILE_NAME,
+    NVL(H_FILE_ORG_NAME, '') H_FILE_ORG_NAME,
+    NVL(H_FILE_EXT, '') H_FILE_EXT,
+    NVL(H_FILE_SIZE, '') H_FILE_SIZE,
+    NVL(TO_CHAR(REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') REG_DATE
+FROM
+    WD_HALL_FILE
+WHERE
+    WH_CODE = #{WHCode}
+AND
+    H_CODE = #{HCode}
+AND
+    H_FILE_SEQ = #{HFileSeq}
+</select>
+<!-- 홀 첨부파일 조회 끝 -->
+
+<!-- 홀 리스트 시작 -->
+<select id="WDHallList" parameterType="com.icia.web.model.WDHall" resultMap="hallResultMap">
+SELECT
+    WH_CODE,
+    H_CODE,
+    H_NAME,
+    H_PRICE,
+    H_FOOD,
+    H_MIN,
+    H_MAX,
+    H_CONTENT,
+    H_IMGNAME,
+    REZCOUNT
+FROM 
+    (SELECT
+        ROWNUM RNUM,
+        WH_CODE,
+        H_CODE,
+        H_NAME,
+        H_PRICE,
+        H_FOOD,
+        H_MIN,
+        H_MAX,
+        H_CONTENT,
+        H_IMGNAME,
+        REZCOUNT
+    FROM 
+        (SELECT
+            WH_CODE,
+            H_CODE,
+            NVL(H_NAME, '') H_NAME,
+            NVL(H_PRICE, 0) H_PRICE,
+            NVL(H_FOOD, 0) H_FOOD,
+            NVL(H_MIN, 0) H_MIN,
+            NVL(H_MAX, 0) H_MAX,
+            NVL(H_CONTENT, '') H_CONTENT,
+            NVL(H_IMGNAME, '') H_IMGNAME,
+            NVL(REZCOUNT, 0) REZCOUNT
+        FROM
+            WD_HALL
+ <if test='WHCode != null and WHCode != ""'>
+        WHERE 
+            WH_CODE = #{WHCode}
+ </if>
+        ORDER BY WH_CODE ASC, H_CODE ASC))
+WHERE
+    RNUM <![CDATA[>=]]> 1
+AND
+    RNUM <![CDATA[<=]]> 5
+</select>
+<!-- 홀 리스트 끝 -->
+
+<!-- 홀 개수 체크 시작 -->
+<select id="WDHallListCount" parameterType="com.icia.web.model.WDHall" resultType="long">
+SELECT
+    COUNT(A.H_CODE) CNT
+FROM
+    WD_HALL A, WD_WEDDINGHALL B
+WHERE
+    A.WH_CODE = B.WH_CODE
+<if test='WHCode != null and WHCode != ""'>
+AND
+     A.WH_CODE = #{WHCode}
+</if>
+</select>
+<!-- 홀 개수 체크 끝 -->
+
+
+</mapper>
+

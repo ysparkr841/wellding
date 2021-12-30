@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icia.web.dao.WDStudioDao">
+
+<resultMap id="WDStudioMap" type="com.icia.web.model.WDStudio">
+	<id column="S_CODE" property="sCode" />
+	<result column="S_NAME" property="sName" />
+	<result column="S_PRICE" property="sPrice" />
+	<result column="S_LOCATION" property="sLocation" />
+	<result column="S_NUMBER" property="sNumber" />
+	<result column="S_IMGNAME" property="sImgname" />
+	<result column="S_CONTENT" property="sContent" />
+</resultMap>
+
+<!-- 첨부파일 -->
+<resultMap id="WDStudioFileMap" type="com.icia.web.model.WDStudioFile">
+	<id column="S_SEQ" property="sSeq" />
+	<id column="S_CODE" property="sCoed" />
+	<result column="S_FILE_SEQ" property="sFileSeq" />
+	<result column="S_FILE_NAME" property="sfileName" />
+	<result column="S_FILE_ORG_NAME" property="sFileOrgName" />
+	<result column="S_FILE_EXT" property="sFileExt" />
+	<result column="S_FILE_SIZE" property="sFileSize" />
+	<result column="REG_DATE" property="regDate" />
+</resultMap>
+<!-- 첨부파일 -->
+
+<!-- 리스트시작 -->
+<select id="studioList" parameterType="com.icia.web.model.WDStudio" resultMap="WDStudioMap">
+SELECT 
+    S_CODE,
+    S_NAME,
+    S_PRICE,
+    S_LOCATION,
+    S_NUMBER,
+    S_IMGNAME,
+    S_CONTENT
+FROM (SELECT
+            ROWNUM RNUM,
+            S_CODE,
+            S_NAME,
+            S_PRICE,
+            S_LOCATION,
+            S_NUMBER,
+            S_IMGNAME,
+            S_CONTENT
+        FROM (SELECT
+                    S_CODE AS S_CODE,
+                    NVL(S_NAME, '') AS S_NAME,
+                    NVL(S_PRICE, 0) AS S_PRICE,
+                    NVL(S_LOCATION, '') AS S_LOCATION,
+                    NVL(S_NUMBER, '') AS S_NUMBER,
+                    NVL(S_IMGNAME, '') AS S_IMGNAME,
+                    NVL(S_CONTENT, '') AS S_CONTENT
+                FROM
+                    WD_STUDIO
+                WHERE 1=1
+<if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
+   <choose>                
+      <when test='searchType == "1"'> 
+                AND
+                    S_NAME LIKE '%' || #{searchValue} || '%'
+      </when>
+      <when test='searchType == "2"'>
+                AND
+                    S_LOCATION LIKE '%' || #{searchValue} || '%'
+		</when>
+	</choose>
+</if>                    
+                    )                   
+        ORDER BY RNUM DESC)
+WHERE
+    RNUM <![CDATA[>=]]> #{startRow}
+AND
+    RNUM <![CDATA[<=]]> #{endRow}
+</select>
+<!-- 리스트 끝 -->
+
+<!-- 게시물 총수 시작 -->
+<select id="studioListCount" parameterType="com.icia.web.model.WDStudio" resultType="long">
+SELECT 
+    COUNT(S_CODE) AS CNT
+FROM
+    WD_STUDIO
+WHERE 1=1
+<if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
+   	<choose>                
+      	<when test='searchType == "1"'> 
+AND
+    S_NAME LIKE '%' || #{searchValue} || '%'
+      	</when>
+      	<when test='searchType == "2"'>
+AND
+    S_LOCATION LIKE '%' || #{searchValue} || '%'
+   		</when>
+	</choose>
+</if>
+</select>
+<!-- 게시물 총 수 끝 -->
+
+
+</mapper>

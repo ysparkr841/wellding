@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icia.web.dao.WDEBoardDao">
+
+<!-- 게시물에 대한 resultMap 시작 -->
+<resultMap id="WDEBoardResultMap" type="com.icia.web.model.WDEBoard" >
+<id column = "B_SEQ" property = "eBSeq" />
+<result column = "ADMIN_ID" property = "adminId" />
+<result column = "B_TITLE" property = "eBTitle" />
+<result column = "B_CONTENT" property = "eBContent" />
+<result column = "B_READ_CNT" property = "eBReadCnt" />
+<result column = "B_IMGNAME" property = "eBImgName" />
+<result column = "REG_DATE" property = "regDate" />
+</resultMap>
+
+<select id ="eBoardList" parameterType ="com.icia.web.model.WDEBoard" resultMap ="WDEBoardResultMap">
+ SELECT 
+        B_SEQ,
+        ADMIN_ID,
+        B_TITLE,
+        B_CONTENT,
+        B_READ_CNT,
+        B_IMGNAME,
+        REG_DATE   
+FROM(SELECT ROWNUM AS RNUM,
+        B_SEQ,
+        ADMIN_ID,
+        B_TITLE,
+        B_CONTENT,
+        B_READ_CNT,
+        B_IMGNAME,
+        REG_DATE
+            FROM(SELECT
+                A.B_SEQ,
+                NVL(A.ADMIN_ID,'') AS ADMIN_ID,
+                NVL(B.ADM_NAME,'') AS ADM_NAME,
+                NVL(A.B_TITLE,'') AS B_TITLE,
+                NVL(A.B_CONTENT,'') AS B_CONTENT,
+                NVL(A.B_READ_CNT,'') AS B_READ_CNT,
+                NVL(A.B_IMGNAME,'') AS B_IMGNAME,
+                NVL(TO_CHAR(A.REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') AS REG_DATE
+            FROM
+                WD_EBOARD A, WD_ADMIN B
+            WHERE 
+                A.ADMIN_ID = B.ADMIN_ID
+<if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
+   <choose>
+    <when test='searchType == "1"'>                                
+          AND
+                    A.B_TITLE LIKE '%' || #{searchValue} || '%'
+    </when>
+    <when test='searchType == "2"'>                  
+ 		  AND
+                    DBMS_LOB.INSTR(A.B_CONTENT, #{searchValue}) > 0
+    </when>                
+</choose>
+</if>
+ 	ORDER BY A.B_SEQ DESC))                    
+WHERE   
+    RNUM <![CDATA[>=]]> #{startRow}
+AND    
+    RNUM <![CDATA[<=]]> #{endRow}
+</select>
+
+<!-- 게시물 총 수 시작 -->
+<select id="eBoardListCount" parameterType="com.icia.web.model.WDEBoard" resultType="long">
+  SELECT
+       COUNT(A.B_SEQ) AS CNT
+   FROM
+       WD_EBOARD A, WD_ADMIN B
+   WHERE
+       A.ADMIN_ID = B.ADMIN_ID
+ <if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
+   <choose>
+    <when test='searchType == "1"'>                                
+          AND
+                    A.B_TITLE LIKE '%' || #{searchValue} || '%'
+    </when>
+    <when test='searchType == "2"'>                  
+ 		  AND
+                    DBMS_LOB.INSTR(A.B_CONTENT, #{searchValue}) > 0
+    </when>                
+</choose>
+</if>            
+</select>
+<!-- 게시물 총 수 끝 -->
+
+<!-- 게시물 조회 -->
+<select id = "eBoardSelect" parameterType ="long" resultMap = "WDEBoardResultMap" >
+SELECT
+                A.B_SEQ,
+                NVL(A.ADMIN_ID,'') AS ADMIN_ID,
+                NVL(B.ADM_NAME,'') AS ADM_NAME,
+                NVL(A.B_TITLE,'') AS B_TITLE,
+                NVL(A.B_CONTENT,'') AS B_CONTENT,
+                NVL(A.B_READ_CNT,'') AS B_READ_CNT,
+                NVL(A.B_IMGNAME,'') AS B_IMGNAME,
+                NVL(TO_CHAR(A.REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') AS REG_DATE
+            FROM
+                WD_EBOARD A, WD_ADMIN B
+            WHERE 
+            	A.B_SEQ = #{value}
+            AND
+                A.ADMIN_ID = B.ADMIN_ID
+</select>
+</mapper>

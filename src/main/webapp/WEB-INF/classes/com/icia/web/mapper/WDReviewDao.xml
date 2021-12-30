@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icia.web.dao.WDReviewDao">
+<!-- 리뷰 resultMap 시작 -->
+<resultMap id="ReviewResultMap" type="com.icia.web.model.WDReview">
+		<id column="R_SEQ" property="RSeq" />
+    	<result column="USER_ID" property="UserId" />
+    	<result column="U_NICKNAME" property="UNickName" />
+        <result column="WDATE" property="WDate" />
+        <result column="R_TITLE" property="RTitle" />
+        <result column="R_CONTENT" property="RContent" />
+        <result column="R_READ_CNT" property="RReadCnt" />
+        <result column="REG_DATE" property="RegDate" />
+        <result column="R_SCORE" property="RScore" />
+        <result column="Z_STATUS" property="ZStatus" />
+</resultMap>
+<!-- 리뷰 resultMap 끝 -->
+
+<!-- 리뷰파일 resultMap 시작 -->
+<resultMap id="ReviewFileResultMap" type="com.icia.web.model.WDReviewFile">
+		    <id column="R_SEQ" property="RSeq" />
+		    <id column="R_FILE_SEQ" property="RFileSeq" />
+		    <result column="R_FILE_NAME" property="RFileName" />
+		    <result column="R_FILE_ORG_NAME" property="RFileOrgName" />
+		    <result column="R_FILE_EXT" property="RFileExt" />
+		    <result column="R_FILE_SIZE" property="RFileSize" />
+		    <result column="REG_DATE" property="RegDate" />
+</resultMap>
+<!-- 리뷰파일 resultMap 끝 -->
+
+<!-- 리뷰 게시물 총 수 체크 시작 -->
+<select id="ReviewListCount" parameterType="com.icia.web.model.WDReview" resultType="long">
+SELECT
+    COUNT(A.R_SEQ) CNT
+FROM
+    WD_REVIEW A, WD_USER B
+WHERE
+    A.USER_ID = B.USER_ID
+<if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
+	<choose>
+		<when test='searchType == "1"'>
+		AND
+		    A.R_TITLE LIKE '%' || #{searchValue} || '%'
+		</when>
+		<when test='searchType == "2"'>
+		AND
+		    A.R_CONTENT LIKE '%' || #{searchValue} || '%'
+		</when>
+    </choose>
+</if>
+</select>
+<!-- 리뷰 게시물 총 수 체크 끝 -->
+
+<!-- 리뷰 리스트 시작 -->
+<select id="ReviewList" parameterType="com.icia.web.model.WDReview" resultMap="ReviewResultMap">
+SELECT
+    R_SEQ,
+    USER_ID,
+    WDATE,
+    R_TITLE,
+    R_CONTENT,
+    R_READ_CNT,
+    REG_DATE,
+    R_SCORE,
+    Z_STATUS
+FROM (SELECT
+        ROWNUM RNUM,
+        R_SEQ,
+        USER_ID,
+        WDATE,
+        R_TITLE,
+        R_CONTENT,
+        R_READ_CNT,
+        REG_DATE,
+        R_SCORE,
+        Z_STATUS
+    FROM (SELECT
+            A.R_SEQ,
+            A.USER_ID,
+            NVL(B.U_NICKNAME, '') U_NICKNAME,
+            NVL(TO_CHAR(A.WDATE, 'YYYY.MM.DD HH24:MI:SS'), '') WDATE,
+            NVL(A.R_TITLE, '') R_TITLE,
+            NVL(A.R_CONTENT, '') R_CONTENT,
+            NVL(A.R_READ_CNT, 0) R_READ_CNT,
+            NVL(TO_CHAR(A.REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') REG_DATE,
+            NVL(A.R_SCORE, 0) R_SCORE,
+            NVL(A.Z_STATUS, 'N') Z_STATUS
+        FROM
+            WD_REVIEW A, WD_USER B
+        WHERE
+            A.USER_ID = B.USER_ID
+<if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
+	<choose>
+		<when test='searchType == "1"'>
+		AND
+		    A.R_TITLE LIKE '%' || #{searchValue} || '%'
+		</when>
+		<when test='searchType == "2"'>
+		AND
+		    A.R_CONTENT LIKE '%' || #{searchValue} || '%'
+		</when>
+    </choose>
+</if>))
+WHERE
+    RNUM <![CDATA[>=]]> 1
+AND
+    RNUM <![CDATA[<=]]> 10
+</select>
+<!-- 리뷰 리스트 끝 -->
+
+<!-- 리뷰 조회 시작 -->
+<select id="ReviewSelect" parameterType="long" resultMap="ReviewResultMap">
+SELECT
+    A.R_SEQ,
+    A.USER_ID,
+    NVL(B.U_NICKNAME, '') U_NICKNAME,
+    NVL(TO_CHAR(A.WDATE, 'YYYY.MM.DD HH24:MI:SS'), '') WDATE,
+    NVL(A.R_TITLE, '') R_TITLE,
+    NVL(A.R_CONTENT, '') R_CONTENT,
+    NVL(A.R_READ_CNT, 0) R_READ_CNT,
+    NVL(TO_CHAR(A.REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') REG_DATE,
+    NVL(A.R_SCORE, 0) R_SCORE,
+    NVL(A.Z_STATUS, 'N') Z_STATUS
+FROM
+    WD_REVIEW A, WD_USER B
+WHERE
+	R_SEQ = #{value}
+AND
+    A.USER_ID = B.USER_ID
+</select>
+<!-- 리뷰 조회 끝 -->
+
+<!-- 리뷰 조회수 증가 시작 -->
+<update id="ReviewReadCntPlus" parameterType="long">
+UPDATE WD_REVIEW
+   SET R_READ_CNT = R_READ_CNT + 1
+ WHERE R_SEQ = #{value}
+ </update>
+<!-- 리뷰 조회수 증가 끝 -->
+
+<!-- 리뷰 첨부파일 조회 시작 -->
+<select id="ReviewFileSelect" parameterType="com.icia.web.model.WDReviewFile" resultMap="ReviewFileResultMap">
+SELECT
+    R_SEQ,
+    R_FILE_SEQ,
+    NVL(R_FILE_NAME, '') R_FILE_NAME,
+    NVL(R_FILE_ORG_NAME, '') R_FILE_ORG_NAME,
+    NVL(R_FILE_EXT, '') R_FILE_EXT,
+    NVL(R_FILE_SIZE, 0) R_FILE_SIZE,
+    NVL(TO_CHAR(REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') REG_DATE
+FROM
+    WD_REVIEW_FILE
+WHERE
+    R_SEQ = #{RSeq}
+AND
+    R_FILE_SEQ = #{RFileSeq}
+</select>
+<!-- 리뷰 첨부파일 조회 끝 -->
+
+</mapper>
