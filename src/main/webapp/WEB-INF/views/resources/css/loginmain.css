@@ -7,22 +7,22 @@
 
 @font-face {
   font-family: Poppins-Regular;
-  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+  src: url('../fonts/loginfonts/poppins/Poppins-Regular.ttf'); 
 }
 
 @font-face {
   font-family: Poppins-Medium;
-  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+  src: url('../fonts/loginfonts/poppins/Poppins-Medium.ttf'); 
 }
 
 @font-face {
   font-family: Poppins-Bold;
-  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+  src: url('../fonts/loginfonts/poppins/Poppins-Bold.ttf'); 
 }
 
 @font-face {
   font-family: Poppins-SemiBold;
-  src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
+  src: url('../fonts/loginfonts/poppins/Poppins-SemiBold.ttf'); 
 }
 
 
@@ -74,6 +74,7 @@ h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
 }
 
+
 p {
 	font-family: Poppins-Regular;
 	font-size: 14px;
@@ -82,10 +83,20 @@ p {
 	margin: 0px;
 }
 
-ul, li {
-	margin: 0px;
-	list-style-type: none;
-}
+
+/* mTab */
+.mTab { margin:0 0 5px; }
+.mTab ul { display:-webkit-flex; display:-ms-flexbox; display:-ms-flex; display:flex; position:relative; height:53px; width: 300px;
+            margin:auto;}
+.mTab li {  -webkit-flex:1; -ms-flex:1; flex:1; position:relative; border:1px solid #e2e5ea; box-sizing:border-box; overflow:hidden;}
+.mTab li + li { margin-left:-1px; }
+.mTab li:first-child { border-radius:10px 0 0 10px; }
+.mTab li:last-child { border-radius: 0px 10px  10px 0px; }
+.mTab li a { display:inline-block; width:100%; height:54px; line-height:54px; color:#444b59; text-align:center; background-color:#fafafd; }
+.mTab li a:hover { color:#aeb4c6; -webkit-transition:.3s ease-out; transition:.3s ease-out; }
+.mTab li.selected { z-index:1; border-color:#667084; }
+.mTab li.selected a { font-weight:bold; color:#444b59; border-color:#667084; background-color:#fff; }
+
 
 
 /*---------------------------------------------*/
@@ -203,6 +214,7 @@ iframe {
   width: 100%;
 }
 
+/*선택*/
 .login100-form-title {
   display: block;
   font-family: Poppins-Bold;
@@ -211,8 +223,8 @@ iframe {
   line-height: 1.2;
   text-align: center;
 }
-.login100-form-title i {
-  font-size: 10px;
+.login100-form-title  {
+  font-size: 20px;
 }
 
 /*------------------------------------------------------------------
@@ -425,6 +437,7 @@ iframe {
 }
 
 
+/*---------------------------------------------------------------
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/
