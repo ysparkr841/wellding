@@ -2,9 +2,10 @@
 .slider 
 {
 	text-align: center;
-	padding: 0 0 110px 0;
+	padding: 100px 0 110px 0;
 	border-bottom: dashed 1px #d3d3d3;
-	background:linear-gradient(#ffefe5, white);
+	border-top: dashed 1px #d3d3d3;
+	/*background:linear-gradient(#ffefe5, white);*/
 }
 .bx-wrapper {position: relative;}
 .bx-controls-direction {font-size: 100px;}
