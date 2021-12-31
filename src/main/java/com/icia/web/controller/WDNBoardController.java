@@ -34,7 +34,7 @@ public class WDNBoardController
 	private static final int LIST_COUNT = 20;		//한 페이지의 게시물 수
 	private static final int PAGE_COUNT = 5;		//페이징 수
 	
-	@RequestMapping(value="/board/nList")
+	@RequestMapping(value="/board/nBoard")
 	public String nBoard(ModelMap model, HttpServletRequest request, HttpServletResponse response)
 	{	//조회항목(1: 제목)
 		String searchType = HttpUtil.get(request, "searchType", "");
@@ -68,7 +68,7 @@ public class WDNBoardController
 		if(totalCount > 0)
 		{//검색 결과가 있음
 			//페이징 처리 추가
-			paging = new Paging("/board/nList", totalCount, LIST_COUNT, PAGE_COUNT, curPage, "curPage");
+			paging = new Paging("/board/nBoard", totalCount, LIST_COUNT, PAGE_COUNT, curPage, "curPage");
 			 //페이징처리 : 인수값이 있다 = 생성자가 있다
 
 			paging.addParam("searchType", searchType);
@@ -88,6 +88,6 @@ public class WDNBoardController
 		//""는 list.jsp에서 쓸수있는 변수들 임, 뒤에있는 값은 내 메소드 내에서 쓸수있는 값
 		model.addAttribute("paging", paging);	//jsp에서 써먹으려고 만든다!
 		
-		return "/board/nList";
+		return "/board/nBoard";
 	}
 }
