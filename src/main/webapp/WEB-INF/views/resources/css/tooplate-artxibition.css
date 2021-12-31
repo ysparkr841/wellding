@@ -1486,7 +1486,9 @@ Coming Events
   font-size: 14px;
   color: #2a2a2a;
   font-weight: 300;
-  margin-bottom: 15px;;
+  margin-bottom: 15px;
+  height: 40px;
+  overflow: hidden;
 }
 
 .event-item .down-content ul li:last-child {

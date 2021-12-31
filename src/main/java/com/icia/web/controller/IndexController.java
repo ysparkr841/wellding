@@ -143,4 +143,14 @@ public class IndexController
 		
 		return "/board/login";
 	}
+	
+	
+	/**** 스튜디오 ****/
+	@RequestMapping(value="/hsdm/studio", method=RequestMethod.GET)
+	public String studio(HttpServletRequest request, HttpServletResponse response)
+	{
+		
+		
+		return "/hsdm/studio";
+	}
 }

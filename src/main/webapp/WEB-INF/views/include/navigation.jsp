@@ -28,7 +28,7 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <h1 class="logo">
-                            <a href="#"><img src="resources/images/logob.png" width="auto" height="40px"></a>
+                            <a href="#"><img src="/resources/images/logob.png" width="auto" height="40px"></a>
                         </h1>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
@@ -39,7 +39,7 @@
                             <li class="sub1">
                                 <a class="suba" href="#">Wedding Collection</a>
                                 <ul>
-                                    <li class="subul"><a href="rent-venue.html" class="sub">Studio</a></li>
+                                    <li class="subul"><a href="/hsdm/studio" class="sub">Studio</a></li>
                                     <li class="subul"><a href="rent-venue.html" class="sub">MakeUp</a></li>
                                     <li class="subul"><a href="rent-venue.html" class="sub">Dress</a></li>
                                 </ul>
@@ -56,7 +56,7 @@
                                 <ul>
                                     <li class="subul"><a href="tickets.html" class="sub">Reviews</a></li>
                                     <li class="subul"><a href="tickets.html" class="sub">노하우공유</a></li>
-                                    <li class="sub1"><a class="suba" href="tickets.html">전문가 매칭</a></li>
+                                    <li class="subul"><a href="tickets.html" class="sub">전문가 매칭</a></li>
                                 </ul>
                             </li> 
                         </ul>        
