@@ -75,8 +75,8 @@ public class WDNBoardController
 			paging.addParam("searchValue", searchValue);
 			paging.addParam("curPage", curPage);
 			
-			search.setStartRow(paging.getStartRow());
-			search.setEndRow(paging.getEndRow());
+			search.setStartRow(1);
+			search.setEndRow(10);
 			
 			list = wdNBoardService.nBoardList(search);			
 		}
