@@ -1,6 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/taglib.jsp" %>
+<%
+	if(com.icia.web.util.CookieUtil.getCookie(request, (String)request.getAttribute("AUTH_COOKIE_NAME")) != null)
+	{
+%>
+    <!-- ***** 맨뒤 HEader ***** -->
+    <div class="pre-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <span><span>♥</span>Welcome Wellding! &nbsp;&nbsp;<span>♥</span>웰딩에 오신 ${userName}님 환영합니다!</span>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="text-button ourperson">
 
+                        <a href="#">마이페이지</a>
+                        <a href="#">로그아웃</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%
+	}
+	else
+	{
+%>
     <!-- ***** 맨뒤 HEader ***** -->
     <div class="pre-header">
         <div class="container">
@@ -19,7 +45,9 @@
             </div>
         </div>
     </div>
-    
+<%
+	}
+%>
     <!-- ***** 보현수정 Header Area Start ***** -->
     <header class="header-area header-sticky">
         <div class="container">
