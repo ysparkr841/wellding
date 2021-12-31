@@ -15,15 +15,6 @@
 
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner">
-        <!--카운트-->
-        <!-- <div class="counter-content"> -->
-            <!-- <ul>
-                <li>Days<span id="days"></span></li>
-                <li>Hours<span id="hours"></span></li>
-                <li>Minutes<span id="minutes"></span></li>
-                <li>Seconds<span id="seconds"></span></li>
-            </ul> -->
-        <!-- </div> -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
