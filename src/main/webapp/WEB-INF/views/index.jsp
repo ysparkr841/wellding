@@ -5,7 +5,6 @@
 
 <head>
 	<%@ include file="/WEB-INF/views/include/head.jsp" %>
-
 </head>
     
     <body>
@@ -16,15 +15,6 @@
 
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner">
-        <!--카운트-->
-        <!-- <div class="counter-content"> -->
-            <!-- <ul>
-                <li>Days<span id="days"></span></li>
-                <li>Hours<span id="hours"></span></li>
-                <li>Minutes<span id="minutes"></span></li>
-                <li>Seconds<span id="seconds"></span></li>
-            </ul> -->
-        <!-- </div> -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -66,8 +56,11 @@
 	                        <div class="down-content">
 	                            <a href="event-details.html"><h4>${hallList.HName}</h4></a>
 	                            <ul>
-	                                <li><i class="fa fa-map-marker"></i> 서울 강남구 언주로 640</li>
+	                                <li><i class="fa fa-map-marker"></i> ${hallList.WHLocation}</li>
 	                                <li><i class="fa fa-user"></i> ${hallList.HMax}명 수용 가능</li>
+	                                <li><i class="fa fa-krw" aria-hidden="true"></i>
+	                                <fmt:formatNumber type="number" maxFractionDigits="3" value="${hallList.HPrice}" />
+	                                </li>
 	                            </ul>
 		                        <div class="main-white-button">
 		                            <a href="ticket-details.html">VIEW MORE ▶</a>
