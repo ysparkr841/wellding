@@ -158,6 +158,5 @@ public class IndexController
 		
 		
 		return "/hsdm/studio";
-
 	}
 }
