@@ -145,12 +145,12 @@ public class IndexController
 	}
 	
 	
-<<<<<<< HEAD
 	@RequestMapping(value="/board/eBoard", method=RequestMethod.GET)
 	public String eBoard(HttpServletRequest request, HttpServletResponse response) 
 	{
 		return "/board/eBoard";
-=======
+	}
+	
 	/**** 스튜디오 ****/
 	@RequestMapping(value="/hsdm/studio", method=RequestMethod.GET)
 	public String studio(HttpServletRequest request, HttpServletResponse response)
@@ -158,6 +158,5 @@ public class IndexController
 		
 		
 		return "/hsdm/studio";
->>>>>>> a602b9747c53da13c2bd2b03fdf2f5dd975f4e11
 	}
 }
