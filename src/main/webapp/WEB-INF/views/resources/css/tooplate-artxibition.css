@@ -253,13 +253,13 @@ a{ text-decoration: none; color: inherit; }
 .board > .btitle {overflow: hidden;}
 .board > .btitle > a{position: relative; } 
 .board > .btitle > a:after{ content:""; position: absolute; left: 0%; bottom: 0; width: 0; height: 3px; background-color: #edacb1; transition: all 1.0s; } 
-.board > .btitle > a:hover:after{ width: 100% } 
-.board > .btitle > a:hover:before{ width: 50% }
+.board > .btitle > a:hover:after{ width: 100%; } 
+.board > .btitle > a:hover:before{ width: 50%; }
 /* 의수 추가 종료*/
 
 .btitle
 {
-  width: 340px;
+  width: 310px;
   float: left;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -280,7 +280,7 @@ a{ text-decoration: none; color: inherit; }
 }
 .bdate
 {
-  /*width: 70px;*/
+  width: 75px;
   float: right;
   font-size: 13px;
   padding: 0;
@@ -294,8 +294,6 @@ a{ text-decoration: none; color: inherit; }
     text-overflow: ellipsis;
     white-space: nowrap;
     color: #666;
-    width: 45.4px;
-    height: 25px;
 }
 
 /*#plusssss
