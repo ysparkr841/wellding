@@ -17,15 +17,6 @@ import org.springframework.stereotype.Service;
 import com.icia.web.dao.UserDao;
 import com.icia.web.model.User;
 
-/**
- * <pre>
- * 패키지명   : com.icia.web.service
- * 파일명     : UserService.java
- * 작성일     : 2021. 1. 20.
- * 작성자     : daekk
- * 설명       : 사용자 서비스
- * </pre>
- */
 @Service("userService")
 public class UserService
 {

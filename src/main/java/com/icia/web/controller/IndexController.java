@@ -123,7 +123,7 @@ public class IndexController
 		
 		//자유게시판 글
 		WDFBoard fSearch = new WDFBoard();
-		fSearch.setStartRow(5);
+		fSearch.setStartRow(6);
 		fSearch.setEndRow(10);
 		
 		List<WDFBoard> wdFBoard = null;
@@ -135,10 +135,36 @@ public class IndexController
 		return "/index";
 	}
 	
+
 	@RequestMapping(value = "/board/eboard")
 	public String eboard(HttpServletRequest request, HttpServletResponse resopnse)
 	{
 		return "/board/eboard";
+	}
+
+	@RequestMapping(value="/board/login", method=RequestMethod.GET)
+	public String loginForm(HttpServletRequest request, HttpServletResponse response)
+	{
+		
+		
+		return "/board/login";
+	}
+	
+	
+	@RequestMapping(value="/board/fBoard", method=RequestMethod.GET)
+	public String eBoard(HttpServletRequest request, HttpServletResponse response) 
+	{
+		return "/board/fBoard";
+	}
+	
+	/**** 스튜디오 ****/
+	@RequestMapping(value="/hsdm/studio", method=RequestMethod.GET)
+	public String studio(HttpServletRequest request, HttpServletResponse response)
+	{
+		
+		
+		return "/hsdm/studio";
+
 	}
 }
 

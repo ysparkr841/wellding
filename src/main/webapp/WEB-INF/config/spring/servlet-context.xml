@@ -58,12 +58,15 @@
             	<constructor-arg> <!-- 인증체크 제외 URL 설정 -->
             		<list>
             			<value>/index</value>
-            			<value>/user/login</value>
+            			<value>/board/login</value>
             			<value>/user/loginOut</value>
             			<value>/user/regForm</value>
             			<value>/user/regProc</value>
             			<value>/user/idCheck</value>
-            			<value>/board/eboard</value>
+
+            			<value>/board/nBoard</value>
+            			<value>/board/eBoard</value>
+            			<value>/hsdm/studio</value>
             		</list>
             	</constructor-arg>
             </bean>

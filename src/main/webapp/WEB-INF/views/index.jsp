@@ -15,15 +15,6 @@
 
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner">
-        <!--카운트-->
-        <!-- <div class="counter-content"> -->
-            <!-- <ul>
-                <li>Days<span id="days"></span></li>
-                <li>Hours<span id="hours"></span></li>
-                <li>Minutes<span id="minutes"></span></li>
-                <li>Seconds<span id="seconds"></span></li>
-            </ul> -->
-        <!-- </div> -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -65,8 +56,11 @@
 	                        <div class="down-content">
 	                            <a href="event-details.html"><h4>${hallList.HName}</h4></a>
 	                            <ul>
-	                                <li><i class="fa fa-map-marker"></i> 서울 강남구 언주로 640</li>
+	                                <li><i class="fa fa-map-marker"></i> ${hallList.WHLocation}</li>
 	                                <li><i class="fa fa-user"></i> ${hallList.HMax}명 수용 가능</li>
+	                                <li><i class="fa fa-krw" aria-hidden="true"></i>
+	                                <fmt:formatNumber type="number" maxFractionDigits="3" value="${hallList.HPrice}" />
+	                                </li>
 	                            </ul>
 		                        <div class="main-white-button">
 		                            <a href="ticket-details.html">VIEW MORE ▶</a>
@@ -164,6 +158,14 @@
     <!--의수 수정 + 준호수정 + 보현수정-->
 
     <div class="slider">
+       <div class="row">
+           <div class="col-lg-12">
+		      <div class="category">
+		        <h2>wellding promotion</h2>
+		        <p>Event & Promotion</p>
+		      </div>
+           </div>
+         </div>  
         <div class="innerbox">
             <ul class="bxslider" style="text-align: center;"> 
              <c:forEach var="eboard" items="${wdEBoard}" varStatus="status">
@@ -173,46 +175,10 @@
                 <li><img src="resources/images/608.jpg" style="width: 80%; height: 350px;" /></li--> 
             </ul>
         </div>
+        </div>
     </div>
 
     <!--의수수정중 끝-->
-
-    <!-- *** Owl Carousel Items ***-->
-<!--     <div class="show-events-carousel">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="owl-show-events owl-carousel">
-                        <div class="item">
-                            <a href="event-details.html"><img src="resources/images/show-events-01.jpg" alt=""></a>
-                        </div>
-                        <div class="item">
-                            <a href="event-details.html"><img src="resources/images/show-events-02.jpg" alt=""></a> 
-                        </div>
-                        <div class="item">
-                            <a href="event-details.html"><img src="resources/images/show-events-03.jpg" alt=""></a> 
-                        </div>
-                        <div class="item">
-                            <a href="event-details.html"><img src="resources/images/show-events-04.jpg" alt=""></a> 
-                        </div>
-                        <div class="item">
-                            <a href="event-details.html"><img src="resources/images/show-events-01.jpg" alt=""></a> 
-                        </div>
-                        <div class="item">
-                            <a href="event-details.html"><img src="resources/images/show-events-02.jpg" alt=""></a> 
-                        </div>
-                        <div class="item">
-                            <a href="event-details.html"><img src="resources/images/show-events-03.jpg" alt=""></a> 
-                        </div>
-                        <div class="item">
-                            <a href="event-details.html"><img src="resources/images/show-events-04.jpg" alt=""></a> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
--->
     
     <!-- 김동욱 수정 시작 + 보현수정 -->
     <!-- *** Amazing Venus ***-->
