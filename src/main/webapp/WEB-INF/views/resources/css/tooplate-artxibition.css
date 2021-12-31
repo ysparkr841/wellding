@@ -1987,10 +1987,10 @@ Rent Venue Page
 */
 
 .page-heading-rent-venue {
-  background-image: url(../images/rent_venue_bg.jpg);
+  background-image: url(../images/main001_1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 110px 0px;
+  padding: 180px 0px;
   text-align: center;
 }
 
@@ -2777,7 +2777,7 @@ Event Details Page
 .shows-events-schedule ul li {
   background-color: #fff;
   padding: 30px 30px 25px 30px;
-  margin-bottom: 30px;
+  margin-bottom: 2px;
 }
 
 .shows-events-schedule ul li .title h4 {

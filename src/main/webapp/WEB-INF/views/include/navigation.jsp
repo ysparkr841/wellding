@@ -2,6 +2,7 @@
 <%@ include file="/WEB-INF/views/include/taglib.jsp" %>
 
     <!-- ***** 맨뒤 HEader ***** -->
+
     <div class="pre-header">
         <div class="container">
             <div class="row">
@@ -19,6 +20,7 @@
             </div>
         </div>
     </div>
+
     
     <!-- ***** 보현수정 Header Area Start ***** -->
     <header class="header-area header-sticky">
@@ -54,8 +56,8 @@
                             <li class="sub1">
                                 <a class="suba" href="#">Community</a>
                                 <ul>
-                                    <li class="subul"><a href="/board/fBoard" class="sub">Reviews</a></li>
-                                    <li class="subul"><a href="tickets.html" class="sub">노하우공유</a></li>
+                                    <li class="subul"><a href="/board/reviews" class="sub">Reviews</a></li>
+                                    <li class="subul"><a href="/board/fBoard" class="sub">노하우공유</a></li>
                                     <li class="subul"><a href="tickets.html" class="sub">전문가 매칭</a></li>
                                 </ul>
                             </li> 
