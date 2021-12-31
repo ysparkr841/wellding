@@ -23,7 +23,7 @@ import com.icia.web.util.HttpUtil;
 @Controller("wdEBoardController")
 public class WDEBoardController
 {
-	private static final long LIST_COUNT = 20;
+	private static final long LIST_COUNT = 10;
 	private static final long PAGE_COUNT = 5;
 
 	private static Logger logger = LoggerFactory.getLogger(WDEBoardController.class);
@@ -41,30 +41,18 @@ public class WDEBoardController
 		private WDEBoardService wdEBoardService;
 		
 		
-		@RequestMapping(value="/board/eList")
+		@RequestMapping(value="/board/eBoard")
 		public String list(ModelMap model, HttpServletRequest request, HttpServletResponse response)
 		{
-			String searchType = HttpUtil.get(request, "searchType", "");
-			String searchValue = HttpUtil.get(request, "searchValue", "");
-			long curPage = HttpUtil.get(request, "curPage",(long)1);
 			
 			long totalCount = 0;
-			List<WDEBoard> list = null;
+			List<WDEBoard> eBoard = null;
+			long curPage = HttpUtil.get(request, "curPage", (long)1);
 			
 			Paging paging = null;
 			
 			WDEBoard search = new WDEBoard();
 			
-			if(!StringUtil.isEmpty(searchType) && !StringUtil.isEmpty(searchValue)) 
-			{
-				search.setSearchType(searchType);
-				search.setSearchValue(searchValue);
-			}
-			else 
-			{
-				searchType = "";
-				searchValue = "";
-			}
 			
 			totalCount = wdEBoardService.eBoardListCount(search);
 			
@@ -72,61 +60,43 @@ public class WDEBoardController
 			{
 				
 				paging = new Paging("/board/eList", totalCount, LIST_COUNT, PAGE_COUNT, curPage, "curPage");
-				paging.addParam("searchType", searchType);
-				paging.addParam("searchValue", searchValue);
 				paging.addParam("curPage", curPage);
 				
 				
 				search.setStartRow(paging.getStartRow());
 				search.setEndRow(paging.getEndRow());
 				
-				list = wdEBoardService.eBoardList(search);
+				eBoard = wdEBoardService.eBoardList(search);
 			}
 			
-			model.addAttribute("list", list);
-			model.addAttribute("searchType", searchType);
-			model.addAttribute("searchValue", searchValue);
-			model.addAttribute("curPage", curPage);
+			model.addAttribute("eBoard", eBoard);
+			
 			model.addAttribute("paging", paging);
 			
-			return "/board/eList";
+			return "/board/eBoard";
 		}
 		
 		//게시물 조회
 		@RequestMapping(value="/board/eView")
-		public String view(ModelMap model, HttpServletRequest request, HttpServletResponse response) 
-		{
-			String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
-			
-			//정보를 가져와야 하니까 가져와야 함.
+		public String eView(ModelMap model, HttpServletRequest request, HttpServletResponse response) 
+		{			
 			long eBSeq = HttpUtil.get(request, "eBSeq", (long)0);
 			
-			String searchType = HttpUtil.get(request, "searchType", "");
-			String searchValue = HttpUtil.get(request, "searchValue", "");
-			long curPage = HttpUtil.get(request, "curPage", (long)1);
-			
 			//본인글 여부
-			String boardMe = "N";
 			WDEBoard wdEBoard = null;
-			
-			//0보다 클 때 정상적으로 값이 넘어온 것임.
+		
 			if(eBSeq > 0) 
 			{
 				//wdEBoard = wdEBoardService.eBoardView(eBSeq);
 				
-				if(wdEBoard !=null && StringUtil.equals(wdEBoard.getAdminId(), cookieUserId)) 
+				if(wdEBoard !=null) 
 				{
-					boardMe = "Y";
+					return "./index";
 				}
 			}
 			model.addAttribute("eBSeq", eBSeq);
-			model.addAttribute("searchType", searchType);
-			model.addAttribute("searchValue", searchValue);
-			model.addAttribute("curPage", curPage);
 			model.addAttribute("wdEBoard", wdEBoard);
-			//수정 삭제 버튼이 나타날지 안나타날지를 판별하는 용도인 boardMe도 넘김
-			model.addAttribute("boardMe", boardMe);
-			
-			return "/board/view";
+		
+			return "/board/eView";
 		}
 }

@@ -121,7 +121,6 @@ public class IndexController
 		wdEBoard = wdEBoardService.eBoardList(eSearch);
 		model.addAttribute("wdEBoard", wdEBoard);
 		
-		
 		//자유게시판 글
 		WDFBoard fSearch = new WDFBoard();
 		fSearch.setStartRow(6);
@@ -136,6 +135,13 @@ public class IndexController
 		return "/index";
 	}
 	
+
+	@RequestMapping(value = "/board/eboard")
+	public String eboard(HttpServletRequest request, HttpServletResponse resopnse)
+	{
+		return "/board/eboard";
+	}
+
 	@RequestMapping(value="/board/login", method=RequestMethod.GET)
 	public String loginForm(HttpServletRequest request, HttpServletResponse response)
 	{
@@ -158,5 +164,8 @@ public class IndexController
 		
 		
 		return "/hsdm/studio";
+
 	}
 }
+
+
