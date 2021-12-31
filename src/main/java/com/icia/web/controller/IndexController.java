@@ -143,4 +143,11 @@ public class IndexController
 		
 		return "/board/login";
 	}
+	
+	
+	@RequestMapping(value="/board/eBoard", method=RequestMethod.GET)
+	public String eBoard(HttpServletRequest request, HttpServletResponse response) 
+	{
+		return "/board/eBoard";
+	}
 }

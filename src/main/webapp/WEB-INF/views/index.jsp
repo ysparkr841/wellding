@@ -66,8 +66,11 @@
 	                        <div class="down-content">
 	                            <a href="event-details.html"><h4>${hallList.HName}</h4></a>
 	                            <ul>
-	                                <li><i class="fa fa-map-marker"></i> 서울 강남구 언주로 640</li>
+	                                <li><i class="fa fa-map-marker"></i> ${hallList.WHLocation}</li>
 	                                <li><i class="fa fa-user"></i> ${hallList.HMax}명 수용 가능</li>
+	                                <li><i class="fa fa-krw" aria-hidden="true"></i>
+	                                <fmt:formatNumber type="number" maxFractionDigits="3" value="${hallList.HPrice}" />
+	                                </li>
 	                            </ul>
 		                        <div class="main-white-button">
 		                            <a href="ticket-details.html">VIEW MORE ▶</a>

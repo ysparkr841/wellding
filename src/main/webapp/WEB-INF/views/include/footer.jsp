@@ -67,15 +67,15 @@
     <script src="resources/js/bootstrap.min.js"></script>
 
     <!-- Plugins -->
-    <script src="resources/js/jquery.bxslider.js"></script>
-    <script src="resources/js/jquery.bxslider.min.js"></script>
-    <script src="resources/js/scrollreveal.min.js"></script>
-    <script src="resources/js/waypoints.min.js"></script>
-    <script src="resources/js/jquery.counterup.min.js"></script>
-    <script src="resources/js/imgfix.min.js"></script> 
-    <script src="resources/js/mixitup.js"></script> 
-    <script src="resources/js/accordions.js"></script>
-    <script src="resources/js/owl-carousel.js"></script>
+    <script src="/resources/js/jquery.bxslider.js"></script>
+    <script src="/resources/js/jquery.bxslider.min.js"></script>
+    <script src="/resources/js/scrollreveal.min.js"></script>
+    <script src="/resources/js/waypoints.min.js"></script>
+    <script src="/resources/js/jquery.counterup.min.js"></script>
+    <script src="/resources/js/imgfix.min.js"></script> 
+    <script src="/resources/js/mixitup.js"></script> 
+    <script src="/resources/js/accordions.js"></script>
+    <script src="/resources/js/owl-carousel.js"></script>
     
     <!-- Global Init -->
-    <script src="resources/js/custom.js"></script>
+    <script src="/resources/js/custom.js"></script>
