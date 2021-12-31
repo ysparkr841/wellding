@@ -1,0 +1,9 @@
+diff a/src/main/java/com/icia/web/controller/IndexController.java b/src/main/java/com/icia/web/controller/IndexController.java	(rejected hunks)
+@@ -124,7 +124,6 @@
+ 		
+ 		//자유게시판 글
+ 		WDFBoard fSearch = new WDFBoard();
+-		fSearch.setEndRow(5);
+ 		fSearch.setStartRow(5);
+ 		fSearch.setEndRow(10);
+ 		

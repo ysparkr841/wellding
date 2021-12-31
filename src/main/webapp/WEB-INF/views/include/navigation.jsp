@@ -35,6 +35,7 @@
                         <ul class="nav">
                             <li class="sub1"><a class="suba" href="index.html">Home</a></li> <!-- 보현수정: class="active"뺌 -->
                             <li class="sub1"><a class="suba" href="about.html">About</a></li>
+                            <li class="sub1"><a class="suba" href="#">Wedding Hall</a></li>
                             <li class="sub1">
                                 <a class="suba" href="#">Wedding Collection</a>
                                 <ul>
@@ -55,9 +56,9 @@
                                 <ul>
                                     <li class="subul"><a href="tickets.html" class="sub">Reviews</a></li>
                                     <li class="subul"><a href="tickets.html" class="sub">노하우공유</a></li>
+                                    <li class="sub1"><a class="suba" href="tickets.html">전문가 매칭</a></li>
                                 </ul>
                             </li> 
-                            <li class="sub1"><a class="suba" href="tickets.html">전문가 매칭</a></li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
