@@ -153,14 +153,27 @@ function fn_loginCheck()
 			<div class="wrap-login100">
 				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-26">
-						<h1 id="logo"><img src="../resources/images/icons/logo1.png" width="90" height="80"/></h1>
+						<h1 id="logo"><img src="../resources/images/icons/logo1.png" width="130" height="auto"/></h1>
+						
 
 					</span>
 					<span class="login100-form-title p-b-48">
 						<!-- <i class="zmdi zmdi-font"></i> -->
-						
+						<div class="mTab eTab">
+							<ul>
+								
+								<li class="selected"><a href="#" onclick="changeLogin('3', 'F', 'F');">회원</a></li>
+								<li><a href="loginform2.html" onclick="changeLogin('2', 'F', 'F');">관리자</a></li>
+								<li><a href="loginform3.html" onclick="changeLogin('2', 'F', 'F');">전문가</a></li>
+								<!-- <li class="selected"><a href="#" onclick="changeLogin('3', 'F', 'F');">전문가</a></li> -->
+							</ul>
+						</div>
 						
 					</span>
+
+					<div>
+
+					
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
 						<input class="input100" type="text" name="userId" id="userId" >
@@ -183,6 +196,7 @@ function fn_loginCheck()
 							</button>
 						</div>
 					</div>
+					
 
 					<div class="text-center p-t-115">
 						<span class="txt1">

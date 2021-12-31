@@ -13,11 +13,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script type="text/javascript" src="../resources/js/icia.common.js"></script>
     
-    
+    <!-- 보현폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+
     <title>Wellding</title>
    
 
     <!-- Additional CSS Files -->
+
     <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="../resources/css/font-awesome.css">
@@ -29,6 +34,7 @@
     <!--의수 추가  bx슬라이더-->
     
     <link rel="stylesheet" href="../resources/css/jquery.bxslider2.css">
+
     
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <!--
