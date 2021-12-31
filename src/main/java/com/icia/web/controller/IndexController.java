@@ -124,7 +124,7 @@ public class IndexController
 		
 		//자유게시판 글
 		WDFBoard fSearch = new WDFBoard();
-		fSearch.setStartRow(5);
+		fSearch.setStartRow(6);
 		fSearch.setEndRow(10);
 		
 		List<WDFBoard> wdFBoard = null;
@@ -134,5 +134,13 @@ public class IndexController
 		model.addAttribute("wdFBoard", wdFBoard);
 		
 		return "/index";
+	}
+	
+	@RequestMapping(value="/board/login", method=RequestMethod.GET)
+	public String loginForm(HttpServletRequest request, HttpServletResponse response)
+	{
+		
+		
+		return "/board/login";
 	}
 }
