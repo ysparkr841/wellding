@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 import com.icia.web.dao.WDUserDao;
 import com.icia.web.model.WDUser;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> aa9f835247607e0cdbc731d3ee5fb5641f03adc6
 @Service("WDUserService")
 public class WDUserService 
 {
