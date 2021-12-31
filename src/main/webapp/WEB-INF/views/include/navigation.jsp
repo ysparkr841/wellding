@@ -11,7 +11,7 @@
                 <div class="col-lg-6 col-sm-6">
                     <div class="text-button ourperson">
                         <a href="rent-venue.html">회원가입</a>
-                        <a href="rent-venue.html">로그인</a>
+                        <a href="loginform.html">로그인</a>
                     </div>
                 </div>
             </div>
