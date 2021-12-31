@@ -17,6 +17,7 @@ public class WDUserService
 	@Autowired
 	private WDUserDao wdUserDao;
 	
+	//유저 정보 가져오기.
 	public WDUser userSelect(String userId)
 	{
 		WDUser wduser = null;
@@ -68,5 +69,21 @@ public class WDUserService
 		return count;
 	}
 	
+	//아이디 존재 여부 확인
+	public int wdUserIdCount(String userId) 
+	{
+		int count = 0;
+		
+		try 
+		{
+			count = wdUserDao.wdUserIdCount(userId);
+		}
+		catch(Exception e) 
+		{
+			logger.error("[WDUserService] wdUserIdCount Exception",e);
+		}
+		
+		return count;
+	}
 	
 }

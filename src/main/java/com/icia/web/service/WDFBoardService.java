@@ -18,6 +18,7 @@ public class WDFBoardService
 	@Autowired
 	private WDFBoardDao wdFBoardDao;
 	
+	//총 게시물 수 확인
 	public long fBoardListCount(WDFBoard wdFBoard) 
 	{
 		long count = 0;

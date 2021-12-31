@@ -81,6 +81,17 @@ SET
 WHERE
         USER_ID = #{userId}
         
-    </update>
+</update>
+
+<!-- 유저 아이디 존재 여부 체크 시작 -->
+<select id="wdUserIdCount" parameterType="string" resultType="int">
+	SELECT
+    COUNT(USER_ID) AS CNT 
+FROM
+    WD_USER
+WHERE 
+    USER_ID = #{value}
+</select>
+<!-- 유저 아이디 존재 여부 체크 종료 -->
     
 </mapper>
