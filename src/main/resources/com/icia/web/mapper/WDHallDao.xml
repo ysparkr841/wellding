@@ -7,6 +7,7 @@
 	<id column="WH_CODE" property="WHCode" />
     <result column="H_CODE" property="HCode" />
     <result column="H_NAME" property="HName" />
+    <result column="WH_LOCATION" property="WHLocation" />
     <result column="H_PRICE" property="HPrice" />
     <result column="H_FOOD" property="HFood" />
     <result column="H_MIN" property="HMin" />
@@ -36,6 +37,7 @@ SELECT
     WH_CODE,
     H_CODE,
     H_NAME,
+    WH_LOCATION,
     H_PRICE,
     H_FOOD,
     H_MIN,
@@ -48,6 +50,7 @@ FROM (SELECT
             WH_CODE,
             H_CODE,
             H_NAME,
+            WH_LOCATION,
             H_PRICE,
             H_FOOD,
             H_MIN,
@@ -56,9 +59,10 @@ FROM (SELECT
             H_IMGNAME,
             REZCOUNT
         FROM (SELECT
-                    A.WH_CODE,
-                    A.H_CODE,
+                    NVL(A.WH_CODE, '') WH_CODE,
+                    NVL(A.H_CODE, '') H_CODE,
                     NVL(A.H_NAME, '') H_NAME,
+                    NVL(B.WH_LOCATION, '') WH_LOCATION,
                     NVL(A.H_PRICE, 0) H_PRICE,
                     NVL(A.H_FOOD, 0) H_FOOD,
                     NVL(A.H_MIN, 0) H_MIN,
@@ -69,7 +73,7 @@ FROM (SELECT
                 FROM
                     WD_HALL A, WD_WEDDINGHALL B
                     WHERE A.WH_CODE = B.WH_CODE
-                    ORDER BY A.REZCOUNT DESC))
+                    ORDER BY REZCOUNT DESC))
 WHERE
     RNUM <![CDATA[>=]]> 1
 AND
