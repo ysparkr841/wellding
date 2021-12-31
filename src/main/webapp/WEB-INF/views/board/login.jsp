@@ -36,7 +36,7 @@
 			<div class="wrap-login100">
 				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-26">
-						<h1 id="logo"><img src="../resources/images/icons/logo1.png" width="90" height="80"/></h1>
+						<h1 id="logo"><img src="../resources/images/icons/logo1.png" width="130" height="auto"/></h1>
 
 					</span>
 					<span class="login100-form-title p-b-48">

@@ -466,7 +466,7 @@ a{ text-decoration: none; color: inherit; }
   display: inline-block;
   font-size: 13px;
   padding: 12px 18px;
-  background-color: #343a3e;
+  background-color: #103148;
   color: #fff;
   text-align: center;
   font-weight: 500;
@@ -2429,7 +2429,7 @@ Shows Events Page
 }
 
 .tickets-page .search-box {
-  background-color: #808080;
+  background-color: #edacb1;
   padding: 30px;
 }
 
@@ -2477,11 +2477,13 @@ Shows Events Page
 	color: #fff;
 }
 
+/** 여기저기 보현 수정 ,,, **/
+
 .tickets-page .search-box .main-dark-button {
   display: inline-block;
   font-size: 14px;
   padding: 12px 18px;
-  background-color: #343a3e;
+  background-color: #103148;
   color: #fff;
   text-align: center;
   font-weight: 500;
@@ -2501,17 +2503,23 @@ Shows Events Page
   font-weight: 800;
   color: #2a2a2a;
   text-align: center;
-  margin-top: 100px;
-  margin-bottom: 80px;
+  margin-top: 80px;
+  margin-bottom: 60px;
 }
-
+/** 여기저기 보현 수정 ,,, **/
 .tickets-page .ticket-item .thumb {
   position: relative;
+  height: 255px;
+  overflow: hidden;
 }
 
 .tickets-page .ticket-item .thumb img {
-  width: 100%;
+  height: 100%;
+  width: auto;
   overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: -20%;
 }
 
 .tickets-page .ticket-item .thumb .price {
@@ -2557,7 +2565,8 @@ Shows Events Page
   font-size: 14px;
   color: #555;
   font-weight: 500;
-  margin: 5px 0 25px 0;
+  margin: 5px 0 20px 0;
+  height: 55px;
 }
 
 .down-content .price
@@ -2585,6 +2594,7 @@ Shows Events Page
 .sd_adress
 {
 	margin-top: 15px;
+	height: 40px;
 }
 
 .tickets-page .ticket-item .down-content ul li {
@@ -2593,7 +2603,7 @@ Shows Events Page
   font-weight: 300;
   /*margin-bottom: 15px;*/
 }
-/**** 보현수정 끝  ****/
+
 .tickets-page .ticket-item .down-content ul li i {
   color: #7c838b;
   margin-right: 10px;
@@ -2603,8 +2613,9 @@ Shows Events Page
 }
 
 .tickets-page .ticket-item .down-content .main-dark-button {
-  margin-top: 30px;
+  margin-top: 20px;
 }
+/**** 보현수정 끝  ****/
 
 .tickets-page .pagination ul {
   text-align: center;

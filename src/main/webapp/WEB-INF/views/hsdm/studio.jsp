@@ -65,21 +65,21 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="heading">
-                        <h2>Tickets Page</h2>
+                        <h2>Studio</h2>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="ticket-item">
                         <div class="thumb">
-                            <img src="../resources/images/ticket-01.jpg" alt="">
+                            <img src="../resources/images/S01.jpg" alt="">
                         </div>
                         <div class="down-content">
-                        	<div class="sd_title">펜타그라피</div>
-                            <div class="sd_detail">단독 건물사용의 여유로움과 자연채광을 활용해 자연스러운 느낌을 담아내는 스튜디오</div>
+                        	<div class="sd_title">봉 스튜디오</div>
+                            <div class="sd_detail">스튜디오 느낌과 자연적인 느낌을 동시에 연출할 수 있는 스튜디오</div>
                             <ul>
-                                <li class="price">850,000원</li>
-                                <li><span class="discount">32%</span> <span class="dis-price">578,000원</span></li>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>서울 강남구 영동대로 131길 16</li>
+                                <li class="price">550,000원</li>
+                                <li><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로40번길 124-27</li>
                             </ul>
                             <div class="main-dark-button">
                                 <a href="ticket-details.html">스튜디오 자세히보기</a>
@@ -90,20 +90,56 @@
                 <div class="col-lg-4">
                     <div class="ticket-item">
                         <div class="thumb">
-                            <img src="../resources/images/ticket-02.jpg" alt="">
-                            <div class="price">
-                                <span>1 ticket<br>from <em>$45</em></span>
-                            </div>
+                            <img src="../resources/images/S02.jpg" alt="">
                         </div>
                         <div class="down-content">
-                            <span>There Are 200 Tickets Left For This Show</span>
-                            <h4>Golden Festival</h4>
+                        	<div class="sd_title">마이퍼스트레이디</div>
+                            <div class="sd_detail">컨셉이 다양하고 자연스러운 스냅느낌 촬영이 가능한 스튜디오</div>
                             <ul>
-                                <li><i class="fa fa-clock-o"></i> Sunday: 06:00 PM to 09:00 PM</li>
-                                <li><i class="fa fa-map-marker"></i>789 Copacabana Beach, Rio de Janeiro</li>
+                                <li class="price">680,000원</li>
+                                <li><span class="discount">38%</span> <span class="dis-price">421,600원</span></li>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>서울 강남구 압구정로60길 26 청담힐사이드빌딩 5F</li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="ticket-details.html">Purchase Tickets</a>
+                                <a href="ticket-details.html">스튜디오 자세히보기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="col-lg-4">
+                    <div class="ticket-item">
+                        <div class="thumb">
+                            <img src="../resources/images/S03.jpg" alt="">
+                        </div>
+                        <div class="down-content">
+                        	<div class="sd_title">그림비(세미 스튜디오)</div>
+                            <div class="sd_detail">세미촬영 - 심플한 배경과 스냅느낌이 공존하는 스튜디오</div>
+                            <ul>
+                                <li class="price">850,000원</li>
+                                <li><span class="discount">32%</span> <span class="dis-price">780,000원</span></li>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로37번길 64 1층</li>
+                            </ul>
+                            <div class="main-dark-button">
+                                <a href="ticket-details.html">스튜디오 자세히보기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="col-lg-4">
+                    <div class="ticket-item">
+                        <div class="thumb">
+                            <img src="../resources/images/S01.jpg" alt="">
+                        </div>
+                        <div class="down-content">
+                        	<div class="sd_title">봉 스튜디오</div>
+                            <div class="sd_detail">스튜디오 느낌과 자연적인 느낌을 동시에 연출할 수 있는 스튜디오</div>
+                            <ul>
+                                <li class="price">550,000원</li>
+                                <li><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로40번길 124-27</li>
+                            </ul>
+                            <div class="main-dark-button">
+                                <a href="ticket-details.html">스튜디오 자세히보기</a>
                             </div>
                         </div>
                     </div>
@@ -111,20 +147,56 @@
                 <div class="col-lg-4">
                     <div class="ticket-item">
                         <div class="thumb">
-                            <img src="../resources/images/ticket-03.jpg" alt="">
-                            <div class="price">
-                                <span>1 ticket<br>from <em>$65</em></span>
-                            </div>
+                            <img src="../resources/images/S02.jpg" alt="">
                         </div>
                         <div class="down-content">
-                            <span>There Are 260 Tickets Left For This Show</span>
-                            <h4>Water Splash Festival</h4>
+                        	<div class="sd_title">마이퍼스트레이디</div>
+                            <div class="sd_detail">컨셉이 다양하고 자연스러운 스냅느낌 촬영이 가능한 스튜디오</div>
                             <ul>
-                                <li><i class="fa fa-clock-o"></i> Tuesday: 07:00 PM to 11:00 PM</li>
-                                <li><i class="fa fa-map-marker"></i>456 Copacabana Beach, Rio de Janeiro</li>
+                                <li class="price">680,000원</li>
+                                <li><span class="discount">38%</span> <span class="dis-price">421,600원</span></li>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>서울 강남구 압구정로60길 26 청담힐사이드빌딩 5F</li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="ticket-details.html">Purchase Tickets</a>
+                                <a href="ticket-details.html">스튜디오 자세히보기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="col-lg-4">
+                    <div class="ticket-item">
+                        <div class="thumb">
+                            <img src="../resources/images/S03.jpg" alt="">
+                        </div>
+                        <div class="down-content">
+                        	<div class="sd_title">그림비(세미 스튜디오)</div>
+                            <div class="sd_detail">세미촬영 - 심플한 배경과 스냅느낌이 공존하는 스튜디오</div>
+                            <ul>
+                                <li class="price">850,000원</li>
+                                <li><span class="discount">32%</span> <span class="dis-price">780,000원</span></li>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로37번길 64 1층</li>
+                            </ul>
+                            <div class="main-dark-button">
+                                <a href="ticket-details.html">스튜디오 자세히보기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="col-lg-4">
+                    <div class="ticket-item">
+                        <div class="thumb">
+                            <img src="../resources/images/S01.jpg" alt="">
+                        </div>
+                        <div class="down-content">
+                        	<div class="sd_title">봉 스튜디오</div>
+                            <div class="sd_detail">스튜디오 느낌과 자연적인 느낌을 동시에 연출할 수 있는 스튜디오</div>
+                            <ul>
+                                <li class="price">550,000원</li>
+                                <li><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로40번길 124-27</li>
+                            </ul>
+                            <div class="main-dark-button">
+                                <a href="ticket-details.html">스튜디오 자세히보기</a>
                             </div>
                         </div>
                     </div>
@@ -132,66 +204,42 @@
                 <div class="col-lg-4">
                     <div class="ticket-item">
                         <div class="thumb">
-                            <img src="../resources/images/ticket-04.jpg" alt="">
-                            <div class="price">
-                                <span>1 ticket<br>from <em>$20</em></span>
-                            </div>
+                            <img src="../resources/images/S02.jpg" alt="">
                         </div>
                         <div class="down-content">
-                            <span>There Are 340 Tickets Left For This Show</span>
-                            <h4>Tiger Festival</h4>
+                        	<div class="sd_title">마이퍼스트레이디</div>
+                            <div class="sd_detail">컨셉이 다양하고 자연스러운 스냅느낌 촬영이 가능한 스튜디오</div>
                             <ul>
-                                <li><i class="fa fa-clock-o"></i> Thursday: 06:40 PM to 11:40 PM</li>
-                                <li><i class="fa fa-map-marker"></i>123 Copacabana Beach, Rio de Janeiro</li>
+                                <li class="price">680,000원</li>
+                                <li><span class="discount">38%</span> <span class="dis-price">421,600원</span></li>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>서울 강남구 압구정로60길 26 청담힐사이드빌딩 5F</li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="ticket-details.html">Purchase Tickets</a>
+                                <a href="ticket-details.html">스튜디오 자세히보기</a>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                
                 <div class="col-lg-4">
                     <div class="ticket-item">
                         <div class="thumb">
-                            <img src="../resources/images/ticket-05.jpg" alt="">
-                            <div class="price">
-                                <span>1 ticket<br>from <em>$30</em></span>
-                            </div>
+                            <img src="../resources/images/S03.jpg" alt="">
                         </div>
                         <div class="down-content">
-                            <span>There Are 420 Tickets Left For This Show</span>
-                            <h4>Woodland Festival</h4>
+                        	<div class="sd_title">그림비(세미 스튜디오)</div>
+                            <div class="sd_detail">세미촬영 - 심플한 배경과 스냅느낌이 공존하는 스튜디오</div>
                             <ul>
-                                <li><i class="fa fa-clock-o"></i> Wednesday: 06:00 PM to 09:00 PM</li>
-                                <li><i class="fa fa-map-marker"></i>1122 Copacabana Beach, Rio de Janeiro</li>
+                                <li class="price">850,000원</li>
+                                <li><span class="discount">32%</span> <span class="dis-price">780,000원</span></li>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로37번길 64 1층</li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="ticket-details.html">Purchase Tickets</a>
+                                <a href="ticket-details.html">스튜디오 자세히보기</a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="ticket-item">
-                        <div class="thumb">
-                            <img src="../resources/images/ticket-06.jpg" alt="">
-                            <div class="price">
-                                <span>1 ticket<br>from <em>$40</em></span>
-                            </div>
-                        </div>
-                        <div class="down-content">
-                            <span>There Are 520 Tickets Left For This Show</span>
-                            <h4>Winter Festival</h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i> Saturday: 06:00 PM to 09:00 PM</li>
-                                <li><i class="fa fa-map-marker"></i>220 Copacabana Beach, Rio de Janeiro</li>
-                            </ul>
-                            <div class="main-dark-button">
-                                <a href="ticket-details.html">Purchase Tickets</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>                
+
                 <div class="col-lg-12">
                     <div class="pagination">
                         <ul>
