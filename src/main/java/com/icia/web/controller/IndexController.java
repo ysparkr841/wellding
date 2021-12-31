@@ -114,13 +114,12 @@ public class IndexController
 		WDEBoard eSearch = new WDEBoard();
 		//이벤트 글 3개만 보여줄거니깐, 1-3으로 넣었는데, 이건 뭐 어떻게 할지 논의해보면 좋을듯.
 		eSearch.setStartRow(1);
-		eSearch.setEndRow(3);
+		eSearch.setEndRow(5);
 		
 		List<WDEBoard> wdEBoard = null;
 		
 		wdEBoard = wdEBoardService.eBoardList(eSearch);
 		model.addAttribute("wdEBoard", wdEBoard);
-		
 		
 		//자유게시판 글
 		WDFBoard fSearch = new WDFBoard();
@@ -135,4 +134,12 @@ public class IndexController
 		
 		return "/index";
 	}
+	
+	@RequestMapping(value = "/board/eboard")
+	public String eboard(HttpServletRequest request, HttpServletResponse resopnse)
+	{
+		return "/board/eboard";
+	}
 }
+
+
