@@ -63,7 +63,9 @@
             			<value>/user/regForm</value>
             			<value>/user/regProc</value>
             			<value>/user/idCheck</value>
+            			<value>/board/eBoard</value>
             			<value>/hsdm/studio</value>
+
             		</list>
             	</constructor-arg>
             </bean>

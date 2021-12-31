@@ -67,6 +67,7 @@
     <script src="../resources/js/bootstrap.min.js"></script>
 
     <!-- Plugins -->
+
     <script src="../resources/js/jquery.bxslider.js"></script>
     <script src="../resources/js/jquery.bxslider.min.js"></script>
     <script src="../resources/js/scrollreveal.min.js"></script>

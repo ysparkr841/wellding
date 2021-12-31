@@ -54,7 +54,7 @@
                             <li class="sub1">
                                 <a class="suba" href="#">Community</a>
                                 <ul>
-                                    <li class="subul"><a href="tickets.html" class="sub">Reviews</a></li>
+                                    <li class="subul"><a href="/board/fBoard" class="sub">Reviews</a></li>
                                     <li class="subul"><a href="tickets.html" class="sub">노하우공유</a></li>
                                     <li class="subul"><a href="tickets.html" class="sub">전문가 매칭</a></li>
                                 </ul>
