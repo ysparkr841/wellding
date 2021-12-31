@@ -50,6 +50,12 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 
+/*** 보현추가   ***/
+html, body
+{
+	overflow-x:hidden;
+}
+
 
 
 /*김현아 수정*/
@@ -59,7 +65,8 @@ header .logo{float:left;}
 header nav {float:right;}
 header nav ul{float:left;}
 header nav ul li{float:left;}
-header.sticky {position: fixed; /*padding: 9px 0;*/ background-color: rgba(201, 201, 201, 0.7); top:0;}  /* 보현수정 */
+header.sticky {position: fixed; /*padding: 9px 0;*/ background-color: rgba(201, 201, 201, 0.9); top:0;}  /* 보현수정 */
+header.sticky .back{ height: 0px;}
 
 
 /*** 보현수정 ***/
@@ -455,12 +462,11 @@ a{ text-decoration: none; color: inherit; }
 }
 
 
-
 .main-dark-button a {
   display: inline-block;
-  font-size: 14px;
+  font-size: 13px;
   padding: 12px 18px;
-  background-color: #343a3e;
+  background-color: #103148;
   color: #fff;
   text-align: center;
   font-weight: 500;
@@ -550,6 +556,7 @@ header
 .header-area {
    position:absolute; z-index:999; left:0; right:0; /*padding:10px 0;*/ transition: 0.3s;
     background-color: rgba(255, 255, 255, 0.7);
+    /**박스쉐도우,보더바텀추가box-shadow: rgb(149 157 165 / 10%) 0px 3px 6px; border-bottom: 1px solid rgb(201, 201, 201, 0.7);**/
 }
 
 .header-area .main-nav {
@@ -2167,27 +2174,29 @@ Shows Events Page
 */
 
 .page-heading-shows-events {
-  background-image: url(../images/shows_events_bg.jpg);
+  background-image: url(../images/S80.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 110px 0px;
+  padding: 70px 0px;
   text-align: center;
+  background-position: center 43%;
 }
 
 .page-heading-shows-events h2 {
-  font-size: 50px;
+  font-size: 140px;
   color: #fff;
-  font-weight: 800;
-  margin-bottom: 15px;
+  font-weight: 500;
+  /*margin-bottom: 15px;*/
+  font-family: 'Nanum Brush Script', cursive;
 }
-
+/*
 .page-heading-shows-events span {
   font-size: 20px;
   color: #fff;
   font-weight: 300;
   padding: 0px 250px;
   display: inline-block;
-}
+}*/
 
 .shows-events-tabs {
   background-color: #f0f0f1;
@@ -2405,16 +2414,22 @@ Shows Events Page
 
 /*
 ---------------------------------------------
-Tickets Page
+보현수정~~~~~~~~~~~~~~~~~
 ---------------------------------------------
 */
+.back
+{
+	width: 100%;
+	height: 68px;
+	background-color: #dfdfdf; /*메뉴만큼 위에서 띄우기*/
+}
 
 .tickets-page {
   margin-bottom: 100px;
 }
 
 .tickets-page .search-box {
-  background-color: #7c838b;
+  background-color: #edacb1;
   padding: 30px;
 }
 
@@ -2443,11 +2458,32 @@ Tickets Page
   background-color: #343a3e;
 }
 
+.svalue
+{
+	margin-top: 10px;
+	background-color: transparent;
+	border-bottom: 1px solid rgba(250, 250, 250, 0.5);
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	width: 100%;
+	padding: 5px;
+}
+.svalue::placeholder
+{
+	color: #fff;
+}
+
+/** 여기저기 보현 수정 ,,, **/
+
 .tickets-page .search-box .main-dark-button {
   display: inline-block;
   font-size: 14px;
   padding: 12px 18px;
-  background-color: #343a3e;
+  background-color: #103148;
   color: #fff;
   text-align: center;
   font-weight: 500;
@@ -2467,17 +2503,23 @@ Tickets Page
   font-weight: 800;
   color: #2a2a2a;
   text-align: center;
-  margin-top: 100px;
-  margin-bottom: 80px;
+  margin-top: 80px;
+  margin-bottom: 60px;
 }
-
+/** 여기저기 보현 수정 ,,, **/
 .tickets-page .ticket-item .thumb {
   position: relative;
+  height: 255px;
+  overflow: hidden;
 }
 
 .tickets-page .ticket-item .thumb img {
-  width: 100%;
+  height: 100%;
+  width: auto;
   overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: -20%;
 }
 
 .tickets-page .ticket-item .thumb .price {
@@ -2505,30 +2547,61 @@ Tickets Page
   margin-bottom: 30px;
 }
 
+/**** 보현수정 시작  ****/
 .tickets-page .ticket-item .down-content {
-  background-color: #fafafa;
-  padding: 30px;;
+  background-color: #efefef;
+  padding: 30px;
 }
 
-.tickets-page .ticket-item .down-content span {
-  font-size: 14px;
-  color: #656c74;
-  font-weight: 700;
-}
-
-.tickets-page .ticket-item .down-content h4 {
-  font-size: 22px;
+.sd_title{
+  font-size: 25px;
   font-weight: 700;
   color: #2a2a2a;
-  margin-top: 10px;
-  margin-bottom: 25px;
+  /*margin-top: 10px;
+  margin-bottom: 25px;*/
+}
+
+.sd_detail{
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+  margin: 5px 0 20px 0;
+  height: 55px;
+}
+
+.down-content .price
+{
+	color: #888;
+	text-decoration: line-through #888;
+	margin: 0;
+}
+
+.down-content .discount
+{
+  font-size: 22px;
+  font-weight: 700;
+  color: #ee3e61;
+  padding-right:5px;
+}
+
+.down-content .dis-price
+{
+	font-size: 22px;
+    font-weight: 700;
+    color: #000;
+}
+
+.sd_adress
+{
+	margin-top: 15px;
+	height: 40px;
 }
 
 .tickets-page .ticket-item .down-content ul li {
   font-size: 14px;
   color: #2a2a2a;
   font-weight: 300;
-  margin-bottom: 15px;
+  /*margin-bottom: 15px;*/
 }
 
 .tickets-page .ticket-item .down-content ul li i {
@@ -2540,8 +2613,9 @@ Tickets Page
 }
 
 .tickets-page .ticket-item .down-content .main-dark-button {
-  margin-top: 30px;
+  margin-top: 20px;
 }
+/**** 보현수정 끝  ****/
 
 .tickets-page .pagination ul {
   text-align: center;

@@ -63,6 +63,8 @@
             			<value>/user/regForm</value>
             			<value>/user/regProc</value>
             			<value>/user/idCheck</value>
+
+            			<value>/board/nBoard</value>
             			<value>/board/eBoard</value>
             			<value>/hsdm/studio</value>
             			<value>/board/fBoard</value>            			
