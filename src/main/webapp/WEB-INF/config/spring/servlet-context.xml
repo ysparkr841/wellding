@@ -58,7 +58,7 @@
             	<constructor-arg> <!-- 인증체크 제외 URL 설정 -->
             		<list>
             			<value>/index</value>
-            			<value>/user/login</value>
+            			<value>/board/login</value>
             			<value>/user/loginOut</value>
             			<value>/user/regForm</value>
             			<value>/user/regProc</value>
