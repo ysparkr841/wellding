@@ -81,10 +81,6 @@
 
                                     <li class="subul"><a href="/board/eboard" class="sub">Event</a></li>
                                     <li class="subul"><a href="shows-events.html" class="sub">Notice</a></li>
-
-                                    <li class="subul"><a href="shows-events.html" class="sub">Event</a></li>
-                                    <li class="subul"><a href="/board/nBoard" class="sub">Notice</a></li>
-
                                 </ul>
                             </li> 
                             <li class="sub1">
