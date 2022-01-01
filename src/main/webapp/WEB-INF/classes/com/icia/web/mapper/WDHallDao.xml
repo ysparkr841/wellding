@@ -59,7 +59,7 @@ FROM (SELECT
             H_IMGNAME,
             REZCOUNT
         FROM (SELECT
-                    NVL(A.WH_CODE, '') WH_CODE,
+                    A.WH_CODE WH_CODE,
                     NVL(A.H_CODE, '') H_CODE,
                     NVL(A.H_NAME, '') H_NAME,
                     NVL(B.WH_LOCATION, '') WH_LOCATION,
