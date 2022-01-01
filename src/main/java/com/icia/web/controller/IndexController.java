@@ -136,7 +136,6 @@ public class IndexController
       
       return "/index";
    }
-   
 
    @RequestMapping(value = "/board/eboard")
    public String eboard(HttpServletRequest request, HttpServletResponse resopnse)
@@ -144,12 +143,12 @@ public class IndexController
       return "/board/eboard";
    }
 
+
    @RequestMapping(value="/board/login", method=RequestMethod.GET)
    public String loginForm(HttpServletRequest request, HttpServletResponse response)
    {
 
       return "/board/login";
    }
-   
 }
 

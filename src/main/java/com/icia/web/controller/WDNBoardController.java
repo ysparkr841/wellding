@@ -24,10 +24,6 @@ public class WDNBoardController
 {
 	private static Logger logger = LoggerFactory.getLogger(WDNBoardController.class);
 	
-	//쿠키명
-	@Value("#{env['auth.cookie.name']}")
-	private String AUTH_COOKIE_NAME;
-	
 	@Autowired
 	private WDNBoardService wdNBoardService;
 	
@@ -75,8 +71,8 @@ public class WDNBoardController
 			paging.addParam("searchValue", searchValue);
 			paging.addParam("curPage", curPage);
 			
-			search.setStartRow(1);
-			search.setEndRow(10);
+			search.setStartRow(paging.getStartRow());
+			search.setEndRow(paging.getEndRow());
 			
 			list = wdNBoardService.nBoardList(search);			
 		}

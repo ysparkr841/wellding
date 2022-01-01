@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icia.web.dao.WDMakeUpDao">
+
+<resultMap id="WDMakeUpMap" type="com.icia.web.model.WDMakeUp">
+	<id column="M_CODE" property="mCode" />
+	<result column="M_NAME" property="mName" />
+	<result column="M_LOCATION" property="mLocation" />
+	<result column="M_NUMBER" property="mNumber" />
+	<result column="M_IMGNAME" property="mImgName" />
+	<result column="M_PRICE" property="mPrice" />
+	<result column="M_CONTENT" property="mContent" />
+	<result column="M_PLUS" property="mPlus" />
+</resultMap>
+
+<!-- 첨부파일  시작 -->
+<resultMap id="WDMakeUpFileMap" type="com.icia.web.model.WDMakeUpFile">
+	<id column="M_SEQ" property="mSeq" />
+	<id column="M_CODE" property="mCode" />
+	<result column="M_FILE_SEQ" property="mFileSeq" />
+	<result column="M_FILE_NAME" property="mfileName" />
+	<result column="M_FILE_ORG_NAME" property="mFileOrgName" />
+	<result column="M_FILE_EXT" property="mFileExt" />
+	<result column="M_FILE_SIZE" property="mFileSize" />
+	<result column="REG_DATE" property="regDate" />
+</resultMap>
+<!-- 첨부파일 종료 -->
+
+
+
+<!-- 메이크업 업체 총 수 확인 시작 -->
+<select id="makeUpListCount" parameterType="com.icia.web.model.WDMakeUp" resultType="long">
+SELECT
+    COUNT(M_CODE)
+FROM
+    WD_MAKEUP
+WHERE
+    1 = 1
+<if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
+	<choose>
+		<when test='searchType == "1"'>
+AND
+    M_NAME LIKE '%' || #{searchValue}|| '%'
+		</when>
+		<when test='searchType == "2"'>		
+AND
+    M_LOCATION LIKE '%' || #{searchValue} || '%' 
+		</when>
+	</choose>
+</if>
+</select>
+<!-- 메이크업 업체 총 수 확인 종료 -->
+
+
+<!-- 메이크업 업체 정보 불러오기 시작 -->
+<select id="makeUpList" parameterType="com.icia.web.model.WDMakeUp" resultMap="WDMakeUpMap">
+SELECT
+    M_CODE,
+    M_NAME,
+    M_LOCATION,
+    M_NUMBER,
+    M_IMGNAME,
+    M_PRICE,
+    M_CONTENT,
+    M_PLUS
+FROM(
+        SELECT 
+            ROWNUM AS RNUM,
+            M_CODE,
+            M_NAME,
+            M_LOCATION,
+            M_NUMBER,
+            M_IMGNAME,
+            M_PRICE,
+            M_CONTENT,
+            M_PLUS
+        FROM(SELECT
+                    M_CODE,
+                    NVL(M_NAME, '') AS M_NAME,
+                    NVL(M_LOCATION, '') AS M_LOCATION,
+                    NVL(M_NUMBER, '') AS M_NUMBER,
+                    NVL(M_IMGNAME, '') AS M_IMGNAME,
+                    NVL(M_PRICE, 0) AS M_PRICE,
+                    NVL(M_CONTENT, '') AS M_CONTENT,
+                    NVL(M_PLUS, 0) AS M_PLUS
+                FROM
+                    WD_MAKEUP
+                WHERE
+                    1 = 1
+<if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
+	<choose>
+		<when test='searchType == "1"'>
+                AND
+                    M_NAME LIKE '%' || #{searchValue} || '%'
+        </when>    
+        <when test='searchType == "2"'>    
+                AND
+                    M_LOCATION LIKE '%' || #{searchValue} || '%'
+		</when>
+	</choose>
+</if>
+                ORDER BY
+                    M_CODE ASC))
+WHERE
+    RNUM <![CDATA[>=]]> #{startRow}
+AND
+    RNUM <![CDATA[<=]]> #{endRow}
+</select>
+<!-- 메이크업 업체 정보 불러오기 종료 -->
+
+
+</mapper>
