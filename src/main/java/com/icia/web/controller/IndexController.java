@@ -123,13 +123,13 @@ public class IndexController
 		
 		//자유게시판 글
 		WDFBoard fSearch = new WDFBoard();
-		fSearch.setStartRow(6);
-		fSearch.setEndRow(10);
+		fSearch.setStartRow(11);
+		fSearch.setEndRow(15);
 		
 		List<WDFBoard> wdFBoard = null;
 		
 		wdFBoard = wdFBoardService.fBoardList(fSearch);
-		
+				
 		model.addAttribute("wdFBoard", wdFBoard);
 		
 		return "/index";
@@ -145,18 +145,10 @@ public class IndexController
 	@RequestMapping(value="/board/login", method=RequestMethod.GET)
 	public String loginForm(HttpServletRequest request, HttpServletResponse response)
 	{
-		
-		
+
 		return "/board/login";
 	}
 	
-	/**** 스튜디오 ****/
-	@RequestMapping(value="/hsdm/studio", method=RequestMethod.GET)
-	public String studio(HttpServletRequest request, HttpServletResponse response)
-	{
-		return "/hsdm/studio";
-
-	}
 }
 
 

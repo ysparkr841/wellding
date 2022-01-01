@@ -29,7 +29,7 @@
 
 
 <!-- 메이크업 업체 총 수 확인 시작 -->
-<select id="makeUpListCount" parameterType="com.icia.web.model.WDMakeUP" resultType="long">
+<select id="makeUpListCount" parameterType="com.icia.web.model.WDMakeUp" resultType="long">
 SELECT
     COUNT(M_CODE)
 FROM

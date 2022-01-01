@@ -7,11 +7,12 @@
 	<title>Login V2</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="../resources/js/jquery-3.5.1.min.js"></script>
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="../resources/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../resources/vendor/loginvendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../resources/vendor/loginvendor/bootstrap/css/bootstrap.min.css.map">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../resources/fonts/loginfonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
@@ -30,6 +31,9 @@
 	<link rel="stylesheet" type="text/css" href="../resources/css/loginutil.css">
 	<link rel="stylesheet" type="text/css" href="../resources/css/loginmain.css">
 <!--===============================================================================================-->
+	<script src="../resources/js/jquery-3.5.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../resources/js/icia.common.js"></script>
 
 <script>
 $(function(){
@@ -78,8 +82,8 @@ function fn_loginCheck()
 		type : "POST",
 		url : "/imokay",
 		data : {
-			userId: $("#userId").val(),
-			userPwd: $("#userPwd").val() 
+			userId:$("#userId").val(),
+			userPwd:$("#userPwd").val() 
 		},
 		datatype : "JSON",																																																					
 		beforeSend : function(xhr){
@@ -96,7 +100,7 @@ function fn_loginCheck()
 				
 				if(code == 0)
 				{
-					location.href = "/"";
+					location.href = "/";
 				}
 				else
 				{
@@ -143,6 +147,7 @@ function fn_loginCheck()
 			icia.common.error(error);
 		}
 	});
+
 }
 </script>
 </head>
@@ -210,6 +215,7 @@ function fn_loginCheck()
 			</div>
 		</div>
 	</div>
+	
 	
 
 	<div id="dropDownSelect1"></div>
