@@ -138,15 +138,9 @@ public class IndexController
    @RequestMapping(value="/board/login", method=RequestMethod.GET)
    public String loginForm(HttpServletRequest request, HttpServletResponse response)
    {
+	   return "";
+   }
 
-<<<<<<< HEAD
-	@RequestMapping(value="/board/login", method=RequestMethod.GET)
-	public String loginForm(HttpServletRequest request, HttpServletResponse response)
-	{
-		
-		
-		return "/board/login";
-	}
 	
 	
 	@RequestMapping(value="/board/fBoard", method=RequestMethod.GET)
@@ -171,9 +165,8 @@ public class IndexController
 	{
 		return "/board/regform";
 	}
-=======
-      return "/board/login";
-   }
->>>>>>> b57ebd00bb05bcf81ae498b807b0b09a8c847c9c
+
+
+
 }
 
