@@ -158,24 +158,5 @@ function fn_list(curPage)
  <!-- *** 욱채수정Footer 시작 *** -->
 	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
  <!-- *** 욱채수정Footer 종료 *** -->
- 
-	<!-- jQuery -->
-	<script src="assets/js/jquery-2.1.0.min.js"></script>
-	
-	<!-- Bootstrap -->
-	<script src="assets/js/popper.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	
-	<!-- Plugins -->
-	<script src="assets/js/scrollreveal.min.js"></script>
-	<script src="assets/js/waypoints.min.js"></script>
-	<script src="assets/js/jquery.counterup.min.js"></script>
-	<script src="assets/js/imgfix.min.js"></script> 
-	<script src="assets/js/mixitup.js"></script> 
-	<script src="assets/js/accordions.js"></script>
-	<script src="assets/js/owl-carousel.js"></script>
-	
-	<!-- Global Init -->
-	<script src="assets/js/custom.js"></script>
 </body>
 </html>
