@@ -112,7 +112,7 @@ function fn_list(curPage)
                                 <div class="sd_detail"><c:out value="${wdStudio.sContent}" /></div>
                             <ul>    
                                 <li class="price"><c:out value="${wdStudio.sPrice}" />원</li>
-                                <li><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
+                                <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
                             </ul>
                             <div class="main-dark-button">
                                 <a href="ticket-details.html">스튜디오 자세히보기</a>

@@ -47,7 +47,7 @@
 </section>
 
     <!-- ***** About Us Page ***** -->
-    <div class="page-heading-shows-events">
+    <div class="page-heading-shows-events2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -96,7 +96,7 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="heading">
-                        <h2>Studio</h2>
+                        <h2>Wedding Hall</h2>
                     </div>
                 </div>
                 
@@ -104,7 +104,7 @@
 	<c:forEach var="wdHall" items="${list}" varStatus="status">          
                 <div class="col-lg-4">
                     <div class="ticket-item">
-                        <div class="thumb">
+                        <div class="thumb3">
                             <img src="../resources/images/hallrepimage/${wdHall.HImgName }" alt="">
                         </div>
                         <div class="down-content">
@@ -115,7 +115,7 @@
                                 <div class="sd_detail">${wdHall.HContent}</div>
                             <ul>    
                                 <!-- <li class="price">550,000원</li> -->
-                                <li><span class="discount"></span> <span class="dis-price">${wdHall.HPrice}원</span></li>
+                                <li class="dis_price"><span class="discount"></span> <span class="dis-price">${wdHall.HPrice}원</span></li>
                             </ul>
                             <div class="main-dark-button">
                                 <a href="ticket-details.html">홀 자세히보기</a>

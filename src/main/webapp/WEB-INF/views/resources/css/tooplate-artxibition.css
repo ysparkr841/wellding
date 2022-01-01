@@ -2308,6 +2308,7 @@ Shows Events Page
 ---------------------------------------------
 */
 
+/** 스튜디오 메인 **/
 .page-heading-shows-events {
   background-image: url(../images/S80.jpg);
   background-size: cover;
@@ -2324,6 +2325,25 @@ Shows Events Page
   /*margin-bottom: 15px;*/
   font-family: 'Nanum Brush Script', cursive;
 }
+
+/** 홀 메인 **/
+.page-heading-shows-events2 {
+  background-image: url(../images/H26_1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 70px 0px;
+  text-align: center;
+  background-position: center 62%;
+}
+
+.page-heading-shows-events2 h2 {
+  font-size: 140px;
+  color: #fff;
+  font-weight: 500;
+  /*margin-bottom: 15px;*/
+  font-family: 'Nanum Brush Script', cursive;
+}
+
 /*
 .page-heading-shows-events span {
   font-size: 20px;
@@ -2549,7 +2569,7 @@ Shows Events Page
 
 /*
 ---------------------------------------------
-보현수정~~~~~~~~~~~~~~~~~
+보현수정~~~~~~~~~~~~~~~~~ .tickets-page가 스드메 상페임
 ---------------------------------------------
 */
 .back
@@ -2682,6 +2702,44 @@ Shows Events Page
   margin-bottom: 30px;
 }
 
+/**************************욱채 홀 이미지 수정 시작********************************/
+.tickets-page .ticket-item .thumb3 {
+  position: relative;
+  height: 255px;
+  overflow: hidden;
+}
+
+.tickets-page .ticket-item .thumb3 img {
+  height: 100%;
+  width: auto;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: -4%;
+}
+
+.tickets-page .ticket-item .thumb3 .price {
+  background-color: rgba(101,108,116,0.9);
+  display: inline-block;
+  padding: 20px;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+}
+
+.tickets-page .ticket-item .thumb3 .price span {
+  color: #fff;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.tickets-page .ticket-item .thumb3 .price span em {
+  font-weight: 700;
+  font-size: 20px;
+  font-style: normal;
+}
+/******************************* 욱채홀이미지 수정 끝 ************************************/
+
 /**** 보현수정 시작  ****/
 .tickets-page .ticket-item .down-content {
   background-color: #efefef;
@@ -2709,6 +2767,7 @@ Shows Events Page
 	color: #888!important;
 	text-decoration: line-through #888;
 	margin: 0;
+	height: 20px;
 }
 
 .down-content .discount
@@ -2726,6 +2785,10 @@ Shows Events Page
     color: #000;
 }
 
+.down-content .dis_price
+{
+	height: 33px;
+}
 .sd_adress
 {
 	/*margin-top: 15px;*/
