@@ -59,6 +59,7 @@
             		<list>
             			<value>/index</value>
             			<value>/board/login</value>
+            			<value>/board/regform</value>
             			<value>/user/loginOut</value>
             			<value>/user/regForm</value>
             			<value>/user/regProc</value>

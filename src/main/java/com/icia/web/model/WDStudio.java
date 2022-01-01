@@ -1,4 +1,3 @@
-/**스튜디오보현**/
 package com.icia.web.model;
 
 import java.io.Serializable;
@@ -11,7 +10,7 @@ public class WDStudio implements Serializable
 	private String sName;
 	private long sPrice;
 	private String sLocation;
-	private long sNumber;
+	private String sNumber;
 	private String sImgname;
 	private String sContent;
 	
@@ -29,7 +28,7 @@ public class WDStudio implements Serializable
 	    sName = "";
 	    sPrice = 0;
 	    sLocation = "";
-	    sNumber = 0;
+	    sNumber = "";
 	    sImgname = "";
 	    sContent = "";
 	    searchType = "";
@@ -80,12 +79,12 @@ public class WDStudio implements Serializable
 	}
 
 
-	public long getsNumber() {
+	public String getsNumber() {
 		return sNumber;
 	}
 
 
-	public void setsNumber(long sNumber) {
+	public void setsNumber(String sNumber) {
 		this.sNumber = sNumber;
 	}
 

@@ -10,7 +10,7 @@
 
 		   <!-- Product section-->
         <section class="py-5">
-        <c:forEach var="eboard" items="${wdEBoard}" varStatus="status">
+        <c:forEach var="eboard" items="${eBoard}" varStatus="status">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0"  src="/resources/board/${eboard.eBImgName}" /></div>

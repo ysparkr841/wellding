@@ -84,25 +84,14 @@ function fn_list(curPage)
                                     <!-- 리스트 데이터가 비어잇지 않으면 ! 값이있으면~ 이라는 뜻 -->
                                        <c:forEach var="hiBoard" items="${list}" varStatus="status">   
                                             <tr>
-                                                <c:choose>
-                                                    <c:when test="${hiBoard.hiBbsIndent eq 0}"> <!-- 들여쓰기가 없다 -->
-                                                        <td class="text-center">${hiBoard.hiBbsSeq}</td>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <td class="text-center"></td>
-                                                    </c:otherwise>
-                                                </c:choose>
                                                 <td>
-                                                    <a href="javascript:void(0)" onclick="fn_view(${hiBoard.hiBbsSeq})"><!-- fn_view매개변수로 넘기겟다 -->
-                                                        <c:if test="${hiBoard.hiBbsIndent > 0}">
-                                                            <img src="/resources/images/icon_reply.gif" style="margin-left:${hiBoard.hiBbsIndent}em;" />
-                                                        </c:if>
-                                                        <c:out value="${hiBoard.hiBbsTitle}" />
+                                                    <a href="javascript:void(0)" onclick="fn_view(${hiBoard.bSeq})"><!-- fn_view매개변수로 넘기겟다 -->
+                                                        <c:out value="${hiBoard.bTitle}" />
                                                     </a>
                                                 </td>
-                                                    <td class="text-center"><c:out value="${hiBoard.userName}" /></td>
+                                                	<td class="text-center">${hiBoard.adminId}</td>
                                                     <td class="text-center">${hiBoard.regDate}</td>
-                                                    <td class="text-center"><fmt:formatNumber type="number" maxFractionDigits="3" value="${hiBoard.hiBbsReadCnt}" /></td>
+                                                    <td class="text-center"><fmt:formatNumber type="number" maxFractionDigits="3" value="${hiBoard.bReadCnt}" /></td>
                                             </tr>
                                        </c:forEach>
                                     </c:if>      
@@ -130,6 +119,7 @@ function fn_list(curPage)
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
+							
 				<!-- forEach문은 최대 5개밖에 안됨.위에서 지정해줌. -->
 							<c:if test="${paging.nextBlockPage gt 0}">         
 								<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.nextBlockPage})">다음블럭</a></li>
@@ -144,8 +134,8 @@ function fn_list(curPage)
                     <div class="pagination">
                         <ul>
                             <li><a href="#">Prev</a></li>
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
                             <li><a href="#">3</a></li>
                             <li><a href="#">Next</a></li>
                         </ul>
@@ -168,24 +158,5 @@ function fn_list(curPage)
  <!-- *** 욱채수정Footer 시작 *** -->
 	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
  <!-- *** 욱채수정Footer 종료 *** -->
- 
-	<!-- jQuery -->
-	<script src="assets/js/jquery-2.1.0.min.js"></script>
-	
-	<!-- Bootstrap -->
-	<script src="assets/js/popper.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	
-	<!-- Plugins -->
-	<script src="assets/js/scrollreveal.min.js"></script>
-	<script src="assets/js/waypoints.min.js"></script>
-	<script src="assets/js/jquery.counterup.min.js"></script>
-	<script src="assets/js/imgfix.min.js"></script> 
-	<script src="assets/js/mixitup.js"></script> 
-	<script src="assets/js/accordions.js"></script>
-	<script src="assets/js/owl-carousel.js"></script>
-	
-	<!-- Global Init -->
-	<script src="assets/js/custom.js"></script>
 </body>
 </html>
