@@ -139,8 +139,10 @@ public class IndexController
    public String loginForm(HttpServletRequest request, HttpServletResponse response)
    {
 	   return "";
-   }
 
+		
+		return "/board/login";
+	}
 	
 	
 	@RequestMapping(value="/board/fBoard", method=RequestMethod.GET)
@@ -166,7 +168,7 @@ public class IndexController
 		return "/board/regform";
 	}
 
-
+     
 
 }
 
