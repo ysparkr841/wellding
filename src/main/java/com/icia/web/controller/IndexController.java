@@ -138,6 +138,7 @@ public class IndexController
    @RequestMapping(value="/board/login", method=RequestMethod.GET)
    public String loginForm(HttpServletRequest request, HttpServletResponse response)
    {
+	   return "";
 
 		
 		return "/board/login";

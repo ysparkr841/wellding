@@ -30,7 +30,7 @@ public class WDMakeUp implements Serializable{
 	private long startRow;         		//시작 rownum
 	private long endRow;         		//끝rownum
 	
-	private WDMakeUpFile wdMakeUpFile;
+	//private WDMakeUpFile wdMakeUpFile;
 	
 	//생성자
 	public WDMakeUp() 
@@ -145,13 +145,13 @@ public class WDMakeUp implements Serializable{
 		this.endRow = endRow;
 	}
 
-	public WDMakeUpFile getWdMakeUpFile() {
-		return wdMakeUpFile;
-	}
-
-	public void setWdMakeUpFile(WDMakeUpFile wdMakeUpFile) {
-		this.wdMakeUpFile = wdMakeUpFile;
-	}
+//	public WDMakeUpFile getWdMakeUpFile() {
+//		return wdMakeUpFile;
+//	}
+//
+//	public void setWdMakeUpFile(WDMakeUpFile wdMakeUpFile) {
+//		this.wdMakeUpFile = wdMakeUpFile;
+//	}
 	
 	
 	
