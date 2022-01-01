@@ -204,11 +204,11 @@ function fn_loginCheck()
 
 					<div class="text-center p-t-115">
 						<span class="txt1">
-							Don’t have an account?
+							Wellding에 처음이세요?
 						</span>
 
-						<a class="txt2" href="#">
-							Sign Up
+						<a class="txt2" href="/board/regform">
+							회원가입하기
 						</a>
 					</div>
 				</form>
