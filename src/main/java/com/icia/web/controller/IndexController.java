@@ -166,6 +166,13 @@ public class IndexController
 		return "/hsdm/studio";
 
 	}
+	
+	/*회원가입폼*/
+	@RequestMapping(value="/board/regform", method=RequestMethod.GET)
+	public String regform(HttpServletRequest request, HttpServletResponse response)
+	{
+		return "/board/regform";
+	}
 }
 
 

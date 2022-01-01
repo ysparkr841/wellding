@@ -25,8 +25,8 @@
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="../resources/vendor/loginvendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../resources/css/loginutil.css">
-	<link rel="stylesheet" type="text/css" href="../resources/css/loginmain.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/regform.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/regform.css">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -34,69 +34,94 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				
 					<span class="login100-form-title p-b-26">
-						<h1 id="logo"><img src="../resources/images/icons/logo1.png" width="130" height="auto"/></h1>
+						<h1 id="logo"><img src="../resources/images/icons/logo1.png" width="130px" height="auto"/></h1>
 						
 
-					</span>
-					<span class="login100-form-title p-b-48">
-						<!-- <i class="zmdi zmdi-font"></i> -->
-						<div class="mTab eTab">
-							<ul>
-								
-								<li class="selected"><a href="#" onclick="changeLogin('3', 'F', 'F');">회원</a></li>
-								<li><a href="loginform2.html" onclick="changeLogin('2', 'F', 'F');">관리자</a></li>
-								<li><a href="loginform3.html" onclick="changeLogin('2', 'F', 'F');">전문가</a></li>
-								<!-- <li class="selected"><a href="#" onclick="changeLogin('3', 'F', 'F');">전문가</a></li> -->
-							</ul>
-						</div>
+						<div class="join">
+
+							<h4>
+							<label>아이디</label>
+						</h4>
+						<span class="id_box">
+
+								<input type="text" id="id" name="id" maxlength="20">
+							</span>
+							<span class="id_error">
+								ID를 입력하세요
+							</span>
+						<h4>
+							<label>비밀번호</label>
+						</h4>
+							<span class="id_box">
+	
+								<input type="text" id="id" name="id" maxlength="20">
+							</span>
+						<h4>
+							<label>비밀번호 확인</label>
+						</h4>
+							<span class="id_box">
+		
+							<input type="text" id="id" name="id" maxlength="20">
+									</span>
+						<h4>
+							<label>이름</label>
+						</h4>
+							<span class="id_box">
+			
+							<input type="text" id="id" name="id" maxlength="20">
+										</span>
+						<h4>
+							<label>닉네임</label>
+						</h4>
+				 			<span class="id_box">
+				
+							<input type="text" id="id" name="id" maxlength="20">
+											</span>
+						<h4>
+							<label>성별</label>
+						</h4>
+							<span class="id_box">
+					
+							<input type="text" id="id" name="id" maxlength="20">
+												</span>
+						<h4>
+							<label>이메일</label>
+						</h4>
+							<span class="id_box">
 						
-					</span>
+							<input type="text" id="id" name="id" maxlength="20">
+							</span>
+						<h4>
+							<label>전화번호</label>
+						</h4>
+							<span class="id_box">
+	
+							<input type="text" id="id" name="id" maxlength="20">
+							</span>			
+						<h4>
+							<label>결혼예정일</label>
+							</h4>
+							<span class="id_box">
+	
+							<input type="text" id="id" name="id" maxlength="20">
+							</span>	
 
-					<div>
-
-					
-
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="email">
-						<span class="focus-input100" data-placeholder="ID"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-						<input class="input100" type="password" name="pass">
-						<span class="focus-input100" data-placeholder="Password"></span>
-					</div>
-
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
-								Login
-							</button>
 						</div>
-					</div>
+
+					</span>
 					
-
-					<div class="text-center p-t-115">
-						<span class="txt1">
-							Wellding에 처음이세요?
-						</span>
-
-						<a class="txt2" href="/board/regform">
-							회원가입하기
-						</a>
+					
 					</div>
-				</form>
+				
 			</div>
 		</div>
 	</div>
+
+	
 	
 
-	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->
 	<script src="../resources/vendor/loginvendor/jquery/jquery-3.2.1.min.js"></script>
