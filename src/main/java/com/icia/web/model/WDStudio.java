@@ -1,4 +1,3 @@
-/**스튜디오보현**/
 package com.icia.web.model;
 
 import java.io.Serializable;

@@ -51,7 +51,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>STUDIO</h2>
+                    <h2>WEDDING HALL</h2>
                     <!-- span>Check out upcoming and past shows & events and grab your ticket right now.</span -->
                 </div>
             </div>
