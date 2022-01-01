@@ -132,6 +132,7 @@ SELECT
     WH_CODE,
     H_CODE,
     H_NAME,
+    WH_LOCATION,
     H_PRICE,
     H_FOOD,
     H_MIN,
@@ -145,6 +146,7 @@ FROM
         WH_CODE,
         H_CODE,
         H_NAME,
+        WH_LOCATION,
         H_PRICE,
         H_FOOD,
         H_MIN,
@@ -154,27 +156,31 @@ FROM
         REZCOUNT
     FROM 
         (SELECT
-            WH_CODE,
-            H_CODE,
-            NVL(H_NAME, '') H_NAME,
-            NVL(H_PRICE, 0) H_PRICE,
-            NVL(H_FOOD, 0) H_FOOD,
-            NVL(H_MIN, 0) H_MIN,
-            NVL(H_MAX, 0) H_MAX,
-            NVL(H_CONTENT, '') H_CONTENT,
-            NVL(H_IMGNAME, '') H_IMGNAME,
-            NVL(REZCOUNT, 0) REZCOUNT
+            A.WH_CODE WH_CODE,
+            A.H_CODE H_CODE,
+            NVL(A.H_NAME, '') H_NAME,
+            NVL(B.WH_LOCATION, '') WH_LOCATION,
+            NVL(TO_CHAR(A.H_PRICE, '999,999,999,999'), 0) H_PRICE,
+            NVL(A.H_FOOD, 0) H_FOOD,
+            NVL(A.H_MIN, 0) H_MIN,
+            NVL(A.H_MAX, 0) H_MAX,
+            NVL(A.H_CONTENT, '') H_CONTENT,
+            NVL(A.H_IMGNAME, '') H_IMGNAME,
+            NVL(A.REZCOUNT, 0) REZCOUNT
         FROM
-            WD_HALL
- <if test='WHCode != null and WHCode != ""'>
+			WD_HALL A, WD_WEDDINGHALL B
+
         WHERE 
+			A.WH_CODE = B.WH_CODE
+ <if test='WHCode != null and WHCode != ""'>
+ 		AND
             WH_CODE = #{WHCode}
  </if>
         ORDER BY WH_CODE ASC, H_CODE ASC))
 WHERE
-    RNUM <![CDATA[>=]]> 1
+    RNUM <![CDATA[>=]]> #{startRow}
 AND
-    RNUM <![CDATA[<=]]> 5
+    RNUM <![CDATA[<=]]> #{endRow}
 </select>
 <!-- 홀 리스트 끝 -->
 

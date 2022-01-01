@@ -96,7 +96,7 @@ function fn_loginCheck()
 				
 				if(code == 0)
 				{
-					location.href = "/index";
+					location.href = "/"";
 				}
 				else
 				{

@@ -3,8 +3,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<%@ include file="/WEB-INF/views/include/head.jsp" %>
-</head>   
+<%@ include file="/WEB-INF/views/include/head.jsp" %>
+<script>
+$(document).ready(function(){
+	//조회버튼클릭. 조회항목,조회값,현재커런트페이지에 대한 정보 가져가기
+	$("#btnSearch").on("click", function(){
+		document.bbsForm.sCode.value = "";
+		document.bbsForm.searchType.value = $("#_searchType").val();
+		document.bbsForm.searchValue.value = $("#_searchValue").val();
+		document.bbsForm.curPage.value = 1;
+		document.bbsForm.action = "/hsdm/studio";
+		document.bbsForm.submit();
+	});
+	
+});
+
+function fn_view(sCode)
+{
+	document.bbsForm.sCode.value = sCode; //실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
+	document.bbsForm.action = "/hsdm/studio";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
+	document.bbsForm.submit();
+}     
+
+function fn_list(curPage)
+{
+   document.bbsForm.sCode.value = "";
+   document.bbsForm.curPage.value = curPage;
+   document.bbsForm.action = "/hsdm/studio";
+   document.bbsForm.submit();
+}
+</script>  
+</head> 
 <body>
 	<!-- 메뉴바 시작 -->
 	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
@@ -42,18 +71,18 @@
                                 <div class="col-lg-7">
                                     <div class="row">
                                         <div class="col-lg-3">
-                                            <select value="searchType">
+                                            <select value="searchType" name="_searchType" id="_searchType">
                                             	<option value="">조회 항목</option>
-                                                <option name="sd_name" id="sd_name">스튜디오명</option>
-                                                <option name="location" id="location">지역</option>
+                                                <option value="1" <c:if test="${searchType eq '1'}">selected</c:if>>스튜디오명</option>
+                                                <option value="2" <c:if test="${searchType eq '2'}">selected</c:if>>지역</option>
                                             </select>
                                         </div>
                                         <div class="col-lg-6">
-                                            <input type="text" name="_searchValue" id="_searchValue" value="" maxlength="25" class="svalue" placeholder="조회값을 입력하세요." />
+                                            <input type="text" name="_searchValue" id="_searchValue" value="${searchValue}" maxlength="25" class="svalue" placeholder="조회값을 입력하세요." />
                                         </div>
                                         <div class="col-lg-3">
                                             <fieldset>
-                                            <button type="submit" id="form-submit" class="main-dark-button">Submit</button>
+                                            <button type="submit" id="btnSearch" class="main-dark-button">Submit</button>
                                             </fieldset>
                                         </div>
                                         
@@ -68,18 +97,67 @@
                         <h2>Studio</h2>
                     </div>
                 </div>
+<c:if test="${!empty list}">        
+	<c:forEach var="wdStudio" items="${list}" varStatus="status">
                 <div class="col-lg-4">
                     <div class="ticket-item">
                         <div class="thumb">
-                            <img src="../resources/images/S01.jpg" alt="">
+                            <img src="../resources/images/studio/${wdStudio.sImgname}" alt="">
                         </div>
                         <div class="down-content">
-                        	<div class="sd_title">봉 스튜디오</div>
-                            <div class="sd_detail">스튜디오 느낌과 자연적인 느낌을 동시에 연출할 수 있는 스튜디오</div>
+                        	<div class="sd_title"><c:out value="${wdStudio.sName}" /></div>
                             <ul>
-                                <li class="price">550,000원</li>
-                                <li><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로40번길 124-27</li>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i><c:out value="${wdStudio.sLocation}" /></li>
+                            </ul>
+                                <div class="sd_detail"><c:out value="${wdStudio.sContent}" /></div>
+                            <ul>    
+                                <li class="price"><c:out value="${wdStudio.sPrice}" />원</li>
+                                <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
+                            </ul>
+                            <div class="main-dark-button">
+                                <a href="ticket-details.html">스튜디오 자세히보기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+	</c:forEach>
+</c:if>           
+<!-- 
+              <div class="col-lg-4">
+                   <div class="ticket-item">
+                       <div class="thumb">
+                       <img src="../resources/images/studio/${wdStudio.sImgname}" alt="">
+                       </div>
+                       <div class="down-content">
+                       	<div class="sd_title">봉 스튜디오</div>
+                           <ul>
+                               <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로40번길 124-27</li>
+                           </ul>
+                               <div class="sd_detail">스튜디오 느낌과 자연적인 느낌을 동시에 연출할 수 있는 스튜디오</div>
+                           <ul>    
+                               <li class="price">550,000원</li>
+                               <li><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
+                           </ul>
+                           <div class="main-dark-button">
+                               <a href="ticket-details.html">스튜디오 자세히보기</a>
+                           </div>
+                       </div>
+                   </div>
+               </div>                         
+               <div class="col-lg-4">
+                    <div class="ticket-item">
+                        <div class="thumb">
+                            <img src="../resources/images/S02.jpg" alt="">
+                        </div>
+                        <div class="down-content">
+                        	<div class="sd_title">마이퍼스트레이디</div>
+                            <ul>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>서울 강남구 압구정로60길 26 청담힐사이드빌딩 5F</li>
+                            </ul>
+                                <div class="sd_detail">컨셉이 다양하고 자연스러운 스냅느낌 촬영이 가능한 스튜디오</div>
+                            <ul>    
+                                <li class="price">680,000원</li>
+                                <li><span class="discount">38%</span> <span class="dis-price">421,600원</span></li>
                             </ul>
                             <div class="main-dark-button">
                                 <a href="ticket-details.html">스튜디오 자세히보기</a>
@@ -90,53 +168,59 @@
                 <div class="col-lg-4">
                     <div class="ticket-item">
                         <div class="thumb">
-                            <img src="../resources/images/S02.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                        	<div class="sd_title">마이퍼스트레이디</div>
-                            <div class="sd_detail">컨셉이 다양하고 자연스러운 스냅느낌 촬영이 가능한 스튜디오</div>
-                            <ul>
-                                <li class="price">680,000원</li>
-                                <li><span class="discount">38%</span> <span class="dis-price">421,600원</span></li>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>서울 강남구 압구정로60길 26 청담힐사이드빌딩 5F</li>
-                            </ul>
-                            <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>                
-                <div class="col-lg-4">
-                    <div class="ticket-item">
-                        <div class="thumb">
                             <img src="../resources/images/S03.jpg" alt="">
                         </div>
                         <div class="down-content">
                         	<div class="sd_title">그림비(세미 스튜디오)</div>
-                            <div class="sd_detail">세미촬영 - 심플한 배경과 스냅느낌이 공존하는 스튜디오</div>
                             <ul>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로37번길 64 1층</li>
+                            </ul>
+                                <div class="sd_detail">세미촬영 - 심플한 배경과 스냅느낌이 공존하는 스튜디오</div>
+                            <ul>    
                                 <li class="price">850,000원</li>
                                 <li><span class="discount">32%</span> <span class="dis-price">780,000원</span></li>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로37번길 64 1층</li>
                             </ul>
                             <div class="main-dark-button">
                                 <a href="ticket-details.html">스튜디오 자세히보기</a>
                             </div>
                         </div>
                     </div>
-                </div>                
-                <div class="col-lg-4">
+                </div>
+                 <div class="col-lg-4">
                     <div class="ticket-item">
                         <div class="thumb">
                             <img src="../resources/images/S01.jpg" alt="">
                         </div>
                         <div class="down-content">
                         	<div class="sd_title">봉 스튜디오</div>
-                            <div class="sd_detail">스튜디오 느낌과 자연적인 느낌을 동시에 연출할 수 있는 스튜디오</div>
                             <ul>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로40번길 124-27</li>
+                            </ul>
+                                <div class="sd_detail">스튜디오 느낌과 자연적인 느낌을 동시에 연출할 수 있는 스튜디오</div>
+                            <ul>    
                                 <li class="price">550,000원</li>
                                 <li><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로40번길 124-27</li>
+                            </ul>
+                            <div class="main-dark-button">
+                                <a href="ticket-details.html">스튜디오 자세히보기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+                <div class="col-lg-4">
+                    <div class="ticket-item">
+                        <div class="thumb">
+                            <img src="../resources/images/S02.jpg" alt="">
+                        </div>
+                        <div class="down-content">
+                        	<div class="sd_title">마이퍼스트레이디</div>
+                            <ul>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>서울 강남구 압구정로60길 26 청담힐사이드빌딩 5F</li>
+                            </ul>
+                                <div class="sd_detail">컨셉이 다양하고 자연스러운 스냅느낌 촬영이 가능한 스튜디오</div>
+                            <ul>    
+                                <li class="price">680,000원</li>
+                                <li><span class="discount">38%</span> <span class="dis-price">421,600원</span></li>
                             </ul>
                             <div class="main-dark-button">
                                 <a href="ticket-details.html">스튜디오 자세히보기</a>
@@ -147,41 +231,24 @@
                 <div class="col-lg-4">
                     <div class="ticket-item">
                         <div class="thumb">
-                            <img src="../resources/images/S02.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                        	<div class="sd_title">마이퍼스트레이디</div>
-                            <div class="sd_detail">컨셉이 다양하고 자연스러운 스냅느낌 촬영이 가능한 스튜디오</div>
-                            <ul>
-                                <li class="price">680,000원</li>
-                                <li><span class="discount">38%</span> <span class="dis-price">421,600원</span></li>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>서울 강남구 압구정로60길 26 청담힐사이드빌딩 5F</li>
-                            </ul>
-                            <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>                
-                <div class="col-lg-4">
-                    <div class="ticket-item">
-                        <div class="thumb">
                             <img src="../resources/images/S03.jpg" alt="">
                         </div>
                         <div class="down-content">
                         	<div class="sd_title">그림비(세미 스튜디오)</div>
-                            <div class="sd_detail">세미촬영 - 심플한 배경과 스냅느낌이 공존하는 스튜디오</div>
                             <ul>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로37번길 64 1층</li>
+                            </ul>
+                                <div class="sd_detail">세미촬영 - 심플한 배경과 스냅느낌이 공존하는 스튜디오</div>
+                            <ul>    
                                 <li class="price">850,000원</li>
                                 <li><span class="discount">32%</span> <span class="dis-price">780,000원</span></li>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로37번길 64 1층</li>
                             </ul>
                             <div class="main-dark-button">
                                 <a href="ticket-details.html">스튜디오 자세히보기</a>
                             </div>
                         </div>
                     </div>
-                </div>                
+                </div>                          
                 <div class="col-lg-4">
                     <div class="ticket-item">
                         <div class="thumb">
@@ -189,11 +256,34 @@
                         </div>
                         <div class="down-content">
                         	<div class="sd_title">봉 스튜디오</div>
-                            <div class="sd_detail">스튜디오 느낌과 자연적인 느낌을 동시에 연출할 수 있는 스튜디오</div>
                             <ul>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로40번길 124-27</li>
+                            </ul>
+                                <div class="sd_detail">스튜디오 느낌과 자연적인 느낌을 동시에 연출할 수 있는 스튜디오</div>
+                            <ul>    
                                 <li class="price">550,000원</li>
                                 <li><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로40번길 124-27</li>
+                            </ul>
+                            <div class="main-dark-button">
+                                <a href="ticket-details.html">스튜디오 자세히보기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+                <div class="col-lg-4">
+                    <div class="ticket-item">
+                        <div class="thumb">
+                            <img src="../resources/images/S02.jpg" alt="">
+                        </div>
+                        <div class="down-content">
+                        	<div class="sd_title">마이퍼스트레이디</div>
+                            <ul>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>서울 강남구 압구정로60길 26 청담힐사이드빌딩 5F</li>
+                            </ul>
+                                <div class="sd_detail">컨셉이 다양하고 자연스러운 스냅느낌 촬영이 가능한 스튜디오</div>
+                            <ul>    
+                                <li class="price">680,000원</li>
+                                <li><span class="discount">38%</span> <span class="dis-price">421,600원</span></li>
                             </ul>
                             <div class="main-dark-button">
                                 <a href="ticket-details.html">스튜디오 자세히보기</a>
@@ -204,55 +294,60 @@
                 <div class="col-lg-4">
                     <div class="ticket-item">
                         <div class="thumb">
-                            <img src="../resources/images/S02.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                        	<div class="sd_title">마이퍼스트레이디</div>
-                            <div class="sd_detail">컨셉이 다양하고 자연스러운 스냅느낌 촬영이 가능한 스튜디오</div>
-                            <ul>
-                                <li class="price">680,000원</li>
-                                <li><span class="discount">38%</span> <span class="dis-price">421,600원</span></li>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>서울 강남구 압구정로60길 26 청담힐사이드빌딩 5F</li>
-                            </ul>
-                            <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>                
-                <div class="col-lg-4">
-                    <div class="ticket-item">
-                        <div class="thumb">
                             <img src="../resources/images/S03.jpg" alt="">
                         </div>
                         <div class="down-content">
                         	<div class="sd_title">그림비(세미 스튜디오)</div>
-                            <div class="sd_detail">세미촬영 - 심플한 배경과 스냅느낌이 공존하는 스튜디오</div>
                             <ul>
+                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로37번길 64 1층</li>
+                            </ul>
+                                <div class="sd_detail">세미촬영 - 심플한 배경과 스냅느낌이 공존하는 스튜디오</div>
+                            <ul>    
                                 <li class="price">850,000원</li>
                                 <li><span class="discount">32%</span> <span class="dis-price">780,000원</span></li>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로37번길 64 1층</li>
                             </ul>
                             <div class="main-dark-button">
                                 <a href="ticket-details.html">스튜디오 자세히보기</a>
                             </div>
                         </div>
                     </div>
-                </div>                
-
+                </div>  -->
+                
+                 
                 <div class="col-lg-12">
                     <div class="pagination">
                         <ul>
-                            <li><a href="#">Prev</a></li>
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">Next</a></li>
+				<c:if test="${!empty paging}">
+					<c:if test="${paging.prevBlockPage gt 0}">                         
+                            <li><a  class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.prevBlockPage})">Prev</a></li>
+					</c:if>
+				    <c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">
+				    	<c:choose>
+				    		<c:when test="${i ne curPage}">
+    		         		<li class="active page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${i})">${i}</a></li>
+							</c:when>
+							<c:otherwise>
+											<li class="page-item active"><a class="page-link" href="javascript:void(0)" style="cursor:default;">${i}</a></li>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				 	<c:if test="${paging.nextBlockPage gt 0}">        
+         					<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.nextBlockPage})">Next</a></li>
+					</c:if>
+				</c:if>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
+        
+		<form name="bbsForm" id="bbsForm" method="post">
+			<input type="hidden" name="sCode" value="" /> <!-- 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
+			<input type="hidden" name="searchType" value="${searchType}" />
+			<input type="hidden" name="searchValue" value="${searchValue}" />
+			<input type="hidden" name="curPage" value="${curPage}" />
+		</form>
+
     </div>
     
 <!-- ############################ 여기까지 내용 끝 ############################ -->
