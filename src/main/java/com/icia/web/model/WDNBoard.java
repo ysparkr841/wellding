@@ -6,11 +6,11 @@ public class WDNBoard implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	
-	private int bSeq;			//게시판 번호
+	private long bSeq;			//게시판 번호
 	private String adminId;		//게시자 아이디
 	private String bTitle;		//게시물 제목
 	private String bContent;	//게시물 내용
-	private int bReadCnt;		//조회수
+	private long bReadCnt;		//조회수
 	private String regDate;		//등록일
 	
 	private String searchType;	//검색타입 (1: 제목)
@@ -75,11 +75,11 @@ public class WDNBoard implements Serializable
 		this.searchValue = searchValue;
 	}
 
-	public int getbSeq() {
+	public long getbSeq() {
 		return bSeq;
 	}
 
-	public void setbSeq(int bSeq) {
+	public void setbSeq(long bSeq) {
 		this.bSeq = bSeq;
 	}
 
@@ -107,11 +107,11 @@ public class WDNBoard implements Serializable
 		this.bContent = bContent;
 	}
 
-	public int getbReadCnt() {
+	public long getbReadCnt() {
 		return bReadCnt;
 	}
 
-	public void setbReadCnt(int bReadCnt) {
+	public void setbReadCnt(long bReadCnt) {
 		this.bReadCnt = bReadCnt;
 	}
 

@@ -148,7 +148,6 @@ public class IndexController
 
 		return "/board/login";
 	}
-	
 }
 
 

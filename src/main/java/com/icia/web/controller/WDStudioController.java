@@ -37,7 +37,7 @@ public class WDStudioController
 	
 	
 	private static final int LIST_COUNT = 9;
-	private static final int PAGE_COUNT = 10;
+	private static final int PAGE_COUNT = 3;
 	
 	///화면뿌리기
 	@RequestMapping(value="/hsdm/studio")
