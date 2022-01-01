@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.icia.web.model.WDNBoard">
+<mapper namespace="com.icia.web.dao.WDNBoardDao">
 <!-- 공지사항 resultMap 시작 -->
-<resultMap id="WDNBoardResultMap" type="com.icia.web.model.WDNBoard">
+<resultMap id="wdNBoardResultMap" type="com.icia.web.model.WDNBoard">
 	<id column="B_SEQ" property="bSeq" />
 	<result column="ADMIN_ID" property="adminId" />
 	<result column="B_TITLE" property="bTitle" />
@@ -13,7 +13,7 @@
 <!-- 공지사항 resultMap 종료 -->
 
 <!-- 공지사항 리스트 시작 -->
-<select id="nBoardList" parameterType="com.icia.web.model.WDNBoard" resultMap="WDNBoardResultMap">
+<select id="nBoardList" parameterType="com.icia.web.model.WDNBoard" resultMap="wdNBoardResultMap">
 SELECT
     B_SEQ,
     ADMIN_ID,
@@ -38,19 +38,21 @@ FROM (SELECT
                     NVL(TO_CHAR(REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') REG_DATE
                 FROM
                     WD_NBOARD
-               WHERE 1=1
+               WHERE
+               		1 = 1
 <if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
 	<choose>
 		<when test='searchType == "1"'>
-   			AND B_TITLE LIKE '%' || #{searchValue} || '%'
+   			   AND
+   			        B_TITLE LIKE '%' || #{searchValue} || '%'
    		</when>
    	</choose>
 </if>
                     ORDER BY B_SEQ DESC))
 WHERE
-
-      RNUM <![CDATA[<=]]> 5
-  AND RNUM <![CDATA[>=]]> 1
+	RNUM <![CDATA[>=]]> #{startRow}
+AND
+	RNUM <![CDATA[<=]]> #{endRow}
 </select>
 <!-- 공지사항 리스트 종료 -->
 
@@ -60,11 +62,13 @@ SELECT
     COUNT(B_SEQ) AS CNT
   FROM
     WD_NBOARD
- WHERE 1=1
+ WHERE
+ 	1 = 1
 <if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
 	<choose>
 		<when test='searchType == "1"'>
-   			AND B_TITLE LIKE '%' || #{searchValue} || '%'
+   AND
+   			    B_TITLE LIKE '%' || #{searchValue} || '%'
    		</when>
    	</choose>
 </if>
@@ -72,7 +76,7 @@ SELECT
 <!-- 공지사항 총 수 끝 -->
 
 <!-- 공지사항 조회 시작 -->
-<select id="nBoardSelect" parameterType="long" resultMap="WDNBoardResultMap">
+<select id="nBoardSelect" parameterType="long" resultMap="wdNBoardResultMap">
 SELECT
     B_SEQ,
     NVL(ADMIN_ID, '') ADMIN_ID,
@@ -82,14 +86,7 @@ SELECT
     NVL(TO_CHAR(REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') REG_DATE
 FROM
     WD_NBOARD
-WHERE 1=1
-<if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
-	<choose>
-		<when test='searchType == "1"'>
-   			AND B_TITLE LIKE '%' || #{searchValue} || '%'
-   		</when>
-   	</choose>
-</if>
+WHERE
     B_SEQ = #{value}
 </select>
 <!-- 공지사항 조회 끝 -->

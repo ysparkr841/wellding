@@ -91,7 +91,7 @@ public class WDEBoardController
 				
 				if(wdEBoard !=null) 
 				{
-					return "./index";
+					return "/index";
 				}
 			}
 			model.addAttribute("eBSeq", eBSeq);

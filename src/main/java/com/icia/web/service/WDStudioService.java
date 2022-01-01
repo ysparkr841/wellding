@@ -15,13 +15,13 @@ import com.icia.web.model.WDStudio;
 public class WDStudioService 
 {
 	private static Logger logger = LoggerFactory.getLogger(WDStudioService.class);
+
+	@Autowired
+	private WDStudioDao wdStudiodao;
 	
 	//파일저장 디렉토리
 	@Value("#{env['upload.save.dir']}")
 	private String UPLOAD_SAVE_DIR;
-	
-	@Autowired
-	private WDStudioDao wdStudiodao;
 	
 	//총 게시물 수
 	public long studioListCount(WDStudio wdStudio)

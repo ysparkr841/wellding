@@ -51,7 +51,7 @@ public class WDNBoardService
 		
 		return list;
 	}
-	
+	/*
 	//게시물 조회
 	public WDNBoard nBoardSelect(long bSeq)
 	{//한건만 조회하기 때문에 리턴타입은 WDNBoard
@@ -68,6 +68,6 @@ public class WDNBoardService
 		
 		return wdNBoard;
 	}
-	
+	*/
 	
 }

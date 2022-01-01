@@ -37,7 +37,7 @@ public class WDFBoardController
 	private static final int LIST_COUNT = 5;
 	private static final int PAGE_COUNT = 5;
 	
-	@RequestMapping(value="/board/fboard")
+	@RequestMapping(value="/board/fBoard")
 	public String list(ModelMap model, HttpServletRequest request, HttpServletResponse response) 
 	{
 		String searchType = HttpUtil.get(request, "searchType", "");
@@ -88,6 +88,6 @@ public class WDFBoardController
 		model.addAttribute("curPage", curPage);
 		model.addAttribute("paging", paging);
 		
-		return "/board/fboard";
+		return "/board/fBoard";
 	}
 }

@@ -93,8 +93,8 @@ FROM(
       </when>
    </choose>                 
 </if>                 
-                ORDER BY 
-                    A.B_GROUP DESC, A.B_ORDER ASC))
+				ORDER BY
+					B_SEQ ASC))
 WHERE 
     RNUM <![CDATA[>=]]> #{startRow}
 AND 

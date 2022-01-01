@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icia.web.dao.WDDressDao">
+
+<!-- 드레스 resultMap 시작 -->
+<resultMap id="WDDressResultMap" type="com.icia.web.model.WDDress">
+	<id column="DC_CODE" property="dcCode"/>
+	<id column="D_NO" property="dNo"/>
+	<result column="DC_NAME" property="dcName"/>
+	<result column="D_NAME" property="dName"/>
+	<result column="DC_LOCATION" property="dcLocation"/>
+	<result column="DC_NUMBER" property="dcNumber"/>
+	<result column="D_IMGNAME" property="dImgname"/>
+	<result column="D_PRICE" property="dPrice"/>
+	<result column="D_CONTENT" property="dContent"/>
+</resultMap>
+<!-- 드레스 resultMap 끝 -->
+
+<!-- 첨부파일 
+<resultMap id="WDDressFileMap" type="com.icia.web.model.WDDressFile">
+	<id column="D_SEQ" property="dSeq" />
+	<id column="D_CODE" property="dCode" />
+	<result column="D_FILE_SEQ" property="dFileSeq" />
+	<result column="D_FILE_NAME" property="dfileName" />
+	<result column="D_FILE_ORG_NAME" property="dFileOrgName" />
+	<result column="D_FILE_EXT" property="dFileExt" />
+	<result column="D_FILE_SIZE" property="dFileSize" />
+	<result column="REG_DATE" property="regDate" />
+</resultMap>
+ 첨부파일 -->
+
+<!-- 드레스 조회 시작 -->
+<select id="dressList" parameterType="com.icia.web.model.WDDress" resultMap="WDDressResultMap">
+SELECT
+    DC_CODE,
+    D_NO,
+    DC_NAME
+    D_NAME,
+    DC_LOCATION,
+    DC_NUMBER,
+    D_IMGNAME,
+    D_PRICE,
+    D_CONTENT
+FROM (SELECT 
+            ROWNUM AS RNUM,
+            DC_CODE,
+            D_NO,
+            DC_NAME,
+            D_NAME,
+            DC_LOCATION,
+            DC_NUMBER,
+            D_IMGNAME,
+            D_PRICE,
+            D_CONTENT
+        FROM (SELECT
+                    A.DC_CODE AS DC_CODE,
+                    A.D_NO AS D_NO,
+                    NVL(B.DC_NAME, '') AS DC_NAME,
+                    NVL(A.D_NAME, '') AS D_NAME,
+                    NVL(B.DC_LOCATION, '') AS DC_LOCATION,
+                    NVL(B.DC_NUMBER, '') AS DC_NUMBER,
+                    NVL(A.D_IMGNAME, '') AS D_IMGNAME,
+                    NVL(A.D_PRICE, 0) AS D_PRICE,
+                    NVL(A.D_CONTENT, '') AS D_CONTENT
+                FROM
+                    WD_DRESS A, WD_DRESS_COM B
+<if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
+   <choose>                
+      <when test='searchType == "1"'> 
+                AND
+                    A.D_NAME LIKE '%' || #{searchValue} || '%'
+      </when>
+      <when test='searchType == "2"'>
+                AND 
+                    B.DC_LOCATION LIKE '%' || #{searchValue} || '%'
+		</when>
+	</choose>
+</if> 
+                ORDER BY A.DC_CODE ASC, A.D_NO DESC)) 
+WHERE
+    RNUM <![CDATA[>=]]> #{startRow}
+AND
+    RNUM <![CDATA[<=]]> #{endRow}
+</select>
+<!-- 드레스 조회 끝 -->
+
+<!-- 드레스 총 수 시작 -->
+<select id="dressListCount" parameterType="com.icia.web.model.WDDress" resultType="long">
+SELECT
+    COUNT(A.D_NO) CNT
+FROM
+    WD_DRESS A, WD_DRESS_COM B
+WHERE
+    A.DC_CODE = B.DC_CODE
+<if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
+   	<choose>                
+      	<when test='searchType == "1"'> 
+AND
+    B.DC_NAME LIKE '%' || #{searchValue} || '%'
+      	</when>
+      	<when test='searchType == "2"'>
+AND
+    B.DC_LOCATION LIKE '%' || #{searchValue} || '%'
+   		</when>
+	</choose>
+</if>
+</select>
+<!-- 드레스 총 수 끝 -->
+
+</mapper>
