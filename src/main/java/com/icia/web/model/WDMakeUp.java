@@ -47,6 +47,7 @@ public class WDMakeUp implements Serializable{
 		searchValue = "";
 		startRow = 0;
 		endRow = 0;
+		wdMakeUpFile = null;
 	}
 
 	public long getmCode() {
