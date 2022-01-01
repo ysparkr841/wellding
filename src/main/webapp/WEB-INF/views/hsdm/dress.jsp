@@ -115,7 +115,7 @@ function fn_list(curPage)
                                 <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
+                                <a href="ticket-details.html">드레스 예약하기</a>
                             </div>
                         </div>
                     </div>
@@ -123,7 +123,7 @@ function fn_list(curPage)
 	</c:forEach>
 </c:if>        
 
-               <div class="col-lg-4">
+ <!--               <div class="col-lg-4">
                     <div class="ticket-item">
                         <div class="thumb4">
                             <img src="../resources/images/dress/D0001.jpg" alt="">
@@ -143,7 +143,7 @@ function fn_list(curPage)
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
                 
                 <div class="col-lg-12">
                     <div class="pagination">
