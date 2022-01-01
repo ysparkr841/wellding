@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.icia.web.model.WDNBoard">
+<mapper namespace="com.icia.web.dao.WDNBoardDao">
 <!-- 공지사항 resultMap 시작 -->
 <resultMap id="wdNBoardResultMap" type="com.icia.web.model.WDNBoard">
 	<id column="B_SEQ" property="bSeq" />
@@ -39,18 +39,20 @@ FROM (SELECT
                 FROM
                     WD_NBOARD
                WHERE
+               		1 = 1
 <if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
 	<choose>
 		<when test='searchType == "1"'>
+   			   AND
    			        B_TITLE LIKE '%' || #{searchValue} || '%'
    		</when>
    	</choose>
 </if>
                     ORDER BY B_SEQ DESC))
 WHERE
-	RNUM <![CDATA[<=]]> #{startRow}
+	RNUM <![CDATA[>=]]> #{startRow}
 AND
-	RNUM <![CDATA[>=]]> #{endRow}
+	RNUM <![CDATA[<=]]> #{endRow}
 </select>
 <!-- 공지사항 리스트 종료 -->
 
@@ -61,9 +63,11 @@ SELECT
   FROM
     WD_NBOARD
  WHERE
+ 	1 = 1
 <if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
 	<choose>
 		<when test='searchType == "1"'>
+   AND
    			    B_TITLE LIKE '%' || #{searchValue} || '%'
    		</when>
    	</choose>

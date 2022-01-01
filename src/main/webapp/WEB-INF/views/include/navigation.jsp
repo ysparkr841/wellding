@@ -79,8 +79,8 @@
                                 <a class="suba" href="#">What's New</a>
                                 <ul>
 
-                                    <li class="subul"><a href="/board/eboard" class="sub">Event</a></li>
-                                    <li class="subul"><a href="shows-events.html" class="sub">Notice</a></li>
+                                    <li class="subul"><a href="/board/eBoard" class="sub">Event</a></li>
+                                    <li class="subul"><a href="/board/nBoard" class="sub">Notice</a></li>
                                 </ul>
                             </li> 
                             <li class="sub1">

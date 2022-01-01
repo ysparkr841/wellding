@@ -77,6 +77,8 @@ public class WDNBoardController
 			list = wdNBoardService.nBoardList(search);			
 		}
 		
+		logger.debug("list.size() : "+list.size());
+		
 		model.addAttribute("list", list);
 		model.addAttribute("searchType", searchType);
 		model.addAttribute("searchValue", searchValue);
