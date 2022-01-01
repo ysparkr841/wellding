@@ -45,7 +45,7 @@ import com.icia.web.util.CookieUtil;
 @Controller("indexController")
 public class IndexController
 {
-	private static Logger logger = LoggerFactory.getLogger(IndexController.class);
+   private static Logger logger = LoggerFactory.getLogger(IndexController.class);
 
 	//쿠키명
 	@Value("#{env['auth.cookie.name']}")
@@ -134,13 +134,12 @@ public class IndexController
 		
 		return "/index";
 	}
-	
-	@RequestMapping(value="/board/login", method=RequestMethod.GET)
-	public String loginForm(HttpServletRequest request, HttpServletResponse response)
-	{
 
-		return "/board/login";
-	}
+   @RequestMapping(value="/board/login", method=RequestMethod.GET)
+   public String loginForm(HttpServletRequest request, HttpServletResponse response)
+   {
+
+      return "/board/login";
+   }
 }
-
 

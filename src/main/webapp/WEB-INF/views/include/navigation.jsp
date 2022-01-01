@@ -72,7 +72,7 @@
                                 <ul>
                                     <li class="subul"><a href="/hsdm/studio" class="sub">Studio</a></li>
                                     <li class="subul"><a href="rent-venue.html" class="sub">MakeUp</a></li>
-                                    <li class="subul"><a href="rent-venue.html" class="sub">Dress</a></li>
+                                    <li class="subul"><a href="/hsdm/dress" class="sub">Dress</a></li>
                                 </ul>
                             </li>
                             <li class="sub1">
