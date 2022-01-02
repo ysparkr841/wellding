@@ -140,25 +140,7 @@ public class IndexController
    {
 	   
 		
-		return "/board/login";
-	}
 	
-	
-	@RequestMapping(value="/board/fBoard", method=RequestMethod.GET)
-	public String eBoard(HttpServletRequest request, HttpServletResponse response) 
-	{
-		return "/board/fBoard";
-	}
-	
-	/**** 스튜디오 ****/
-	@RequestMapping(value="/hsdm/studio", method=RequestMethod.GET)
-	public String studio(HttpServletRequest request, HttpServletResponse response)
-	{
-		
-		
-		return "/hsdm/studio";
-
-	}
 	
 	/*회원가입폼*/
 	@RequestMapping(value="/board/regform", method=RequestMethod.GET)

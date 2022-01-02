@@ -69,7 +69,9 @@
             			<value>/board/eBoard</value>
             			<value>/hsdm/studio</value>
             			<value>/board/fBoard</value>
-            			<value>/hsdm/halllist</value>            			
+            			<value>/hsdm/halllist</value>  
+            			<value>/hsdm/dress</value>
+            			<value>/imokay</value>          			
 
             		</list>
             	</constructor-arg>

@@ -7,7 +7,10 @@
 </head> 
     <body>  
     <!-- 메뉴바 시작 -->
-    	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
+    	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
+
+    	<jsp:param name="userName" value="${wdUser.userNickname}" />
+    	</jsp:include>
     <!-- 메뉴바 종료 -->
 
     <!-- ***** Main Banner Area Start ***** -->
