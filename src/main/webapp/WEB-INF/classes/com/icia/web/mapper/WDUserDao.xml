@@ -7,11 +7,12 @@
 	<result column="U_PWD" property="userPwd" />  
 	<result column="U_NAME" property="userName" />
 	<result column="U_NICKNAME" property="userNickname" />
+	<result column="U_NUMBER" property="userNumber" />
 	<result column="U_EMAIL" property="userEmail" />
 	<result column="U_GENDER" property="userGender" />
 	<result column="U_STATUS" property="status" />
 	<result column="REG_DATE" property="regDate" />
-	<result column="U_MARRTDATE" property="marrtDate" />
+	<result column="U_MARRTDATE" property="marryDate" />
 	<result column="U_POINT" property="userPoint" />
 
 </resultMap>
@@ -32,7 +33,7 @@ SELECT
 FROM
     WD_USER
 WHERE 
-    USER_ID = #{value};
+    USER_ID = #{value}
 </select>
 
 

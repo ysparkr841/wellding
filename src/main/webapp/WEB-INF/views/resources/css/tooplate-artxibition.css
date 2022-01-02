@@ -2760,17 +2760,15 @@ Shows Events Page
 
 .tickets-page .ticket-item .thumb4 {
   position: relative;
-  height: 255px;
+  height: 450px;
   overflow: hidden;
 }
 
 .tickets-page .ticket-item .thumb4 img {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
   overflow: hidden;
   position: absolute;
-  top: 0;
-  left: -4%;
 }
 
 .tickets-page .ticket-item .thumb4 .price {
