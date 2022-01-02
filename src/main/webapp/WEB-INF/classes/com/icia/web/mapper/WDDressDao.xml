@@ -64,6 +64,8 @@ FROM (SELECT
                     NVL(A.D_CONTENT, '') AS D_CONTENT
                 FROM
                     WD_DRESS A, WD_DRESS_COM B
+                WHERE
+                    A.DC_CODE = B.DC_CODE
 <if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
    <choose>                
       <when test='searchType == "1"'> 
