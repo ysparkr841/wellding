@@ -107,6 +107,7 @@ function fn_list(curPage)
                             <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
                         </div>
                         <div class="down-content">
+                        	<div class="sd_title1"><c:out value="${wdDress.dcName}" /></div>
                         	<div class="sd_title"><c:out value="${wdDress.dName}" /></div>
                             <ul>
                                 <li class="sd_adress"><i class="fa fa-map-marker"></i><c:out value="${wdDress.dcLocation}" /></li>

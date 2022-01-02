@@ -60,6 +60,8 @@ $(function(){
 		}
 		
 	});
+	
+
 });
 
 function fn_loginCheck()
@@ -195,7 +197,7 @@ function fn_loginCheck()
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button type="button" class="login100-form-btn" id="loginbtn">
+							<button type="button" id="loginbtn" class="login100-form-btn" id="loginbtn">
 								Login
 							</button>
 						</div>
