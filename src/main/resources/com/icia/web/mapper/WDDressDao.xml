@@ -60,7 +60,7 @@ FROM (SELECT
                     NVL(B.DC_LOCATION, '') AS DC_LOCATION,
                     NVL(B.DC_NUMBER, '') AS DC_NUMBER,
                     NVL(A.D_IMGNAME, '') AS D_IMGNAME,
-                    NVL(A.D_PRICE, 0) AS D_PRICE,
+                    NVL(TO_CHAR(A.D_PRICE, '999,999,999,999'), 0) AS D_PRICE,
                     NVL(A.D_CONTENT, '') AS D_CONTENT
                 FROM
                     WD_DRESS A, WD_DRESS_COM B
@@ -78,7 +78,8 @@ FROM (SELECT
 		</when>
 	</choose>
 </if> 
-                ORDER BY A.DC_CODE ASC, A.D_NO DESC)) 
+                 
+                ORDER BY A.D_NAME DESC)) 
 WHERE
     RNUM <![CDATA[>=]]> #{startRow}
 AND

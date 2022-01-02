@@ -108,12 +108,10 @@ function fn_list(curPage)
                         </div>
                         <div class="down-content">
                         	<div class="sd_title1"><c:out value="${wdDress.dcName}" /></div>
-                        	<div class="sd_title"><c:out value="${wdDress.dName}" /></div>
-                            <ul>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i><c:out value="${wdDress.dcLocation}" /></li>
-                            </ul>
-                                <div class="sd_detail"><c:out value="${wdDress.dContent}" /></div>
+                        	<div class="sd_title2"><c:out value="${wdDress.dName}" /></div>
+                            <div class="sd_detail"><c:out value="${wdDress.dContent}" /></div>
                             <ul>    
+                            	<!-- li class="sd_adress"><i class="fa fa-map-marker"></i><c:out value="${wdDress.dcLocation}" /></li-->
                                 <li class="price"><c:out value="${wdDress.dPrice}" />원</li>
                                 <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
                             </ul>

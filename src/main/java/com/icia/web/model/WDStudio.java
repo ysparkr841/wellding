@@ -8,7 +8,7 @@ public class WDStudio implements Serializable
 	
 	private String sCode;
 	private String sName;
-	private long sPrice;
+	private String sPrice;
 	private String sLocation;
 	private String sNumber;
 	private String sImgname;
@@ -26,7 +26,7 @@ public class WDStudio implements Serializable
 	{
 	    sCode = "";
 	    sName = "";
-	    sPrice = 0;
+	    sPrice = "";
 	    sLocation = "";
 	    sNumber = "";
 	    sImgname = "";
@@ -59,12 +59,12 @@ public class WDStudio implements Serializable
 	}
 
 
-	public long getsPrice() {
+	public String getsPrice() {
 		return sPrice;
 	}
 
 
-	public void setsPrice(long sPrice) {
+	public void setsPrice(String sPrice) {
 		this.sPrice = sPrice;
 	}
 
@@ -157,6 +157,5 @@ public class WDStudio implements Serializable
 	public void setWdStudoiFile(WDStudioFile wdStudoiFile) {
 		this.wdStudoiFile = wdStudoiFile;
 	}
-	
 	
 }
