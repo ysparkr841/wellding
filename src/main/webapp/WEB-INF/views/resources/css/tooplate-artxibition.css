@@ -466,7 +466,7 @@ a{ text-decoration: none; color: inherit; }
   display: inline-block;
   font-size: 13px;
   padding: 12px 18px;
-  background-color: #343a3e;
+  background-color: #103148;
   color: #fff;
   text-align: center;
   font-weight: 500;
@@ -1001,6 +1001,44 @@ banner
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
+ /*보현수정*/
+.coming-events {
+  /*background-color: #656c74;*/
+  background-color: #ffffff;/*rgb(240,238,236);*/
+  padding: 120px 0px;
+  position: relative;
+  background: linear-gradient(-45deg, #fff 25%, #f5e8e6 0, #f5e8e6 50%, #fff 0, #fff 75%, #f5e8e6 0);
+  background-size: 7px 7px;
+}
+
+.coming-events .left-button {
+  text-align: center;
+  position: absolute;
+  width: 9%;
+  height: auto;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(124,131,139,0.3);
+}
+
+.coming-events .left-button .main-white-button {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 50%;
+  margin-top: -22.5px;
+}
+
+.event-item .thumb img {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
+
 /*
 ---------------------------------------------
 보현수정 끝 : 베스트웨딩홀 
@@ -1438,6 +1476,94 @@ Venues & Tickets
 Coming Events
 ---------------------------------------------
 */
+/*** 베스트 웨딩홀 1231 ***/
+
+ /*보현수정*/
+.coming-events2 {
+  /*background-color: #656c74;*/
+  background-color: #ffffff;/*rgb(240,238,236);*/
+  padding: 120px 0px;
+  position: relative;
+  background: linear-gradient(-45deg, #fff 25%, #f5e8e6 0, #f5e8e6 50%, #fff 0, #fff 75%, #f5e8e6 0);
+  background-size: 7px 7px;
+}
+
+.coming-events2 .left-button {
+  text-align: center;
+  position: absolute;
+  width: 9%;
+  height: auto;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(124,131,139,0.3);
+}
+
+.coming-events2 .left-button .main-white-button {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 50%;
+  margin-top: -22.5px;
+}
+
+.event-item2 .thumb2 img {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
+
+.event-item2 .down-content2 {
+  background-color: /*#f3f3f3;*/#fff;
+  padding: 30px;
+}
+
+.event-item2 .down-content2 h4 {
+  font-size: 23px;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin-bottom: 25px;;
+ 
+}
+
+.event-item2 .down-content2 ul .main_location {
+  margin-bottom: 20px;
+  height: 40px;
+}
+
+.event-item2 .down-content2 ul .main_location p{
+    height: 40px;
+    position: absolute;
+    float: left;
+    margin-left: 22px;
+    width: 68%;
+}
+
+.event-item2 .down-content2 ul li {
+  font-size: 14px;
+  color: #2a2a2a;
+  font-weight: 300;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.event-item2 .down-content2 ul li:last-child {
+  margin-bottom: 0px;
+}
+
+.event-item2 .down-content2 ul li i {
+  width: 20px;
+  text-align: center;
+  font-size: 18px;
+  color: #899385;
+  display: inline-block;
+  float: left;
+  margin-right: 6px;
+}
+
+/**************************************/
 
  /*보현수정*/
 .coming-events {
@@ -1494,6 +1620,15 @@ Coming Events
   color: #2a2a2a;
   font-weight: 300;
   margin-bottom: 15px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.event-item .down-content ul li {
+  font-size: 14px;
+  color: #2a2a2a;
+  font-weight: 300;
+  margin-bottom: 0px;
   height: 40px;
   overflow: hidden;
 }
@@ -1615,7 +1750,7 @@ footer span{
 
 .innerbox
 {
-  max-width: 70%;
+  max-width: 75%;
   display: inline-block;
 }
 /*보현수정 끝*/
@@ -1994,10 +2129,10 @@ Rent Venue Page
 */
 
 .page-heading-rent-venue {
-  background-image: url(../images/rent_venue_bg.jpg);
+  background-image: url(../images/main001_1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 110px 0px;
+  padding: 180px 0px;
   text-align: center;
 }
 
@@ -2173,6 +2308,7 @@ Shows Events Page
 ---------------------------------------------
 */
 
+/** 스튜디오 메인 **/
 .page-heading-shows-events {
   background-image: url(../images/S80.jpg);
   background-size: cover;
@@ -2189,6 +2325,43 @@ Shows Events Page
   /*margin-bottom: 15px;*/
   font-family: 'Nanum Brush Script', cursive;
 }
+
+/** 홀 메인 **/
+.page-heading-shows-events2 {
+  background-image: url(../images/H26_1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 70px 0px;
+  text-align: center;
+  background-position: center 62%;
+}
+
+.page-heading-shows-events2 h2 {
+  font-size: 140px;
+  color: #fff;
+  font-weight: 500;
+  /*margin-bottom: 15px;*/
+  font-family: 'Nanum Brush Script', cursive;
+}
+
+/** 드레스 메인 **/
+.page-heading-shows-events3 {
+  background-image: url(../images/H26_1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 70px 0px;
+  text-align: center;
+  background-position: center 62%;
+}
+
+.page-heading-shows-events3 h2 {
+  font-size: 140px;
+  color: #fff;
+  font-weight: 500;
+  /*margin-bottom: 15px;*/
+  font-family: 'Nanum Brush Script', cursive;
+}
+
 /*
 .page-heading-shows-events span {
   font-size: 20px;
@@ -2414,7 +2587,7 @@ Shows Events Page
 
 /*
 ---------------------------------------------
-보현수정~~~~~~~~~~~~~~~~~
+보현수정~~~~~~~~~~~~~~~~~ .tickets-page가 스드메 상페임
 ---------------------------------------------
 */
 .back
@@ -2429,7 +2602,7 @@ Shows Events Page
 }
 
 .tickets-page .search-box {
-  background-color: #808080;
+  background-color: #edacb1;
   padding: 30px;
 }
 
@@ -2477,11 +2650,13 @@ Shows Events Page
 	color: #fff;
 }
 
+/** 여기저기 보현 수정 ,,, **/
+
 .tickets-page .search-box .main-dark-button {
   display: inline-block;
   font-size: 14px;
   padding: 12px 18px;
-  background-color: #343a3e;
+  background-color: #103148;
   color: #fff;
   text-align: center;
   font-weight: 500;
@@ -2501,17 +2676,23 @@ Shows Events Page
   font-weight: 800;
   color: #2a2a2a;
   text-align: center;
-  margin-top: 100px;
-  margin-bottom: 80px;
+  margin-top: 80px;
+  margin-bottom: 60px;
 }
-
+/** 여기저기 보현 수정 ,,, **/
 .tickets-page .ticket-item .thumb {
   position: relative;
+  height: 255px;
+  overflow: hidden;
 }
 
 .tickets-page .ticket-item .thumb img {
-  width: 100%;
+  height: 100%;
+  width: auto;
   overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: -20%;
 }
 
 .tickets-page .ticket-item .thumb .price {
@@ -2539,6 +2720,78 @@ Shows Events Page
   margin-bottom: 30px;
 }
 
+/**************************보현이가하는 욱채홀 이미지 수정시작********************************/
+.tickets-page .ticket-item .thumb3 {
+  position: relative;
+  height: 255px;
+  overflow: hidden;
+}
+
+.tickets-page .ticket-item .thumb3 img {
+  height: 100%;
+  width: auto;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: -4%;
+}
+
+.tickets-page .ticket-item .thumb3 .price {
+  background-color: rgba(101,108,116,0.9);
+  display: inline-block;
+  padding: 20px;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+}
+
+.tickets-page .ticket-item .thumb3 .price span {
+  color: #fff;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.tickets-page .ticket-item .thumb3 .price span em {
+  font-weight: 700;
+  font-size: 20px;
+  font-style: normal;
+}
+/********* 욱채홀이미지 수정 끝 && 점점늘어나는게 불안하지만 여기서부터는 보현드레스 이미지 수정 시작 ***********/
+
+.tickets-page .ticket-item .thumb4 {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+}
+
+.tickets-page .ticket-item .thumb4 img {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+.tickets-page .ticket-item .thumb4 .price {
+  background-color: rgba(101,108,116,0.9);
+  display: inline-block;
+  padding: 20px;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+}
+
+.tickets-page .ticket-item .thumb4 .price span {
+  color: #fff;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.tickets-page .ticket-item .thumb4 .price span em {
+  font-weight: 700;
+  font-size: 20px;
+  font-style: normal;
+}
+
 /**** 보현수정 시작  ****/
 .tickets-page .ticket-item .down-content {
   background-color: #efefef;
@@ -2555,16 +2808,18 @@ Shows Events Page
 
 .sd_detail{
   font-size: 14px;
-  color: #555;
-  font-weight: 500;
-  margin: 5px 0 25px 0;
+  color: #666;
+  font-weight: 600;
+  margin: 5px 0 20px 0;
+  height: 80px;
 }
 
 .down-content .price
 {
-	color: #888;
+	color: #888!important;
 	text-decoration: line-through #888;
 	margin: 0;
+	height: 20px;
 }
 
 .down-content .discount
@@ -2582,29 +2837,38 @@ Shows Events Page
     color: #000;
 }
 
+.down-content .dis_price
+{
+	height: 33px;
+}
 .sd_adress
 {
-	margin-top: 15px;
+	/*margin-top: 15px;*/
+	height: 40px;
+	color: #4a4a4a!important;
+	margin-bottom: 18px;
 }
 
 .tickets-page .ticket-item .down-content ul li {
   font-size: 14px;
   color: #2a2a2a;
   font-weight: 300;
+  margin-top: 5px;
   /*margin-bottom: 15px;*/
 }
-/**** 보현수정 끝  ****/
+
 .tickets-page .ticket-item .down-content ul li i {
   color: #7c838b;
-  margin-right: 10px;
+  /*margin-right: 10px;*/
   width: 15px;
   height: 25px;
   float: left;
 }
 
 .tickets-page .ticket-item .down-content .main-dark-button {
-  margin-top: 30px;
+  margin-top: 20px;
 }
+/**** 보현수정 끝  ****/
 
 .tickets-page .pagination ul {
   text-align: center;
@@ -2840,7 +3104,7 @@ Event Details Page
 .shows-events-schedule ul li {
   background-color: #fff;
   padding: 30px 30px 25px 30px;
-  margin-bottom: 30px;
+  margin-bottom: 2px;
 }
 
 .shows-events-schedule ul li .title h4 {

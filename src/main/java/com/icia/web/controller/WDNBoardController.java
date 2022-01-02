@@ -24,10 +24,6 @@ public class WDNBoardController
 {
 	private static Logger logger = LoggerFactory.getLogger(WDNBoardController.class);
 	
-	//쿠키명
-	@Value("#{env['auth.cookie.name']}")
-	private String AUTH_COOKIE_NAME;
-	
 	@Autowired
 	private WDNBoardService wdNBoardService;
 	
@@ -80,6 +76,8 @@ public class WDNBoardController
 			
 			list = wdNBoardService.nBoardList(search);			
 		}
+		
+		logger.debug("list.size() : "+list.size());
 		
 		model.addAttribute("list", list);
 		model.addAttribute("searchType", searchType);
