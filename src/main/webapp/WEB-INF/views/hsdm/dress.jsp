@@ -4,8 +4,9 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
-<script>
+<script type="text/javascript">
 $(document).ready(function(){
+	
 	//조회버튼클릭. 조회항목,조회값,현재커런트페이지에 대한 정보 가져가기
 	$("#btnSearch").on("click", function(){
 		document.bbsForm.sCode.value = "";

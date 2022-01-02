@@ -51,7 +51,7 @@ function fn_list(curPage)
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>MAKE-UP</h2>
+                    <h2>MAKEUP</h2>
                     <!-- span>Check out upcoming and past shows & events and grab your ticket right now.</span -->
                 </div>
             </div>

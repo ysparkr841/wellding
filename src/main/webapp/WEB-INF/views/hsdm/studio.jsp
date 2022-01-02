@@ -8,7 +8,7 @@
 $(document).ready(function(){
 	//조회버튼클릭. 조회항목,조회값,현재커런트페이지에 대한 정보 가져가기
 	$("#btnSearch").on("click", function(){
-		//document.bbsForm.sCode.value = "";
+		document.bbsForm.sCode.value = "";
 		document.bbsForm.searchType.value = $("#_searchType").val();
 		document.bbsForm.searchValue.value = $("#_searchValue").val();
 		document.bbsForm.curPage.value = 1;
@@ -63,7 +63,7 @@ function fn_list(curPage)
             <div class="row">
                 <div class="col-lg-12">
                     <div class="search-box">
-                        <form id="subscribe" method="get">
+                        <form id="subscribe" action="" method="get">
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div class="search-heading">
