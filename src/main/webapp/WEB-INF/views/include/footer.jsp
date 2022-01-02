@@ -79,4 +79,6 @@
     <script src="../resources/js/owl-carousel.js"></script>
     
     <!-- Global Init -->
-    <!-- <script src="../resources/js/custom.js"></script> -->
+
+    <!-- script src="../resources/js/custom.js"></script -->
+

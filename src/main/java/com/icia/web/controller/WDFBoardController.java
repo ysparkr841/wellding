@@ -12,11 +12,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.icia.common.util.StringUtil;
 import com.icia.web.model.Paging;
 import com.icia.web.model.WDFBoard;
+import com.icia.web.model.WDUser;
 import com.icia.web.service.WDFBoardService;
+import com.icia.web.service.WDUserService;
+import com.icia.web.util.CookieUtil;
 import com.icia.web.util.HttpUtil;
 
 @Controller("wdFBoardController")
@@ -30,11 +34,14 @@ public class WDFBoardController
 	@Autowired
 	private WDFBoardService wdFBoardService;
 	
+	@Autowired
+	private WDUserService wdUserService;
+	
 	//파일 저장경로
 	@Value("#{env['upload.save.dir']}")
 	private String UPLOAD_SAVE_DIR;
 	
-	private static final int LIST_COUNT = 5;
+	private static final int LIST_COUNT = 20;
 	private static final int PAGE_COUNT = 5;
 	
 	@RequestMapping(value="/board/fBoard")
@@ -43,6 +50,12 @@ public class WDFBoardController
 		String searchType = HttpUtil.get(request, "searchType", "");
 		String searchValue = HttpUtil.get(request, "searchValue", "");
 		long curPage = HttpUtil.get(request, "curPage", (long)1);
+		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		
+		logger.debug("============searchType========= : "+ searchType);
+		logger.debug("============searchValue========= : "+ searchValue);
+		
+		WDUser wdUser = wdUserService.userSelect(cookieUserId);
 		
 		long totalCount = 0;
 		List<WDFBoard> list = null;
@@ -82,12 +95,21 @@ public class WDFBoardController
 			list = wdFBoardService.fBoardList(search);
 		}
 		
+		
+		
 		model.addAttribute("list", list);
 		model.addAttribute("searchType", searchType);
 		model.addAttribute("searchValue", searchValue);
 		model.addAttribute("curPage", curPage);
 		model.addAttribute("paging", paging);
+		model.addAttribute("wdUser", wdUser);
 		
 		return "/board/fBoard";
+	}
+	
+	@RequestMapping(value="/board/fBoardWrite", method=RequestMethod.POST)
+	public String fBoardWrite(HttpServletRequest request, HttpServletResponse response) 
+	{
+		return "/board/fBoardWrite";
 	}
 }

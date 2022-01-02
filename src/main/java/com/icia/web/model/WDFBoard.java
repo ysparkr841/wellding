@@ -28,6 +28,7 @@ public class WDFBoard implements Serializable
 	//유저테이블의 이름과 이메일을 가져오기 위해서 담을 변수 필요
 	private String uName;
 	private String uEmail;
+	private String userNickname;
 	
 	private String searchType;
 	private String searchValue;
@@ -50,6 +51,7 @@ public class WDFBoard implements Serializable
 		bIndent = 0;
 		uName = "";
 		uEmail = "";
+		userNickname = "";
 		searchType = "";
 		searchValue = "";
 		startRow = 0;
@@ -184,6 +186,15 @@ public class WDFBoard implements Serializable
 	public void setWdBoardFile(WDBoardFile wdBoardFile) {
 		this.wdBoardFile = wdBoardFile;
 	}
+
+	public String getUserNickname() {
+		return userNickname;
+	}
+
+	public void setUserNickname(String userNickname) {
+		this.userNickname = userNickname;
+	}
+	
 	
 	
 }
