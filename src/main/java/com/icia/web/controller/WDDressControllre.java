@@ -48,7 +48,7 @@ public class WDDressControllre
 		String searchValue = HttpUtil.get(request, "searchValue", "");
 		//현재페이지
 		long curPage = HttpUtil.get(request, "curPage", (long)1);
-		String dcCode = HttpUtil.get(request, "dcCode", "");
+		//String dcCode = HttpUtil.get(request, "dcCode", "");
 		
 		long totalCount = 0;
 		List<WDDress> list = null;
@@ -71,7 +71,7 @@ public class WDDressControllre
 			searchValue = "";
 		}
 		
-		wdDress.setDcCode(dcCode);
+		//wdDress.setDcCode(dcCode);
 		
 		totalCount = wdDressService.dressListCount(wdDress);
 		logger.debug("totalCount : " + totalCount);

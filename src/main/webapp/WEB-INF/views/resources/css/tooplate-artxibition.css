@@ -2798,6 +2798,14 @@ Shows Events Page
   padding: 30px;
 }
 
+.sd_title1{
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  /*margin-top: 10px;
+  margin-bottom: 25px;*/
+}
+
 .sd_title{
   font-size: 25px;
   font-weight: 700;

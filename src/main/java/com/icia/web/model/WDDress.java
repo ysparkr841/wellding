@@ -67,6 +67,16 @@ public class WDDress implements Serializable
 	}
 
 
+	public String getDcName() {
+		return dcName;
+	}
+
+
+	public void setDcName(String dcName) {
+		this.dcName = dcName;
+	}
+
+
 	public String getdName() {
 		return dName;
 	}
@@ -176,15 +186,6 @@ public class WDDress implements Serializable
 		this.endRow = endRow;
 	}
 
-
-	public String getDcName() {
-		return dcName;
-	}
-
-
-	public void setDcName(String dcName) {
-		this.dcName = dcName;
-	}
 	
 	
 }
