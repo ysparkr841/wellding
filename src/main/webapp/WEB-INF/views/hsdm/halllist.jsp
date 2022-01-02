@@ -88,7 +88,7 @@
                                         </div>
                                         <div class="col-lg-3">
                                             <fieldset>
-                                            <button type="submit" id="form-submit" class="main-dark-button">Submit</button>
+                                            <button type="button" id="form-submit" class="main-dark-button">Submit</button>
                                             </fieldset>
                                         </div>
                                         
