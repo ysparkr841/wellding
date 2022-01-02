@@ -2837,6 +2837,19 @@ Shows Events Page
   height: 85px;
 }
 
+.sd_detail_hall{
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  font-size: 14px;
+  color: #696969;
+  font-weight: 600;
+  margin: 5px 0 20px 0;
+  height: 65px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
 .down-content .price
 {
 	color: #888!important;

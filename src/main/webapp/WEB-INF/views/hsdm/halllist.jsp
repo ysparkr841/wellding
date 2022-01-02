@@ -31,17 +31,18 @@
 
 	function fn_list(curPage)
 	{
-	   document.bbsForm.hiBbsSeq.value = "";
-	   document.bbsForm.curPage.value = curPage;
-	   document.bbsForm.action = "/hsdm/view";
-	   document.bbsForm.submit();
+       document.hallForm.WHCode.value = "";
+       document.hallForm.HCode.value = "";
+	   document.hallForm.curPage.value = curPage;
+	   document.hallForm.action = "/hsdm/halllist";
+	   document.hallForm.submit();
 	}
 	</script>
 </head>   
 <body>
 	<!-- 메뉴바 시작 -->
     	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
-    	<jsp:param name="userName" value="${wdUser.userName }" />
+    	<jsp:param name="userName" value="${wdUser.userNickname }" />
     	</jsp:include>
 	<!-- 메뉴바 종료 -->
 <!-- ############################ 여기부터 내용 시작 ############################ -->
@@ -116,7 +117,7 @@
                             <ul>
                                 <li class="sd_adress"><i class="fa fa-map-marker"></i>${wdHall.WHLocation }</li>
                             </ul>
-                                <div class="sd_detail">${wdHall.HContent}</div>
+                                <div class="sd_detail_hall">${wdHall.HContent}</div>
                             <ul>    
                                 <!-- <li class="price">550,000원</li> -->
                                 <li class="dis_price"><span class="discount"></span> <span class="dis-price">${wdHall.HPrice}원</span></li>
@@ -136,7 +137,7 @@
                         <ul>
 							<c:if test="${!empty paging}">
 							   <c:if test="${paging.prevBlockPage gt 0}"> <!-- 페이징의 프리뷰블럭이 0보다 크냐 -->
-							         <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.prevBlockPage})">이전블럭</a></li>
+							         <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.prevBlockPage})">이전</a></li>
 							   </c:if>
 							    <c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">
 							       <c:choose>
@@ -149,7 +150,7 @@
 							      </c:choose>
 							   </c:forEach>
 							    <c:if test="${paging.nextBlockPage gt 0}">        
-							         <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.nextBlockPage})">다음블럭</a></li>
+							         <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.nextBlockPage})">다음</a></li>
 							   </c:if>
 							</c:if>
                         </ul>
