@@ -9,15 +9,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.icia.common.util.StringUtil;
 import com.icia.web.model.Paging;
 import com.icia.web.model.WDMakeUp;
+import com.icia.web.model.WDUser;
 import com.icia.web.service.WDMakeUpService;
+import com.icia.web.service.WDUserService;
+import com.icia.web.util.CookieUtil;
 import com.icia.web.util.HttpUtil;
 
+@Controller("wdMakeUpController")
 public class WDMakeUpController 
 {
 	private static Logger logger= LoggerFactory.getLogger(WDMakeUpController.class);
@@ -33,6 +38,10 @@ public class WDMakeUpController
 	@Autowired
 	private WDMakeUpService wdMakeUpService;
 	
+	//유저서비스
+	@Autowired
+	private WDUserService wdUserService;
+	
 	private static final int LIST_COUNT = 9;
 	private static final int PAGE_COUNT = 10;
 	
@@ -40,6 +49,32 @@ public class WDMakeUpController
 	@RequestMapping(value="/hsdm/makeUp")
 	public String makeUpList(ModelMap model, HttpServletRequest request, HttpServletResponse response) 
 	{
+		/*********상단에 닉넴 보여주기 시작*********/
+		//쿠키 확인
+		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		
+		//로그인 했을 때와 안했을 때를 구분해서 페이지를 보여주려 함.
+		//로그인 체크용. 0 => 로그인 x, 혹은 없는 계정; 1 => 로그인 정보 있는 계정
+		int loginS = 0;
+		WDUser wdUser = null;
+		
+		if(wdUserService.wdUserIdCount(cookieUserId) >0) 
+		{
+			//쿠키 아이디로 된 유저 정보가 db에 존재함.
+			wdUser = wdUserService.userSelect(cookieUserId);
+			if(wdUser != null) 
+			{
+				//객체가 비어있지 않으면 보여줄 유저의 정보를 담은 객체를 넘기고, 로그인 상태에 1을 넣어줌.
+				loginS = 1;
+				model.addAttribute("wdUser", wdUser);
+			}
+		}
+		else 
+		{
+			loginS = 0;
+		}
+		/**********상단에 닉넴 보여주기 끝***********/
+		
 		String searchType = HttpUtil.get(request, "searchType", "");
 		String searchValue = HttpUtil.get(request, "searchValue", "");
 		long curPage = HttpUtil.get(request, "curPage", (long)1);

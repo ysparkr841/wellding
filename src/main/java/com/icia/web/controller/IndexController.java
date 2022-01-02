@@ -142,10 +142,8 @@ public class IndexController
 	      return "/board/login";
 	   }
 
+
 	   
-		
-	
-	
 	/*회원가입폼*/
 	@RequestMapping(value="/board/regform", method=RequestMethod.GET)
 	public String regform(HttpServletRequest request, HttpServletResponse response)
