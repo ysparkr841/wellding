@@ -13,7 +13,7 @@ public class WDDress implements Serializable
 	private String dcLocation;
 	private String dcNumber;
 	private String dImgname;
-	private String dPrice;
+	private long dPrice;
 	private String dContent;
 	
 	private String searchType;		//검색타입(1:이름, 2:제목, 3:내용)
@@ -34,7 +34,7 @@ public class WDDress implements Serializable
 		dcLocation = "";
 		dcNumber = "";
 		dImgname = "";
-		dPrice = "";
+		dPrice = 0;
 		dContent = "";
 		
 		searchType = "";
@@ -117,12 +117,12 @@ public class WDDress implements Serializable
 	}
 
 
-	public String getdPrice() {
+	public long getdPrice() {
 		return dPrice;
 	}
 
 
-	public void setdPrice(String dPrice) {
+	public void setdPrice(long dPrice) {
 		this.dPrice = dPrice;
 	}
 
@@ -185,6 +185,5 @@ public class WDDress implements Serializable
 	public void setEndRow(long endRow) {
 		this.endRow = endRow;
 	}
-	
-	
+
 }

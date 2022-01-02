@@ -96,7 +96,7 @@ function fn_list(curPage)
                 </div>
                 <div class="col-lg-12">
                     <div class="heading">
-                        <h2>Studio</h2>
+                        <h2><!-- Studio --></h2>
                     </div>
                 </div>
 <c:if test="${!empty list}">        
