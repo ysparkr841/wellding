@@ -41,7 +41,7 @@ public class WDHallController {
 	   @RequestMapping(value="/hsdm/halllist")
 	   public String list(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
 		   
-			//조회항목(1:작성자, 2:제목, 3:내용)
+			//조회항목(1:웨딩홀 이름, 2: 홀 이름)
 			String searchType = HttpUtil.get(request, "searchType", "");
 			//조회값
 			String searchValue = HttpUtil.get(request, "searchValue", "");
@@ -60,6 +60,7 @@ public class WDHallController {
 			{
 				wdHall.setSearchType(searchType);
 				wdHall.setSearchValue(searchValue);
+				System.out.println("들어갔음");
 			}
 			else
 			{

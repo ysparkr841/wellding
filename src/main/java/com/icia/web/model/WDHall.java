@@ -9,6 +9,7 @@ public class WDHall implements Serializable{
 	private String WHCode;
 	private String HCode;
 	private String HName;
+	private String whName;
 	private String WHLocation;
 	private String HPrice;
 	private long HFood;
@@ -30,6 +31,7 @@ public class WDHall implements Serializable{
 		  WHCode = "";
 		  HCode = "";
 		  HName = "";
+		  whName = "";
 		  WHLocation = "";
 		  HPrice = "";
 		  HFood = 0;
@@ -47,6 +49,19 @@ public class WDHall implements Serializable{
 		  searchValue = "";
 	}
 	
+	
+
+	public String getWhName() {
+		return whName;
+	}
+
+
+
+	public void setWhName(String whName) {
+		this.whName = whName;
+	}
+
+
 
 	public long getStartRow() {
 		return startRow;
