@@ -8,7 +8,7 @@
     <body>  
     <!-- 메뉴바 시작 -->
     	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
-    	<jsp:param name="userName" value="${wdUser.userName }" />
+    	<jsp:param name="userName" value="${wdUser.userNickname }" />
     	</jsp:include>
     <!-- 메뉴바 종료 -->
 
