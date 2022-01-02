@@ -2363,6 +2363,25 @@ Shows Events Page
   text-shadow: 2px 3px 15px #82623b;
 }
 
+/** 메이크업 메인 **/
+.page-heading-shows-events4 {
+  background-image: url(../images/M89.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 70px 0px;
+  text-align: center;
+  background-position: center 36%;
+}
+
+.page-heading-shows-events4 h2 {
+  font-size: 140px;
+  color: #fff;
+  font-weight: 500;
+  /*margin-bottom: 15px;*/
+  font-family: 'Nanum Brush Script', cursive;
+  text-shadow: 2px 3px 15px #82623b;
+}
+
 /*
 .page-heading-shows-events span {
   font-size: 20px;
@@ -2793,6 +2812,45 @@ Shows Events Page
   font-style: normal;
 }
 
+/********* 메이크업 상단 이미지 수정 시작 ***********/
+
+.tickets-page .ticket-item .thumb5 {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+}
+
+.tickets-page .ticket-item .thumb5 img {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+.tickets-page .ticket-item .thumb5 .price {
+  background-color: rgba(101,108,116,0.9);
+  display: inline-block;
+  padding: 20px;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+}
+
+.tickets-page .ticket-item .thumb5 .price span {
+  color: #fff;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.tickets-page .ticket-item .thumb5 .price span em {
+  font-weight: 700;
+  font-size: 20px;
+  font-style: normal;
+}
+
+
+/****************** 메이크업상단이미지 끝 ******************/
+
 /**** 보현수정 시작  ****/
 .tickets-page .ticket-item .down-content {
   background-color: #efefef;
@@ -2834,7 +2892,13 @@ Shows Events Page
   color: #696969;
   font-weight: 600;
   margin: 5px 0 20px 0;
-  height: 85px;
+  height: 60px;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  line-height:20px;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .down-content .price

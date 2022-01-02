@@ -8,7 +8,7 @@
 $(document).ready(function(){
 	//조회버튼클릭. 조회항목,조회값,현재커런트페이지에 대한 정보 가져가기
 	$("#btnSearch").on("click", function(){
-		document.bbsForm.sCode.value = "";
+		//document.bbsForm.sCode.value = "";
 		document.bbsForm.searchType.value = $("#_searchType").val();
 		document.bbsForm.searchValue.value = $("#_searchValue").val();
 		document.bbsForm.curPage.value = 1;
@@ -37,7 +37,7 @@ function fn_list(curPage)
 <body>
 	<!-- 메뉴바 시작 -->
     	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
-    	<jsp:param name="userName" value="${wdUser.userName }" />
+    	<jsp:param name="userName" value="${wdUser.userNickname}" />
     	</jsp:include>
 	<!-- 메뉴바 종료 -->
 <!-- ############################ 여기부터 내용 시작 ############################ -->
@@ -84,7 +84,7 @@ function fn_list(curPage)
                                         </div>
                                         <div class="col-lg-3">
                                             <fieldset>
-                                            <button type="submit" id="btnSearch" class="main-dark-button">Submit</button>
+                                            <button type="button" id="btnSearch" class="main-dark-button">Submit</button>
                                             </fieldset>
                                         </div>
                                         
@@ -113,7 +113,7 @@ function fn_list(curPage)
                             </ul>
                                 <div class="sd_detail"><c:out value="${wdStudio.sContent}" /></div>
                             <ul>    
-                                <li class="price"><c:out value="${wdStudio.sPrice}" />원</li>
+                                <li class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdStudio.sPrice}" />원</li>
                                 <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
                             </ul>
                             <div class="main-dark-button">

@@ -37,7 +37,7 @@ function fn_list(curPage)
 <body>
 	<!-- 메뉴바 시작 -->
     	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
-    	<jsp:param name="userName" value="${wdUser.userName }" />
+    	<jsp:param name="userName" value="${wdUser.userNickname}" />
     	</jsp:include>
 	<!-- 메뉴바 종료 -->
 <!-- ############################ 여기부터 내용 시작 ############################ -->
@@ -84,7 +84,7 @@ function fn_list(curPage)
                                         </div>
                                         <div class="col-lg-3">
                                             <fieldset>
-                                            <button type="submit" id="btnSearch" class="main-dark-button">Submit</button>
+                                            <button type="button" id="btnSearch" class="main-dark-button">Submit</button>
                                             </fieldset>
                                         </div>
                                         
@@ -112,7 +112,7 @@ function fn_list(curPage)
                             <div class="sd_detail"><c:out value="${wdDress.dContent}" /></div>
                             <ul>    
                             	<!-- li class="sd_adress"><i class="fa fa-map-marker"></i><c:out value="${wdDress.dcLocation}" /></li-->
-                                <li class="price"><c:out value="${wdDress.dPrice}" />원</li>
+                                <li class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdDress.dPrice}" />원</li>
                                 <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
                             </ul>
                             <div class="main-dark-button">

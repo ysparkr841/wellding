@@ -18,9 +18,9 @@ $(document).ready(function(){
 	
 });
 
-function fn_view(sCode)
+function fn_view(mCode)
 {
-	document.bbsForm.mCode.value = sCode; //실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
+	document.bbsForm.mCode.value = mCode; //실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
 	document.bbsForm.action = "/hsdm/makeUp";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
 	document.bbsForm.submit();
 }     
@@ -37,7 +37,7 @@ function fn_list(curPage)
 <body>
 	<!-- 메뉴바 시작 -->
     	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
-    	<jsp:param name="userName" value="${wdUser.userName }" />
+    	<jsp:param name="userName" value="${wdUser.userNickname}" />
     	</jsp:include>
 	<!-- 메뉴바 종료 -->
 <!-- ############################ 여기부터 내용 시작 ############################ -->
@@ -47,7 +47,7 @@ function fn_list(curPage)
 </section>
 
     <!-- ***** About Us Page ***** -->
-    <div class="page-heading-shows-events3">
+    <div class="page-heading-shows-events4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -84,7 +84,7 @@ function fn_list(curPage)
                                         </div>
                                         <div class="col-lg-3">
                                             <fieldset>
-                                            <button type="submit" id="btnSearch" class="main-dark-button">Submit</button>
+                                            <button type="button" id="btnSearch" class="main-dark-button">Submit</button>
                                             </fieldset>
                                         </div>
                                         
@@ -104,7 +104,7 @@ function fn_list(curPage)
                 <div class="col-lg-4">
                     <div class="ticket-item">
                         <div class="thumb5">
-                            <img src="../resources/images/makeup/${wdMakeup.mImgname}" alt="">
+                            <img src="../resources/images/makeup/${wdMakeup.mImgName}" alt="">
                         </div>
                         <div class="down-content">
                         	<div class="sd_title1"><c:out value="${wdMakeup.mName}" /></div>
@@ -112,7 +112,7 @@ function fn_list(curPage)
                             <!-- <div class="sd_detail"><c:out value="" /></div>-->
                             <ul>    
                             	<li class="sd_adress"><i class="fa fa-map-marker"></i><c:out value="${wdMakeup.mLocation}" /></li>
-                                <li class="price"><c:out value="${wdMakeup.mPrice}" />원</li>
+                                <li class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdMakeup.mPrice}" />원</li>
                                 <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
                             </ul>
                             <div class="main-dark-button">
