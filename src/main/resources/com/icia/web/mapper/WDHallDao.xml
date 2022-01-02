@@ -180,11 +180,11 @@ FROM
    <choose>                
       <when test='searchType == "1"'> 		
         AND
-            A.H_NAME LIKE '%' || #{searchValue} || '%'
+            B.WH_NAME LIKE '%' || #{searchValue} || '%'
       </when>
       <when test='searchType == "2"'>
         AND
-            B.WH_NAME LIKE '%' || #{searchValue} || '%'
+        	A.H_NAME LIKE '%' || #{searchValue} || '%'
 		</when>
 	</choose>            
 </if>             

@@ -56,6 +56,9 @@ public class WDHallController {
 		   Paging paging = null;
 		   WDHall wdHall = new WDHall();
 		   
+		   System.out.println("서치 타입 : "+ searchType);
+		   System.out.println("서치 밸류 : "+ searchValue);
+		   
 			if(!StringUtil.isEmpty(searchType) && !StringUtil.isEmpty(searchValue))
 			{
 				wdHall.setSearchType(searchType);

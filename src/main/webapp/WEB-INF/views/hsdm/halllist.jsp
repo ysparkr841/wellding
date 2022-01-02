@@ -17,6 +17,7 @@
 	      document.hallForm.curPage.value = 1;   //현재 내가 3페이지였는데 조회를 하면 페이지수는 가져가지 않아. 페이지는 어떻게될지 모르자나 그래서 조회했다 싶으면 무조건1로 넣는거야. 페이지가 몇개일지 모르자나
 	      document.hallForm.action = "/hsdm/halllist";
 	      document.hallForm.submit();
+	      
 	   });
 	   
 	});
@@ -83,7 +84,7 @@
 									         </select>
                                         </div>
                                         <div class="col-lg-6">
-                                            <input type="text" name="_searchValue" id="_searchValue" value="" maxlength="25" class="svalue" placeholder="조회값을 입력하세요." />
+                                            <input type="text" name="_searchValue" id="_searchValue" value="${searchValue}" maxlength="25" class="svalue" placeholder="조회값을 입력하세요." />
                                         </div>
                                         <div class="col-lg-3">
                                             <fieldset>
