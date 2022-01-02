@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>공지사항</title>
 	<%@ include file="/WEB-INF/views/include/head.jsp" %>
-<script>
+<!-- script>
 $(function(){
 	//조회버튼
    $("#btnSearch").on("click", function(){
@@ -23,7 +23,7 @@ $(function(){
 //제목 눌럿을때 view 페이지 가기
 function fn_view(bbsSeq)
 {
-	document.bbsForm.hiBbsSeq.value = bbsSeq;
+	document.bbsForm.hiBbsSeq.value = bSeq;
 	//실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
 	document.bbsForm.action = "/board/view";
 	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
@@ -37,7 +37,8 @@ function fn_list(curPage)
 	document.bbsForm.action = "/board/nBoard";
 	document.bbsForm.submit();
 }
-</script>
+</script -->
+
 </head>
 <body>
    	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
@@ -73,9 +74,9 @@ function fn_list(curPage)
                                 <thead>
                                     <tr style="background-color: #dee2e6;">
                                     <th scope="col" class="text-center" style="width:10%">번호</th>
-                                    <th scope="col" class="text-center" style="width:55%">제목</th>
-                                    <th scope="col" class="text-center" style="width:10%">작성자</th>
-                                    <th scope="col" class="text-center" style="width:15%">날짜</th>
+                                    <th scope="col" class="text-center" style="width:50%">제목</th>
+                                    <th scope="col" class="text-center" style="width:20%">작성자</th>
+                                    <th scope="col" class="text-center" style="width:10%">날짜</th>
                                     <th scope="col" class="text-center" style="width:10%">조회수</th>
                                     </tr>
                                 </thead>
@@ -86,9 +87,12 @@ function fn_list(curPage)
                                             <tr>
                                                 <td>
                                                     <a href="javascript:void(0)" onclick="fn_view(${hiBoard.bSeq})"><!-- fn_view매개변수로 넘기겟다 -->
-                                                        <c:out value="${hiBoard.bTitle}" />
+                                                        <c:out value="${hiBoard.bSeq}" />
                                                     </a>
                                                 </td>
+                                                	<td class="test-center">
+                                                		<a href="javascript:void(0)" onclick="fn_view(${hiBoard.bSeq})">${hiBoard.bTitle}</a>
+                                                	</td>
                                                 	<td class="text-center">${hiBoard.adminId}</td>
                                                     <td class="text-center">${hiBoard.regDate}</td>
                                                     <td class="text-center"><fmt:formatNumber type="number" maxFractionDigits="3" value="${hiBoard.bReadCnt}" /></td>
@@ -100,45 +104,32 @@ function fn_list(curPage)
                         </li>
                     </ul>
                 </div>
-                
-				<!-- 버튼처리 시작 -->
-				<nav>
-					<ul class="pagination justify-content-center">
-						<c:if test="${!empty paging}">
-							<c:if test="${paging.prevBlockPage gt 0}">	<!-- prevBlockPage이 0 보다 크냐 -->
-							<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.prevBlockPage})">이전블럭</a></li>
-							</c:if>
-				
-							<c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">
-								<c:choose>
-									<c:when test="${i ne curPage}">
-										<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${i})">${i}</a></li>
-									</c:when>
-									<c:otherwise>
-										<li class="page-item active"><a class="page-link" href="javascript:void(0)" style="cursor:default">${i}</a></li>
-									</c:otherwise>
-								</c:choose>
-							</c:forEach>
-							
-				<!-- forEach문은 최대 5개밖에 안됨.위에서 지정해줌. -->
-							<c:if test="${paging.nextBlockPage gt 0}">         
-								<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.nextBlockPage})">다음블럭</a></li>
-							</c:if>       
-						</c:if> 
-					</ul>
-				</nav>
-				<!-- 버튼처리 끝 -->
-   
-   
+
                 <div class="col-lg-12">
                     <div class="pagination">
-                        <ul>
-                            <li><a href="#">Prev</a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">Next</a></li>
-                        </ul>
+						<!-- 버튼처리 시작 -->
+							<ul class="pagination justify-content-center">
+								<c:if test="${!empty paging}">
+									<c:if test="${paging.prevBlockPage gt 0}">	<!-- prevBlockPage이 0 보다 크냐 -->
+									<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.prevBlockPage})">Prev</a></li>
+									</c:if>
+									<c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">
+										<c:choose>
+											<c:when test="${i ne curPage}">
+												<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${i})">${i}</a></li>
+											</c:when>
+											<c:otherwise>
+												<li class="page-item active"><a class="page-link" href="javascript:void(0)" style="cursor:default">${i}</a></li>
+											</c:otherwise>
+										</c:choose>
+									</c:forEach>
+						<!-- forEach문은 최대 5개밖에 안됨.위에서 지정해줌. -->
+									<c:if test="${paging.nextBlockPage gt 0}">         
+										<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.nextBlockPage})">Next</a></li>
+									</c:if>       
+								</c:if> 
+							</ul>
+						<!-- 버튼처리 끝 -->
                     </div>
                 </div>
             </div>
