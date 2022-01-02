@@ -63,7 +63,7 @@ function fn_list(curPage)
             <div class="row">
                 <div class="col-lg-12">
                     <div class="search-box">
-                        <form id="subscribe" action="" method="get">
+                        <form id="subscribe" method="get">
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div class="search-heading">
