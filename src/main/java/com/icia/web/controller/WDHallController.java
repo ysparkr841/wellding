@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.icia.common.util.StringUtil;
 import com.icia.web.model.Paging;
 import com.icia.web.model.WDHall;
+import com.icia.web.model.WDUser;
 import com.icia.web.service.WDHallService;
+import com.icia.web.service.WDUserService;
+import com.icia.web.util.CookieUtil;
 import com.icia.web.util.HttpUtil;
 
 @Controller("WDHallController")
@@ -27,6 +30,9 @@ public class WDHallController {
 	   //쿠키명
 	   @Value("#{env['auth.cookie.name']}")
 	   private String AUTH_COOKIE_NAME;
+	   
+		@Autowired
+		private WDUserService wdUserService;
 	   
 	   //파일저장경로
 	   @Value("#{env['upload.save.dir']}")
@@ -41,6 +47,8 @@ public class WDHallController {
 	   @RequestMapping(value="/hsdm/halllist")
 	   public String list(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
 		   
+		   String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		   
 			//조회항목(1:웨딩홀 이름, 2: 홀 이름)
 			String searchType = HttpUtil.get(request, "searchType", "");
 			//조회값
@@ -48,6 +56,14 @@ public class WDHallController {
 			//현재 페이지
 			long curPage = HttpUtil.get(request, "curPage", (long)1);
 			String whCode = HttpUtil.get(request, "whCode", "");
+			
+			
+			WDUser wdUser = null;
+			wdUser = wdUserService.userSelect(cookieUserId);
+			
+			if(wdUser != null) {
+				model.addAttribute("wdUser",wdUser);
+			}
 		   
 		   long totalCount = 0;
 		   List<WDHall> list = null;

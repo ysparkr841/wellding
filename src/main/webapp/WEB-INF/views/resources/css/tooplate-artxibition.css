@@ -2604,7 +2604,6 @@ Shows Events Page
   color: #fff!important;
 }
 
-
 /*
 ---------------------------------------------
 보현수정~~~~~~~~~~~~~~~~~ .tickets-page가 스드메 상페임
@@ -2898,6 +2897,19 @@ Shows Events Page
   -webkit-box-orient:vertical;
   line-height:20px;
   overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.sd_detail_hall{
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  font-size: 14px;
+  color: #696969;
+  font-weight: 600;
+  margin: 5px 0 20px 0;
+  height: 65px;
+  overflow: hidden;
   text-overflow:ellipsis;
 }
 
