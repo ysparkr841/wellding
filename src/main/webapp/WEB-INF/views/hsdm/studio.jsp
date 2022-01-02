@@ -36,7 +36,9 @@ function fn_list(curPage)
 </head> 
 <body>
 	<!-- 메뉴바 시작 -->
-	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
+    	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
+    	<jsp:param name="userName" value="${wdUser.userName }" />
+    	</jsp:include>
 	<!-- 메뉴바 종료 -->
 <!-- ############################ 여기부터 내용 시작 ############################ -->
 
@@ -94,7 +96,7 @@ function fn_list(curPage)
                 </div>
                 <div class="col-lg-12">
                     <div class="heading">
-                        <h2>Studio</h2>
+                        <h2><!-- Studio --></h2>
                     </div>
                 </div>
 <c:if test="${!empty list}">        

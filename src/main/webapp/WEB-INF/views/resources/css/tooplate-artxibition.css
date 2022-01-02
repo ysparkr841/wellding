@@ -2346,12 +2346,12 @@ Shows Events Page
 
 /** 드레스 메인 **/
 .page-heading-shows-events3 {
-  background-image: url(../images/H26_1.jpg);
+  background-image: url(../images/D90M.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   padding: 70px 0px;
   text-align: center;
-  background-position: center 62%;
+  background-position: center 28%;
 }
 
 .page-heading-shows-events3 h2 {
@@ -2360,6 +2360,7 @@ Shows Events Page
   font-weight: 500;
   /*margin-bottom: 15px;*/
   font-family: 'Nanum Brush Script', cursive;
+  text-shadow: 2px 3px 15px #82623b;
 }
 
 /*
@@ -2759,17 +2760,15 @@ Shows Events Page
 
 .tickets-page .ticket-item .thumb4 {
   position: relative;
-  height: 255px;
+  height: 430px;
   overflow: hidden;
 }
 
 .tickets-page .ticket-item .thumb4 img {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
   overflow: hidden;
   position: absolute;
-  top: 0;
-  left: -4%;
 }
 
 .tickets-page .ticket-item .thumb4 .price {
@@ -2799,6 +2798,28 @@ Shows Events Page
   padding: 30px;
 }
 
+/** 드레스만 추가 시작 **/
+.sd_title1{
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  /*margin-top: 10px;
+  margin-bottom: 25px;*/
+}
+
+.sd_title2{
+  font-size: 24.5px;
+  font-weight: 700;
+  color: #2a2a2a;
+  height: 36px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 3px;
+  margin-bottom: 18px;
+}
+
+/** 드레스만 추가 끝 **/
+
 .sd_title{
   font-size: 25px;
   font-weight: 700;
@@ -2809,10 +2830,10 @@ Shows Events Page
 
 .sd_detail{
   font-size: 14px;
-  color: #666;
+  color: #696969;
   font-weight: 600;
   margin: 5px 0 20px 0;
-  height: 80px;
+  height: 85px;
 }
 
 .down-content .price

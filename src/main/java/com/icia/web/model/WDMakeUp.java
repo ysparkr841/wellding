@@ -9,7 +9,7 @@ public class WDMakeUp implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	//메이크업 코드
-	private long mCode;
+	private String mCode;
 	//메이크업 업체 명
 	private String mName;
 	//주소
@@ -35,7 +35,7 @@ public class WDMakeUp implements Serializable{
 	//생성자
 	public WDMakeUp() 
 	{
-		mCode = 0;
+		mCode = "";
 		mName = "";
 		mLocation = "";
 		mNumber = "";
@@ -50,11 +50,11 @@ public class WDMakeUp implements Serializable{
 		wdMakeUpFile = null;
 	}
 
-	public long getmCode() {
+	public String getmCode() {
 		return mCode;
 	}
 
-	public void setmCode(long mCode) {
+	public void setmCode(String mCode) {
 		this.mCode = mCode;
 	}
 
@@ -153,7 +153,7 @@ public class WDMakeUp implements Serializable{
 	public void setWdMakeUpFile(WDMakeUpFile wdMakeUpFile) {
 		this.wdMakeUpFile = wdMakeUpFile;
 	}
-	
+
 	
 	
 }

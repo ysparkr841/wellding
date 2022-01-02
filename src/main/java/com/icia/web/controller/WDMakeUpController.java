@@ -44,7 +44,7 @@ public class WDMakeUpController
 		String searchValue = HttpUtil.get(request, "searchValue", "");
 		long curPage = HttpUtil.get(request, "curPage", (long)1);
 		
-		long mCode = HttpUtil.get(request, "mCode", (long)0);
+		String mCode = HttpUtil.get(request, "mCode", "");
 		
 		long totalCount = 0;
 		
