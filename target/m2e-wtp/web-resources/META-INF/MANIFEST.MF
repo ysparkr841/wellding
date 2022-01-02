@@ -1,8 +1,5 @@
 Manifest-Version: 1.0
-Built-By: USER
-Built-By: gh563
->>>>>>> 4292d44eef525a93cab3d3e4247d8b500883d29b
->>>>>>> 28e33fca01e2d25276f60e0b68a54cdf8fa6be11
+Built-By: user
 Build-Jdk: 1.8.0_301
 Created-By: Maven Integration for Eclipse
 
