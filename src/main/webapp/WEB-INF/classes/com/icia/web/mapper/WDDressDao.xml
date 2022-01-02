@@ -78,7 +78,8 @@ FROM (SELECT
 		</when>
 	</choose>
 </if> 
-                ORDER BY A.DC_CODE ASC, A.D_NO DESC)) 
+                 
+                ORDER BY A.D_NAME DESC)) 
 WHERE
     RNUM <![CDATA[>=]]> #{startRow}
 AND

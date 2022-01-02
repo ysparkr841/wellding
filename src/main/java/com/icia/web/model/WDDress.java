@@ -186,6 +186,4 @@ public class WDDress implements Serializable
 		this.endRow = endRow;
 	}
 
-	
-	
 }

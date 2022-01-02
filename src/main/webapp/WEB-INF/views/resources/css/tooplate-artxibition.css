@@ -2346,12 +2346,12 @@ Shows Events Page
 
 /** 드레스 메인 **/
 .page-heading-shows-events3 {
-  background-image: url(../images/H26_1.jpg);
+  background-image: url(../images/D90M.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   padding: 70px 0px;
   text-align: center;
-  background-position: center 62%;
+  background-position: center 28%;
 }
 
 .page-heading-shows-events3 h2 {
@@ -2360,6 +2360,26 @@ Shows Events Page
   font-weight: 500;
   /*margin-bottom: 15px;*/
   font-family: 'Nanum Brush Script', cursive;
+  text-shadow: 2px 3px 15px #82623b;
+}
+
+/** 메이크업 메인 **/
+.page-heading-shows-events4 {
+  background-image: url(../images/M89.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 70px 0px;
+  text-align: center;
+  background-position: center 36%;
+}
+
+.page-heading-shows-events4 h2 {
+  font-size: 140px;
+  color: #fff;
+  font-weight: 500;
+  /*margin-bottom: 15px;*/
+  font-family: 'Nanum Brush Script', cursive;
+  text-shadow: 2px 3px 15px #82623b;
 }
 
 /*
@@ -2584,7 +2604,6 @@ Shows Events Page
   color: #fff!important;
 }
 
-
 /*
 ---------------------------------------------
 보현수정~~~~~~~~~~~~~~~~~ .tickets-page가 스드메 상페임
@@ -2760,7 +2779,7 @@ Shows Events Page
 
 .tickets-page .ticket-item .thumb4 {
   position: relative;
-  height: 450px;
+  height: 430px;
   overflow: hidden;
 }
 
@@ -2792,12 +2811,52 @@ Shows Events Page
   font-style: normal;
 }
 
+/********* 메이크업 상단 이미지 수정 시작 ***********/
+
+.tickets-page .ticket-item .thumb5 {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+}
+
+.tickets-page .ticket-item .thumb5 img {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+.tickets-page .ticket-item .thumb5 .price {
+  background-color: rgba(101,108,116,0.9);
+  display: inline-block;
+  padding: 20px;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+}
+
+.tickets-page .ticket-item .thumb5 .price span {
+  color: #fff;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.tickets-page .ticket-item .thumb5 .price span em {
+  font-weight: 700;
+  font-size: 20px;
+  font-style: normal;
+}
+
+
+/****************** 메이크업상단이미지 끝 ******************/
+
 /**** 보현수정 시작  ****/
 .tickets-page .ticket-item .down-content {
   background-color: #efefef;
   padding: 30px;
 }
 
+/** 드레스만 추가 시작 **/
 .sd_title1{
   font-size: 16px;
   font-weight: 500;
@@ -2805,6 +2864,19 @@ Shows Events Page
   /*margin-top: 10px;
   margin-bottom: 25px;*/
 }
+
+.sd_title2{
+  font-size: 24.5px;
+  font-weight: 700;
+  color: #2a2a2a;
+  height: 36px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 3px;
+  margin-bottom: 18px;
+}
+
+/** 드레스만 추가 끝 **/
 
 .sd_title{
   font-size: 25px;
@@ -2816,10 +2888,29 @@ Shows Events Page
 
 .sd_detail{
   font-size: 14px;
-  color: #666;
+  color: #696969;
   font-weight: 600;
   margin: 5px 0 20px 0;
-  height: 80px;
+  height: 60px;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  line-height:20px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.sd_detail_hall{
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  font-size: 14px;
+  color: #696969;
+  font-weight: 600;
+  margin: 5px 0 20px 0;
+  height: 65px;
+  overflow: hidden;
+  text-overflow:ellipsis;
 }
 
 .down-content .price

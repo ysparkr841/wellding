@@ -8,28 +8,28 @@
 $(document).ready(function(){
 	//조회버튼클릭. 조회항목,조회값,현재커런트페이지에 대한 정보 가져가기
 	$("#btnSearch").on("click", function(){
-		document.bbsForm.sCode.value = "";
+		document.bbsForm.mCode.value = "";
 		document.bbsForm.searchType.value = $("#_searchType").val();
 		document.bbsForm.searchValue.value = $("#_searchValue").val();
 		document.bbsForm.curPage.value = 1;
-		document.bbsForm.action = "/hsdm/dress";
+		document.bbsForm.action = "/hsdm/makeUp";
 		document.bbsForm.submit();
 	});
 	
 });
 
-function fn_view(sCode)
+function fn_view(mCode)
 {
-	document.bbsForm.sCode.value = sCode; //실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
-	document.bbsForm.action = "/hsdm/dress";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
+	document.bbsForm.mCode.value = mCode; //실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
+	document.bbsForm.action = "/hsdm/makeUp";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
 	document.bbsForm.submit();
 }     
 
 function fn_list(curPage)
 {
-   document.bbsForm.sCode.value = "";
+   document.bbsForm.mCode.value = "";
    document.bbsForm.curPage.value = curPage;
-   document.bbsForm.action = "/hsdm/dress";
+   document.bbsForm.action = "/hsdm/makeUp";
    document.bbsForm.submit();
 }
 </script>  
@@ -47,11 +47,11 @@ function fn_list(curPage)
 </section>
 
     <!-- ***** About Us Page ***** -->
-    <div class="page-heading-shows-events3">
+    <div class="page-heading-shows-events4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Dress</h2>
+                    <h2>MAKEUP</h2>
                     <!-- span>Check out upcoming and past shows & events and grab your ticket right now.</span -->
                 </div>
             </div>
@@ -67,7 +67,7 @@ function fn_list(curPage)
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div class="search-heading">
-                                        <h4> 예약하고 싶은 드레스샵을 찾아보세요.</h4>
+                                        <h4> 찾으시는 메이크업샵 혹은 지역이 있으신가요?</h4>
                                     </div>
                                 </div>
                                 <div class="col-lg-7">
@@ -75,7 +75,7 @@ function fn_list(curPage)
                                         <div class="col-lg-3">
                                             <select value="searchType" name="_searchType" id="_searchType">
                                             	<option value="">조회 항목</option>
-                                                <option value="1" <c:if test="${searchType eq '1'}">selected</c:if>>드레스샵명</option>
+                                                <option value="1" <c:if test="${searchType eq '1'}">selected</c:if>>메이크업샵명</option>
                                                 <option value="2" <c:if test="${searchType eq '2'}">selected</c:if>>지역</option>
                                             </select>
                                         </div>
@@ -96,55 +96,33 @@ function fn_list(curPage)
                 </div>
                 <div class="col-lg-12">
                     <div class="heading">
-                        <h2><!-- Dress --></h2>
+                        <h2><!-- Makeup --></h2>
                     </div>
                 </div>
 <c:if test="${!empty list}">        
-	<c:forEach var="wdDress" items="${list}" varStatus="status">
+	<c:forEach var="wdMakeup" items="${list}" varStatus="status">
                 <div class="col-lg-4">
                     <div class="ticket-item">
-                        <div class="thumb4">
-                            <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
+                        <div class="thumb5">
+                            <img src="../resources/images/makeup/${wdMakeup.mImgName}" alt="">
                         </div>
                         <div class="down-content">
-                        	<div class="sd_title1"><c:out value="${wdDress.dcName}" /></div>
-                        	<div class="sd_title2"><c:out value="${wdDress.dName}" /></div>
-                            <div class="sd_detail"><c:out value="${wdDress.dContent}" /></div>
+                        	<div class="sd_title1"><c:out value="${wdMakeup.mName}" /></div>
+                        	<div class="sd_title2"><c:out value="${wdMakeup.mName}" /></div>
+                            <!-- <div class="sd_detail"><c:out value="" /></div>-->
                             <ul>    
-                            	<!-- li class="sd_adress"><i class="fa fa-map-marker"></i><c:out value="${wdDress.dcLocation}" /></li-->
-                                <li class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdDress.dPrice}" />원</li>
+                            	<li class="sd_adress"><i class="fa fa-map-marker"></i><c:out value="${wdMakeup.mLocation}" /></li>
+                                <li class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdMakeup.mPrice}" />원</li>
                                 <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="ticket-details.html">드레스 예약하기</a>
+                                <a href="ticket-details.html">메이크업 예약하기</a>
                             </div>
                         </div>
                     </div>
                 </div>       
 	</c:forEach>
 </c:if>        
-
- <!--               <div class="col-lg-4">
-                    <div class="ticket-item">
-                        <div class="thumb4">
-                            <img src="../resources/images/dress/D0001.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                        	<div class="sd_title">마이퍼스트레이디</div>
-                            <ul>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>서울 강남구 압구정로60길 26 청담힐사이드빌딩 5F</li>
-                            </ul>
-                                <div class="sd_detail">컨셉이 다양하고 자연스러운 스냅느낌 촬영이 가능한 스튜디오</div>
-                            <ul>    
-                                <li class="price">680,000원</li>
-                                <li><span class="discount">38%</span> <span class="dis-price">421,600원</span></li>
-                            </ul>
-                            <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
                 
                 <div class="col-lg-12">
                     <div class="pagination">
@@ -174,7 +152,7 @@ function fn_list(curPage)
         </div>
         
 		<form name="bbsForm" id="bbsForm" method="post">
-			<input type="hidden" name="sCode" value="" /> <!-- 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
+			<input type="hidden" name="mCode" value="" /> <!-- 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
 			<input type="hidden" name="searchType" value="${searchType}" />
 			<input type="hidden" name="searchValue" value="${searchValue}" />
 			<input type="hidden" name="curPage" value="${curPage}" />
