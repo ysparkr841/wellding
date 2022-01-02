@@ -24,7 +24,9 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.icia.common.util.StringUtil;
 import com.icia.web.model.Response;
 import com.icia.web.model.User;
+import com.icia.web.model.WDUser;
 import com.icia.web.service.UserService;
+import com.icia.web.service.WDUserService;
 import com.icia.web.util.CookieUtil;
 import com.icia.web.util.HttpUtil;
 import com.icia.web.util.JsonUtil;
@@ -48,7 +50,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter
 	
 	
 	@Autowired
-	private UserService userService;
+	private WDUserService wdUserService;
 	
 	// 인증체크 안해도 되는 url 리스트
 	private List<String> authExcludeUrlList;
@@ -165,9 +167,9 @@ public class AuthInterceptor extends HandlerInterceptorAdapter
 					
 					if(!StringUtil.isEmpty(cookieUserId))
 					{
-						User user = userService.userSelect(cookieUserId);
+						WDUser wdUser = wdUserService.userSelect(cookieUserId);
 						
-						if(user != null && StringUtil.equals(user.getStatus(), "Y"))
+						if(wdUser != null && StringUtil.equals(wdUser.getStatus(), "Y"))
 						{
 							bFlag = true;
 						}

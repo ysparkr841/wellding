@@ -10,12 +10,14 @@
 	 $(document).ready(function(){
 	   $("#form-submit").on("click", function(){
 	      //조회버튼 눌렀을때: 조회항목, 조회값, 현재 커런트페이지에대한 정보를 가져가야함
-	      document.bbsForm.hiBbsSeq.value = "";
-	      document.bbsForm.searchType.value = $("#_searchType").val();
-	      document.bbsForm.searchValue.value = $("#_searchValue").val();
-	      document.bbsForm.curPage.value = 1;   //현재 내가 3페이지였는데 조회를 하면 페이지수는 가져가지 않아. 페이지는 어떻게될지 모르자나 그래서 조회했다 싶으면 무조건1로 넣는거야. 페이지가 몇개일지 모르자나
-	      document.bbsForm.action = "/hsdm/halllist";
-	      document.bbsForm.submit();
+	      document.hallForm.WHCode.value = "";
+	      document.hallForm.HCode.value = "";
+	      document.hallForm.searchType.value = $("#_searchType").val();
+	      document.hallForm.searchValue.value = $("#_searchValue").val();
+	      document.hallForm.curPage.value = 1;   //현재 내가 3페이지였는데 조회를 하면 페이지수는 가져가지 않아. 페이지는 어떻게될지 모르자나 그래서 조회했다 싶으면 무조건1로 넣는거야. 페이지가 몇개일지 모르자나
+	      document.hallForm.action = "/hsdm/halllist";
+	      document.hallForm.submit();
+	      
 	   });
 	   
 	});
@@ -157,7 +159,8 @@
         </div>
     </div>
    <form name="hallForm" id="hallForm" method="post">
-      <input type="hidden" name="hiBbsSeq" value="" /> <!-- 제목눌러서 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
+      <input type="hidden" name="WHCode" value="" /> <!-- 제목눌러서 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
+      <input type="hidden" name="HCode" value="" /> <!-- 제목눌러서 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
       <input type="hidden" name="searchType" value="${searchType}" />
       <input type="hidden" name="searchValue" value="${searchValue}" />
       <input type="hidden" name="curPage" value="${curPage}" />
