@@ -1062,7 +1062,7 @@ banner
 ---------------------------------------------
 */
 .category {
-  padding-bottom: 30px;
+  padding-bottom: 5px;
   text-align: center;
 }
 .category h2 {
@@ -1088,8 +1088,8 @@ banner
   font-size: 38px;
   font-weight: 800;
   color: #2a2a2a;
-  margin-bottom: 15px;
-  margin-top: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 .sdmimg
@@ -3726,17 +3726,16 @@ responsive
   background-color: #F0EFF8;
 }
 
-.show-events-schedule2 .time a
-{
-	
-}
-
+/* 밑줄 구현 */
 .shows-events-schedule2 ul li {
   background-color: #fff;
   padding: 10px 30px 10px 30px;
   margin-bottom: 2px;
   text-align: center;
+  cursor: pointer;
 }
+
+
 
 .shows-events-schedule2 ul li .title h4 {
   font-size: 20px;
@@ -3998,6 +3997,8 @@ responsive
   font-weight: 500;
   text-transform: capitalize;
   transition: all .3s;
+  outline: none;
+  border: none;
 }
 
 .shows-events-schedule .boxing
@@ -4021,5 +4022,23 @@ responsive
   font-weight: 500;
   text-transform: capitalize;
   transition: all .3s;
+  border: none;
+  outline: none;
 }
+
+.tickets-page2 .search-box2 .main-dark-button3 {
+  display: inline-block;
+  font-size: 13px;
+  padding: 6px 18px;
+  margin-left: 20px;
+  background-color: #103148;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: all .3s;
+  border: none;
+  outline: none;
+}
+
 /* 의수 추가 내용  종료==========*/

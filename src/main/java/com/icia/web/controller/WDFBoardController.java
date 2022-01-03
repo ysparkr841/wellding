@@ -95,8 +95,6 @@ public class WDFBoardController
 			list = wdFBoardService.fBoardList(search);
 		}
 		
-		
-		
 		model.addAttribute("list", list);
 		model.addAttribute("searchType", searchType);
 		model.addAttribute("searchValue", searchValue);
@@ -111,5 +109,27 @@ public class WDFBoardController
 	public String fBoardWrite(HttpServletRequest request, HttpServletResponse response) 
 	{
 		return "/board/fBoardWrite";
+	}
+	
+	@RequestMapping(value="/board/fBoardView")
+	public String fBoardView(HttpServletRequest request, HttpServletResponse response) 
+	{
+		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		
+		long bSeq = HttpUtil.get(request, "bSeq", (long)0);
+		String searchType = HttpUtil.get(request, "searchType", "");
+		String searchValue = HttpUtil.get(request, "searchValue", "");
+		long curPage = HttpUtil.get(request, "curPage", (long)1);
+		
+		String boardMe = "N";
+		WDFBoard wdFBoard =null;
+		
+		if(bSeq > 0) 
+		{
+			wdFBoard = wdFBoardService
+		}
+		
+		
+		return "/board/fBoardView";
 	}
 }
