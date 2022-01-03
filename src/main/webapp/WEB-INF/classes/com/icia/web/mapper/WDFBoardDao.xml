@@ -16,7 +16,8 @@
    <result column="B_INDENT" property="bIndent" />
    
    <result column="U_NAME" property="uName" />
-   <result column="U_EMAIL" property="uEmail" />   
+   <result column="U_EMAIL" property="uEmail" />  
+   <result column="U_NICKNAME" property="userNickname" /> 
 </resultMap>
 <!-- 게시물에 대한 resultMap 종료-->
 
@@ -39,6 +40,7 @@ SELECT
     USER_ID,
     U_NAME,
     U_EMAIL,
+    U_NICKNAME,
     B_TITLE,
     B_CONTENT,
     B_READ_CNT,
@@ -53,6 +55,7 @@ FROM(
             USER_ID,
             U_NAME,
             U_EMAIL,
+            U_NICKNAME,
             B_TITLE,
             B_CONTENT,
             B_READ_CNT,
@@ -66,6 +69,7 @@ FROM(
                     A.USER_ID AS USER_ID,
                     NVL(B.U_NAME, '') AS U_NAME,
                     NVL(B.U_EMAIL, '') AS U_EMAIL,
+                    NVL(B.U_NICKNAME, '') AS U_NICKNAME,
                     NVL(A.B_TITLE, '') AS B_TITLE,
                     NVL(A.B_CONTENT, '') AS B_CONTENT,
                     NVL(A.B_READ_CNT, 0) AS B_READ_CNT,
@@ -81,7 +85,7 @@ FROM(
    <choose>                
       <when test='searchType == "1"'> 
                 AND
-                    B.U_NAME LIKE '%' || #{searchValue} || '%'
+                    B.U_NICKNAME LIKE '%' || #{searchValue} || '%'
       </when>
       <when test='searchType == "2"'>          
                 AND
@@ -93,8 +97,8 @@ FROM(
       </when>
    </choose>                 
 </if>                 
-                ORDER BY 
-                    A.B_GROUP DESC, A.B_ORDER ASC))
+				ORDER BY
+					B_SEQ ASC))
 WHERE 
     RNUM <![CDATA[>=]]> #{startRow}
 AND 
@@ -114,7 +118,7 @@ WHERE
 	<choose>
 		<when test='searchType =="1"'>
 AND
-    U.U_NAME LIKE '%' || #{searchValue} || '%'
+    U.U_NICKNAME LIKE '%' || #{searchValue} || '%'
 		</when>
 		<when test='searchType =="2"'>
 AND

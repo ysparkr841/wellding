@@ -37,6 +37,7 @@
 
     
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <script src="../resources/js/jquery-3.5.1.js"></script>
 <!--
 
 Tooplate 2125 ArtXibition

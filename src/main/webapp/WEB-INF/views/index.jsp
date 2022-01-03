@@ -2,15 +2,14 @@
 <%@ include file="/WEB-INF/views/include/taglib.jsp" %>
 <!DOCTYPE html>
 <html>
-
 <head>
 	<%@ include file="/WEB-INF/views/include/head.jsp" %>
-</head>
-    
-    <body>
-    
+</head> 
+    <body>  
     <!-- 메뉴바 시작 -->
-    	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
+    	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
+    	<jsp:param name="userName" value="${wdUser.userNickname}" />
+    	</jsp:include>
     <!-- 메뉴바 종료 -->
 
     <!-- ***** Main Banner Area Start ***** -->
@@ -18,17 +17,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="main-content">
-                        <!-- div class="next-show">
-                            <i class="fa fa-arrow-up"></i>
-                            <span>Next Show</span>
-                        </div-->
-                       
+                    <div class="main-content">                      
                         <h2>Wellding</h2>
-                        <!--버튼부분-->
-                        <!-- <div class="main-white-button">
-                            <a href="ticket-details.html">Purchase Tickets</a>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -38,7 +28,7 @@
 
 <!-- -------------------------보현수정----------------------------- -->
     <!-- *** 보현수정 베스트웨딩홀 ***-->
-    <div class="coming-events">
+       <div class="coming-events2">
         <div class="container">
             <div class="row">
 				<div class="col-lg-12">
@@ -49,16 +39,16 @@
                 </div>
                 <c:forEach var="hallList" items="${hall}" varStatus="status">
 	                <div class="col-lg-4">
-	                    <div class="event-item">
-	                        <div class="thumb">
-	                            <a href="event-details.html"><img src="resources/hsdm/${hallList.HImgName}" alt=""></a>
+	                    <div class="event-item2">
+	                        <div class="thumb2">
+	                            <a href="event-details.html"><img src="/resources/hsdm/${hallList.HImgName}" alt=""></a>
 	                        </div>
-	                        <div class="down-content">
+	                        <div class="down-content2">
 	                            <a href="event-details.html"><h4>${hallList.HName}</h4></a>
 	                            <ul>
-	                                <li><i class="fa fa-map-marker"></i> ${hallList.WHLocation}</li>
-	                                <li><i class="fa fa-user"></i> ${hallList.HMax}명 수용 가능</li>
-	                                <li><i class="fa fa-krw" aria-hidden="true"></i>
+	                                <li class="main_location"><i class="fa fa-map-marker"></i> <p>${hallList.WHLocation}</p></li>
+	                                <li class="main_person"><i class="fa fa-user"></i> ${hallList.HMax}명 수용 가능</li>
+	                                <li class="m_h_price"><i class="fa fa-krw" aria-hidden="true"></i>
 	                                <fmt:formatNumber type="number" maxFractionDigits="3" value="${hallList.HPrice}" />
 	                                </li>
 	                            </ul>
@@ -68,7 +58,7 @@
 	                        </div>
 	                    </div>
 	                </div>
-                </c:forEach>
+                </c:forEach>             
                 
                 
                 <!--  div class="col-lg-4">
@@ -125,7 +115,7 @@
                     <div class="venue-item">
                         <div class="thumb sdmimg">
                         <a href="#">
-                            <img src="resources/images/S68.jpg" width="100%" height="auto">
+                            <img src="/resources/images/S68.jpg" width="100%" height="auto">
                             <a class="sdm_title" href="#">Studio</a>
                         </a>
                         </div>
@@ -135,7 +125,7 @@
                     <div class="venue-item">
                         <div class="thumb sdmimg">
                         	<a href="#">
-	                            <img src="resources/images/D10.jpg" width="100%" height="auto">
+	                            <img src="/resources/images/D10.jpg" width="100%" height="auto">
 	                        	<a class="sdm_title" href="#">Dress</a>                       	
                         	</a>
                         </div>
@@ -145,7 +135,7 @@
                     <div class="venue-item">
                         <div class="thumb sdmimg">
                       		<a href="#">
-	                            <img src="resources/images/M00.jpg" width="100%" height="auto">
+	                            <img src="/resources/images/M00.jpg" width="100%" height="auto">
 	                        	<a class="sdm_title" href="#">Makeup</a>
                         	</a>
                         </div>
@@ -169,7 +159,7 @@
         <div class="innerbox">
             <ul class="bxslider" style="text-align: center;"> 
              <c:forEach var="eboard" items="${wdEBoard}" varStatus="status">
-                <li><img src="resources/board/${eboard.eBImgName}" style="width: 80%; height: 350px;" /></li> 
+                <li><img src="/resources/board/${eboard.eBImgName}" style="width: 80%; height: 350px;" /></li> 
              </c:forEach>
                 <!--li><img src="resources/images/305.jpg" style="width: 80%; height: 350px;" /></li> 
                 <li><img src="resources/images/608.jpg" style="width: 80%; height: 350px;" /></li--> 
@@ -246,11 +236,6 @@
     </div>
     <!-- 김동욱 수정 끝 -->
 
-
-<!--     *** Map ***
-    <div class="map-image">
-        <img src="resources/images/map-image.jpg" alt="Maps of 3 Venues">
-    </div> -->
     
     <!-- 보현수정 시작 : 커뮤니티 및 위치 
     <section id="contact" class="contact">
@@ -282,62 +267,6 @@
       </section>
 보현수정 끝 : 커뮤니티 및 위치 -->
 
-    <!-- *** Coming Events ***-->
- <!--   <div class="coming-events">
-        <div class="left-button">
-            <div class="main-white-button">
-                <a href="shows-events.html">Discover More</a>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="event-item">
-                        <div class="thumb">
-                            <a href="event-details.html"><img src="resources/images/event-01.jpg" alt=""></a>
-                        </div>
-                        <div class="down-content">
-                            <a href="event-details.html"><h4>Radio City Musical Hall</h4></a>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i> Tuesday: 15:30-19:30</li>
-                                <li><i class="fa fa-map-marker"></i> Copacabana Beach, Rio de Janeiro</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="event-item">
-                        <div class="thumb">
-                            <a href="event-details.html"><img src="resources/images/event-02.jpg" alt=""></a>
-                        </div>
-                        <div class="down-content">
-                            <a href="event-details.html"><h4>Madison Square Garden</h4></a>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i> Wednesday: 08:00-14:00</li>
-                                <li><i class="fa fa-map-marker"></i> Copacabana Beach, Rio de Janeiro</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="event-item">
-                        <div class="thumb">
-                            <a href="event-details.html"><img src="resources/images/event-03.jpg" alt=""></a>
-                        </div>
-                        <div class="down-content">
-                            <a href="event-details.html"><h4>Royce Hall</h4></a>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i> Thursday: 09:00-23:00</li>
-                                <li><i class="fa fa-map-marker"></i> Copacabana Beach, Rio de Janeiro</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
--->
     <!-- *** Subscribe *** -->
    <div class="subscribe">
         <div class="container">

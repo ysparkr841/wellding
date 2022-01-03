@@ -16,7 +16,7 @@ public interface WDNBoardDao
 	public List<WDNBoard> nBoardList(WDNBoard wdNBoard);
 	
 	//게시물 등록
-	public int nBoardInsert(WDNBoard wdNBoard);
+	//public int nBoardInsert(WDNBoard wdNBoard);
 	
 	//게시물 조회
 	public WDNBoard nBoardSelect(long bSeq);
@@ -25,11 +25,11 @@ public interface WDNBoardDao
 	public int nBoardReadCntPlus(long bSeq);
 	
 	//게시물 삭제시 답변글수 체크
-	public int nBoardAnswersCount(long bSeq);
+	//public int nBoardAnswersCount(long bSeq);
 	
 	//게시물 삭제
-	public int nBoardDelete(long bSeq);
+	//public int nBoardDelete(long bSeq);
 	
 	//게시물 수정
-	public int nBoardUpdate(WDNBoard wdNBoard);
+	//public int nBoardUpdate(WDNBoard wdNBoard);
 }

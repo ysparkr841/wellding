@@ -63,6 +63,7 @@ a:focus {
 a:hover {
 	text-decoration: none;
   color: #6a7dfe;
+  border-bottom: 1px solid #6a7dfe;
   color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
   color: -o-linear-gradient(left, #21d4fd, #b721ff);
   color: -moz-linear-gradient(left, #21d4fd, #b721ff);
@@ -162,9 +163,9 @@ iframe {
 .txt2 {
   font-family: Poppins-Regular;
   font-size: 13px;
-  color: #333333;
+  color: #444b59;
   line-height: 1.5;
-  border-bottom: 1px solid #9cbfec;
+  border-bottom: 1px solid #444b59;
 }
 
 /*//////////////////////////////////////////////////////////////////
@@ -192,7 +193,7 @@ iframe {
 
 .wrap-login100 {
   width: 600px;
-  height: 670px;
+  height: 700px;
  
   background: #fff;
   border-radius: 10px;

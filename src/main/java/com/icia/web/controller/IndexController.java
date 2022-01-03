@@ -45,7 +45,7 @@ import com.icia.web.util.CookieUtil;
 @Controller("indexController")
 public class IndexController
 {
-	private static Logger logger = LoggerFactory.getLogger(IndexController.class);
+   private static Logger logger = LoggerFactory.getLogger(IndexController.class);
 
 	//쿠키명
 	@Value("#{env['auth.cookie.name']}")
@@ -123,40 +123,35 @@ public class IndexController
 		
 		//자유게시판 글
 		WDFBoard fSearch = new WDFBoard();
-		fSearch.setStartRow(6);
-		fSearch.setEndRow(10);
+		fSearch.setStartRow(11);
+		fSearch.setEndRow(15);
 		
 		List<WDFBoard> wdFBoard = null;
 		
 		wdFBoard = wdFBoardService.fBoardList(fSearch);
-		
+				
 		model.addAttribute("wdFBoard", wdFBoard);
 		
 		return "/index";
 	}
-	
 
-	@RequestMapping(value = "/board/eboard")
-	public String eboard(HttpServletRequest request, HttpServletResponse resopnse)
+
+	   @RequestMapping(value="/board/login", method=RequestMethod.GET)
+	   public String loginForm(HttpServletRequest request, HttpServletResponse response)
+	   {
+	      return "/board/login";
+	   }
+
+
+	   
+	/*회원가입폼*/
+	@RequestMapping(value="/board/regform", method=RequestMethod.GET)
+	public String regform(HttpServletRequest request, HttpServletResponse response)
 	{
-		return "/board/eboard";
+		return "/board/regform";
 	}
 
-	@RequestMapping(value="/board/login", method=RequestMethod.GET)
-	public String loginForm(HttpServletRequest request, HttpServletResponse response)
-	{
-		
-		
-		return "/board/login";
-	}
-	
-	/**** 스튜디오 ****/
-	@RequestMapping(value="/hsdm/studio", method=RequestMethod.GET)
-	public String studio(HttpServletRequest request, HttpServletResponse response)
-	{
-		return "/hsdm/studio";
+     
 
-	}
 }
-
 

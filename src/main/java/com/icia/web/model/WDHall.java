@@ -9,8 +9,9 @@ public class WDHall implements Serializable{
 	private String WHCode;
 	private String HCode;
 	private String HName;
+	private String whName;
 	private String WHLocation;
-	private long HPrice;
+	private String HPrice;
 	private long HFood;
 	private long HMin;
 	private long HMax;
@@ -18,14 +19,21 @@ public class WDHall implements Serializable{
 	private String HImgName;
 	private long RezCount;
 	
+	private String searchType;		//검색타입(1:이름, 2:제목, 3:내용)
+	private String searchValue;		//검색 값
+	
 	private WDHallFile wdHallFile;
+	
+	private long startRow;			//시작 rownum
+	private long endRow;			//끝 rownum
 	
 	public WDHall() {
 		  WHCode = "";
 		  HCode = "";
 		  HName = "";
+		  whName = "";
 		  WHLocation = "";
-		  HPrice = 0;
+		  HPrice = "";
 		  HFood = 0;
 		  HMin = 0;
 		  HMax = 0;
@@ -33,10 +41,71 @@ public class WDHall implements Serializable{
 		  HImgName = "";
 		  RezCount = 0;
 		  
+		  startRow = 0;
+		  endRow = 0;
 		  wdHallFile = null;
+		  
+		  searchType = "";
+		  searchValue = "";
 	}
 	
 	
+
+	public String getWhName() {
+		return whName;
+	}
+
+
+
+	public void setWhName(String whName) {
+		this.whName = whName;
+	}
+
+
+
+	public long getStartRow() {
+		return startRow;
+	}
+
+
+	public void setStartRow(long startRow) {
+		this.startRow = startRow;
+	}
+
+
+	public long getEndRow() {
+		return endRow;
+	}
+
+
+	public void setEndRow(long endRow) {
+		this.endRow = endRow;
+	}
+
+
+	public String getSearchType() {
+		return searchType;
+	}
+
+
+
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
+
+
+
+	public String getSearchValue() {
+		return searchValue;
+	}
+
+
+
+	public void setSearchValue(String searchValue) {
+		this.searchValue = searchValue;
+	}
+
+
 
 	public String getWHLocation() {
 		return WHLocation;
@@ -86,11 +155,11 @@ public class WDHall implements Serializable{
 		HName = hName;
 	}
 
-	public long getHPrice() {
+	public String getHPrice() {
 		return HPrice;
 	}
 
-	public void setHPrice(long hPrice) {
+	public void setHPrice(String hPrice) {
 		HPrice = hPrice;
 	}
 

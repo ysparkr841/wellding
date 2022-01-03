@@ -59,6 +59,7 @@
             		<list>
             			<value>/index</value>
             			<value>/board/login</value>
+            			<value>/board/regform</value>
             			<value>/user/loginOut</value>
             			<value>/user/regForm</value>
             			<value>/user/regProc</value>
@@ -67,7 +68,15 @@
             			<value>/board/nBoard</value>
             			<value>/board/eBoard</value>
             			<value>/hsdm/studio</value>
-            			<value>/board/fBoard</value>            			
+            			<value>/board/fBoard</value>
+            			<value>/hsdm/halllist</value>  
+            			<value>/hsdm/dress</value>
+
+            			<value>/imokay</value>
+            			<value>/board/fBoardWrite</value>          			
+ 
+            			<value>/hsdm/makeUp</value>   			
+
 
             		</list>
             	</constructor-arg>

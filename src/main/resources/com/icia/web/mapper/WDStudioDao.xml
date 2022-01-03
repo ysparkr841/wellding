@@ -15,7 +15,7 @@
 <!-- 첨부파일 -->
 <resultMap id="WDStudioFileMap" type="com.icia.web.model.WDStudioFile">
 	<id column="S_SEQ" property="sSeq" />
-	<id column="S_CODE" property="sCoed" />
+	<id column="S_CODE" property="sCode" />
 	<result column="S_FILE_SEQ" property="sFileSeq" />
 	<result column="S_FILE_NAME" property="sfileName" />
 	<result column="S_FILE_ORG_NAME" property="sFileOrgName" />
