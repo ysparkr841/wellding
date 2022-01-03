@@ -71,7 +71,12 @@
             			<value>/board/fBoard</value>
             			<value>/hsdm/halllist</value>  
             			<value>/hsdm/dress</value>
-            			<value>/imokay</value>          			
+
+            			<value>/imokay</value>
+            			<value>/board/fBoardWrite</value>          			
+ 
+            			<value>/hsdm/makeUp</value>   			
+
 
             		</list>
             	</constructor-arg>

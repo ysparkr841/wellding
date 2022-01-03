@@ -157,6 +157,5 @@ public class WDStudio implements Serializable
 	public void setWdStudoiFile(WDStudioFile wdStudoiFile) {
 		this.wdStudoiFile = wdStudoiFile;
 	}
-	
-	
+
 }

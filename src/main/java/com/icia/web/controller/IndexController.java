@@ -135,13 +135,15 @@ public class IndexController
 		return "/index";
 	}
 
-   @RequestMapping(value="/board/login", method=RequestMethod.GET)
-   public String loginForm(HttpServletRequest request, HttpServletResponse response)
-   {
-	
-		return "/board/login";
-   }
-	
+
+	   @RequestMapping(value="/board/login", method=RequestMethod.GET)
+	   public String loginForm(HttpServletRequest request, HttpServletResponse response)
+	   {
+	      return "/board/login";
+	   }
+
+
+	   
 	/*회원가입폼*/
 	@RequestMapping(value="/board/regform", method=RequestMethod.GET)
 	public String regform(HttpServletRequest request, HttpServletResponse response)

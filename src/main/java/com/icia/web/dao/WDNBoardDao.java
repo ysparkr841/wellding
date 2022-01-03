@@ -19,7 +19,7 @@ public interface WDNBoardDao
 	//public int nBoardInsert(WDNBoard wdNBoard);
 	
 	//게시물 조회
-	//public WDNBoard nBoardSelect(long bSeq);
+	public WDNBoard nBoardSelect(long bSeq);
 	
 	//조회수 증가
 	public int nBoardReadCntPlus(long bSeq);

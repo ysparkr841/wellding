@@ -10,12 +10,14 @@
 	 $(document).ready(function(){
 	   $("#form-submit").on("click", function(){
 	      //조회버튼 눌렀을때: 조회항목, 조회값, 현재 커런트페이지에대한 정보를 가져가야함
-	      document.bbsForm.hiBbsSeq.value = "";
-	      document.bbsForm.searchType.value = $("#_searchType").val();
-	      document.bbsForm.searchValue.value = $("#_searchValue").val();
-	      document.bbsForm.curPage.value = 1;   //현재 내가 3페이지였는데 조회를 하면 페이지수는 가져가지 않아. 페이지는 어떻게될지 모르자나 그래서 조회했다 싶으면 무조건1로 넣는거야. 페이지가 몇개일지 모르자나
-	      document.bbsForm.action = "/hsdm/halllist";
-	      document.bbsForm.submit();
+	      document.hallForm.WHCode.value = "";
+	      document.hallForm.HCode.value = "";
+	      document.hallForm.searchType.value = $("#_searchType").val();
+	      document.hallForm.searchValue.value = $("#_searchValue").val();
+	      document.hallForm.curPage.value = 1;   //현재 내가 3페이지였는데 조회를 하면 페이지수는 가져가지 않아. 페이지는 어떻게될지 모르자나 그래서 조회했다 싶으면 무조건1로 넣는거야. 페이지가 몇개일지 모르자나
+	      document.hallForm.action = "/hsdm/halllist";
+	      document.hallForm.submit();
+	      
 	   });
 	   
 	});
@@ -29,16 +31,19 @@
 
 	function fn_list(curPage)
 	{
-	   document.bbsForm.hiBbsSeq.value = "";
-	   document.bbsForm.curPage.value = curPage;
-	   document.bbsForm.action = "/hsdm/view";
-	   document.bbsForm.submit();
+       document.hallForm.WHCode.value = "";
+       document.hallForm.HCode.value = "";
+	   document.hallForm.curPage.value = curPage;
+	   document.hallForm.action = "/hsdm/halllist";
+	   document.hallForm.submit();
 	}
 	</script>
 </head>   
 <body>
 	<!-- 메뉴바 시작 -->
-	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
+    	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
+    	<jsp:param name="userName" value="${wdUser.userNickname }" />
+    	</jsp:include>
 	<!-- 메뉴바 종료 -->
 <!-- ############################ 여기부터 내용 시작 ############################ -->
 
@@ -84,7 +89,7 @@
                                         </div>
                                         <div class="col-lg-3">
                                             <fieldset>
-                                            <button type="submit" id="form-submit" class="main-dark-button">Submit</button>
+                                            <button type="button" id="form-submit" class="main-dark-button">Submit</button>
                                             </fieldset>
                                         </div>
                                         
@@ -112,7 +117,7 @@
                             <ul>
                                 <li class="sd_adress"><i class="fa fa-map-marker"></i>${wdHall.WHLocation }</li>
                             </ul>
-                                <div class="sd_detail">${wdHall.HContent}</div>
+                                <div class="sd_detail_hall">${wdHall.HContent}</div>
                             <ul>    
                                 <!-- <li class="price">550,000원</li> -->
                                 <li class="dis_price"><span class="discount"></span> <span class="dis-price">${wdHall.HPrice}원</span></li>
@@ -132,7 +137,7 @@
                         <ul>
 							<c:if test="${!empty paging}">
 							   <c:if test="${paging.prevBlockPage gt 0}"> <!-- 페이징의 프리뷰블럭이 0보다 크냐 -->
-							         <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.prevBlockPage})">이전블럭</a></li>
+							         <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.prevBlockPage})">이전</a></li>
 							   </c:if>
 							    <c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">
 							       <c:choose>
@@ -145,7 +150,7 @@
 							      </c:choose>
 							   </c:forEach>
 							    <c:if test="${paging.nextBlockPage gt 0}">        
-							         <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.nextBlockPage})">다음블럭</a></li>
+							         <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.nextBlockPage})">다음</a></li>
 							   </c:if>
 							</c:if>
                         </ul>
@@ -155,7 +160,8 @@
         </div>
     </div>
    <form name="hallForm" id="hallForm" method="post">
-      <input type="hidden" name="hiBbsSeq" value="" /> <!-- 제목눌러서 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
+      <input type="hidden" name="WHCode" value="" /> <!-- 제목눌러서 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
+      <input type="hidden" name="HCode" value="" /> <!-- 제목눌러서 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
       <input type="hidden" name="searchType" value="${searchType}" />
       <input type="hidden" name="searchValue" value="${searchValue}" />
       <input type="hidden" name="curPage" value="${curPage}" />

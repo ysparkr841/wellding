@@ -11,5 +11,5 @@ public interface WDFBoardDao
 {
 	public List<WDFBoard> fBoardList(WDFBoard wdFBoard);
 	
-	public int fBoardListCount(WDFBoard wdFBoard);
+	public long fBoardListCount(WDFBoard wdFBoard);
 }

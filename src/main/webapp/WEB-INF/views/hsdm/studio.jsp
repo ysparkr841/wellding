@@ -36,7 +36,9 @@ function fn_list(curPage)
 </head> 
 <body>
 	<!-- 메뉴바 시작 -->
-	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
+    	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
+    	<jsp:param name="userName" value="${wdUser.userNickname}" />
+    	</jsp:include>
 	<!-- 메뉴바 종료 -->
 <!-- ############################ 여기부터 내용 시작 ############################ -->
 
@@ -82,7 +84,7 @@ function fn_list(curPage)
                                         </div>
                                         <div class="col-lg-3">
                                             <fieldset>
-                                            <button type="submit" id="btnSearch" class="main-dark-button">Submit</button>
+                                            <button type="button" id="btnSearch" class="main-dark-button">Submit</button>
                                             </fieldset>
                                         </div>
                                         
@@ -94,7 +96,7 @@ function fn_list(curPage)
                 </div>
                 <div class="col-lg-12">
                     <div class="heading">
-                        <h2>Studio</h2>
+                        <h2><!-- Studio --></h2>
                     </div>
                 </div>
 <c:if test="${!empty list}">        
@@ -111,7 +113,7 @@ function fn_list(curPage)
                             </ul>
                                 <div class="sd_detail"><c:out value="${wdStudio.sContent}" /></div>
                             <ul>    
-                                <li class="price"><c:out value="${wdStudio.sPrice}" />원</li>
+                                <li class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdStudio.sPrice}" />원</li>
                                 <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
                             </ul>
                             <div class="main-dark-button">

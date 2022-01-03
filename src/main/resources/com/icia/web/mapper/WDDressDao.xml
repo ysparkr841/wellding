@@ -4,15 +4,15 @@
 
 <!-- 드레스 resultMap 시작 -->
 <resultMap id="WDDressResultMap" type="com.icia.web.model.WDDress">
-	<id column="DC_CODE" property="dcCode"/>
-	<id column="D_NO" property="dNo"/>
-	<result column="DC_NAME" property="dcName"/>
-	<result column="D_NAME" property="dName"/>
-	<result column="DC_LOCATION" property="dcLocation"/>
-	<result column="DC_NUMBER" property="dcNumber"/>
-	<result column="D_IMGNAME" property="dImgname"/>
-	<result column="D_PRICE" property="dPrice"/>
-	<result column="D_CONTENT" property="dContent"/>
+	<id column="DC_CODE" property="dcCode" />
+	<id column="D_NO" property="dNo" />
+	<result column="DC_NAME" property="dcName" />
+	<result column="D_NAME" property="dName" />
+	<result column="DC_LOCATION" property="dcLocation" />
+	<result column="DC_NUMBER" property="dcNumber" />
+	<result column="D_IMGNAME" property="dImgname" />
+	<result column="D_PRICE" property="dPrice" />
+	<result column="D_CONTENT" property="dContent" />
 </resultMap>
 <!-- 드레스 resultMap 끝 -->
 
@@ -34,7 +34,7 @@
 SELECT
     DC_CODE,
     D_NO,
-    DC_NAME
+    DC_NAME,
     D_NAME,
     DC_LOCATION,
     DC_NUMBER,
@@ -54,7 +54,7 @@ FROM (SELECT
             D_CONTENT
         FROM (SELECT
                     A.DC_CODE AS DC_CODE,
-                    A.D_NO AS D_NO,
+                    NVL(A.D_NO, '') AS D_NO,
                     NVL(B.DC_NAME, '') AS DC_NAME,
                     NVL(A.D_NAME, '') AS D_NAME,
                     NVL(B.DC_LOCATION, '') AS DC_LOCATION,
@@ -64,11 +64,13 @@ FROM (SELECT
                     NVL(A.D_CONTENT, '') AS D_CONTENT
                 FROM
                     WD_DRESS A, WD_DRESS_COM B
+                WHERE
+                    A.DC_CODE = B.DC_CODE
 <if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
    <choose>                
       <when test='searchType == "1"'> 
                 AND
-                    A.D_NAME LIKE '%' || #{searchValue} || '%'
+                    B.DC_NAME LIKE '%' || #{searchValue} || '%'
       </when>
       <when test='searchType == "2"'>
                 AND 
@@ -76,7 +78,8 @@ FROM (SELECT
 		</when>
 	</choose>
 </if> 
-                ORDER BY A.DC_CODE ASC, A.D_NO DESC)) 
+                 
+                ORDER BY A.D_NAME DESC)) 
 WHERE
     RNUM <![CDATA[>=]]> #{startRow}
 AND

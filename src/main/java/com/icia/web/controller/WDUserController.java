@@ -38,7 +38,6 @@ public class WDUserController
 	@ResponseBody
 	public Response<Object> login(ModelMap model, HttpServletRequest request, HttpServletResponse response)
 	{
-		System.out.println("시작!!!!!!!!!!!!!!!!!!!!!!");
 		String userId = HttpUtil.get(request, "userId");
 		String userPwd = HttpUtil.get(request, "userPwd");
 		Response<Object> ajaxResponse = new Response<Object>();
@@ -87,6 +86,18 @@ public class WDUserController
 		
 		
 		return ajaxResponse;		
+	}
+	
+	//로그아웃
+	@RequestMapping(value="/loginOut", method=RequestMethod.GET)
+	public String loginOut(HttpServletRequest request, HttpServletResponse response)
+	{
+		if(CookieUtil.getCookie(request, AUTH_COOKIE_NAME) != null)
+		{
+			CookieUtil.deleteCookie(request, response, "/", AUTH_COOKIE_NAME);
+		}
+		
+		return "redirect:/";
 	}
 	
 
