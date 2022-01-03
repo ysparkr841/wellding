@@ -13,9 +13,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.icia.common.model.FileData;
 import com.icia.common.util.StringUtil;
 import com.icia.web.model.Paging;
+import com.icia.web.model.Response;
+import com.icia.web.model.WDBoardFile;
 import com.icia.web.model.WDFBoard;
 import com.icia.web.model.WDUser;
 import com.icia.web.service.WDFBoardService;
@@ -105,14 +110,35 @@ public class WDFBoardController
 		return "/board/fBoard";
 	}
 	
+	
+	//작성페이지
 	@RequestMapping(value="/board/fBoardWrite", method=RequestMethod.POST)
-	public String fBoardWrite(HttpServletRequest request, HttpServletResponse response) 
+	public String fBoardWrite(ModelMap model, HttpServletRequest request, HttpServletResponse response) 
 	{
+		//쿠키 값
+		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		
+		//글 쓰고 돌아갈 때 서치타입 벨류 현재페이지 세팅이 필요함
+		String searchType = HttpUtil.get(request, "searchType", "");
+		String searchValue = HttpUtil.get(request, "searchValue", "");
+		long curPage = HttpUtil.get(request, "curPage", (long)1);		
+		
+		WDUser wdUser = wdUserService.userSelect(cookieUserId);
+		
+		model.addAttribute("searchType", searchType);
+		model.addAttribute("searchValue", searchValue);
+		model.addAttribute("curPage", curPage);
+		
+		model.addAttribute("wdUser", wdUser);
+		
 		return "/board/fBoardWrite";
 	}
 	
+	
+	
+	//상세페이지
 	@RequestMapping(value="/board/fBoardView")
-	public String fBoardView(HttpServletRequest request, HttpServletResponse response) 
+	public String fBoardView(ModelMap model, HttpServletRequest request, HttpServletResponse response) 
 	{
 		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
 		
@@ -126,10 +152,95 @@ public class WDFBoardController
 		
 		if(bSeq > 0) 
 		{
-			wdFBoard = wdFBoardService
+			wdFBoard = wdFBoardService.wdFBoardView(bSeq);
+			
+			if(wdFBoard != null && StringUtil.equals(wdFBoard.getUserId(), cookieUserId)) 
+			{
+				boardMe = "Y";
+			}
 		}
 		
+		if(wdFBoard.getWdBoardFile() != null) 
+		{
+			String url = wdFBoard.getWdBoardFile().getFileName();
+			model.addAttribute("url", url);
+		}
+		
+		WDUser wdUser = wdUserService.userSelect(cookieUserId);
+		
+		model.addAttribute("wdUser", wdUser);
+		
+		model.addAttribute("bSeq", bSeq);
+		model.addAttribute("searchType", searchType);
+		model.addAttribute("searchValue", searchValue);
+		model.addAttribute("curPage", curPage);
+		model.addAttribute("wdFBoard", wdFBoard);
+		model.addAttribute("boardMe", boardMe);
 		
 		return "/board/fBoardView";
+	}
+	
+	
+	
+	//게시물 작성
+	@RequestMapping(value="/board/writeProc", method=RequestMethod.POST)
+	@ResponseBody
+	public Response<Object> writeProc(MultipartHttpServletRequest request, HttpServletResponse response)
+	{
+		Response<Object> ajaxResponse = new Response<Object>();
+		
+		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		String hiBbsTitle = HttpUtil.get(request, "hiBbsTitle", "");
+		String hiBbsContent = HttpUtil.get(request, "hiBbsContent", "");
+		
+		
+		FileData fileData = HttpUtil.getFile(request, "hiBbsFile", UPLOAD_SAVE_DIR);
+		
+		if(!StringUtil.isEmpty(hiBbsTitle) && !StringUtil.isEmpty(hiBbsContent)) 
+		{
+			WDFBoard wdFBoard = new WDFBoard();
+			wdFBoard.setUserId(cookieUserId);
+			wdFBoard.setbTitle(hiBbsTitle);
+			wdFBoard.setbContent(hiBbsContent);
+			
+			if(fileData != null && fileData.getFileSize() >0 ) 
+			{
+				WDBoardFile wdBoardFile = new WDBoardFile();
+				
+				wdBoardFile.setFileName(fileData.getFileName());
+				wdBoardFile.setFileOrgName(fileData.getFileOrgName());
+				wdBoardFile.setFileExt(fileData.getFileExt());
+				wdBoardFile.setFileSize(fileData.getFileSize());
+				
+				wdFBoard.setWdBoardFile(wdBoardFile);
+			}
+			
+		
+		
+		
+			try 
+			{
+				if(wdFBoardService.boardInsert(wdFBoard) > 0) 
+				{
+					ajaxResponse.setResponse(0, "Success");
+				}
+				else 
+				{
+					ajaxResponse.setResponse(500, "Internal Server Error");
+				}
+			}
+			catch(Exception e) 
+			{
+				logger.error("[WDFBoardController] /board/writeProc Exception", e);
+				ajaxResponse.setResponse(500, "Internal Server Error");
+			}
+		
+		}
+		else 
+		{
+			ajaxResponse.setResponse(400, "Bad Request: No parameter");
+		}
+		
+		return ajaxResponse;
 	}
 }
