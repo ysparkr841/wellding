@@ -244,4 +244,23 @@ SELECT WD_FBOARD_SEQ.NEXTVAL FROM DUAL
 </select>
 <!-- 게시물 시퀀스 별도 조회 종료 -->
 
+
+<!-- 게시물 삭제 시작 -->
+<delete id="fBoardDelete" parameterType="long">
+DELETE FROM WD_FBOARD
+WHERE
+        B_SEQ = #{value}
+</delete>
+<!-- 게시물 삭제 종료 -->
+
+
+<!-- 게시물 첨부파일 삭제 시작 -->
+<delete id="fBoardFileDelete" parameterType="long">
+DELETE FROM WD_BOARD_FILE
+WHERE
+        B_SEQ = #{value}
+</delete>
+<!-- 게시물 첨부파일 삭제 종료 -->
+
+
 </mapper>

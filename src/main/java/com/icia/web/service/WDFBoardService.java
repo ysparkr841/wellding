@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.icia.common.util.FileUtil;
 import com.icia.web.dao.WDFBoardDao;
 import com.icia.web.model.WDBoardFile;
 import com.icia.web.model.WDFBoard;
@@ -89,6 +90,24 @@ public class WDFBoardService
 		return wdFBoard;
 	}
 	
+	//게시물 첨부파일만 조회
+	public WDBoardFile fBoardFileSelect(long bSeq) 
+	{
+		WDBoardFile wdBoardFile = null;
+		
+		try 
+		{
+			wdBoardFile = wdFBoardDao.fBoardFileSelect(bSeq);
+		}
+		catch(Exception e) 
+		{
+			   logger.error("[WDFBoardService] fBoardFileSelect Exception", e);			
+		}
+		
+		return wdBoardFile;
+	}
+	
+	//게시물 등록
 	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 	public int boardInsert(WDFBoard wdFBoard) throws Exception
 	{
@@ -109,5 +128,33 @@ public class WDFBoardService
 		}
 		
 		return count;
+	}
+
+	//게시물 삭제
+	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
+	public int fBoardDelete(long bSeq) throws Exception
+	{
+		int cnt = 0;
+		
+		WDFBoard wdFBoard = wdFBoardDao.fBoardViewSelect(bSeq);
+		
+		if(wdFBoard != null) 
+		{
+			WDBoardFile wdBoardFile = wdFBoardDao.fBoardFileSelect(bSeq);
+			cnt = wdFBoardDao.fBoardDelete(bSeq);
+			
+			if(wdBoardFile != null) 
+			{
+				wdFBoard.setWdBoardFile(wdBoardFile);
+				
+				if(wdFBoardDao.fBoardFileDelete(bSeq) > 0) 
+				{
+					FileUtil.deleteFile(UPLOAD_SAVE_DIR + FileUtil.getFileSeparator()+wdBoardFile.getFileName());
+				}
+			}
+			
+		}
+		
+		return cnt;
 	}
 }

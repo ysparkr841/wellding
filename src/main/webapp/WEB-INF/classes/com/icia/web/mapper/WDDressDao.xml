@@ -140,4 +140,51 @@ AND
     A.DC_CODE = B.DC_CODE
 </select>
 <!-- 드레스 상세페이지 보기 끝 -->
+
+<!-- 드레스 상세페이지 같은 회사 상품 조회 시작(단, 동일제품은 제외) -->
+<select id="dressSameCom" parameterType="com.icia.web.model.WDDress" resultMap="WDDressResultMap">
+SELECT
+    DC_CODE,
+    D_NO,
+    D_NAME,
+    DC_NAME,
+    D_IMGNAME,
+    D_PRICE,
+    D_CONTENT,
+    D_DISCOUNT
+FROM(
+        SELECT
+            ROWNUM AS RNUM,
+            DC_CODE,
+            D_NO,
+            D_NAME,
+            DC_NAME,
+            D_IMGNAME,
+            D_PRICE,
+            D_CONTENT,
+            D_DISCOUNT
+        FROM(
+                SELECT
+                    A.DC_CODE,
+                    A.D_NO,
+                    NVL(A.D_NAME, '') AS D_NAME,
+                    NVL(B.DC_NAME, '') AS DC_NAME,
+                    NVL(A.D_IMGNAME, '') AS D_IMGNAME,
+                    NVL(A.D_PRICE, 0) AS D_PRICE,
+                    NVL(A.D_CONTENT, '') AS D_CONTENT,
+                    NVL(A.D_DISCOUNT, 5) AS D_DISCOUNT
+                FROM
+                    WD_DRESS A, WD_DRESS_COM B
+                WHERE
+                    A.DC_CODE = #{dcCode}
+                AND
+                    A.DC_CODE = B.DC_CODE
+                AND
+                    A.D_NO NOT IN(#{dNo})))
+WHERE
+    RNUM <![CDATA[>=]]> 1
+AND
+    RNUM <![CDATA[<=]]> 4
+</select>
+<!-- 드레스 상세페이지 같은 회사 상품 조회 종료 -->
 </mapper>

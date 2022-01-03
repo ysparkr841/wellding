@@ -75,4 +75,21 @@ public class WDDressService
 	}
 	
 	
+	//동일 업체 드레스 정보 가져오기.
+	public List<WDDress> dressSameCom(WDDress wdDress)
+	{
+		List<WDDress> sameCom = null;
+	
+		try 
+		{
+			sameCom = wdDressDao.dressSameCom(wdDress);
+		}
+		catch(Exception e)
+		{
+			logger.error("[WDStudioService] dressSelect Exception", e);
+		}
+		
+		return sameCom;
+	}
+	
 }

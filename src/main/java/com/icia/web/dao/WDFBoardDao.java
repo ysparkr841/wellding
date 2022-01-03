@@ -31,4 +31,10 @@ public interface WDFBoardDao
 	
 	//게시물 별도 시퀀스 조회
 	public long boardSeqSelect();
+	
+	//게시물 삭제
+	public int fBoardDelete(long bSeq);
+	
+	//게시물 첨부파일 삭제
+	public int fBoardFileDelete(long bSeq);
 }

@@ -18,4 +18,7 @@ public interface WDDressDao
 	//조회
 	public WDDress dressSelect(String dNo);
 	
+	//동일 회사 드레스 조회, 동일제품은 제외
+	public List<WDDress> dressSameCom(WDDress wdDress);
+	
 }
