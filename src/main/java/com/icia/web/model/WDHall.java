@@ -9,11 +9,13 @@ public class WDHall implements Serializable{
 	private String WHCode;
 	private String HCode;
 	private String HName;
+	private String whName;
 	private String WHLocation;
 	private String HPrice;
 	private long HFood;
 	private long HMin;
 	private long HMax;
+	private String whContent;
 	private String HContent;
 	private String HImgName;
 	private long RezCount;
@@ -30,11 +32,13 @@ public class WDHall implements Serializable{
 		  WHCode = "";
 		  HCode = "";
 		  HName = "";
+		  whName = "";
 		  WHLocation = "";
 		  HPrice = "";
 		  HFood = 0;
 		  HMin = 0;
 		  HMax = 0;
+		  whContent = "";
 		  HContent = "";
 		  HImgName = "";
 		  RezCount = 0;
@@ -47,6 +51,23 @@ public class WDHall implements Serializable{
 		  searchValue = "";
 	}
 	
+	
+
+	public String getWhContent() {
+		return whContent;
+	}
+
+	public void setWhContent(String whContent) {
+		this.whContent = whContent;
+	}
+
+	public String getWhName() {
+		return whName;
+	}
+
+	public void setWhName(String whName) {
+		this.whName = whName;
+	}
 
 	public long getStartRow() {
 		return startRow;

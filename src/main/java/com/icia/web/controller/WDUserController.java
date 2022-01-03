@@ -38,7 +38,6 @@ public class WDUserController
 	@ResponseBody
 	public Response<Object> login(ModelMap model, HttpServletRequest request, HttpServletResponse response)
 	{
-		System.out.println("시작!!!!!!!!!!!!!!!!!!!!!!");
 		String userId = HttpUtil.get(request, "userId");
 		String userPwd = HttpUtil.get(request, "userPwd");
 		Response<Object> ajaxResponse = new Response<Object>();

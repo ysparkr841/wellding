@@ -21,7 +21,7 @@ $(document).ready(function(){
 function fn_view(sCode)
 {
 	document.bbsForm.sCode.value = sCode; //실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
-	document.bbsForm.action = "/hsdm/studio";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
+	document.bbsForm.action = "/hsdm/view";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
 	document.bbsForm.submit();
 }     
 
@@ -37,7 +37,7 @@ function fn_list(curPage)
 <body>
 	<!-- 메뉴바 시작 -->
     	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
-    	<jsp:param name="userName" value="${wdUser.userName }" />
+    	<jsp:param name="userName" value="${wdUser.userNickname}" />
     	</jsp:include>
 	<!-- 메뉴바 종료 -->
 <!-- ############################ 여기부터 내용 시작 ############################ -->
@@ -84,7 +84,7 @@ function fn_list(curPage)
                                         </div>
                                         <div class="col-lg-3">
                                             <fieldset>
-                                            <button type="submit" id="btnSearch" class="main-dark-button">Submit</button>
+                                            <button type="button" id="btnSearch" class="main-dark-button">Submit</button>
                                             </fieldset>
                                         </div>
                                         
@@ -96,7 +96,7 @@ function fn_list(curPage)
                 </div>
                 <div class="col-lg-12">
                     <div class="heading">
-                        <h2>Studio</h2>
+                        <h2><!-- Studio --></h2>
                     </div>
                 </div>
 <c:if test="${!empty list}">        
@@ -113,7 +113,7 @@ function fn_list(curPage)
                             </ul>
                                 <div class="sd_detail"><c:out value="${wdStudio.sContent}" /></div>
                             <ul>    
-                                <li class="price"><c:out value="${wdStudio.sPrice}" />원</li>
+                                <li class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdStudio.sPrice}" />원</li>
                                 <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
                             </ul>
                             <div class="main-dark-button">
@@ -123,199 +123,7 @@ function fn_list(curPage)
                     </div>
                 </div>       
 	</c:forEach>
-</c:if>           
-<!-- 
-              <div class="col-lg-4">
-                   <div class="ticket-item">
-                       <div class="thumb">
-                       <img src="../resources/images/studio/${wdStudio.sImgname}" alt="">
-                       </div>
-                       <div class="down-content">
-                       	<div class="sd_title">봉 스튜디오</div>
-                           <ul>
-                               <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로40번길 124-27</li>
-                           </ul>
-                               <div class="sd_detail">스튜디오 느낌과 자연적인 느낌을 동시에 연출할 수 있는 스튜디오</div>
-                           <ul>    
-                               <li class="price">550,000원</li>
-                               <li><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
-                           </ul>
-                           <div class="main-dark-button">
-                               <a href="ticket-details.html">스튜디오 자세히보기</a>
-                           </div>
-                       </div>
-                   </div>
-               </div>                         
-               <div class="col-lg-4">
-                    <div class="ticket-item">
-                        <div class="thumb">
-                            <img src="../resources/images/S02.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                        	<div class="sd_title">마이퍼스트레이디</div>
-                            <ul>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>서울 강남구 압구정로60길 26 청담힐사이드빌딩 5F</li>
-                            </ul>
-                                <div class="sd_detail">컨셉이 다양하고 자연스러운 스냅느낌 촬영이 가능한 스튜디오</div>
-                            <ul>    
-                                <li class="price">680,000원</li>
-                                <li><span class="discount">38%</span> <span class="dis-price">421,600원</span></li>
-                            </ul>
-                            <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="ticket-item">
-                        <div class="thumb">
-                            <img src="../resources/images/S03.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                        	<div class="sd_title">그림비(세미 스튜디오)</div>
-                            <ul>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로37번길 64 1층</li>
-                            </ul>
-                                <div class="sd_detail">세미촬영 - 심플한 배경과 스냅느낌이 공존하는 스튜디오</div>
-                            <ul>    
-                                <li class="price">850,000원</li>
-                                <li><span class="discount">32%</span> <span class="dis-price">780,000원</span></li>
-                            </ul>
-                            <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-lg-4">
-                    <div class="ticket-item">
-                        <div class="thumb">
-                            <img src="../resources/images/S01.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                        	<div class="sd_title">봉 스튜디오</div>
-                            <ul>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로40번길 124-27</li>
-                            </ul>
-                                <div class="sd_detail">스튜디오 느낌과 자연적인 느낌을 동시에 연출할 수 있는 스튜디오</div>
-                            <ul>    
-                                <li class="price">550,000원</li>
-                                <li><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
-                            </ul>
-                            <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>               
-                <div class="col-lg-4">
-                    <div class="ticket-item">
-                        <div class="thumb">
-                            <img src="../resources/images/S02.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                        	<div class="sd_title">마이퍼스트레이디</div>
-                            <ul>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>서울 강남구 압구정로60길 26 청담힐사이드빌딩 5F</li>
-                            </ul>
-                                <div class="sd_detail">컨셉이 다양하고 자연스러운 스냅느낌 촬영이 가능한 스튜디오</div>
-                            <ul>    
-                                <li class="price">680,000원</li>
-                                <li><span class="discount">38%</span> <span class="dis-price">421,600원</span></li>
-                            </ul>
-                            <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="ticket-item">
-                        <div class="thumb">
-                            <img src="../resources/images/S03.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                        	<div class="sd_title">그림비(세미 스튜디오)</div>
-                            <ul>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로37번길 64 1층</li>
-                            </ul>
-                                <div class="sd_detail">세미촬영 - 심플한 배경과 스냅느낌이 공존하는 스튜디오</div>
-                            <ul>    
-                                <li class="price">850,000원</li>
-                                <li><span class="discount">32%</span> <span class="dis-price">780,000원</span></li>
-                            </ul>
-                            <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>                          
-                <div class="col-lg-4">
-                    <div class="ticket-item">
-                        <div class="thumb">
-                            <img src="../resources/images/S01.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                        	<div class="sd_title">봉 스튜디오</div>
-                            <ul>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로40번길 124-27</li>
-                            </ul>
-                                <div class="sd_detail">스튜디오 느낌과 자연적인 느낌을 동시에 연출할 수 있는 스튜디오</div>
-                            <ul>    
-                                <li class="price">550,000원</li>
-                                <li><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
-                            </ul>
-                            <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>               
-                <div class="col-lg-4">
-                    <div class="ticket-item">
-                        <div class="thumb">
-                            <img src="../resources/images/S02.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                        	<div class="sd_title">마이퍼스트레이디</div>
-                            <ul>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>서울 강남구 압구정로60길 26 청담힐사이드빌딩 5F</li>
-                            </ul>
-                                <div class="sd_detail">컨셉이 다양하고 자연스러운 스냅느낌 촬영이 가능한 스튜디오</div>
-                            <ul>    
-                                <li class="price">680,000원</li>
-                                <li><span class="discount">38%</span> <span class="dis-price">421,600원</span></li>
-                            </ul>
-                            <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="ticket-item">
-                        <div class="thumb">
-                            <img src="../resources/images/S03.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                        	<div class="sd_title">그림비(세미 스튜디오)</div>
-                            <ul>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i>경기 하남시 미사동로37번길 64 1층</li>
-                            </ul>
-                                <div class="sd_detail">세미촬영 - 심플한 배경과 스냅느낌이 공존하는 스튜디오</div>
-                            <ul>    
-                                <li class="price">850,000원</li>
-                                <li><span class="discount">32%</span> <span class="dis-price">780,000원</span></li>
-                            </ul>
-                            <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>  -->
-                
-                 
+</c:if>             
                 <div class="col-lg-12">
                     <div class="pagination">
                         <ul>
@@ -326,7 +134,7 @@ function fn_list(curPage)
 				    <c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">
 				    	<c:choose>
 				    		<c:when test="${i ne curPage}">
-    		         		<li class="active page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${i})">${i}</a></li>
+    		         		<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${i})">${i}</a></li>
 							</c:when>
 							<c:otherwise>
 											<li class="page-item active"><a class="page-link" href="javascript:void(0)" style="cursor:default;">${i}</a></li>

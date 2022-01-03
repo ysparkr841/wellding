@@ -14,7 +14,9 @@ public class WDDress implements Serializable
 	private String dcNumber;
 	private String dImgname;
 	private long dPrice;
+	private String dcContent;
 	private String dContent;
+	private long dDiscount;
 	
 	private String searchType;		//검색타입(1:이름, 2:제목, 3:내용)
 	private String searchValue;		//검색 값
@@ -23,6 +25,7 @@ public class WDDress implements Serializable
 	
 	private long startRow;			//시작 rownum
 	private long endRow;			//끝 rownum
+	
 
 	
 	public WDDress()
@@ -35,6 +38,7 @@ public class WDDress implements Serializable
 		dcNumber = "";
 		dImgname = "";
 		dPrice = 0;
+		dcContent = "";
 		dContent = "";
 		
 		searchType = "";
@@ -44,6 +48,8 @@ public class WDDress implements Serializable
 		
 		startRow = 0;
 		endRow = 0;
+		dDiscount = 0;
+		
 	}
 
 
@@ -64,6 +70,16 @@ public class WDDress implements Serializable
 
 	public void setdNo(String dNo) {
 		this.dNo = dNo;
+	}
+
+
+	public String getDcName() {
+		return dcName;
+	}
+
+
+	public void setDcName(String dcName) {
+		this.dcName = dcName;
 	}
 
 
@@ -117,6 +133,16 @@ public class WDDress implements Serializable
 	}
 
 
+	public String getDcContent() {
+		return dcContent;
+	}
+
+
+	public void setDcContent(String dcContent) {
+		this.dcContent = dcContent;
+	}
+
+
 	public String getdContent() {
 		return dContent;
 	}
@@ -124,6 +150,16 @@ public class WDDress implements Serializable
 
 	public void setdContent(String dContent) {
 		this.dContent = dContent;
+	}
+
+
+	public long getdDiscount() {
+		return dDiscount;
+	}
+
+
+	public void setdDiscount(long dDiscount) {
+		this.dDiscount = dDiscount;
 	}
 
 
@@ -175,16 +211,5 @@ public class WDDress implements Serializable
 	public void setEndRow(long endRow) {
 		this.endRow = endRow;
 	}
-
-
-	public String getDcName() {
-		return dcName;
-	}
-
-
-	public void setDcName(String dcName) {
-		this.dcName = dcName;
-	}
-	
 	
 }

@@ -4,11 +4,12 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
-<script>
+<script type="text/javascript">
 $(document).ready(function(){
+	
 	//조회버튼클릭. 조회항목,조회값,현재커런트페이지에 대한 정보 가져가기
 	$("#btnSearch").on("click", function(){
-		document.bbsForm.sCode.value = "";
+		document.bbsForm.dNo.value = "";
 		document.bbsForm.searchType.value = $("#_searchType").val();
 		document.bbsForm.searchValue.value = $("#_searchValue").val();
 		document.bbsForm.curPage.value = 1;
@@ -18,16 +19,18 @@ $(document).ready(function(){
 	
 });
 
-function fn_view(sCode)
+function fn_view(dNo)
 {
-	document.bbsForm.sCode.value = sCode; //실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
-	document.bbsForm.action = "/hsdm/dress";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
+	document.bbsForm.dNo.value = dNo;
+	document.bbsForm.searchType.value = $("#_searchType").val();
+	document.bbsForm.searchValue.value = $("#_searchValue").val();
+	document.bbsForm.action = "/hsdm/dressView";
 	document.bbsForm.submit();
 }     
 
 function fn_list(curPage)
 {
-   document.bbsForm.sCode.value = "";
+   document.bbsForm.dNo.value = "";
    document.bbsForm.curPage.value = curPage;
    document.bbsForm.action = "/hsdm/dress";
    document.bbsForm.submit();
@@ -37,7 +40,7 @@ function fn_list(curPage)
 <body>
 	<!-- 메뉴바 시작 -->
     	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
-    	<jsp:param name="userName" value="${wdUser.userName }" />
+    	<jsp:param name="userName" value="${wdUser.userNickname}" />
     	</jsp:include>
 	<!-- 메뉴바 종료 -->
 <!-- ############################ 여기부터 내용 시작 ############################ -->
@@ -84,7 +87,7 @@ function fn_list(curPage)
                                         </div>
                                         <div class="col-lg-3">
                                             <fieldset>
-                                            <button type="submit" id="btnSearch" class="main-dark-button">Submit</button>
+                                            <button type="button" id="btnSearch" class="main-dark-button">Submit</button>
                                             </fieldset>
                                         </div>
                                         
@@ -96,7 +99,7 @@ function fn_list(curPage)
                 </div>
                 <div class="col-lg-12">
                     <div class="heading">
-                        <h2>Dress</h2>
+                        <h2><!-- Dress --></h2>
                     </div>
                 </div>
 <c:if test="${!empty list}">        
@@ -107,17 +110,16 @@ function fn_list(curPage)
                             <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
                         </div>
                         <div class="down-content">
-                        	<div class="sd_title"><c:out value="${wdDress.dName}" /></div>
-                            <ul>
-                                <li class="sd_adress"><i class="fa fa-map-marker"></i><c:out value="${wdDress.dcLocation}" /></li>
-                            </ul>
-                                <div class="sd_detail"><c:out value="${wdDress.dContent}" /></div>
+                        	<div class="sd_title1"><c:out value="${wdDress.dcName}" /></div>
+                        	<div class="sd_title2"><c:out value="${wdDress.dName}" /></div>
+                            <div class="sd_detail"><c:out value="${wdDress.dContent}" /></div>
                             <ul>    
-                                <li class="price"><c:out value="${wdDress.dPrice}" />원</li>
-                                <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
+                            	<!-- li class="sd_adress"><i class="fa fa-map-marker"></i><c:out value="${wdDress.dcLocation}" /></li-->
+                                <li class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdDress.dPrice}" />원</li>
+                                <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="ticket-details.html">드레스 예약하기</a>
+                                <a href="javascript:void(0)" onclick="fn_view('${wdDress.dNo}')">드레스 예약하기</a>
                             </div>
                         </div>
                     </div>
@@ -160,7 +162,7 @@ function fn_list(curPage)
     		         		<li class="active page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${i})">${i}</a></li>
 							</c:when>
 							<c:otherwise>
-											<li class="page-item active"><a class="page-link" href="javascript:void(0)" style="cursor:default;">${i}</a></li>
+							<li class="page-item"><a class="page-link" href="javascript:void(0)" style="cursor:default;">${i}</a></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
@@ -175,7 +177,7 @@ function fn_list(curPage)
         </div>
         
 		<form name="bbsForm" id="bbsForm" method="post">
-			<input type="hidden" name="sCode" value="" /> <!-- 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
+			<input type="hidden" name="dNo" value="" /> <!-- 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
 			<input type="hidden" name="searchType" value="${searchType}" />
 			<input type="hidden" name="searchValue" value="${searchValue}" />
 			<input type="hidden" name="curPage" value="${curPage}" />

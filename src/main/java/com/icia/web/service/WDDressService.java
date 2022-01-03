@@ -57,4 +57,39 @@ public class WDDressService
 		return list;
 	}
 	
+	//22.01.03 게시물 조회
+	public WDDress dressSelect(String dNo)
+	{
+		WDDress wdDress = null;
+		
+		try
+		{
+			wdDress = wdDressDao.dressSelect(dNo);
+		}
+		catch(Exception e)
+		{
+			logger.error("[WDStudioService] dressSelect Exception", e);
+		}
+		
+		return wdDress;
+	}
+	
+	
+	//동일 업체 드레스 정보 가져오기.
+	public List<WDDress> dressSameCom(WDDress wdDress)
+	{
+		List<WDDress> sameCom = null;
+	
+		try 
+		{
+			sameCom = wdDressDao.dressSameCom(wdDress);
+		}
+		catch(Exception e)
+		{
+			logger.error("[WDStudioService] dressSelect Exception", e);
+		}
+		
+		return sameCom;
+	}
+	
 }
