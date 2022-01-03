@@ -13,6 +13,7 @@
 	<result column="D_IMGNAME" property="dImgname" />
 	<result column="D_PRICE" property="dPrice" />
 	<result column="D_CONTENT" property="dContent" />
+	<result column="D_DISCOUNT" property="dDiscount" />
 </resultMap>
 <!-- 드레스 resultMap 끝 -->
 
@@ -40,7 +41,8 @@ SELECT
     DC_NUMBER,
     D_IMGNAME,
     D_PRICE,
-    D_CONTENT
+    D_CONTENT,
+    D_DISCOUNT
 FROM (SELECT 
             ROWNUM AS RNUM,
             DC_CODE,
@@ -51,7 +53,8 @@ FROM (SELECT
             DC_NUMBER,
             D_IMGNAME,
             D_PRICE,
-            D_CONTENT
+            D_CONTENT,
+            D_DISCOUNT
         FROM (SELECT
                     A.DC_CODE AS DC_CODE,
                     NVL(A.D_NO, '') AS D_NO,
@@ -61,7 +64,8 @@ FROM (SELECT
                     NVL(B.DC_NUMBER, '') AS DC_NUMBER,
                     NVL(A.D_IMGNAME, '') AS D_IMGNAME,
                     NVL(A.D_PRICE, 0) AS D_PRICE,
-                    NVL(A.D_CONTENT, '') AS D_CONTENT
+                    NVL(A.D_CONTENT, '') AS D_CONTENT,
+                    NVL(A.D_DISCOUNT, 0) AS D_DISCOUNT
                 FROM
                     WD_DRESS A, WD_DRESS_COM B
                 WHERE

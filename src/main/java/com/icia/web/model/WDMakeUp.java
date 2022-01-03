@@ -32,6 +32,8 @@ public class WDMakeUp implements Serializable{
 	
 	private WDMakeUpFile wdMakeUpFile;
 	
+	private long mDiscount;
+	
 	//생성자
 	public WDMakeUp() 
 	{
@@ -48,6 +50,7 @@ public class WDMakeUp implements Serializable{
 		startRow = 0;
 		endRow = 0;
 		wdMakeUpFile = null;
+		mDiscount = 0;
 	}
 
 	public String getmCode() {
@@ -152,6 +155,14 @@ public class WDMakeUp implements Serializable{
 
 	public void setWdMakeUpFile(WDMakeUpFile wdMakeUpFile) {
 		this.wdMakeUpFile = wdMakeUpFile;
+	}
+
+	public long getmDiscount() {
+		return mDiscount;
+	}
+
+	public void setmDiscount(long mDiscount) {
+		this.mDiscount = mDiscount;
 	}
 
 	
