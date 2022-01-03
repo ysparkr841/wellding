@@ -8,7 +8,7 @@
 $(document).ready(function(){
 	//조회버튼클릭. 조회항목,조회값,현재커런트페이지에 대한 정보 가져가기
 	$("#btnSearch").on("click", function(){
-		//document.bbsForm.sCode.value = "";
+		document.bbsForm.sCode.value = "";
 		document.bbsForm.searchType.value = $("#_searchType").val();
 		document.bbsForm.searchValue.value = $("#_searchValue").val();
 		document.bbsForm.curPage.value = 1;
@@ -21,7 +21,7 @@ $(document).ready(function(){
 function fn_view(sCode)
 {
 	document.bbsForm.sCode.value = sCode; //실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
-	document.bbsForm.action = "/hsdm/studio";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
+	document.bbsForm.action = "/hsdm/view";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
 	document.bbsForm.submit();
 }     
 
@@ -63,7 +63,7 @@ function fn_list(curPage)
             <div class="row">
                 <div class="col-lg-12">
                     <div class="search-box">
-                        <form id="subscribe" method="get">
+                        <form id="subscribe" action="" method="get">
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div class="search-heading">
