@@ -138,15 +138,16 @@ public class WDDressControllre
 	@RequestMapping(value="/hsdm/view")
 	public String view(ModelMap model, HttpServletRequest request, HttpServletResponse response)
 	{
-		/*
-		 * String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
-		 * 
-		 * //상세페이지에 필요한거 가져오기 String dcCode = HttpUtil.get(request, "dcCode", "");
-		 * String nNo = HttpUtil.get(request, "dNo", ""); String searchType =
-		 * HttpUtil.get(request, "searchType", ""); String searchValue =
-		 * HttpUtil.get(request, "searchValue", ""); long curPage =
-		 * HttpUtil.get(request, "curPage", (long)1);
-		 */
+		
+		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		 
+		//상세페이지에 필요한거 가져오기
+		String dcCode = HttpUtil.get(request, "dcCode", "");
+		String nNo = HttpUtil.get(request, "dNo", ""); 
+		String searchType = HttpUtil.get(request, "searchType", ""); 
+		String searchValue = HttpUtil.get(request, "searchValue", ""); 
+		long curPage = HttpUtil.get(request, "curPage", (long)1);
+		
 		
 		
 		return "/hsdm/view";

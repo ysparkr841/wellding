@@ -11,6 +11,7 @@
 	<result column="M_PRICE" property="mPrice" />
 	<result column="M_CONTENT" property="mContent" />
 	<result column="M_PLUS" property="mPlus" />
+	<result column="M_DISCOUNT" property="mDiscount" />
 </resultMap>
 
 <!-- 첨부파일  시작 -->
@@ -62,7 +63,8 @@ SELECT
     M_IMGNAME,
     M_PRICE,
     M_CONTENT,
-    M_PLUS
+    M_PLUS,
+    M_DISCOUNT
 FROM(
         SELECT 
             ROWNUM AS RNUM,
@@ -73,7 +75,8 @@ FROM(
             M_IMGNAME,
             M_PRICE,
             M_CONTENT,
-            M_PLUS
+            M_PLUS,
+            M_DISCOUNT
         FROM(SELECT
                     M_CODE,
                     NVL(M_NAME, '') AS M_NAME,
@@ -82,7 +85,8 @@ FROM(
                     NVL(M_IMGNAME, '') AS M_IMGNAME,
                     NVL(M_PRICE, 0) AS M_PRICE,
                     NVL(M_CONTENT, '') AS M_CONTENT,
-                    NVL(M_PLUS, 0) AS M_PLUS
+                    NVL(M_PLUS, 0) AS M_PLUS,
+                    NVL(M_DISCOUNT, 0) AS M_DISCOUNT
                 FROM
                     WD_MAKEUP
                 WHERE

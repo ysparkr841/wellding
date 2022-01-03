@@ -10,7 +10,7 @@
     <jsp:param name="userName" value="${wdUser.userNickname}" />
 </jsp:include>
 
-
+	
 
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>

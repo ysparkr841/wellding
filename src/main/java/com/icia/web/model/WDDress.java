@@ -15,6 +15,7 @@ public class WDDress implements Serializable
 	private String dImgname;
 	private long dPrice;
 	private String dContent;
+	private long dDiscount;
 	
 	private String searchType;		//검색타입(1:이름, 2:제목, 3:내용)
 	private String searchValue;		//검색 값
@@ -44,6 +45,7 @@ public class WDDress implements Serializable
 		
 		startRow = 0;
 		endRow = 0;
+		dDiscount = 0;
 	}
 
 
@@ -186,4 +188,16 @@ public class WDDress implements Serializable
 		this.endRow = endRow;
 	}
 
+
+	public long getdDiscount() {
+		return dDiscount;
+	}
+
+
+	public void setdDiscount(long dDiscount) {
+		this.dDiscount = dDiscount;
+	}
+	
+	
+	
 }

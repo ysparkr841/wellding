@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2>클라라웨딩</h2>
+                <h2><span>[드레스]</span> 클라라웨딩</h2>
             </div>
             <div class="col-lg-8 _detail">
                 <span>동화속의 신비로움을 간직한 클라라 웨딩드레스 1996년에 오픈해 꾸준히 사랑받고 있는 클라라웨딩은 튤소재의 드레스 같은 로맨틱 클래식의 대명사로 특유의 브랜드 이미지를 완성해 굳건히 자리매김했습니다.</span>
@@ -49,14 +49,19 @@
                         <div class="right-content">
                             <h4>드레스이름</h4>
                             <span>드레스설명블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라</span>
-                            <ul>
-                                <li><i class="fa fa-map-marker"></i>서울시 강남구 언주로170길 25(신사동) 1층</li>
-                                <li>Tel. 02-514-7600</li>
-                            </ul>
+                            <div class="det_price">
+	                            <ul>
+	                                <li class="dis_price">
+	                            		<div class="discount">28%</div>
+		                                <div class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdDress.dPrice}" /> 550,000원</div>
+	                                </li>
+	                            </ul>
+	                            <div class="dis-price">396,000원</div>
+                            </div>
                             <div class="banner">
                                 <img src="../resources/images/tour.png" width="100%">
                             </div>
-                           <!---- 추가인원계산할때 쓸거 ---->
+                           <!---- 추가인원계산할때 쓸거
                             <div class="quantity-content">
                                 <div class="left-content">
                                     <h6>Standard Ticket</h6>
@@ -68,14 +73,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <!---- 추가인원계산할때 쓸거 끝 ---->
+                            
                             <div class="total">
                                 <h4>Total: $210.00</h4>
                                 <div class="main-dark-button"><a href="#">Purchase Tickets</a></div>
                             </div>
                             <div class="warn">
                                 <p>*You Can Only Buy 10 Tickets For This Show</p>
-                            </div>
+                            </div> ---->
+                            <div class="main-dark-button2"><a href="#">이 드레스로 예약하기</a></div>
                         </div>
                     </div>
                 </div>
