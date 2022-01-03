@@ -40,7 +40,9 @@ function fn_list(curPage)
 
 </head>
 <body>
-   	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
+   	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
+       <jsp:param name="userName" value="${wdUser.userNickname}" />
+       </jsp:include>
 
 	    <!-- ***** About Us Page ***** -->
     <div class="page-heading-rent-venue">

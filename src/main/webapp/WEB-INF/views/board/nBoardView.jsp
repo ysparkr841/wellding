@@ -15,7 +15,10 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-   	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
+   	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
+       <jsp:param name="userName" value="${wdUser.userNickname}" />
+       </jsp:include>
+       
     <div class="page-heading-rent-venue">
         <div class="container">
             <div class="row">
@@ -50,8 +53,8 @@ $(document).ready(function(){
          </tbody>
          <tfoot>
          <tr>
-               <td colspan="2"><button type="button" id="btnList" class="btn btn-secondary">리스트</button></td>
-           </tr>
+               <td colspan="2"><button type="button" id="btnList" class="btn btn-outline-secondary" style="float: right">리스트</button></td>
+         </tr>
          </tfoot>
       </table>
    </div>
