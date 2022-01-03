@@ -71,7 +71,7 @@
             			<value>/board/fBoard</value>
             			<value>/hsdm/halllist</value>  
             			<value>/hsdm/dress</value>
-
+						<value>/hsdm/HallView</value>
             			<value>/imokay</value>
             			<value>/board/fBoardWrite</value>          			
  

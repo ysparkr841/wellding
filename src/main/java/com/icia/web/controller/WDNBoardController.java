@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.icia.common.util.StringUtil;
 import com.icia.web.model.Paging;
 import com.icia.web.model.WDNBoard;
+import com.icia.web.model.WDUser;
 import com.icia.web.service.WDNBoardService;
+import com.icia.web.service.WDUserService;
 import com.icia.web.util.CookieUtil;
 import com.icia.web.util.HttpUtil;
 
@@ -25,20 +27,32 @@ public class WDNBoardController
 {
 	private static Logger logger = LoggerFactory.getLogger(WDNBoardController.class);
 	
+   //쿠키명
+   @Value("#{env['auth.cookie.name']}")
+   private String AUTH_COOKIE_NAME;
+	
 	@Autowired
 	private WDNBoardService wdNBoardService;
+	
+	@Autowired
+	private WDUserService wdUserService;
 	
 	private static final int LIST_COUNT = 20;		//한 페이지의 게시물 수
 	private static final int PAGE_COUNT = 5;		//페이징 수
 	
 	@RequestMapping(value="/board/nBoard")
 	public String nBoard(ModelMap model, HttpServletRequest request, HttpServletResponse response)
-	{	//조회항목(1: 제목)
+	{	
+		//조회항목(1: 제목)
 		String searchType = HttpUtil.get(request, "searchType", "");
 		//조회 값
 		String searchValue = HttpUtil.get(request, "searchValue", "");
 		//현재 페이지
 		long curPage = HttpUtil.get(request, "curPage", (long)1);
+		
+		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		
+		WDUser wdUser = wdUserService.userSelect(cookieUserId);
 		
 		long totalCount = 0;
 		List<WDNBoard> list = null;
@@ -66,8 +80,6 @@ public class WDNBoardController
 		{//검색 결과가 있음
 			//페이징 처리 추가
 			paging = new Paging("/board/nBoard", totalCount, LIST_COUNT, PAGE_COUNT, curPage, "curPage");
-			 //페이징처리 : 인수값이 있다 = 생성자가 있다
-
 			paging.addParam("searchType", searchType);
 			paging.addParam("searchValue", searchValue);
 			paging.addParam("curPage", curPage);
@@ -84,8 +96,8 @@ public class WDNBoardController
 		model.addAttribute("searchType", searchType);
 		model.addAttribute("searchValue", searchValue);
 		model.addAttribute("curPage", curPage);
-		//""는 list.jsp에서 쓸수있는 변수들 임, 뒤에있는 값은 내 메소드 내에서 쓸수있는 값
-		model.addAttribute("paging", paging);	//jsp에서 써먹으려고 만든다!
+		model.addAttribute("paging", paging);
+		model.addAttribute("wdUser", wdUser);
 		
 		return "/board/nBoard";
 	}
@@ -100,6 +112,9 @@ public class WDNBoardController
 		String searchValue = HttpUtil.get(request, "searchValue", "");
 		long curPage = HttpUtil.get(request, "curPage", (long)1);
 		
+		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		WDUser wdUser = wdUserService.userSelect(cookieUserId);
+		
 		WDNBoard nBoard = null;
 		
 		if(bSeq > 0)
@@ -110,10 +125,10 @@ public class WDNBoardController
 		
 		model.addAttribute("bSeq", bSeq);
 		model.addAttribute("nBoard", nBoard);
-		//수정삭제 쓰는애가 보드미임
 		model.addAttribute("searchType", searchType);
 		model.addAttribute("searchValue", searchValue);
 		model.addAttribute("curPage", curPage);
+		model.addAttribute("wdUser", wdUser);
 		
 		return "/board/nBoardView";
 	}

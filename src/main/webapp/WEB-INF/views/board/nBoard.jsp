@@ -40,7 +40,9 @@ function fn_list(curPage)
 
 </head>
 <body>
-   	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
+   	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
+       <jsp:param name="userName" value="${wdUser.userNickname}" />
+       </jsp:include>
 
 	    <!-- ***** About Us Page ***** -->
     <div class="page-heading-rent-venue">
@@ -49,7 +51,7 @@ function fn_list(curPage)
             </div>
         </div>
     </div>
-
+	<br /><h2 style="text-align:center">공지사항</h2><br />
     <div class="tickets-page">
         <div class="container">
             <div class="row">
@@ -77,7 +79,6 @@ function fn_list(curPage)
                                             <button type="button" id="btnSearch" class="main-dark-button">조회</button>
                                             </fieldset>
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -85,6 +86,11 @@ function fn_list(curPage)
                     </div>
                 </div>
                 <div class="col-lg-12">
+                	<div class="heading">
+                		<h2></h2>
+                	</div>
+                </div>
+                <div class="col-lg-12" style="border-bottom: 1px solid black">
                     <ul>
                         <li>
                             <table class="table table-hover">
@@ -101,17 +107,17 @@ function fn_list(curPage)
                                     <c:if test="${!empty list}">
                                        <c:forEach var="hiBoard" items="${list}" varStatus="status">   
                                             <tr>
-                                                <td>
+                                                <td style="text-align:center">
                                                     <a href="javascript:void(0)" onclick="fn_view(${hiBoard.bSeq})">
                                                         <c:out value="${hiBoard.bSeq}" />
                                                     </a>
                                                 </td>
-                                                	<td class="test-center">
+                                                	<td style="text-align:center">
                                                 		<a href="javascript:void(0)" onclick="fn_view(${hiBoard.bSeq})">${hiBoard.bTitle}</a>
                                                 	</td>
-                                                	<td class="text-center">${hiBoard.adminId}</td>
-                                                    <td class="text-center">${hiBoard.regDate}</td>
-                                                    <td class="text-center"><fmt:formatNumber type="number" maxFractionDigits="3" value="${hiBoard.bReadCnt}" /></td>
+                                                	<td style="text-align:center">${hiBoard.adminId}</td>
+                                                    <td style="text-align:center">${hiBoard.regDate}</td>
+                                                    <td style="text-align:center"><fmt:formatNumber type="number" maxFractionDigits="3" value="${hiBoard.bReadCnt}" /></td>
                                             </tr>
                                        </c:forEach>
                                     </c:if>      
