@@ -113,7 +113,7 @@ function fn_list(curPage)
                             <ul>    
                             	<li class="sd_adress"><i class="fa fa-map-marker"></i><c:out value="${wdMakeup.mLocation}" /></li>
                                 <li class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdMakeup.mPrice}" />원</li>
-                                <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
+                                <li class="dis_price"><span class="discount"><c:out value="${wdMakeup.mDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdMakeup.mPrice * (1-wdMakeup.mDiscount*0.01)}" />원</span></li>
                             </ul>
                             <div class="main-dark-button">
                                 <a href="ticket-details.html">메이크업 예약하기</a>
