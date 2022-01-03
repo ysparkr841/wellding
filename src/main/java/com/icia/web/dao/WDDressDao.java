@@ -18,4 +18,12 @@ public interface WDDressDao
 	//조회
 	public WDDress dressSelect(String dNo);
 	
+<<<<<<< HEAD
+	//조회 >> 해당업체 다른 디자인 보기
+	public WDDress AnotherDress(String dNo);
+=======
+	//동일 회사 드레스 조회, 동일제품은 제외
+	public List<WDDress> dressSameCom(WDDress wdDress);
+>>>>>>> 89362fcf33e87bb8c5164d382a649cb618e3ba52
+	
 }

@@ -150,12 +150,23 @@ public class WDDressControllre
 		
 		WDDress wdDress = null;
 		
+		List<WDDress> sameCom = null;
+		
 		if(dNo != null)
 		{
 			wdDress = wdDressService.dressSelect(dNo);
-		}
 		
-		System.out.println("######################### wdDress: " + wdDress);
+			//의수 추가
+			//같은 회사 상품 가져오기
+			WDDress search = new WDDress();
+			//같은 회사 코드를 조건으로 검색하기 위해서 값 세팅
+			search.setDcCode(wdDress.getDcCode());
+			//같은 회사지만 같은 드레스라면 검색이 안되게 하기 위한 값 세팅
+			search.setdNo(wdDress.getdNo());
+			
+			sameCom = wdDressService.dressSameCom(search);
+			//의수 추가 종료
+		}
 		
 		model.addAttribute("dNo", dNo);
 		model.addAttribute("wdDress", wdDress);
@@ -164,6 +175,9 @@ public class WDDressControllre
 		model.addAttribute("searchValue", searchValue);
 		model.addAttribute("curPage", curPage);
 		
+		//의수 추가
+		model.addAttribute("sameCom", sameCom);
+		//의수 추가 종료
 		return "/hsdm/dressView";
 	}
 	

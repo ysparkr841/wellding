@@ -133,6 +133,134 @@ AND
 </select>
 <!-- 자유게시판 리스트 총 수 종료 -->
 
+<!-- 자유게시판 게시물 조회 시작-->
+<select id="fBoardViewSelect" parameterType="long" resultMap="WDFBoardResultMap">
+SELECT
+    A.B_SEQ AS B_SEQ,
+    A.USER_ID AS USER_ID,
+    NVL(B.U_EMAIL, '') AS U_EMAIL,
+    NVL(B.U_NICKNAME, '') AS U_NICKNAME,
+    NVL(A.B_TITLE, '') AS B_TITLE,
+    NVL(A.B_CONTENT, '') AS B_CONTENT,
+    NVL(A.B_READ_CNT, '') AS B_READ_CNT,
+    NVL(TO_CHAR(A.REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') AS REG_DATE,
+    NVL(A.B_GROUP, 0) AS B_GROUP,
+    NVL(A.B_ORDER, 0) AS B_ORDER,
+    NVL(A.B_INDENT, 0) AS B_INDENT
+FROM
+    WD_FBOARD A, WD_USER B
+WHERE
+    B_SEQ = #{value}
+AND
+    A.USER_ID = B.USER_ID
+</select>
+<!-- 자유게시판 게시물 조회 종료 -->
+
+<!-- 게시물 조회 수 증가 시작 -->
+<update id="fBoardReadCntPlus" parameterType="long">
+UPDATE 
+	WD_FBOARD
+SET
+    B_READ_CNT = B_READ_CNT + 1
+WHERE
+    B_SEQ = 2
+</update>
+<!-- 게시물 조회 수 증가 종료 -->
+
+<!-- 게시물 첨부파일 조회 시작 -->
+<select id="fBoardFileSelect" parameterType="long" resultMap="WDBFileResultMap">
+SELECT
+    B_SEQ,
+    B_FILE_SEQ,
+    NVL(B_FILE_NAME, '') AS B_FILE_NAME,
+    NVL(B_FILE_ORG_NAME, '') AS B_FILE_ORG_NAME,
+    NVL(B_FILE_EXT, '') AS B_FILE_EXT,
+    NVL(B_FILE_SIZE, 0) AS B_FILE_SIZE,
+    NVL(TO_CHAR(REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') AS REG_DATE
+FROM
+    WD_BOARD_FILE
+WHERE
+    B_SEQ = #{value}
+AND 
+    B_FILE_SEQ = 1
+</select>
+<!-- 게시물 첨부파일 조회 종료 -->
+
+
+<!-- 게시글 작성 시작 -->
+<insert id="fBoardInsert" parameterType="com.icia.web.model.WDFBoard">
+<selectKey resultType="long" keyProperty="bSeq" order="BEFORE">
+	SELECT WD_FBOARD_SEQ.NEXTVAL FROM DUAL	
+</selectKey>
+INSERT INTO WD_FBOARD (
+    B_SEQ,
+    USER_ID,
+    B_TITLE,
+    B_CONTENT,
+    B_READ_CNT,
+    REG_DATE,
+    B_GROUP,
+    B_ORDER,
+    B_INDENT
+) VALUES (
+    #{bSeq},
+    #{userId},
+    #{bTitle},
+    #{bContent},
+    0,
+    SYSDATE,
+    0,
+    0,
+    0
+)
+</insert>
+<!-- 게시글 작성 종료 -->
+
+<!-- 첨부파일 등록 시작 -->
+<insert id="boardFileInsert" parameterType="com.icia.web.model.WDBoardFile">
+INSERT INTO WD_BOARD_FILE (
+    B_SEQ,
+    B_FILE_SEQ,
+    B_FILE_NAME,
+    B_FILE_ORG_NAME,
+    B_FILE_EXT,
+    B_FILE_SIZE,
+    REG_DATE
+) VALUES (
+    #{bSeq},
+    #{fileSeq},
+    #{fileName},
+    #{fileOrgName},
+    #{fileExt},
+    #{fileSize},
+    SYSDATE
+)
+</insert>
+<!-- 첨부파일 등록 종료 -->
+
+<!-- 게시물 시퀀스 별도 조회 시작 -->
+<select id="boardSeqSelect" resultType="long">
+SELECT WD_FBOARD_SEQ.NEXTVAL FROM DUAL
+</select>
+<!-- 게시물 시퀀스 별도 조회 종료 -->
+
+
+<!-- 게시물 삭제 시작 -->
+<delete id="fBoardDelete" parameterType="long">
+DELETE FROM WD_FBOARD
+WHERE
+        B_SEQ = #{value}
+</delete>
+<!-- 게시물 삭제 종료 -->
+
+
+<!-- 게시물 첨부파일 삭제 시작 -->
+<delete id="fBoardFileDelete" parameterType="long">
+DELETE FROM WD_BOARD_FILE
+WHERE
+        B_SEQ = #{value}
+</delete>
+<!-- 게시물 첨부파일 삭제 종료 -->
 
 
 </mapper>

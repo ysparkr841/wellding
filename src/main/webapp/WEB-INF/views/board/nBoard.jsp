@@ -6,6 +6,16 @@
 <meta charset="UTF-8">
 <title>공지사항</title>
 	<%@ include file="/WEB-INF/views/include/head.jsp" %>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+<style>
+.Wtitle{
+font-family: 'Gamja Flower', cursive;
+font-size: 64px;
+text-align: center;
+}
+</style>
 <script>
 $(function(){
 	//조회버튼
@@ -51,7 +61,10 @@ function fn_list(curPage)
             </div>
         </div>
     </div>
-	<br /><h2 style="text-align:center">공지사항</h2><br />
+	<br />
+	<h2 class="Wtitle">Wellding Notice</h2>
+	<p style="text-align:center">우리들의 웨딩이야기를 지금 들려드려요</p>
+	<br />
     <div class="tickets-page">
         <div class="container">
             <div class="row">
@@ -100,7 +113,7 @@ function fn_list(curPage)
                                     <th scope="col" class="text-center" style="width:50%">제목</th>
                                     <th scope="col" class="text-center" style="width:20%">작성자</th>
                                     <th scope="col" class="text-center" style="width:10%">날짜</th>
-                                    <th scope="col" class="text-center" style="width:10%">조회수</th>
+                                    <th scope="col" class="text-center" style="width:10%">조회</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -112,7 +125,7 @@ function fn_list(curPage)
                                                         <c:out value="${hiBoard.bSeq}" />
                                                     </a>
                                                 </td>
-                                                	<td style="text-align:center">
+                                                	<td style="text-align:left">
                                                 		<a href="javascript:void(0)" onclick="fn_view(${hiBoard.bSeq})">${hiBoard.bTitle}</a>
                                                 	</td>
                                                 	<td style="text-align:center">${hiBoard.adminId}</td>
