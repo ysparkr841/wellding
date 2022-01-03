@@ -57,4 +57,22 @@ public class WDDressService
 		return list;
 	}
 	
+	//22.01.03 게시물 조회
+	public WDDress dressSelect(String dNo)
+	{
+		WDDress wdDress = null;
+		
+		try
+		{
+			wdDress = wdDressDao.dressSelect(dNo);
+		}
+		catch(Exception e)
+		{
+			logger.error("[WDStudioService] dressSelect Exception", e);
+		}
+		
+		return wdDress;
+	}
+	
+	
 }

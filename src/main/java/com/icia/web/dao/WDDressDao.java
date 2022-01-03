@@ -15,4 +15,7 @@ public interface WDDressDao
 	//게시물 총 수
 	public long dressListCount(WDDress wdDress);
 	
+	//조회
+	public WDDress dressSelect(String dNo);
+	
 }
