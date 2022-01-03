@@ -5,60 +5,68 @@
 <head>
 <meta charset="UTF-8">
 	<%@ include file="/WEB-INF/views/include/head.jsp" %>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+<style>
+.Wtitle{
+font-family: 'Gamja Flower', cursive;
+font-size: 64px;
+text-align: center;
+}
+</style>
+<script>
+$(document).ready(function(){
+	$("#btnList").on("click", function(){
+		document.bbsForm.action = "/board/nBoard";
+		document.bbsForm.submit();
+	});
+});
+</script>
 </head>
 <body>
-   	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
+   	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
+       <jsp:param name="userName" value="${wdUser.userNickname}" />
+       </jsp:include>
+       
     <div class="page-heading-rent-venue">
         <div class="container">
             <div class="row">
             </div>
         </div>
     </div>
-        <div class="col-lg-12">
-            <ul>
-                <li>
-                    <table class="table table-hover">
-                        <thead>
-                            <tr style="background-color: #dee2e6;">
-                            <th scope="col" class="text-center" style="width:10%">번호</th>
-                            <th scope="col" class="text-center" style="width:50%">제목</th>
-                            <th scope="col" class="text-center" style="width:20%">작성자</th>
-                            <th scope="col" class="text-center" style="width:10%">날짜</th>
-                            <th scope="col" class="text-center" style="width:10%">조회수</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-    
+    <br />
+    <h2 class="Wtitle">Wellding Notice</h2>
+    <p style="text-align:center">우리들의 웨딩이야기를 지금 들려드려요</p>
+    <br />
 <div class="container">
-   <h2>게시물 보기</h2>
    <div class="row" style="margin-right:0; margin-left:0;">
       <table class="table">
          <thead>
             <tr class="table-active">
                <th scope="col" style="width:60%">
-                  <c:out value="${nBoard.bTitle}"/><br/>
-                  <c:out value="${nBoard.adminId}"/>&nbsp;&nbsp;&nbsp;
+                  <c:out value="${nBoard.bTitle}"/>
                </th>
-               <th scope="col" style="width:40%" class="text-right">
-                                         조회 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${nBoard.bReadCnt}" /><br/>
-                  ${nBoard.regDate}
-               </th>
+               <td scope="col" style="width:40%" class="text-right">
+                                         조회 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${nBoard.bReadCnt}" />
+               </td>
             </tr>
+               <td scope="col" style="width:60%">
+               	작성자 : <c:out value="${nBoard.adminId}"/>
+               </td>
+               <td scope="col" style="width:40%" class="text-right">
+                  <div>${nBoard.regDate}</div>
+               </td>
          </thead>
          <tbody>
             <tr>
-               <td colspan="2"><pre><c:out value="${nBoard.bContent}" /></pre></td>
+               <td colspan="2" style="text-align:center" bgcolor="#F5F5F5"><pre><c:out value="${nBoard.bContent}" /></pre></td>
             </tr>
          </tbody>
          <tfoot>
          <tr>
-               <td colspan="2"></td>
-           </tr>
+               <td colspan="2"><button type="button" id="btnList" class="btn btn-outline-secondary" style="float: right">리스트</button></td>
+         </tr>
          </tfoot>
       </table>
    </div>

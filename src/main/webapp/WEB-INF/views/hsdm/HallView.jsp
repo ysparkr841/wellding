@@ -17,20 +17,15 @@
 	<div class="back"></div>
 </section>
 
-<div class="big_title">
+<div class="big_title_hall">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2>클라라웨딩</h2>
-            </div>
-            <div class="col-lg-8 _detail">
-                <span>동화속의 신비로움을 간직한 클라라 웨딩드레스 1996년에 오픈해 꾸준히 사랑받고 있는 클라라웨딩은 튤소재의 드레스 같은 로맨틱 클래식의 대명사로 특유의 브랜드 이미지를 완성해 굳건히 자리매김했습니다.</span>
-            </div>
-            <div class="col-lg-4">
-                <ul  class="loc_li">
-                    <li><i class="fa fa-map-marker"></i> 서울시 강남구 언주로170길 25(신사동) 1층</li>
-                    <li>Tel. 02-514-7600</li>
-                </ul>
+                
+	                <h2>${wdHall.whName } &nbsp;> </h2>
+		            <div class="hibixbi">
+		                	<h2>${wdHall.HName }</h2>
+		            </div>
             </div>
         </div>
     </div>
@@ -39,22 +34,30 @@
     <div class="ticket-details-page">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="left-image">
-                        <img src="../resources/images/dress/D0001.jpg" alt="">
-                    </div>
+            <div class="col-lg-12 line">
+            </div>
+                <div class="col-lg-1">
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-10">
+                	
+	                    <div class="left-image-hall">
+							<img src="../resources/images/hallrepimage/${wdHall.HImgName }" height="auto" width="100%" alt="">
+	                    </div>
+                </div>
+                <div class="col-lg-1">
+                </div>
+                <div class="col-lg-4">	
+                <br>
                     <div class="com_detail">
                         <div class="right-content">
-                            <h4>드레스이름</h4>
-                            <span>드레스설명블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라</span>
+                            
+                            <span>${wdHall.HContent }</span>
                             <ul>
-                                <li><i class="fa fa-map-marker"></i>서울시 강남구 언주로170길 25(신사동) 1층</li>
+                                <!-- li><i class="fa fa-map-marker"></i>${wdHall.WHLocation }</li -->
                                 <li>Tel. 02-514-7600</li>
                             </ul>
                             <div class="banner">
-                                <img src="../resources/images/tour.png" width="100%">
+                                <img src="../resources/images/halltour.PNG" width="100%" height="200px">
                             </div>
                            <!---- 추가인원계산할때 쓸거 ---->
                             <div class="quantity-content">

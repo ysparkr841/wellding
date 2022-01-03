@@ -9,7 +9,7 @@ $(document).ready(function(){
 	
 	//조회버튼클릭. 조회항목,조회값,현재커런트페이지에 대한 정보 가져가기
 	$("#btnSearch").on("click", function(){
-		document.bbsForm.dcCode.value = "";
+		document.bbsForm.dNo.value = "";
 		document.bbsForm.searchType.value = $("#_searchType").val();
 		document.bbsForm.searchValue.value = $("#_searchValue").val();
 		document.bbsForm.curPage.value = 1;
@@ -19,16 +19,18 @@ $(document).ready(function(){
 	
 });
 
-function fn_view(dcCode)
+function fn_view(dNo)
 {
-	document.bbsForm.dcCode.value = dcCode;
-	document.bbsForm.action = "/hsdm/view";
+	document.bbsForm.dNo.value = dNo;
+	document.bbsForm.searchType.value = $("#_searchType").val();
+	document.bbsForm.searchValue.value = $("#_searchValue").val();
+	document.bbsForm.action = "/hsdm/dressView";
 	document.bbsForm.submit();
 }     
 
 function fn_list(curPage)
 {
-   document.bbsForm.dcCode.value = "";
+   document.bbsForm.dNo.value = "";
    document.bbsForm.curPage.value = curPage;
    document.bbsForm.action = "/hsdm/dress";
    document.bbsForm.submit();
@@ -117,7 +119,7 @@ function fn_list(curPage)
                                 <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="javascript:void(0)" onclick="fn_view(${wdDress.dcCode})">드레스 예약하기</a>
+                                <a href="javascript:void(0)" onclick="fn_view('${wdDress.dNo}')">드레스 예약하기</a>
                             </div>
                         </div>
                     </div>
@@ -160,7 +162,7 @@ function fn_list(curPage)
     		         		<li class="active page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${i})">${i}</a></li>
 							</c:when>
 							<c:otherwise>
-											<li class="page-item active"><a class="page-link" href="javascript:void(0)" style="cursor:default;">${i}</a></li>
+							<li class="page-item"><a class="page-link" href="javascript:void(0)" style="cursor:default;">${i}</a></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
@@ -175,7 +177,7 @@ function fn_list(curPage)
         </div>
         
 		<form name="bbsForm" id="bbsForm" method="post">
-			<input type="hidden" name="dcCode" value="" /> <!-- 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
+			<input type="hidden" name="dNo" value="" /> <!-- 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
 			<input type="hidden" name="searchType" value="${searchType}" />
 			<input type="hidden" name="searchValue" value="${searchValue}" />
 			<input type="hidden" name="curPage" value="${curPage}" />

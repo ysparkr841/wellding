@@ -42,7 +42,7 @@ public class WDHallController {
 	   private WDHallService wdHallService;
 	   
 	   private static final int LIST_COUNT = 9; //한 페이지의 게시물 수
-	   private static final int PAGE_COUNT = 5; //페이징 수
+	   private static final int PAGE_COUNT = 3; //페이징 수
 	   
 	   @RequestMapping(value="/hsdm/halllist")
 	   public String list(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
@@ -56,6 +56,7 @@ public class WDHallController {
 			//현재 페이지
 			long curPage = HttpUtil.get(request, "curPage", (long)1);
 			String whCode = HttpUtil.get(request, "whCode", "");
+			String hCode = HttpUtil.get(request, "HCode", "");
 			
 			
 			WDUser wdUser = null;
@@ -113,5 +114,36 @@ public class WDHallController {
 			model.addAttribute("paging",paging);
 		   
 		   return "/hsdm/halllist";
+	   }
+	   
+	   @RequestMapping(value="/hsdm/HallView")
+	   public String hallView(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
+		   
+		   String whCode = HttpUtil.get(request, "WHCode", "");
+		   String hCode = HttpUtil.get(request, "HCode", "");
+		   
+		   String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		   
+			WDUser wdUser = null;
+			wdUser = wdUserService.userSelect(cookieUserId);
+			
+			if(wdUser != null) {
+				model.addAttribute("wdUser",wdUser);
+			}
+		   
+		   WDHall wdHall = new WDHall();
+		   
+		   if(!StringUtil.isEmpty(whCode) && !StringUtil.isEmpty(hCode)) {
+			   
+			   wdHall.setWHCode(whCode);
+			   wdHall.setHCode(hCode);
+			   
+			   wdHall = wdHallService.WDHallSelect(wdHall);
+			   
+			   model.addAttribute("wdHall",wdHall);
+		   }
+		   
+		   
+		   return "/hsdm/HallView";
 	   }
 }

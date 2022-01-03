@@ -6,6 +6,16 @@
 <meta charset="UTF-8">
 <title>공지사항</title>
 	<%@ include file="/WEB-INF/views/include/head.jsp" %>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+<style>
+.Wtitle{
+font-family: 'Gamja Flower', cursive;
+font-size: 64px;
+text-align: center;
+}
+</style>
 <script>
 $(function(){
 	//조회버튼
@@ -40,7 +50,9 @@ function fn_list(curPage)
 
 </head>
 <body>
-   	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
+   	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
+       <jsp:param name="userName" value="${wdUser.userNickname}" />
+       </jsp:include>
 
 	    <!-- ***** About Us Page ***** -->
     <div class="page-heading-rent-venue">
@@ -49,7 +61,10 @@ function fn_list(curPage)
             </div>
         </div>
     </div>
-
+	<br />
+	<h2 class="Wtitle">Wellding Notice</h2>
+	<p style="text-align:center">우리들의 웨딩이야기를 지금 들려드려요</p>
+	<br />
     <div class="tickets-page">
         <div class="container">
             <div class="row">
@@ -77,7 +92,6 @@ function fn_list(curPage)
                                             <button type="button" id="btnSearch" class="main-dark-button">조회</button>
                                             </fieldset>
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -85,6 +99,11 @@ function fn_list(curPage)
                     </div>
                 </div>
                 <div class="col-lg-12">
+                	<div class="heading">
+                		<h2></h2>
+                	</div>
+                </div>
+                <div class="col-lg-12" style="border-bottom: 1px solid black">
                     <ul>
                         <li>
                             <table class="table table-hover">
@@ -94,24 +113,24 @@ function fn_list(curPage)
                                     <th scope="col" class="text-center" style="width:50%">제목</th>
                                     <th scope="col" class="text-center" style="width:20%">작성자</th>
                                     <th scope="col" class="text-center" style="width:10%">날짜</th>
-                                    <th scope="col" class="text-center" style="width:10%">조회수</th>
+                                    <th scope="col" class="text-center" style="width:10%">조회</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <c:if test="${!empty list}">
                                        <c:forEach var="hiBoard" items="${list}" varStatus="status">   
                                             <tr>
-                                                <td>
+                                                <td style="text-align:center">
                                                     <a href="javascript:void(0)" onclick="fn_view(${hiBoard.bSeq})">
                                                         <c:out value="${hiBoard.bSeq}" />
                                                     </a>
                                                 </td>
-                                                	<td class="test-center">
+                                                	<td style="text-align:left">
                                                 		<a href="javascript:void(0)" onclick="fn_view(${hiBoard.bSeq})">${hiBoard.bTitle}</a>
                                                 	</td>
-                                                	<td class="text-center">${hiBoard.adminId}</td>
-                                                    <td class="text-center">${hiBoard.regDate}</td>
-                                                    <td class="text-center"><fmt:formatNumber type="number" maxFractionDigits="3" value="${hiBoard.bReadCnt}" /></td>
+                                                	<td style="text-align:center">${hiBoard.adminId}</td>
+                                                    <td style="text-align:center">${hiBoard.regDate}</td>
+                                                    <td style="text-align:center"><fmt:formatNumber type="number" maxFractionDigits="3" value="${hiBoard.bReadCnt}" /></td>
                                             </tr>
                                        </c:forEach>
                                     </c:if>      

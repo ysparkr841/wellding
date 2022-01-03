@@ -460,8 +460,6 @@ a{ text-decoration: none; color: inherit; }
      */ 
    
 }
-
-
 .main-dark-button a {
   display: inline-block;
   font-size: 13px;
@@ -472,6 +470,19 @@ a{ text-decoration: none; color: inherit; }
   font-weight: 500;
   text-transform: capitalize;
   transition: all .3s;
+}
+
+.main-dark-button2 a {
+  display: inline-block;
+  font-size: 15px;
+  padding: 18px;
+  background-color: #ff8080;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: all .3s;
+  width: 100%;
 }
 
 .main-dark-button a:hover {
@@ -1878,7 +1889,46 @@ About Us Page
 /** 보현수정 시작 **/
 
 .big_title {
-  padding-top: 80px;
+  padding-top: 50px;
+}
+
+.big_title_hall {
+  padding-top: 30px;
+}
+
+.hibixbi{
+	float : left;
+	width : 350px;
+	height : 50px;
+	margin-left : 30px;
+}
+
+.big_title_hall h2 {
+  float : left;
+  font-size: 45px;
+  color: #333;
+  /*font-weight: 800;*/
+  margin-bottom: 15px;
+  font-family: 'Jua', sans-serif;
+  /*letter-spacing: 2px;*/
+}
+
+.big_title_hall span {
+  font-size: 16px;
+  color: #333;
+  font-weight: 300;
+}
+
+.big_title_hall ._detail {
+  font-size: 15px;
+  color: #555;
+  font-weight: 300;
+}
+
+.big_title_hall .loc_li {
+  font-size: 14px;
+  color: #777;
+  font-weight: 600;
 }
 
 .big_title h2 {
@@ -1887,7 +1937,16 @@ About Us Page
   /*font-weight: 800;*/
   margin-bottom: 15px;
   font-family: 'Jua', sans-serif;
-  /*letter-spacing: 2px;*/
+}
+
+.big_title h2 > span 
+{
+  font-size: 35px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 15px;
+  letter-spacing: -3px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .big_title span {
@@ -1906,6 +1965,8 @@ About Us Page
   font-size: 14px;
   color: #777;
   font-weight: 600;
+  border-left: 3px solid #ccc;
+  padding-left: 40px;
 }
 
 
@@ -1919,6 +1980,16 @@ About Us Page
   overflow: hidden;
 }
 
+.left-image-hall
+{
+  overflow: hidden;
+  
+}
+.line
+{
+   border-top:4px solid #000;
+   padding-bottom:20px;
+}
 .about-item .left-image img {
   width: 100%;
   overflow: hidden;
@@ -1929,6 +2000,75 @@ About Us Page
   border-top: 3px solid #262626;
   width: 100%;
 }
+
+.com_detail .det_price .price
+{
+	color: #888!important;
+	text-decoration: line-through #999;
+	margin: 0;
+	height: 20px;
+	float: right;
+	font-size: 20px;
+}
+
+.com_detail .det_price .discount
+{
+  font-size: 35px;
+  font-weight: 700;
+  color: #ee3e61;
+  /*padding-right:5px;*/
+  border-bottom: none;
+  float: left;
+  height: 80px;
+  line-height: 65px;
+  
+}
+
+.com_detail .det_price .dis-price
+{
+	font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    border-bottom: none;
+    float: right;
+    margin-bottom: 15px;
+}
+
+.det_navi
+{
+	margin: 80px 0;
+	border-top: 3px solid #262626;
+	border-bottom: 1px solid #c9c9c9;
+	padding: 25px 0;
+}
+
+.det_navi ul
+{
+	margin-bottom: 20px;
+	width: 100%;
+	padding: 0 25%;
+}
+
+.det_navi li
+{
+	/*float: left;*/
+	margin: 0 auto;
+	text-align: center;
+	width: 50%;
+	float: left;
+}
+
+.det_navi li:first-child a
+{
+	font-weight: 700;
+	color: #333;
+}
+
+.det_navi li:hover a
+{
+	color: #ff675d;
+}
+
 /*****************/
 
 .page-heading-about {
@@ -2905,6 +3045,58 @@ Shows Events Page
 
 /****************** 메이크업상단이미지 끝 ******************/
 
+/***************** 뷰페이지 이미지수정 ********************/
+.ticket-item2 .thumb1 {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.ticket-item2 .thumb1 img {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+.ticket-item2 .thumb1 .price {
+  background-color: rgba(101,108,116,0.9);
+  display: inline-block;
+  padding: 20px;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+}
+
+.ticket-item2 .thumb1 .price span {
+  color: #fff;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.ticket-item2 .thumb1 .price span em {
+  font-weight: 700;
+  font-size: 20px;
+  font-style: normal;
+}
+
+.sd_title3{
+  font-size: 15px;
+  font-weight: 500;
+  color: #2a2a2a;
+  height: 46px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 8px;
+  /*margin-bottom: 10px;*/
+}
+
+.dtbox
+{
+	border: 1px solid #ccc;
+	padding: 5px 10px 10px 15px;
+}
+
 /**** 보현수정 시작  ****/
 .tickets-page .ticket-item .down-content {
   background-color: #efefef;
@@ -2978,7 +3170,7 @@ Shows Events Page
 
 .down-content .discount
 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: #ee3e61;
   padding-right:5px;
@@ -2986,15 +3178,16 @@ Shows Events Page
 
 .down-content .dis-price
 {
-	font-size: 22px;
+	font-size: 20px;
     font-weight: 700;
-    color: #000;
+    color: #333;
 }
 
 .down-content .dis_price
 {
 	height: 33px;
 }
+
 .sd_adress
 {
 	/*margin-top: 15px;*/
@@ -3064,7 +3257,7 @@ Ticket Details Page : 보현 수정 쭉한다
 {
   height: auto;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .banner>img
@@ -3098,18 +3291,18 @@ Ticket Details Page : 보현 수정 쭉한다
   font-weight: 700;
   color: #756c74; /* 보현수정 */
   display: inline-block;
-  border-bottom: 1px solid #ccc; /* 보현수정 */
+  border-bottom: 1px solid #ccc;   /*보현수정 */
   width: 100%;
   padding-bottom: 42px;
   margin-top: 15px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .ticket-details-page .right-content ul {
   /*border-bottom: 1px solid #ccc; 보현수정 */
   width: 100%;
   padding-bottom: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 2px;
 }
 
 .ticket-details-page .right-content ul li {/* 보현수정 */
