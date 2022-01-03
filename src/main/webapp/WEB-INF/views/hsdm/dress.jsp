@@ -24,7 +24,7 @@ function fn_view(dNo)
 	document.bbsForm.dNo.value = dNo;
 	document.bbsForm.searchType.value = $("#_searchType").val();
 	document.bbsForm.searchValue.value = $("#_searchValue").val();
-	document.bbsForm.action = "/hsdm/view";
+	document.bbsForm.action = "/hsdm/dressView";
 	document.bbsForm.submit();
 }     
 

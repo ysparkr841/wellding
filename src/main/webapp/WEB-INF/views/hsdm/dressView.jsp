@@ -95,6 +95,79 @@ $(document).ready(function(){
                         </div>
                     </div>
                 </div>
+                
+                <div class="col-lg-12">
+                	<div class="det_navi">
+                		<ul>
+                			<li><a href=""><c:out value="${wdDress.dcName}" />의 다른 드레스 보기</a></li>
+                			<li><a href="">이용 후기</a></li>
+                		</ul>
+                	</div>
+                </div>
+                
+              <!-- 같은 샵 다른상품 보기 시작 -->
+               	<!-- 드레스 3짜리로*4개 만들거임 -->
+               	<!-- 01 -->
+               	<div class="col-lg-3">
+                    <div class="ticket-item2">
+                        <div class="thumb1">
+                            <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
+                        </div>
+                        <div class="down-content dtbox">
+                        	<div class="sd_title3">[<c:out value="${wdDress.dcName}" />] <c:out value="${wdDress.dName}" /></div>
+                            <ul>
+                                <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
+                            </ul>
+                        </div>
+                    </div>
+               	</div>    
+               	
+               	<!-- 02 -->
+               	<div class="col-lg-3">
+                    <div class="ticket-item2">
+                        <div class="thumb1">
+                            <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
+                        </div>
+                        <div class="down-content dtbox">
+                        	<div class="sd_title3">[<c:out value="${wdDress.dcName}" />] <c:out value="${wdDress.dName}" /></div>
+                            <ul>
+                                <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
+                            </ul>
+                        </div>
+                    </div>
+               	</div>   
+               	 
+               	<!-- 03 -->
+               	<div class="col-lg-3">
+                    <div class="ticket-item2">
+                        <div class="thumb1">
+                            <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
+                        </div>
+                        <div class="down-content dtbox">
+                        	<div class="sd_title3">[<c:out value="${wdDress.dcName}" />] <c:out value="${wdDress.dName}" /></div>
+                            <ul>    
+                                <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
+                            </ul>
+                        </div>
+                    </div>
+               	</div> 
+               	
+               	<!-- 04 -->
+               	<div class="col-lg-3">
+                    <div class="ticket-item2">
+                        <div class="thumb1">
+                            <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
+                        </div>
+                        <div class="down-content dtbox">
+                        	<div class="sd_title3">[<c:out value="${wdDress.dcName}" />] <c:out value="${wdDress.dName}" /></div>
+                            <ul>    
+                                <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
+                            </ul>
+                        </div>
+                    </div>
+               	</div> 
+              <!-- 같은 샵 다른상품 보기 끝 -->	
+              
             </div>
         </div>
     </div>

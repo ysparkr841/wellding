@@ -135,7 +135,7 @@ public class WDDressControllre
 	
 	
 	//22.01.03 상세페이지 보기
-	@RequestMapping(value="/hsdm/view")
+	@RequestMapping(value="/hsdm/dressView")
 	public String view(ModelMap model, HttpServletRequest request, HttpServletResponse response)
 	{
 		
@@ -164,7 +164,7 @@ public class WDDressControllre
 		model.addAttribute("searchValue", searchValue);
 		model.addAttribute("curPage", curPage);
 		
-		return "/hsdm/view";
+		return "/hsdm/dressView";
 	}
 	
 	
