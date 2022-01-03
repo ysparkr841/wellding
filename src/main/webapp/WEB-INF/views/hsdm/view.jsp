@@ -4,7 +4,17 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
-
+<script>
+$(document).ready(function(){
+	<c:choose>
+		<c:when test="${empty wdDress}">
+			alert("조회하신 상품이 존재하지 않습니다.");
+			document.bbsForm.action = "/hsdm/dress";
+			document.bbsForm.submit();
+		</c:when>
+	</c:choose>
+});
+</script>
 </head> 
 <body>
 	<!-- 메뉴바 시작 -->
@@ -16,20 +26,20 @@
 <section class="top">
 	<div class="back"></div>
 </section>
-
+<c:if test="${!empty wdDress}">
 <div class="big_title">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2><span>[드레스]</span> 클라라웨딩</h2>
+                <h2><span>[드레스]</span> <c:out value="${wdDress.dcName}" /></h2>
             </div>
             <div class="col-lg-8 _detail">
-                <span>동화속의 신비로움을 간직한 클라라 웨딩드레스 1996년에 오픈해 꾸준히 사랑받고 있는 클라라웨딩은 튤소재의 드레스 같은 로맨틱 클래식의 대명사로 특유의 브랜드 이미지를 완성해 굳건히 자리매김했습니다.</span>
+                <span><c:out value="${wdDress.dcContent}" /></span>
             </div>
             <div class="col-lg-4">
                 <ul  class="loc_li">
-                    <li><i class="fa fa-map-marker"></i> 서울시 강남구 언주로170길 25(신사동) 1층</li>
-                    <li>Tel. 02-514-7600</li>
+                    <li><i class="fa fa-map-marker"></i> <c:out value="${wdDress.dcLocation}" /></li>
+                    <li><c:out value="${wdDress.dcNumber}" /></li>
                 </ul>
             </div>
         </div>
@@ -47,16 +57,16 @@
                 <div class="col-lg-6">
                     <div class="com_detail">
                         <div class="right-content">
-                            <h4>드레스이름</h4>
-                            <span>드레스설명블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라</span>
+                            <h4><c:out value="${wdDress.dName}" /></h4>
+                            <span><c:out value="${wdDress.dContent}" /></span>
                             <div class="det_price">
 	                            <ul>
 	                                <li class="dis_price">
-	                            		<div class="discount">28%</div>
-		                                <div class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdDress.dPrice}" /> 550,000원</div>
+	                            		<div class="discount"><c:out value="${wdDress.dDiscount}" />%</div>
+		                                <div class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdDress.dPrice}" /></div>
 	                                </li>
 	                            </ul>
-	                            <div class="dis-price">396,000원</div>
+	                            <div class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</div>
                             </div>
                             <div class="banner">
                                 <img src="../resources/images/tour.png" width="100%">
@@ -81,41 +91,21 @@
                             <div class="warn">
                                 <p>*You Can Only Buy 10 Tickets For This Show</p>
                             </div> ---->
-                            <div class="main-dark-button2"><a href="#">이 드레스로 예약하기</a></div>
+                            <div class="main-dark-button2"><a href="#">이 드레스 담기</a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</c:if>
 
-
-    <!-- *** Subscribe *** -->
-    <div class="subscribe">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <h4>Subscribe Our Newsletter:</h4>
-                </div>
-                <div class="col-lg-8">
-                    <form id="subscribe" action="" method="get">
-                        <div class="row">
-                          <div class="col-lg-9">
-                            <fieldset>
-                              <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address" required="">
-                            </fieldset>
-                          </div>
-                          <div class="col-lg-3">
-                            <fieldset>
-                              <button type="submit" id="form-submit" class="main-dark-button">Submit</button>
-                            </fieldset>
-                          </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+<form name="bbsForm" id="bbsForm" method="post">
+   <input type="hidden" name="dNo" value="${dNo}" />
+   <input type="hidden" name="searchType" value="${searchType}" />
+   <input type="hidden" name="searchValue" value="${searchValue}" />
+   <input type="hidden" name="curPage" value="${curPage}" />
+</form>
 
     
 <!-- ############################ 여기까지 내용 끝 ############################ -->

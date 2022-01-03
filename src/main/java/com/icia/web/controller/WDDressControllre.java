@@ -139,16 +139,30 @@ public class WDDressControllre
 	public String view(ModelMap model, HttpServletRequest request, HttpServletResponse response)
 	{
 		
-		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		//String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
 		 
 		//상세페이지에 필요한거 가져오기
 		String dcCode = HttpUtil.get(request, "dcCode", "");
-		String nNo = HttpUtil.get(request, "dNo", ""); 
+		String dNo = HttpUtil.get(request, "dNo", ""); 
 		String searchType = HttpUtil.get(request, "searchType", ""); 
 		String searchValue = HttpUtil.get(request, "searchValue", ""); 
 		long curPage = HttpUtil.get(request, "curPage", (long)1);
 		
+		WDDress wdDress = null;
 		
+		if(dNo != null)
+		{
+			wdDress = wdDressService.dressSelect(dNo);
+		}
+		
+		System.out.println("######################### wdDress: " + wdDress);
+		
+		model.addAttribute("dNo", dNo);
+		model.addAttribute("wdDress", wdDress);
+		model.addAttribute("dcCode", dcCode);
+		model.addAttribute("searchType", searchType);
+		model.addAttribute("searchValue", searchValue);
+		model.addAttribute("curPage", curPage);
 		
 		return "/hsdm/view";
 	}

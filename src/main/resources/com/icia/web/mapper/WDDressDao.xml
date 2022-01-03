@@ -12,6 +12,7 @@
 	<result column="DC_NUMBER" property="dcNumber" />
 	<result column="D_IMGNAME" property="dImgname" />
 	<result column="D_PRICE" property="dPrice" />
+	<result column="DC_CONTENT" property="dcContent" />
 	<result column="D_CONTENT" property="dContent" />
 	<result column="D_DISCOUNT" property="dDiscount" />
 </resultMap>
@@ -42,6 +43,7 @@ SELECT
     D_IMGNAME,
     D_PRICE,
     D_CONTENT,
+    DC_CONTENT,
     D_DISCOUNT
 FROM (SELECT 
             ROWNUM AS RNUM,
@@ -54,6 +56,7 @@ FROM (SELECT
             D_IMGNAME,
             D_PRICE,
             D_CONTENT,
+            DC_CONTENT,
             D_DISCOUNT
         FROM (SELECT
                     A.DC_CODE AS DC_CODE,
@@ -64,6 +67,7 @@ FROM (SELECT
                     NVL(B.DC_NUMBER, '') AS DC_NUMBER,
                     NVL(A.D_IMGNAME, '') AS D_IMGNAME,
                     NVL(A.D_PRICE, 0) AS D_PRICE,
+                    NVL(B.DC_CONTENT, '') AS DC_CONTENT,
                     NVL(A.D_CONTENT, '') AS D_CONTENT,
                     NVL(A.D_DISCOUNT, 0) AS D_DISCOUNT
                 FROM
@@ -114,4 +118,26 @@ AND
 </select>
 <!-- 드레스 총 수 끝 -->
 
+<!-- 드레스 상세페이지 보기 시작 -->
+<select id="dressSelect" parameterType="string" resultMap="WDDressResultMap">
+SELECT
+    A.DC_CODE AS DC_CODE,
+    A.D_NO AS D_NO,
+    NVL(B.DC_NAME, '') AS DC_NAME,
+    NVL(B.DC_CONTENT, '') AS DC_CONTENT,
+    NVL(B.DC_NUMBER, '') AS DC_NUMBER,
+    NVL(B.DC_LOCATION, '') AS DC_LOCATION,
+    NVL(A.D_NAME, '') AS D_NAME,
+    NVL(A.D_IMGNAME, '') AS D_IMGNAME,
+    NVL(A.D_PRICE, 0) AS D_PRICE,
+    NVL(A.D_CONTENT, '') AS D_CONTENT,
+    NVL(A.D_DISCOUNT, 0) AS D_DISCOUNT
+FROM
+    WD_DRESS A, WD_DRESS_COM B
+WHERE
+    A.D_NO = #{value}
+AND
+    A.DC_CODE = B.DC_CODE
+</select>
+<!-- 드레스 상세페이지 보기 끝 -->
 </mapper>
