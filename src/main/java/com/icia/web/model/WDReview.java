@@ -7,6 +7,7 @@ public class WDReview implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private long RSeq;
+	private String rezNo;
 	private String UserId;
 	private String UNickName;
 	private String WDate;
@@ -15,7 +16,7 @@ public class WDReview implements Serializable{
 	private long RReadCnt;
 	private String RegDate;
 	private double RScore;
-	private char ZStatus;
+	private char rezStatus;
 	
 	private WDReviewFile reviewFile;
 	
@@ -24,6 +25,7 @@ public class WDReview implements Serializable{
 	
 	public WDReview() {
 		  RSeq = 0;
+		  rezNo = "";
 		  UserId = "";
 		  UNickName = "";
 		  WDate = "";
@@ -32,12 +34,52 @@ public class WDReview implements Serializable{
 		  RReadCnt = 0;
 		  RegDate = "";
 		  RScore = 0;
-		  ZStatus = 'N';
+		  rezStatus = 'N';
 		  reviewFile = null;
 		  searchType = "";
 		  searchValue = "";
 	}
 	
+
+	public String getRezNo() {
+		return rezNo;
+	}
+
+
+	public void setRezNo(String rezNo) {
+		this.rezNo = rezNo;
+	}
+
+
+	public char getRezStatus() {
+		return rezStatus;
+	}
+
+
+	public void setRezStatus(char rezStatus) {
+		this.rezStatus = rezStatus;
+	}
+
+
+	public String getSearchType() {
+		return searchType;
+	}
+
+
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
+
+
+	public String getSearchValue() {
+		return searchValue;
+	}
+
+
+	public void setSearchValue(String searchValue) {
+		this.searchValue = searchValue;
+	}
+
 
 	public WDReviewFile getReviewFile() {
 		return reviewFile;
@@ -121,13 +163,6 @@ public class WDReview implements Serializable{
 		RScore = rScore;
 	}
 
-	public char getZStatus() {
-		return ZStatus;
-	}
-
-	public void setZStatus(char zStatus) {
-		ZStatus = zStatus;
-	}
 	
 	
 
