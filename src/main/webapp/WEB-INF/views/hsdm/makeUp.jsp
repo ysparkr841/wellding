@@ -21,7 +21,7 @@ $(document).ready(function(){
 function fn_view(mCode)
 {
 	document.bbsForm.mCode.value = mCode; //실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
-	document.bbsForm.action = "/hsdm/makeUp";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
+	document.bbsForm.action = "/hsdm/view";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
 	document.bbsForm.submit();
 }     
 
