@@ -5,6 +5,14 @@
 <head>
 <meta charset="UTF-8">
 	<%@ include file="/WEB-INF/views/include/head.jsp" %>
+<script>
+$(document).ready(function(){
+	$("#btnList").on("click", function(){
+		document.bbsForm.action = "/board/nBoard";
+		document.bbsForm.submit();
+	});
+});
+</script>
 </head>
 <body>
    	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
@@ -14,44 +22,26 @@
             </div>
         </div>
     </div>
-    
-<div class="col-lg-12">
-	<div class="heading">
-		<h2></h2>
-	</div>
-</div>
-        <div class="col-lg-12">
-            <ul>
-                <li>
-                    <table class="table table-hover">
-                        <thead>
-                            <tr style="background-color: #dee2e6;">
-                            <th scope="col" class="text-center" style="width:10%">번호</th>
-                            <th scope="col" class="text-center" style="width:50%">제목</th>
-                            <th scope="col" class="text-center" style="width:20%">작성자</th>
-                            <th scope="col" class="text-center" style="width:10%">날짜</th>
-                            <th scope="col" class="text-center" style="width:10%">조회수</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </li>
-            </ul>
-        </div>
+    <br /><h2 style="text-align:center">공지사항</h2><br />
+
 <div class="container">
-   <h2>게시물 보기</h2>
    <div class="row" style="margin-right:0; margin-left:0;">
       <table class="table">
          <thead>
             <tr class="table-active">
                <th scope="col" style="width:60%">
-                  <c:out value="${nBoard.bTitle}"/><br/>
-                  <c:out value="${nBoard.adminId}"/>&nbsp;&nbsp;&nbsp;
+                  <c:out value="${nBoard.bTitle}"/>&nbsp;&nbsp;
                </th>
                <th scope="col" style="width:40%" class="text-right">
-                                         조회 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${nBoard.bReadCnt}" /><br/>
-                  ${nBoard.regDate}
+                                         조회 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${nBoard.bReadCnt}" />
                </th>
             </tr>
+               <th scope="col" style="width:60%">
+               <c:out value="${nBoard.adminId}"/>&nbsp;&nbsp;&nbsp;
+               </th>
+               <th scope="col" style="width:40%" class="text-right">
+                  <div>${nBoard.regDate}</div>
+               </th>
          </thead>
          <tbody>
             <tr>
@@ -60,7 +50,7 @@
          </tbody>
          <tfoot>
          <tr>
-               <td colspan="2"></td>
+               <td colspan="2"><button type="button" id="btnList" class="btn btn-secondary">리스트</button></td>
            </tr>
          </tfoot>
       </table>

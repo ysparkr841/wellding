@@ -49,7 +49,7 @@ function fn_list(curPage)
             </div>
         </div>
     </div>
-	<br /><br />
+	<br /><h2 style="text-align:center">공지사항</h2><br />
     <div class="tickets-page">
         <div class="container">
             <div class="row">
