@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icia.web.dao.WDRezDao">
+
+<!-- 예약 resultMap 시작 -->
+<resultMap id="WDRezDaoResultMap" type="com.icia.web.model.WDRez">
+	<id column="REZ_NO" property="rezNo" />
+	<id column="USER_ID" property="userId" />
+	<result column="WH_CODE" property="whCode" />
+	<result column="H_CODE" property="hCode" />
+	<result column="S_CODE" property="sCode" />
+	<result column="DC_CODE" property="dcCode" />
+	<result column="D_NO" property="dNo" />
+	<result column="M_CODE" property="mCode" />
+	<result column="M_PLUS_NUM" property="mPlusNum" />
+	<result column="REZ_STATUS" property="rezStatus" />
+	<result column="REZ_DATE" property="rezDate" />
+	<result column="WDATE" property="wDate" />
+	<result column="REZ_FULL_PRICE" property="rezFullPrice" />
+	<result column="C_CODE" property="cCode" />
+	<result column="REZ_POINT" property="rezPoint" />
+</resultMap>
+
+<!-- 예약 추가여부 확인을 위한 셀렉트문 시작 -->
+<select id="rezStateCheck" parameterType="com.icia.web.model.WDRez" resultMap="WDRezDaoResultMap">
+SELECT
+    REZ_NO,
+    WH_CODE,
+    H_CODE,
+    S_CODE,
+    DC_CODE,
+    D_NO,
+    M_CODE,
+    NVL(M_PLUS_NUM, 0) M_PLUS_NUM,
+    NVL(REZ_STATUS, 'N') REZ_STATUS,
+    NVL(TO_CHAR(REZ_DATE, 'YYYY.MM.DD HH24:MI:SS'),'') REZ_DATE,
+    NVL(WDATE, '') WDATE,
+    USER_ID,
+    NVL(REZ_FULL_PRICE, 0) REZ_FULL_PRICE,
+    C_CODE,
+    NVL(REZ_POINT, 0) REZ_POINT,
+    NVL(H_FOOD_COUNT, 0) H_FOOD_COUNT
+FROM
+    WD_REZ
+WHERE
+    USER_ID = #{userId}
+ <if test='userId != null and userId != ""'>
+AND
+    REZ_STATUS = 'Y'
+</if>    
+</select>    
+<!-- 예약 추가여부 확인을 위한 셀렉트문 끝 -->
+
+<!-- 작성중이던 예약 기록이 없거나 예약이 결제완료 상태면 예약번호 생성 시작 -->
+<insert id="rezNoInsert" parameterType="com.icia.web.model.WDRez">
+<!-- ###### 선행처리기(시퀀스번호 생성 시작) : 인서트문 실행하기전에 여기 있는거 먼저 실행해~ ###### -->
+<selectKey resultType = "string" keyProperty="rezNo" order = "BEFORE">
+   SELECT REZ_NO_SEQ.NEXTVAL FROM DUAL
+</selectKey>
+<!-- ###### 선행처리기(시퀀스번호 생성 끝) ###### -->
+INSERT INTO WD_REZ (
+    REZ_NO,
+    USER_ID
+) VALUES (
+    #{rezNo},
+    #{userId}
+)
+</insert>
+<!-- 작성중이던 예약 기록이 없거나 예약이 결제완료 상태면 예약번호 생성 끝 -->
+
+<!-- 예약번호와 아이디를 비교하여 홀 데이터 삽입 시작-->
+<update id="rezHallInsert" parameterType="com.icia.web.model.WDRez">
+UPDATE WD_REZ
+SET
+    WH_CODE = #{whCode},
+    H_CODE = #{hCode}
+WHERE
+    REZ_NO = #{rezNo}
+AND
+    USER_ID = #{userId}
+</update>
+<!-- 예약번호와 아이디를 비교하여 홀 데이터 삽입 끝-->
+
+<!-- 예약번호와 아이디를 비교하여 스튜디오 데이터 삽입 시작-->
+<update id="rezStudioInsert" parameterType="com.icia.web.model.WDRez">
+UPDATE WD_REZ
+SET
+    S_CODE = #{sCode}
+WHERE
+    REZ_NO = #{rezNo}
+AND
+    USER_ID = #{userId}
+</update>
+<!-- 예약번호와 아이디를 비교하여 스튜디오 데이터 삽입 끝-->
+
+<!-- 예약번호와 아이디를 비교하여 드레스 데이터 삽입 시작-->
+<update id="rezDressInsert" parameterType="com.icia.web.model.WDRez">
+UPDATE WD_REZ
+SET
+    DC_CODE = #{dcCode},
+    D_NO = #{dNo}
+WHERE
+    REZ_NO = #{rezNo}
+AND
+    USER_ID = #{userId}
+</update>
+<!-- 예약번호와 아이디를 비교하여 드레스 데이터 삽입 끝-->
+
+<!-- 예약번호와 아이디를 비교하여 메이크업 데이터 삽입 시작-->
+<update id="rezMakeupInsert" parameterType="com.icia.web.model.WDRez">
+UPDATE WD_REZ
+SET
+    M_CODE = #{mCode},
+    M_PLUS_NUM = #{mPlusNum}
+WHERE
+    REZ_NO = #{rezNo}
+AND
+    USER_ID = #{userId}
+</update>
+<!-- 예약번호와 아이디를 비교하여 메이크업 데이터 삽입 끝-->
+
+<!-- 결제직전 결혼날짜를 입력받아 삽입하고  삽입과 동시에 예약일을 현재시간으로 설정 시작-->
+<update id="rezWDateInsert" parameterType="com.icia.web.model.WDRez">
+UPDATE WD_REZ
+SET
+    REZ_DATE = SYSDATE,
+    WDATE = #{wDate}
+WHERE
+    REZ_NO = #{rezNo}
+AND
+    USER_ID = #{userId}
+</update>
+<!-- 결제직전 결혼날짜를 입력받아 삽입하고  삽입과 동시에 예약일을 현재시간으로 설정 끝-->
+
+<!-- 결혼식 날짜를 입력받아 삽입했으면 가격도 삽입 시작-->
+<update id="rezFullPriceInsert" parameterType="com.icia.web.model.WDRez">
+UPDATE WD_REZ
+SET
+    REZ_FULL_PRICE = (SELECT  
+    B.H_PRICE+(B.H_FOOD*B.H_MIN)+C.S_PRICE+D.D_PRICE+E.M_PRICE+(A.M_PLUS_NUM*E.M_PLUS) REZ_FULL_PRICE
+    FROM 
+    WD_REZ A, WD_HALL B, WD_STUDIO C, WD_DRESS D, WD_MAKEUP E
+WHERE
+    A.USER_ID = 'test'
+AND
+    A.WH_CODE = B.WH_CODE
+AND
+    A.H_CODE = B.H_CODE
+AND
+    A.S_CODE = C.S_CODE
+AND
+    A.DC_CODE = D.DC_CODE
+AND
+    A.D_NO = D.D_NO
+AND
+    A.M_CODE = E.M_CODE)
+WHERE
+    REZ_NO = '10000001'
+AND
+    USER_ID = 'test'
+</update>
+<!-- 결혼식 날짜를 입력받아 삽입했으면 가격도 삽입 끝 -->
+
+</mapper>
