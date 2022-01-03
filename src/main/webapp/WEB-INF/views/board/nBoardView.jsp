@@ -14,6 +14,12 @@
             </div>
         </div>
     </div>
+    
+<div class="col-lg-12">
+	<div class="heading">
+		<h2></h2>
+	</div>
+</div>
         <div class="col-lg-12">
             <ul>
                 <li>
@@ -31,9 +37,6 @@
                 </li>
             </ul>
         </div>
-    </div>
-    
-    
 <div class="container">
    <h2>게시물 보기</h2>
    <div class="row" style="margin-right:0; margin-left:0;">
