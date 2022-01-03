@@ -15,6 +15,7 @@ public class WDHall implements Serializable{
 	private long HFood;
 	private long HMin;
 	private long HMax;
+	private String whContent;
 	private String HContent;
 	private String HImgName;
 	private long RezCount;
@@ -37,6 +38,7 @@ public class WDHall implements Serializable{
 		  HFood = 0;
 		  HMin = 0;
 		  HMax = 0;
+		  whContent = "";
 		  HContent = "";
 		  HImgName = "";
 		  RezCount = 0;
@@ -51,17 +53,21 @@ public class WDHall implements Serializable{
 	
 	
 
+	public String getWhContent() {
+		return whContent;
+	}
+
+	public void setWhContent(String whContent) {
+		this.whContent = whContent;
+	}
+
 	public String getWhName() {
 		return whName;
 	}
 
-
-
 	public void setWhName(String whName) {
 		this.whName = whName;
 	}
-
-
 
 	public long getStartRow() {
 		return startRow;

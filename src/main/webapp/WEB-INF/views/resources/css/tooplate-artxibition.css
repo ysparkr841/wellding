@@ -1881,6 +1881,45 @@ About Us Page
   padding-top: 80px;
 }
 
+.big_title_hall {
+  padding-top: 30px;
+}
+
+.hibixbi{
+	float : left;
+	width : 350px;
+	height : 50px;
+	margin-left : 30px;
+}
+
+.big_title_hall h2 {
+  float : left;
+  font-size: 45px;
+  color: #333;
+  /*font-weight: 800;*/
+  margin-bottom: 15px;
+  font-family: 'Jua', sans-serif;
+  /*letter-spacing: 2px;*/
+}
+
+.big_title_hall span {
+  font-size: 16px;
+  color: #333;
+  font-weight: 300;
+}
+
+.big_title_hall ._detail {
+  font-size: 15px;
+  color: #555;
+  font-weight: 300;
+}
+
+.big_title_hall .loc_li {
+  font-size: 14px;
+  color: #777;
+  font-weight: 600;
+}
+
 .big_title h2 {
   font-size: 45px;
   color: #333;
@@ -1919,6 +1958,16 @@ About Us Page
   overflow: hidden;
 }
 
+.left-image-hall
+{
+  overflow: hidden;
+  
+}
+.line
+{
+   border-top:4px solid #000;
+   padding-bottom:20px;
+}
 .about-item .left-image img {
   width: 100%;
   overflow: hidden;
