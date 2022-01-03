@@ -74,7 +74,7 @@ FROM (SELECT
    <choose>                
       <when test='searchType == "1"'> 
                 AND
-                    A.D_NAME LIKE '%' || #{searchValue} || '%'
+                    B.DC_NAME LIKE '%' || #{searchValue} || '%'
       </when>
       <when test='searchType == "2"'>
                 AND 
