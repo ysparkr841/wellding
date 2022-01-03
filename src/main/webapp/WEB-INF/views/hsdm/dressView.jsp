@@ -107,23 +107,6 @@ $(document).ready(function(){
                 
               <!-- 같은 샵 다른상품 보기 시작 -->
                	<!-- 드레스 3짜리로*4개 만들거임 -->
-<<<<<<< HEAD
-               	 <div class="col-lg-3">
-	                    <div class="ticket-item2" onclick="">
-	                        <div class="thumb1">
-	                        	<img src="../resources/images/dress/${wdDress.dImgname}" alt="">
-	                        </div>
-	                        <div class="down-content dtbox">
-	                        	<div class="sd_title3">[<c:out value="${wdDress.dcName}" />] <c:out value="${wdDress.dName}" /></div>
-	                            <ul>
-	                                <li class="dis_price2"><span class="discount2"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
-	                            </ul>
-	                        </div>
-	                    </div>
-               	</div>    
-               	
-               <!-- 같은 샵 다른상품 보기 끝 -->	
-=======
                	<!-- 01 -->
 <c:if test="${!empty sameCom}">        
 	<c:forEach var="wdDress" items="${sameCom}" varStatus="status">
@@ -135,61 +118,14 @@ $(document).ready(function(){
                         <div class="down-content dtbox">
                         	<div class="sd_title3">[<c:out value="${wdDress.dcName}" />] <c:out value="${wdDress.dName}" /></div>
                             <ul>
-                                <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
+                                <li class="dis_price2"><span class="discount2"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
                             </ul>
                         </div>
                     </div>
                	</div>    
      </c:forEach>
 </c:if>
-              	
-               	<!-- 02 -->
-               	<!--  div class="col-lg-3">
-                    <div class="ticket-item2">
-                        <div class="thumb1">
-                            <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
-                        </div>
-                        <div class="down-content dtbox">
-                        	<div class="sd_title3">[<c:out value="${wdDress.dcName}" />] <c:out value="${wdDress.dName}" /></div>
-                            <ul>
-                                <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
-                            </ul>
-                        </div>
-                    </div>
-               	</div-->   
-               	 
-               	<!-- 03 -->
-               	<!--div class="col-lg-3">
-                    <div class="ticket-item2">
-                        <div class="thumb1">
-                            <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
-                        </div>
-                        <div class="down-content dtbox">
-                        	<div class="sd_title3">[<c:out value="${wdDress.dcName}" />] <c:out value="${wdDress.dName}" /></div>
-                            <ul>    
-                                <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
-                            </ul>
-                        </div>
-                    </div>
-               	</div--> 
-               	
-               	<!-- 04 -->
-               	<!--div class="col-lg-3">
-                    <div class="ticket-item2">
-                        <div class="thumb1">
-                            <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
-                        </div>
-                        <div class="down-content dtbox">
-                        	<div class="sd_title3">[<c:out value="${wdDress.dcName}" />] <c:out value="${wdDress.dName}" /></div>
-                            <ul>    
-                                <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
-                            </ul>
-                        </div>
-                    </div>
-               	</div--> 
-              <!-- 같은 샵 다른상품 보기 끝 -->	
->>>>>>> 89362fcf33e87bb8c5164d382a649cb618e3ba52
-              
+			<!-- 같은 샵 다른상품 보기 끝 -->
             </div>
         </div>
     </div>
