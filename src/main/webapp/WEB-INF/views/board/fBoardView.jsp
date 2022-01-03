@@ -29,16 +29,19 @@
                                     <form id="subscribe" action="" method="get">
                                         <div class="row">
                                             <div class="col-lg-5">
+                                            rrrrrrrr
                                             </div>
                                             <div class="col-lg-7">
-                                                <div class="row">
-                                                    <div class="col-lg-3">
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                    </div>
-                                                </div>
+                                            rrrrrrrrr
+                                            </div>
+                                            <div class="col-lg-4">
+                                            rrrrrrrrr
+                                            </div>
+                                            <div class="col-lg-4">
+                                            rrrrrrrrr
+                                            </div>
+                                            <div class="col-lg-4">
+                                            rrrrrrrrr
                                             </div>
                                         </div>
                                     </form>

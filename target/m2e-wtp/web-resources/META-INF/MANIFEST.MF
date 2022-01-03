@@ -1,5 +1,13 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
+Built-By: parkeuisoo
+=======
+<<<<<<< HEAD
+Built-By: gh563
+=======
 Built-By: USER
+>>>>>>> 0687218c2150dd0e24d275240f8e976c107aae90
+>>>>>>> ba4ce0ff8c816c1535591112664bf42e597d3282
 Build-Jdk: 1.8.0_301
 Created-By: Maven Integration for Eclipse
 

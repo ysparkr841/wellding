@@ -5,6 +5,16 @@
 <head>
 <meta charset="UTF-8">
 	<%@ include file="/WEB-INF/views/include/head.jsp" %>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+<style>
+.Wtitle{
+font-family: 'Gamja Flower', cursive;
+font-size: 64px;
+text-align: center;
+}
+</style>
 <script>
 $(document).ready(function(){
 	$("#btnList").on("click", function(){
@@ -25,30 +35,32 @@ $(document).ready(function(){
             </div>
         </div>
     </div>
-    <br /><h2 style="text-align:center">공지사항</h2><br />
-
+    <br />
+    <h2 class="Wtitle">Wellding Notice</h2>
+    <p style="text-align:center">우리들의 웨딩이야기를 지금 들려드려요</p>
+    <br />
 <div class="container">
    <div class="row" style="margin-right:0; margin-left:0;">
       <table class="table">
          <thead>
             <tr class="table-active">
                <th scope="col" style="width:60%">
-                  <c:out value="${nBoard.bTitle}"/>&nbsp;&nbsp;
+                  <c:out value="${nBoard.bTitle}"/>
                </th>
-               <th scope="col" style="width:40%" class="text-right">
+               <td scope="col" style="width:40%" class="text-right">
                                          조회 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${nBoard.bReadCnt}" />
-               </th>
+               </td>
             </tr>
-               <th scope="col" style="width:60%">
-               <c:out value="${nBoard.adminId}"/>&nbsp;&nbsp;&nbsp;
-               </th>
-               <th scope="col" style="width:40%" class="text-right">
+               <td scope="col" style="width:60%">
+               	작성자 : <c:out value="${nBoard.adminId}"/>
+               </td>
+               <td scope="col" style="width:40%" class="text-right">
                   <div>${nBoard.regDate}</div>
-               </th>
+               </td>
          </thead>
          <tbody>
             <tr>
-               <td colspan="2"><pre><c:out value="${nBoard.bContent}" /></pre></td>
+               <td colspan="2" style="text-align:center" bgcolor="#F5F5F5"><pre><c:out value="${nBoard.bContent}" /></pre></td>
             </tr>
          </tbody>
          <tfoot>
