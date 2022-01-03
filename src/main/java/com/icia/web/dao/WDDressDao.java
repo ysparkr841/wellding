@@ -18,4 +18,7 @@ public interface WDDressDao
 	//조회
 	public WDDress dressSelect(String dNo);
 	
+	//조회 >> 해당업체 다른 디자인 보기
+	public WDDress AnotherDress(String dNo);
+	
 }

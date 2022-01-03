@@ -155,8 +155,6 @@ public class WDDressControllre
 			wdDress = wdDressService.dressSelect(dNo);
 		}
 		
-		System.out.println("######################### wdDress: " + wdDress);
-		
 		model.addAttribute("dNo", dNo);
 		model.addAttribute("wdDress", wdDress);
 		model.addAttribute("dcCode", dcCode);
