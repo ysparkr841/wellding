@@ -4469,13 +4469,13 @@ responsive
 
 .w-btn-green {
     background-color: #77af9c;
-    color: #d7fff1;
+    color: #fff;
     float: right;
 }
 
 .w-btn-green2 {
     background-color: #519d9e;
-    color: #d7fff1;
+    color: #fff;
 }
 
 .w-btn-green-outline {
@@ -4728,5 +4728,27 @@ responsive
 }
 /* 버튼 */
 
+.containerfW .nickInput
+{
+	background-color: #91DDDB;
+	color: #fff;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.containerfW .emailInput
+{
+	background-color: #91DDDB;
+	color: #fff;
+	font-weight: bold;
+	font-size: 20px;
+}
 
 /* 의수 추가 내용  종료==========*/
+
+/* 동욱 추가 시작 */
+.container .dongdong
+{
+	background-color: #e9e8e8;
+}
+/* 동욱 추가 끝 */

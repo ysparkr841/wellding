@@ -43,10 +43,10 @@ $(document).ready(function(){
    <div class="row" style="margin-right:0; margin-left:0;">
       <table class="table">
          <thead>
-            <tr class="table-active">
-               <th scope="col" style="width:60%">
+            <tr class="table-active dongdong">
+               <td scope="col" style="width:60%">
                   <c:out value="${nBoard.bTitle}"/>
-               </th>
+               </td>
                <td scope="col" style="width:40%" class="text-right">
                                          조회 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${nBoard.bReadCnt}" />
                </td>
@@ -60,12 +60,13 @@ $(document).ready(function(){
          </thead>
          <tbody>
             <tr>
-               <td colspan="2" style="text-align:center" bgcolor="#F5F5F5"><pre><c:out value="${nBoard.bContent}" /></pre></td>
+               <td colspan="2" style="text-align:center">
+               <div style="padding:10px"><pre><c:out value="${nBoard.bContent}" /></pre></div></td>
             </tr>
          </tbody>
          <tfoot>
          <tr>
-               <td colspan="2"><button type="button" id="btnList" class="btn btn-outline-secondary" style="float: right">리스트</button></td>
+               <td colspan="2"><button type="button" id="btnList" class="w-btn w-btn-green2" style="float: right">리스트</button></td>
          </tr>
          </tfoot>
       </table>

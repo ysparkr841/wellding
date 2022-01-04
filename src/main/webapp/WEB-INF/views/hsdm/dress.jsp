@@ -159,10 +159,10 @@ function fn_list(curPage)
 				    <c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">
 				    	<c:choose>
 				    		<c:when test="${i ne curPage}">
-    		         		<li class="active page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${i})">${i}</a></li>
+    		         		<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${i})">${i}</a></li>
 							</c:when>
 							<c:otherwise>
-							<li class="page-item"><a class="page-link" href="javascript:void(0)" style="cursor:default;">${i}</a></li>
+											<li class="page-item active"><a class="page-link" href="javascript:void(0)" style="cursor:default;">${i}</a></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
