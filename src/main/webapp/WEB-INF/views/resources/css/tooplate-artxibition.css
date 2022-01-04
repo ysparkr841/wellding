@@ -1062,7 +1062,7 @@ banner
 ---------------------------------------------
 */
 .category {
-  padding-bottom: 5px;
+  padding-bottom: 55px;
   text-align: center;
 }
 .category h2 {
@@ -1075,6 +1075,7 @@ banner
   text-transform: uppercase;
   color: #aaaaaa;
   font-family: "Poppins", sans-serif;
+  margin-top: 20px;
 }
 .category h2::after {
   content: "";
@@ -3097,6 +3098,22 @@ Shows Events Page
 	padding: 5px 10px 10px 15px;
 }
 
+
+.discount2
+{
+  font-size: 20px;
+  font-weight: 700;
+  color: #ee3e61;
+  padding-right:5px;
+}
+
+.down-content2 .dis-price2
+{
+	font-size: 20px;
+    font-weight: 700;
+    color: #333;
+}
+
 /**** 보현수정 시작  ****/
 .tickets-page .ticket-item .down-content {
   background-color: #efefef;
@@ -3170,7 +3187,7 @@ Shows Events Page
 
 .down-content .discount
 {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   color: #ee3e61;
   padding-right:5px;
@@ -3178,9 +3195,9 @@ Shows Events Page
 
 .down-content .dis-price
 {
-	font-size: 20px;
+	font-size: 22px;
     font-weight: 700;
-    color: #333;
+    color: #000;
 }
 
 .down-content .dis_price
