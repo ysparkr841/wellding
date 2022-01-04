@@ -18,6 +18,7 @@
 
                         <a href="#">마이페이지</a>
                         <a href="/loginOut">로그아웃</a>
+                        <a href="/board/Coupon">내 쿠폰</a>
 
                     </div>
                 </div>
