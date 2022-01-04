@@ -27,7 +27,7 @@ $(document).ready(function(){
 		});
 	}
 });
-function fn_view(sCode)
+function fn_view_st(sCode)
 {
 	document.bbsForm_studio.sCode.value = sCode;
 	document.bbsForm_studio.action = "/hsdm/studioView";
@@ -122,7 +122,7 @@ function fn_view(dNo)
 <c:if test="${!empty studioRandom}">        
 	<c:forEach var="wdStudio" items="${studioRandom}" varStatus="status">
                	<div class="col-lg-4">
-                    <div class="ticket-item2" onclick="fn_view('${wdStudio.sCode}')" style="cursor:pointer">
+                    <div class="ticket-item2" onclick="fn_view_st('${wdStudio.sCode}')" style="cursor:pointer">
                         <div class="thumb_ss">
                             <img src="../resources/images/studio/${wdStudio.sImgname}" alt="">
                         </div>
