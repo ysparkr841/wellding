@@ -4,6 +4,7 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
 $(document).ready(function(){
 	<c:choose>
@@ -14,21 +15,16 @@ $(document).ready(function(){
 		</c:when>
 	</c:choose>
 
-
+	//다른화보보기 슬라이더
+	$('.post-wrapper').slick({
+		  slidesToShow: 1,
+		  slidesToScroll: 1,
+		  autoplay: false,
+		  prevArrow : "<button type='button' class='slick-prev'></button>",		// 이전 화살표 모양 설정
+		  nextArrow : "<button type='button' class='slick-next'></button>"		// 다음 화살표 모양 설정
+		});
 	
 });
-
-function fn_view(sCode)
-{
-	document.bbsForm.sCode.value = sCode;
-	document.bbsForm.searchType.value = $("#_searchType").val();
-	document.bbsForm.searchValue.value = $("#_searchValue").val();
-	document.bbsForm.action = "/hsdm/studioView";
-	document.bbsForm.submit();
-}
-
-
-
 </script>
 </head> 
 <body>
@@ -43,9 +39,7 @@ function fn_view(sCode)
 </section>
 <c:if test="${!empty wdStudio}">
 <div class="big_title">
-
 </div>
-
     <div class="ticket-details-page">
         <div class="container">
             <div class="row">
@@ -61,7 +55,7 @@ function fn_view(sCode)
                             <span><c:out value="${wdStudio.sContent}" /></span>
                             <ul  class="loc_li">
 			                    <li><i class="fa fa-map-marker"></i> <c:out value="${wdStudio.sLocation}" /></li>
-			                    <li><p style="margin-right: 7px">Tel.</p><p style="font-weight:700"><c:out value="${wdStudio.sNumber}" /></p></li>
+			                    <li><p style="margin-right:7px">Tel.</p><p style="font-weight:700"><c:out value="${wdStudio.sNumber}" /></p></li>
 			                </ul>
                             <div class="det_price9">
 	                            <ul>
@@ -89,52 +83,16 @@ function fn_view(sCode)
                 		</ul>
                 	</div>
                 </div>
-                
-              <!-- 같은 샵 다른상품 보기 시작,,,, 
-               	<div class="col-lg-4">
-                       <div class="thumb1">
-                           <img src="../resources/images/studio_det/${wdStudio.sCode}_1.jpg" alt="">
-                       </div>
-               	</div>    
-               	
-               	<div class="col-lg-4">
-                        <div class="thumb1">
-                            <img src="../resources/images/studio_det/${wdStudio.sCode}_2.jpg" alt="">
-                        </div>
-               	</div> 
-               	
-               	<div class="col-lg-4">
-                        <div class="thumb1">
-                            <img src="../resources/images/studio_det/${wdStudio.sCode}_3.jpg" alt="">
-                        </div>
-               	</div> 
-			 같은 샵 다른상품 보기 끝 -->
-			<!-- 캐러셀도전-->
-			<div class="col-lg-12">
-				<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
-				  <div class="carousel-inner">
-				    <div class="carousel-item">
-				      <img src="../resources/images/studio_det/${wdStudio.sCode}_1.jpg" class="d-block w-100" alt="...">
-				    </div>
-				    <div class="carousel-item active">
-				      <img src="../resources/images/studio_det/${wdStudio.sCode}_2.jpg" class="d-block w-100" alt="...">
-				    </div>
-				    <div class="carousel-item">
-				      <img src="../resources/images/studio_det/${wdStudio.sCode}_3.jpg" class="d-block w-100" alt="...">
-				    </div>
-				  </div>
-				  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				    <span class="visually-hidden">Previous</span>
-				  </button>
-				  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-				    <span class="visually-hidden">Next</span>
-				  </button>
-				</div>
-			</div>
-			 <!-- -->
 
+			    <div class="col-lg-12">
+				   <div class="post-slider">
+				        <div class="post-wrapper">
+				          <div class="post"><img src="../resources/images/studio_det/${wdStudio.sCode}_1.jpg" alt=""></div>
+				          <div class="post"><img src="../resources/images/studio_det/${wdStudio.sCode}_2.jpg" alt=""></div>
+				          <div class="post"><img src="../resources/images/studio_det/${wdStudio.sCode}_3.jpg" alt=""></div>
+				        </div>
+					</div>
+			    </div>
             </div>
         </div>
     </div>

@@ -4929,3 +4929,66 @@ responsive
 	background-color: #e9e8e8;
 }
 /* 동욱 추가 끝 */
+
+/****** 보현 슬라이더ㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓ *******/
+.post-slider{
+  /*border:1px solid red;*/
+  text-align: center;
+  width: 100%;
+}
+.post-slider .post-wrapper{
+  width:80%;
+  margin:0px auto;
+  /*border:1px dashed red;*/
+}
+.post-slider .post-wrapper .post{
+  width:80%;
+  height:auto;
+  display:inline-block;
+}
+
+.post-slider .post-wrapper .post img{
+  width:100%;
+  height:auto;
+}
+
+.slick-arrow{
+  z-index: 2; /* prev버튼은 위치 이동시 이미지 뒤로 숨겨짐 */
+  position:absolute;  /* 원하는 위치에 지정  */
+  top: 50%; 
+  width: 50px;
+  height: 50px; 
+  transform: translateY(-25px);
+  border:none;
+  background: none;
+}
+.slick-prev.slick-arrow{ /* prev 이전 */
+	left: -10%!important;
+	outline: none
+    
+}
+.slick-next.slick-arrow{ /* next 다음 */
+	right: -8%!important;
+	outline: none
+}
+
+.slick-prev::after {
+    position: absolute;
+    content: '';
+    width: 24px; /* 사이즈 */
+    height: 24px; /* 사이즈 */
+    border-top: 5px solid #ff8080; /* 선 두께 */
+    border-right: 5px solid #ff8080; /* 선 두께 */
+    transform: rotate(225deg); /* 각도 */
+}
+
+.slick-next::after {
+    position: absolute;
+    content: '';
+    width: 24px; /* 사이즈 */
+    height: 24px; /* 사이즈 */
+    border-top: 5px solid #ff8080; /* 선 두께 */
+    border-right: 5px solid #ff8080; /* 선 두께 */
+    transform: rotate(45deg); /* 각도 */
+}
+/***************/

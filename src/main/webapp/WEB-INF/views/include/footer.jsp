@@ -61,6 +61,9 @@
 
     <!-- jQuery -->
     <script src="../resources/js/jquery-2.1.0.min.js"></script>
+    
+    <!-- 보현추가 -->
+	<script type="text/javascript" src="../resources/js/slick.min.js"></script>
 
     <!-- Bootstrap -->
     <script src="../resources/js/popper.js"></script>
