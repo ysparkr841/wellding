@@ -43,7 +43,7 @@ $(document).ready(function(){
    <div class="row" style="margin-right:0; margin-left:0;">
       <table class="table">
          <thead>
-            <tr class="table-active">
+            <tr class="table-active dongdong">
                <td scope="col" style="width:60%">
                   <c:out value="${nBoard.bTitle}"/>
                </td>
