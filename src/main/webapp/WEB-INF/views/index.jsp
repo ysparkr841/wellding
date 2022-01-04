@@ -50,7 +50,7 @@
 	                <div class="col-lg-4" onclick="fn_view('${hallList.WHCode}', '${hallList.HCode}')">
 	                    <div class="event-item2">
 	                        <div class="thumb2">
-	                            <a href="event-details.html"><img src="/resources/hsdm/${hallList.HImgName}" alt=""></a>
+	                            <a href="event-details.html"><img src="/resources/hsdm/${hallList.HImgName}" alt=""></a>	              
 	                        </div>
 	                        <div class="down-content2">
 	                            <a href="event-details.html"><h4>${hallList.HName}</h4></a>
@@ -123,9 +123,9 @@
                 <div class="col-lg-4">
                     <div class="venue-item">
                         <div class="thumb sdmimg">
-                        <a href="#">
+                        <a href="/hsdm/studio">
                             <img src="/resources/images/S68.jpg" width="100%" height="auto">
-                            <a class="sdm_title" href="#">Studio</a>
+                            <a class="sdm_title" href="/hsdm/studio">Studio</a>
                         </a>
                         </div>
                     </div>
@@ -133,9 +133,9 @@
                 <div class="col-lg-4">
                     <div class="venue-item">
                         <div class="thumb sdmimg">
-                        	<a href="#">
+                        	<a href="/hsdm/dress">
 	                            <img src="/resources/images/D10.jpg" width="100%" height="auto">
-	                        	<a class="sdm_title" href="#">Dress</a>                       	
+	                        	<a class="sdm_title" href="/hsdm/dress">Dress</a>                       	
                         	</a>
                         </div>
                     </div>
@@ -143,9 +143,9 @@
                 <div class="col-lg-4">
                     <div class="venue-item">
                         <div class="thumb sdmimg">
-                      		<a href="#">
+                      		<a href="/hsdm/makeUp">
 	                            <img src="/resources/images/M00.jpg" width="100%" height="auto">
-	                        	<a class="sdm_title" href="#">Makeup</a>
+	                        	<a class="sdm_title" href="/hsdm/makeUp">Makeup</a>
                         	</a>
                         </div>
                     </div>

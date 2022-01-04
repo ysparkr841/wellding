@@ -19,6 +19,7 @@
     <result column="REZCOUNT" property="RezCount" />
     <result column="H_DISCOUNT" property="hDiscount" />
     <result column="WH_NUMBER" property="whNumber" />
+    <result column="H_SUBIMG" property="hSubImg" />
 </resultMap>
 <!-- 홀 resultMap 끝 -->
 
@@ -49,7 +50,8 @@ SELECT
     H_CONTENT,
     H_IMGNAME,
     REZCOUNT,
-    H_DISCOUNT
+    H_DISCOUNT,
+    H_SUBIMG
 FROM (SELECT
             ROWNUM RNUM,
             WH_CODE,
@@ -63,7 +65,8 @@ FROM (SELECT
             H_CONTENT,
             H_IMGNAME,
             REZCOUNT,
-            H_DISCOUNT
+            H_DISCOUNT,
+            H_SUBIMG
         FROM (SELECT
                     A.WH_CODE WH_CODE,
                     A.H_CODE H_CODE,
@@ -76,7 +79,8 @@ FROM (SELECT
                     NVL(A.H_CONTENT, '') H_CONTENT,
                     NVL(A.H_IMGNAME, '') H_IMGNAME,
                     NVL(A.REZCOUNT, 0) REZCOUNT,
-                    NVL(A.H_DISCOUNT, 0) H_DISCOUNT
+                    NVL(A.H_DISCOUNT, 0) H_DISCOUNT,
+                    NVL(A.H_SUBIMG, 0) H_SUBIMG
                 FROM
                     WD_HALL A, WD_WEDDINGHALL B
                     WHERE A.WH_CODE = B.WH_CODE
@@ -105,7 +109,8 @@ SELECT
     NVL(A.H_CONTENT, '') H_CONTENT,
     NVL(A.H_IMGNAME, '') H_IMGNAME,
     NVL(A.REZCOUNT, 0) REZCOUNT,
-    NVL(A.H_DISCOUNT, 0) H_DISCOUNT
+    NVL(A.H_DISCOUNT, 0) H_DISCOUNT,
+    NVL(A.H_SUBIMG, 0) H_SUBIMG
 FROM
     WD_HALL A, WD_WEDDINGHALL B
 WHERE
@@ -156,7 +161,8 @@ SELECT
     H_CONTENT,
     H_IMGNAME,
     REZCOUNT,
-    H_DISCOUNT
+    H_DISCOUNT,
+    H_SUBIMG
 FROM 
     (SELECT
         ROWNUM RNUM,
@@ -173,7 +179,8 @@ FROM
         H_CONTENT,
         H_IMGNAME,
         REZCOUNT,
-        H_DISCOUNT
+        H_DISCOUNT,
+        H_SUBIMG
     FROM 
         (SELECT
             A.WH_CODE WH_CODE,
@@ -189,7 +196,8 @@ FROM
             NVL(A.H_CONTENT, '') H_CONTENT,
             NVL(A.H_IMGNAME, '') H_IMGNAME,
             NVL(A.REZCOUNT, 0) REZCOUNT,
-            NVL(A.H_DISCOUNT, 0) H_DISCOUNT
+            NVL(A.H_DISCOUNT, 0) H_DISCOUNT,
+            NVL(A.H_SUBIMG, 0) H_SUBIMG
         FROM
 			WD_HALL A, WD_WEDDINGHALL B
 
@@ -244,7 +252,8 @@ SELECT
     H_CONTENT,
     H_IMGNAME,
     REZCOUNT,
-    H_DISCOUNT
+    H_DISCOUNT,
+    H_SUBIMG
 		FROM (SELECT
 		    ROWNUM AS RNUM,
 		    WH_CODE,
@@ -258,7 +267,8 @@ SELECT
 		    H_CONTENT,
 		    H_IMGNAME,
 		    REZCOUNT,
-		    H_DISCOUNT
+		    H_DISCOUNT,
+		    H_SUBIMG
 			FROM (SELECT
 					    A.WH_CODE,
 					    A.H_CODE,
@@ -271,7 +281,8 @@ SELECT
 					    NVL(A.H_CONTENT, '') AS H_CONTENT,
 					    NVL(A.H_IMGNAME, '') AS H_IMGNAME,
 					    NVL(A.REZCOUNT, 0) AS REZCOUNT,
-					    NVL(A.H_DISCOUNT, 0) AS H_DISCOUNT
+					    NVL(A.H_DISCOUNT, 0) AS H_DISCOUNT,
+					    NVL(A.H_SUBIMG, 0) H_SUBIMG
 					FROM
 					    WD_HALL A, WD_WEDDINGHALL B
 					WHERE

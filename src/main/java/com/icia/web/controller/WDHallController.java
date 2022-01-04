@@ -1,5 +1,6 @@
 package com.icia.web.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -147,13 +148,21 @@ public class WDHallController {
 			   sameCom = wdHallService.hallSameCom(wdHall);
 			   
 			   model.addAttribute("sameCom", sameCom);
-		   }
-		   
-		  
-		   
-		   
-		   
-		   
+			   
+			   String imgName = wdHall.getHImgName();
+			   imgName = imgName.replace(".jpg", "");
+			   imgName = imgName.replace(".png", "");
+			   
+			   //String[] subImg = new String[wdHall.gethSubImg()];
+			   
+			   ArrayList<String> subImg = new ArrayList<String>();
+			   for(int i=0;i<wdHall.gethSubImg();i++) {
+				 //  subImg[i] = imgName + "_" + (i+1)+".jpg";
+				   subImg.add(imgName + "_" + (i+1)+".jpg");
+			   }			   			
+			   
+			   model.addAttribute("subImg",subImg);
+		   }		   
 		   
 		   return "/hsdm/HallView";
 	   }

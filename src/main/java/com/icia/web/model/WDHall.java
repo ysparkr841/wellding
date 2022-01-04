@@ -21,6 +21,7 @@ public class WDHall implements Serializable{
 	private long RezCount;
 	private long hDiscount;
 	private String whNumber;
+	private int hSubImg;
 	
 	private String searchType;		//검색타입(1:이름, 2:제목, 3:내용)
 	private String searchValue;		//검색 값
@@ -54,9 +55,19 @@ public class WDHall implements Serializable{
 		  
 		  hDiscount = 0;
 		  whNumber = "";
+		  hSubImg = 0;
 	}
 	
-	
+
+	public int gethSubImg() {
+		return hSubImg;
+	}
+
+
+	public void sethSubImg(int hSubImg) {
+		this.hSubImg = hSubImg;
+	}
+
 
 	public String getWhNumber() {
 		return whNumber;
