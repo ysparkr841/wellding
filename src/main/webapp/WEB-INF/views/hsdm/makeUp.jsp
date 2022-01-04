@@ -21,7 +21,7 @@ $(document).ready(function(){
 function fn_view(mCode)
 {
 	document.bbsForm.mCode.value = mCode; //실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
-	document.bbsForm.action = "/hsdm/view";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
+	document.bbsForm.action = "/hsdm/makeupView";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
 	document.bbsForm.submit();
 }     
 
@@ -116,7 +116,7 @@ function fn_list(curPage)
                                 <li class="dis_price"><span class="discount"><c:out value="${wdMakeup.mDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdMakeup.mPrice * (1-wdMakeup.mDiscount*0.01)}" />원</span></li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="ticket-details.html">메이크업 예약하기</a>
+                                <a href="javascript:void(0)" onclick="fn_view('${wdMakeup.mCode}')">메이크업샵 담기</a>
                             </div>
                         </div>
                     </div>

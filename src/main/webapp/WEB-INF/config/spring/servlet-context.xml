@@ -82,7 +82,8 @@
             			<value>/hsdm/makeUp</value>
             			
             			<value>/hsdm/dressView</value>   
-            			<value>/hsdm/studioView</value>   			
+            			<value>/hsdm/studioView</value> 
+            			<value>/hsdm/makeupView</value>  			
 
 
             		</list>

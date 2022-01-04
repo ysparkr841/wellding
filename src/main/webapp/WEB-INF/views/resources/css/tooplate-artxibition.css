@@ -485,6 +485,25 @@ a{ text-decoration: none; color: inherit; }
   width: 100%;
 }
 
+.main-dark-button3 a {
+  display: inline-block;
+  font-size: 15px;
+  padding: 18px;
+  background-color: #ff8080;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: all .3s;
+  width: 100%;
+  margin-top: 35px;
+}
+
+.main-dark-button3
+{
+	border-top: 1px solid #ccc;
+}
+
 .main-dark-button a:hover {
   opacity: 0.9;
 }
@@ -1981,6 +2000,13 @@ About Us Page
   overflow: hidden;
 }
 
+.left-image2
+{
+  height: 470px;
+  width:100%;
+  overflow: hidden;
+}
+
 .left-image-hall
 {
   overflow: hidden;
@@ -2209,6 +2235,42 @@ About Us Page
 }
 
 .det_navi li:hover a
+{
+	color: #ff675d;
+}
+
+/** 스튜디오 **/
+.det_navi2
+{
+	margin: 80px 0;
+	border-top: 3px solid #262626;
+	border-bottom: 1px solid #c9c9c9;
+	padding: 25px 0;
+}
+
+.det_navi2 ul
+{
+	margin-bottom: 20px;
+	width: 100%;
+	padding: 0 25%;
+}
+
+.det_navi2 li
+{
+	/*float: left;*/
+	margin: 0 auto;
+	text-align: center;
+	width: 50%;
+	float: left;
+}
+
+.det_navi2 li:first-child a
+{
+	font-weight: 700;
+	color: #333;
+}
+
+.det_navi2 li:hover a
 {
 	color: #ff675d;
 }
@@ -3414,7 +3476,6 @@ Shows Events Page
 }
 
 
-
 /*
 -------------------------------
 Ticket Details Page : 보현 수정 쭉한다
@@ -3431,14 +3492,35 @@ Ticket Details Page : 보현 수정 쭉한다
 {
   vertical-align: top;
 }
+
+.banner2
+{
+  height: auto;
+  width: 100%;
+  margin-bottom: 70px;
+}
+
+.banner3
+{
+  height: auto;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
 .ticket-details-page {
   margin: 25px 0 100px 0px;
 }
 
-.ticket-details-page img {
+.ticket-details-page .left-image img {
   max-width: 100%;
   overflow: hidden;
 }
+
+.ticket-details-page .left-image2 img {
+	/*height: 100%;*/
+    overflow: hidden;
+}
+
 
 .ticket-details-page .right-content {
   margin-left: 15px;
@@ -3525,7 +3607,7 @@ Ticket Details Page : 보현 수정 쭉한다
   font-size: 40px;
   font-weight: 500;
   color: #2a2a2a;
-  padding:52px 0 15px;
+  padding:52px 0 20px;
   font-family: 'Jua', sans-serif;
 }
 
@@ -3535,11 +3617,12 @@ Ticket Details Page : 보현 수정 쭉한다
   font-weight: 500;
   color: #756c74; 
   display: inline-block;
-  /*border-bottom: 1px solid #ccc; */
+  border-bottom: 1px solid #ccc;
   width: 100%;
   /*padding-bottom: 42px;
   margin-top: 15px;*/
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  padding-bottom: 35px;
 }
 
 .ticket-details-page .right-content2 ul {

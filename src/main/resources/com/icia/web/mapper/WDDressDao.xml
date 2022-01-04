@@ -184,9 +184,9 @@ FROM(
                 AND
                     A.D_NO NOT IN(#{dNo})))
 WHERE
-    RNUM <![CDATA[>=]]> 1
+    RNUM <![CDATA[>=]]> 4
 AND
-    RNUM <![CDATA[<=]]> 4
+    RNUM <![CDATA[<=]]> 7
 </select>
 <!-- 드레스 상세페이지 같은 회사 상품 조회 종료 -->
 </mapper>
