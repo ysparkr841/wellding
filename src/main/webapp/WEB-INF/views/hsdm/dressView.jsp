@@ -14,6 +14,15 @@ $(document).ready(function(){
 		</c:when>
 	</c:choose>
 });
+
+function fn_view(dNo)
+{
+	document.bbsForm.dNo.value = dNo;
+	document.bbsForm.searchType.value = $("#_searchType").val();
+	document.bbsForm.searchValue.value = $("#_searchValue").val();
+	document.bbsForm.action = "/hsdm/dressView";
+	document.bbsForm.submit();
+}   
 </script>
 </head> 
 <body>
@@ -111,7 +120,7 @@ $(document).ready(function(){
 <c:if test="${!empty sameCom}">        
 	<c:forEach var="wdDress" items="${sameCom}" varStatus="status">
                	<div class="col-lg-3">
-                    <div class="ticket-item2">
+                    <div class="ticket-item2" onclick="fn_view('${wdDress.dNo}')">
                         <div class="thumb1">
                             <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
                         </div>

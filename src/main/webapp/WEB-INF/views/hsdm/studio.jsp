@@ -21,7 +21,7 @@ $(document).ready(function(){
 function fn_view(sCode)
 {
 	document.bbsForm.sCode.value = sCode; //실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
-	document.bbsForm.action = "/hsdm/view";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
+	document.bbsForm.action = "/hsdm/studioView";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
 	document.bbsForm.submit();
 }     
 
@@ -117,7 +117,7 @@ function fn_list(curPage)
                                 <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
+                                <a href="javascript:void(0)" onclick="fn_view('${wdStudio.sCode}')">스튜디오 예약하기</a>
                             </div>
                         </div>
                     </div>

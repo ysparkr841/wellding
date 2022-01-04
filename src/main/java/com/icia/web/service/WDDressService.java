@@ -57,7 +57,7 @@ public class WDDressService
 		return list;
 	}
 	
-	//22.01.03 게시물 조회
+	//22.01.03 게시물 조회 = 상세보기
 	public WDDress dressSelect(String dNo)
 	{
 		WDDress wdDress = null;
