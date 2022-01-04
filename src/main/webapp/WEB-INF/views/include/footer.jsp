@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/taglib.jsp" %>
 
+
+
  <!-- *** 욱채수정Footer *** -->
  <footer>
     <div class="container">
@@ -32,8 +34,8 @@
                         <div class="col-lg-6">
                             <div class="menu">
                                 <ul>
-                                    <li><a href="index.html" class="active">메인페이지</a></li>
-                                    <li><a href="">이용약관</a></li>
+                                    <li><a href="/index" class="active">메인페이지</a></li>
+                                    <li><a href="" onclick="termsofuse()">이용약관</a></li>
                                     <li><a href="">개인정보처리방침</a></li>
                                     <li><a href="">오시는 길</a></li> 
                                     <li><a href="">고객센터</a></li> 
@@ -55,6 +57,13 @@
             </div>
         </div>
     </div>
+    
+ <div class="modal fade" id="MoaModal" tabindex="-1" role="dialog" aria-labelledby="historyModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
 </footer>
 <!-- 욱채 수정 푸터 종료 -->
 
@@ -81,6 +90,12 @@
     <script src="../resources/js/mixitup.js"></script> 
     <script src="../resources/js/accordions.js"></script>
     <script src="../resources/js/owl-carousel.js"></script>
+    <script>
+function termsofuse(){
+	$('#MoaModal .modal-content').load("/Termsofuse");
+	$('#MoaModal').modal();
+}
+</script>
     
     <!-- Global Init -->
 

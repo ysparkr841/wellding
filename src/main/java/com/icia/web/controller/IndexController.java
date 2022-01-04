@@ -164,6 +164,12 @@ public class IndexController
 		
 		return "/about";
 	}
+	
+	@RequestMapping(value="/Termsofuse")
+	public String termsofuse(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
+		
+		return "/Termsofuse";
+	}
 
 }
 
