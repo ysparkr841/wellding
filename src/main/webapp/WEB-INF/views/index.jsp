@@ -4,6 +4,15 @@
 <html>
 <head>
 	<%@ include file="/WEB-INF/views/include/head.jsp" %>
+	<script>
+	   function fn_view(whCode, hCode)
+	   {
+	      document.hallForm.WHCode.value = whCode;
+	      document.hallForm.HCode.value = hCode;
+	      document.hallForm.action = "/hsdm/HallView";  
+	      document.hallForm.submit();
+	   }
+	</script>
 </head> 
     <body>  
     <!-- 메뉴바 시작 -->
@@ -53,7 +62,7 @@
 	                                </li>
 	                            </ul>
 		                        <div class="main-white-button">
-		                            <a href="ticket-details.html">VIEW MORE ▶</a>
+		                            <a href="javascript:void(0)" onclick="fn_view('${hallList.WHCode}', '${hallList.HCode}')" >VIEW MORE ▶</a>
 		                        </div>
 	                        </div>
 	                    </div>
@@ -293,6 +302,13 @@
             </div>
         </div>
     </div>
+    
+    <!-- 홀 랭킹 뷰를 위한 폼 -->
+    <form name="hallForm" id="hallForm" method="post">
+      <input type="hidden" name="WHCode" value="" /> 
+      <input type="hidden" name="HCode" value="" /> 
+   </form>
+   <!-- 홀 랭킹 뷰를 위한 폼 -->
 
  <!-- *** 욱채수정Footer 시작 *** -->
  	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
