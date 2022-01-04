@@ -44,9 +44,9 @@ $(document).ready(function(){
       <table class="table">
          <thead>
             <tr class="table-active">
-               <th scope="col" style="width:60%">
+               <td scope="col" style="width:60%">
                   <c:out value="${nBoard.bTitle}"/>
-               </th>
+               </td>
                <td scope="col" style="width:40%" class="text-right">
                                          조회 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${nBoard.bReadCnt}" />
                </td>
@@ -60,7 +60,7 @@ $(document).ready(function(){
          </thead>
          <tbody>
             <tr>
-               <td colspan="2" style="text-align:center" bgcolor="#F5F5F5">
+               <td colspan="2" style="text-align:center">
                <div style="padding:10px"><pre><c:out value="${nBoard.bContent}" /></pre></div></td>
             </tr>
          </tbody>
