@@ -2035,6 +2035,90 @@ About Us Page
     margin-bottom: 15px;
 }
 
+/*욱채**/
+.det_price2 .price2
+{
+	color: #888!important;
+	text-decoration: line-through #999;
+	margin: 0;
+	height: 20px;
+	float: right;
+	font-size: 20px;
+}
+
+.det_price2 .discount2
+{
+  font-size: 35px;
+  font-weight: 700;
+  color: #ee3e61;
+  /*padding-right:5px;*/
+  border-bottom: none;
+  float: left;
+  height: 80px;
+  line-height: 65px;
+  
+}
+
+.det_price2 .dis-price2
+{
+	font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    border-bottom: none;
+    float: right;
+    margin-bottom: 15px;
+}
+#wook{
+	font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    float : right;
+    border-bottom: none;
+    margin-bottom: 15px;
+}
+
+#chae{
+	float:right;
+}
+
+.det_navi-hall
+{
+	margin: 50px 0;
+	border-top: 3px solid #262626;
+	border-bottom: 1px solid #c9c9c9;
+	padding: 25px 0;
+}
+
+.det_navi-hall ul
+{
+	margin-bottom: 20px;
+	width: 100%;
+	padding: 0 25%;
+}
+
+.det_navi-hall li
+{
+	/*float: left;*/
+	margin: 0 auto;
+	text-align: center;
+	width: 50%;
+	float: left;
+}
+
+.det_navi-hall li:first-child a
+{
+	font-weight: 700;
+	color: #333;
+}
+
+.det_navi-hall li:hover a
+{
+	color: #ff675d;
+}
+
+/*욱채**/
+
+
 .det_navi
 {
 	margin: 80px 0;
@@ -2882,6 +2966,7 @@ Shows Events Page
   width: 100%;
 }
 
+
 .tickets-page .search-box .main-dark-button:hover {
   background-color: #656c74;
 }
@@ -3050,6 +3135,12 @@ Shows Events Page
 .ticket-item2 .thumb1 {
   position: relative;
   height: 300px;
+  overflow: hidden;
+}
+
+.ticket-item2 .thumb-hall {
+  position: relative;
+  height: 207px;
   overflow: hidden;
 }
 
@@ -3364,6 +3455,107 @@ Ticket Details Page : 보현 수정 쭉한다
   color: #2a2a2a;
 }
 
+
+/*****욱채 여기서부터*****/
+.ticket-details-page-hall .right-content .total h4 {
+  float: left;
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.ticket-details-page-hall .right-content .total .main-dark-button {
+  text-align: right;
+}
+.ticket-details-page-hall .right-content .warn p {
+  margin-top: 45px;
+}
+
+.ticket-details-page-hall .right-content {
+    margin-left: 0px;
+    margin-top: 30px;
+  }
+.ticket-details-page-hall {
+  margin: 25px 0 100px 0px;
+}
+.ticket-details-page-hall img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.ticket-details-page-hall .right-content {
+  margin-left: 15px;
+}
+
+.ticket-details-page-hall .right-content h4 {
+  font-size: 35px;
+  font-weight: 800;
+  color: #2a2a2a;
+}
+
+.ticket-details-page-hall .right-content span {
+  font-size: 15px;
+  line-height: 27px;
+  font-weight: 700;
+  color: #756c74; /* 보현수정 */
+  display: inline-block;
+  border-bottom: 1px solid #ccc;   /*보현수정 */
+  width: 100%;
+  padding-bottom: 42px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.ticket-details-page-hall .right-content ul {
+  /*border-bottom: 1px solid #ccc; 보현수정 */
+  width: 100%;
+  padding-bottom: 20px;
+  margin-bottom: 2px;
+}
+
+.ticket-details-page-hall .right-content ul li {/* 보현수정 */
+  font-size: 16px;
+  color: #5a5a5a;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.ticket-details-page-hall .right-content ul li:last-child
+{
+ margin-bottom: 0px;
+}
+
+.ticket-details-page-hall .right-content ul li i {
+  color: #7c838b;
+  margin-right: 10px;
+  width: 15px;
+  height: 25px;
+  float: left;
+}
+
+.ticket-details-page-hall .right-content .quantity-content {
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.ticket-details-page-hall .right-content .quantity-content .left-content {
+  float: left;
+  margin-right: 30px;
+}
+
+.ticket-details-page-hall .right-content .quantity-content .right-content {
+  text-align: right;
+}
+
+.ticket-details-page-hall .right-content .quantity-content .left-content h6 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+
+
+/*******욱채 여기까지****/
 .ticket-details-page .right-content .total h4 {
   float: left;
   font-size: 20px;
@@ -4312,13 +4504,13 @@ responsive
 
 .w-btn-green {
     background-color: #77af9c;
-    color: #d7fff1;
+    color: #fff;
     float: right;
 }
 
 .w-btn-green2 {
     background-color: #519d9e;
-    color: #d7fff1;
+    color: #fff;
 }
 
 .w-btn-green-outline {
@@ -4571,5 +4763,27 @@ responsive
 }
 /* 버튼 */
 
+.containerfW .nickInput
+{
+	background-color: #91DDDB;
+	color: #fff;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.containerfW .emailInput
+{
+	background-color: #91DDDB;
+	color: #fff;
+	font-weight: bold;
+	font-size: 20px;
+}
 
 /* 의수 추가 내용  종료==========*/
+
+/* 동욱 추가 시작 */
+.container .dongdong
+{
+	background-color: #e9e8e8;
+}
+/* 동욱 추가 끝 */

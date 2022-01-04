@@ -17,6 +17,8 @@
     <result column="H_CONTENT" property="HContent" />
     <result column="H_IMGNAME" property="HImgName" />
     <result column="REZCOUNT" property="RezCount" />
+    <result column="H_DISCOUNT" property="hDiscount" />
+    <result column="WH_NUMBER" property="whNumber" />
 </resultMap>
 <!-- 홀 resultMap 끝 -->
 
@@ -46,7 +48,8 @@ SELECT
     H_MAX,
     H_CONTENT,
     H_IMGNAME,
-    REZCOUNT
+    REZCOUNT,
+    H_DISCOUNT
 FROM (SELECT
             ROWNUM RNUM,
             WH_CODE,
@@ -59,7 +62,8 @@ FROM (SELECT
             H_MAX,
             H_CONTENT,
             H_IMGNAME,
-            REZCOUNT
+            REZCOUNT,
+            H_DISCOUNT
         FROM (SELECT
                     A.WH_CODE WH_CODE,
                     A.H_CODE H_CODE,
@@ -71,7 +75,8 @@ FROM (SELECT
                     NVL(A.H_MAX, 0) H_MAX,
                     NVL(A.H_CONTENT, '') H_CONTENT,
                     NVL(A.H_IMGNAME, '') H_IMGNAME,
-                    NVL(A.REZCOUNT, 0) REZCOUNT
+                    NVL(A.REZCOUNT, 0) REZCOUNT,
+                    NVL(A.H_DISCOUNT, 0) H_DISCOUNT
                 FROM
                     WD_HALL A, WD_WEDDINGHALL B
                     WHERE A.WH_CODE = B.WH_CODE
@@ -91,6 +96,7 @@ SELECT
     NVL(A.H_NAME, '') H_NAME,
     NVL(B.WH_NAME, '') WH_NAME,
     NVL(B.WH_LOCATION, '') WH_LOCATION,
+    NVL(B.WH_NUMBER, '') WH_NUMBER,
     NVL(A.H_PRICE, 0) H_PRICE,
     NVL(A.H_FOOD, 0) H_FOOD,
     NVL(A.H_MIN, 0) H_MIN,
@@ -98,7 +104,8 @@ SELECT
     NVL(B.WH_CONTENT, '') WH_CONTENT,
     NVL(A.H_CONTENT, '') H_CONTENT,
     NVL(A.H_IMGNAME, '') H_IMGNAME,
-    NVL(A.REZCOUNT, 0) REZCOUNT
+    NVL(A.REZCOUNT, 0) REZCOUNT,
+    NVL(A.H_DISCOUNT, 0) H_DISCOUNT
 FROM
     WD_HALL A, WD_WEDDINGHALL B
 WHERE
@@ -141,13 +148,15 @@ SELECT
     H_NAME,
     WH_NAME,
     WH_LOCATION,
+    WH_NUMBER,
     H_PRICE,
     H_FOOD,
     H_MIN,
     H_MAX,
     H_CONTENT,
     H_IMGNAME,
-    REZCOUNT
+    REZCOUNT,
+    H_DISCOUNT
 FROM 
     (SELECT
         ROWNUM RNUM,
@@ -156,13 +165,15 @@ FROM
         H_NAME,
         WH_NAME,
         WH_LOCATION,
+        WH_NUMBER,
         H_PRICE,
         H_FOOD,
         H_MIN,
         H_MAX,
         H_CONTENT,
         H_IMGNAME,
-        REZCOUNT
+        REZCOUNT,
+        H_DISCOUNT
     FROM 
         (SELECT
             A.WH_CODE WH_CODE,
@@ -170,13 +181,15 @@ FROM
             NVL(A.H_NAME, '') H_NAME,
             NVL(B.WH_NAME, '') WH_NAME,
             NVL(B.WH_LOCATION, '') WH_LOCATION,
-            NVL(TO_CHAR(A.H_PRICE, '999,999,999,999'), 0) H_PRICE,
+            NVL(B.WH_NUMBER, '') WH_NUMBER,
+            NVL(A.H_PRICE, 0) H_PRICE,
             NVL(A.H_FOOD, 0) H_FOOD,
             NVL(A.H_MIN, 0) H_MIN,
             NVL(A.H_MAX, 0) H_MAX,
             NVL(A.H_CONTENT, '') H_CONTENT,
             NVL(A.H_IMGNAME, '') H_IMGNAME,
-            NVL(A.REZCOUNT, 0) REZCOUNT
+            NVL(A.REZCOUNT, 0) REZCOUNT,
+            NVL(A.H_DISCOUNT, 0) H_DISCOUNT
         FROM
 			WD_HALL A, WD_WEDDINGHALL B
 
@@ -217,6 +230,62 @@ AND
 </select>
 <!-- 홀 개수 체크 끝 -->
 
+<!-- 홀 상세페이지 같은 회사 상품 조회 시작(단, 동일제품은 제외) -->
+<select id="hallSameCom" parameterType="com.icia.web.model.WDHall" resultMap="hallResultMap">
+SELECT
+    WH_CODE,
+    H_CODE,
+    H_NAME,
+    WH_NAME,
+    H_PRICE,
+    H_FOOD,
+    H_MIN,
+    H_MAX,
+    H_CONTENT,
+    H_IMGNAME,
+    REZCOUNT,
+    H_DISCOUNT
+		FROM (SELECT
+		    ROWNUM AS RNUM,
+		    WH_CODE,
+		    H_CODE,
+		    H_NAME,
+		    WH_NAME,
+		    H_PRICE,
+		    H_FOOD,
+		    H_MIN,
+		    H_MAX,
+		    H_CONTENT,
+		    H_IMGNAME,
+		    REZCOUNT,
+		    H_DISCOUNT
+			FROM (SELECT
+					    A.WH_CODE,
+					    A.H_CODE,
+					    NVL(A.H_NAME, '') AS H_NAME,
+					    NVL(B.WH_NAME, '') AS WH_NAME,
+					    NVL(A.H_PRICE, 0) AS H_PRICE,
+					    NVL(A.H_FOOD, 0) AS H_FOOD,
+					    NVL(A.H_MIN, 0) AS H_MIN,
+					    NVL(A.H_MAX, 0) AS H_MAX,
+					    NVL(A.H_CONTENT, '') AS H_CONTENT,
+					    NVL(A.H_IMGNAME, '') AS H_IMGNAME,
+					    NVL(A.REZCOUNT, 0) AS REZCOUNT,
+					    NVL(A.H_DISCOUNT, 0) AS H_DISCOUNT
+					FROM
+					    WD_HALL A, WD_WEDDINGHALL B
+					WHERE
+					    A.WH_CODE = #{WHCode}
+					AND
+					    A.WH_CODE = B.WH_CODE
+					AND
+					    A.H_CODE NOT IN(#{HCode})))
+WHERE
+    RNUM <![CDATA[>=]]> 1
+AND
+    RNUM <![CDATA[<=]]> 4
+</select>
+<!-- 홀 상세페이지 같은 회사 상품 조회 종료 -->
 
 </mapper>
 

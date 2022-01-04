@@ -114,7 +114,7 @@ function fn_list(curPage)
                                 <div class="sd_detail"><c:out value="${wdStudio.sContent}" /></div>
                             <ul>    
                                 <li class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdStudio.sPrice}" />원</li>
-                                <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
+                                <li class="dis_price2"><span class="discount2"><c:out value="${wdStudio.sDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdStudio.sPrice * (1-wdStudio.sDiscount*0.01)}" />원</span></li>
                             </ul>
                             <div class="main-dark-button">
                                 <a href="javascript:void(0)" onclick="fn_view('${wdStudio.sCode}')">스튜디오 예약하기</a>
