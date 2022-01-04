@@ -47,7 +47,7 @@
 			        </div>
                 </div>
                 <c:forEach var="hallList" items="${hall}" varStatus="status">
-	                <div class="col-lg-4">
+	                <div class="col-lg-4" onclick="fn_view('${hallList.WHCode}', '${hallList.HCode}')">
 	                    <div class="event-item2">
 	                        <div class="thumb2">
 	                            <a href="event-details.html"><img src="/resources/hsdm/${hallList.HImgName}" alt=""></a>

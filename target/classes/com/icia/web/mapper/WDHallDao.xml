@@ -182,7 +182,7 @@ FROM
             NVL(B.WH_NAME, '') WH_NAME,
             NVL(B.WH_LOCATION, '') WH_LOCATION,
             NVL(B.WH_NUMBER, '') WH_NUMBER,
-            NVL(TO_CHAR(A.H_PRICE, '999,999,999,999'), 0) H_PRICE,
+            NVL(A.H_PRICE, 0) H_PRICE,
             NVL(A.H_FOOD, 0) H_FOOD,
             NVL(A.H_MIN, 0) H_MIN,
             NVL(A.H_MAX, 0) H_MAX,

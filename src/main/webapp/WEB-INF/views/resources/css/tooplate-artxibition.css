@@ -2035,7 +2035,7 @@ About Us Page
     margin-bottom: 15px;
 }
 
-/***/
+/*욱채**/
 .det_price2 .price2
 {
 	color: #888!important;
@@ -2081,7 +2081,42 @@ About Us Page
 	float:right;
 }
 
-/***/
+.det_navi-hall
+{
+	margin: 50px 0;
+	border-top: 3px solid #262626;
+	border-bottom: 1px solid #c9c9c9;
+	padding: 25px 0;
+}
+
+.det_navi-hall ul
+{
+	margin-bottom: 20px;
+	width: 100%;
+	padding: 0 25%;
+}
+
+.det_navi-hall li
+{
+	/*float: left;*/
+	margin: 0 auto;
+	text-align: center;
+	width: 50%;
+	float: left;
+}
+
+.det_navi-hall li:first-child a
+{
+	font-weight: 700;
+	color: #333;
+}
+
+.det_navi-hall li:hover a
+{
+	color: #ff675d;
+}
+
+/*욱채**/
 
 
 .det_navi

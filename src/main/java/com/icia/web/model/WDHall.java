@@ -11,7 +11,7 @@ public class WDHall implements Serializable{
 	private String HName;
 	private String whName;
 	private String WHLocation;
-	private String HPrice;
+	private long HPrice;
 	private long HFood;
 	private long HMin;
 	private long HMax;
@@ -36,7 +36,7 @@ public class WDHall implements Serializable{
 		  HName = "";
 		  whName = "";
 		  WHLocation = "";
-		  HPrice = "";
+		  HPrice = 0;
 		  HFood = 0;
 		  HMin = 0;
 		  HMax = 0;
@@ -184,11 +184,11 @@ public class WDHall implements Serializable{
 		HName = hName;
 	}
 
-	public String getHPrice() {
+	public long getHPrice() {
 		return HPrice;
 	}
 
-	public void setHPrice(String hPrice) {
+	public void setHPrice(long hPrice) {
 		HPrice = hPrice;
 	}
 

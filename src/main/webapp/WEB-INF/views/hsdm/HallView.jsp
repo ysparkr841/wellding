@@ -105,7 +105,7 @@ function fn_view(whCode, hCode)
                 <div class="col-lg-12 main-dark-button"><a href="#" id="chae">현재 홀 담기</a></div>
                 
                 <div class="col-lg-12">
-                	<div class="det_navi">
+                	<div class="det_navi-hall">
                 		<ul>
                 			<li><a href=""><c:out value="${wdHall.whName}" />의 다른 홀 보기</a></li>
                 			<li><a href="">이용 후기</a></li>
