@@ -1257,7 +1257,6 @@ Amazing Venues 보현수정
   margin-bottom: 6px;
 }
 
-
 /*
 .map-image img {
   width: 100%;
@@ -3295,11 +3294,6 @@ Ticket Details Page : 보현 수정 쭉한다
   margin-left: 15px;
 }
 
-/*욱채 시작**/
-
-/*******욱채 끝******/
-
-}
 /** 보현수정 **/
 .ticket-details-page .right-content h4 {
   font-size: 35px;
@@ -3375,19 +3369,6 @@ Ticket Details Page : 보현 수정 쭉한다
   font-size: 20px;
   margin-top: 8px;
 }
-
-/***************욱채는 멋쟁이다******************/
-.ticket-details-page-hall .right-content .total h4 {
-  float: left;
-  font-size: 20px;
-}
-
-.ticket-details-page-hall .right-content h4 {
-  font-size: 35px;
-  font-weight: 800;
-  color: #2a2a2a;
-}
-/***************욱채는 멋쟁이다******************/
 
 .ticket-details-page .right-content .total .main-dark-button {
   text-align: right;
