@@ -23,7 +23,7 @@ import com.icia.web.util.HttpUtil;
 @Controller("wdEBoardController")
 public class WDEBoardController
 {
-	private static final long LIST_COUNT = 10;
+	private static final long LIST_COUNT = 5;
 	private static final long PAGE_COUNT = 5;
 
 	private static Logger logger = LoggerFactory.getLogger(WDEBoardController.class);
@@ -40,7 +40,7 @@ public class WDEBoardController
 		@Autowired
 		private WDEBoardService wdEBoardService;
 		
-		
+		// 이벤트 게시판 리스트
 		@RequestMapping(value="/board/eBoard")
 		public String list(ModelMap model, HttpServletRequest request, HttpServletResponse response)
 		{
@@ -48,11 +48,25 @@ public class WDEBoardController
 			long totalCount = 0;
 			List<WDEBoard> eBoard = null;
 			long curPage = HttpUtil.get(request, "curPage", (long)1);
+			String searchType = HttpUtil.get(request, "searchType", "");
+			String searchValue = HttpUtil.get(request, "searchValue", "");
+			
 			
 			Paging paging = null;
 			
 			WDEBoard search = new WDEBoard();
 			
+			if(!StringUtil.isEmpty(searchType) && !StringUtil.isEmpty(searchValue)) 
+			{
+				//받아온 값이 있음.
+				search.setSearchType(searchType);
+				search.setSearchValue(searchValue);
+			}
+			else 
+			{
+				searchType = "";
+				searchValue = "";
+			}
 			
 			totalCount = wdEBoardService.eBoardListCount(search);
 			
@@ -61,7 +75,9 @@ public class WDEBoardController
 				
 				paging = new Paging("/board/eList", totalCount, LIST_COUNT, PAGE_COUNT, curPage, "curPage");
 				paging.addParam("curPage", curPage);
-				
+				paging.addParam("searchType", searchType);
+				paging.addParam("searchValue", searchValue);
+				paging.addParam("curPage", curPage);
 				
 				search.setStartRow(paging.getStartRow());
 				search.setEndRow(paging.getEndRow());
@@ -70,7 +86,9 @@ public class WDEBoardController
 			}
 			
 			model.addAttribute("eBoard", eBoard);
-			
+			model.addAttribute("searchType", searchType);
+			model.addAttribute("searchValue", searchValue);
+			model.addAttribute("curPage", curPage);
 			model.addAttribute("paging", paging);
 			
 			return "/board/eBoard";
@@ -81,13 +99,15 @@ public class WDEBoardController
 		public String eView(ModelMap model, HttpServletRequest request, HttpServletResponse response) 
 		{			
 			long eBSeq = HttpUtil.get(request, "eBSeq", (long)0);
+			long curPage = HttpUtil.get(request, "curPage", (long)1);
+			String searchType = HttpUtil.get(request, "searchType", "");
+			String searchValue = HttpUtil.get(request, "searchValue", "");
 			
-			//본인글 여부
 			WDEBoard wdEBoard = null;
 		
 			if(eBSeq > 0) 
 			{
-				//wdEBoard = wdEBoardService.eBoardView(eBSeq);
+				wdEBoard = wdEBoardService.eBoardSelect(eBSeq);
 				
 				if(wdEBoard !=null) 
 				{
@@ -95,6 +115,8 @@ public class WDEBoardController
 				}
 			}
 			model.addAttribute("eBSeq", eBSeq);
+			model.addAttribute("searchType", searchType);
+			model.addAttribute("searchValue", searchValue);
 			model.addAttribute("wdEBoard", wdEBoard);
 		
 			return "/board/eView";

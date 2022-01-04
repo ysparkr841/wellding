@@ -68,6 +68,29 @@ public class WDEBoardService
 		   
 		   return wdEBoard;
 	   }
+	   
+	 //게시물 조회 view 페이지
+	   public WDEBoard eView(long eBSeq) 
+	   {
+		   WDEBoard wdEBoard = null;
+		   
+		   try 
+		   {
+			   wdEBoard = wdEBoardDao.eBoardSelect(eBSeq);
+			   
+			   if(wdEBoard != null) 
+			   {
+				   //조회수 증가, 근데 처리할 게 없으니까 따로 어디다 담을 필요가 없음
+				   wdEBoardDao.eBoardReadCntPlus(eBSeq);
+			   }		   
+		   }
+		   catch(Exception e) 
+		   {
+			   logger.error("[WDEBoardService] eView Exception", e);
+		   }
+		   
+		   return wdEBoard;
+	   }
 }
 	
 

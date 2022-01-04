@@ -17,4 +17,7 @@ public interface WDEBoardDao
 	
 	//게시물 조회
 	public WDEBoard eBoardSelect(long eBSeq);
+	
+	//게시물 조회수 증가
+	public long eBoardReadCntPlus(long eBSeq);
 }

@@ -67,6 +67,7 @@
 
             			<value>/board/nBoard</value>
             			<value>/board/eBoard</value>
+            			<value>/board/eView</value>
             			<value>/hsdm/studio</value>
             			<value>/board/fBoard</value>
             			<value>/hsdm/halllist</value>  
