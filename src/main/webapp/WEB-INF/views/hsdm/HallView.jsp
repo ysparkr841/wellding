@@ -49,7 +49,18 @@ function fn_view(whCode, hCode)
                 <div class="col-lg-10">
                 	
 	                    <div class="left-image-hall">
-							<img src="../resources/images/hallrepimage/${wdHall.HImgName }" height="auto" width="100%" alt="">
+	                    		    <div class="slider">
+								       <div class="row">
+								         </div>  
+								        <div class="innerbox">
+								            <ul class="bxslider" id="wookchae" style="text-align: center;"> 
+								            <img src="../resources/images/hallrepimage/${wdHall.HImgName }" height="auto" width="100%" alt="">
+										    <c:forEach var="i" items="${subImg }" varStatus="status" >				
+											      <li><img src="../resources/images/hallrepimage/hallsubimage/${i}" height="auto" width="100%" alt=""></li>								  
+											</c:forEach>
+								            </ul>
+								        </div>
+							        </div>	                 
 	                    </div>
                 </div>
                 <div class="col-lg-1">

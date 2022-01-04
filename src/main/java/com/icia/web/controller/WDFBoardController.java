@@ -137,7 +137,7 @@ public class WDFBoardController
 	
 	
 	
-	//상세페이지
+	//상세 뷰페이지
 	@RequestMapping(value="/board/fBoardView")
 	public String fBoardView(ModelMap model, HttpServletRequest request, HttpServletResponse response) 
 	{

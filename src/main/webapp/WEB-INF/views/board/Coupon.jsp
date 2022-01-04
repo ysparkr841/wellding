@@ -27,25 +27,6 @@ $(document).ready(function(){
 
 });
 
-function fn_view(bSeq)
-{
-	document.bbsForm.bSeq.value = bSeq;
-	//searchType, searchValue는 안가져가나요?
-	//조회 버튼을 안눌렀다면 굳이 가져갈 필요가 없음
-	//조회 버튼을 눌렀다면 히든 타입 bbsForm에는 이미 값이 들어가 있음
-	document.bbsForm.action = "/board/fBoardView";
-	document.bbsForm.submit();
-}
-
-//페이지 이동에 대한 버튼 처리
-function fn_list(curPage)
-{
-	document.bbsForm.bSeq.value = "";
-	document.bbsForm.curPage.value = curPage;
-	document.bbsForm.action = "/board/fBoard";
-	document.bbsForm.submit();
-}
-
 </script>
 
 </head>
@@ -114,19 +95,7 @@ function fn_list(curPage)
                                         </div>
                                     </form>
                                 </div>
-                            </div>
-                            
-	                        <div class="col-lg-12">
-								<div class="row">
-									<div class="col-lg-6">
-										<iframe width="100%" height="315" src="https://www.youtube.com/embed/rzZGx72ogRM" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-									</div>
-									<div class="col-lg-6">
-										<iframe width="100%" height="315" src="https://www.youtube.com/embed/JbD7DfPKFw8" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>									
-									</div>
-								</div>
-							</div>
-                            
+                            </div>                            
                             
                         </div>
                     </div>
@@ -263,14 +232,6 @@ function fn_list(curPage)
             </div>
         </div>
     </div>
-
-    <form name="bbsForm" id="bbsForm" method="post">
-        <input type="hidden" name="bSeq" value="" /> <!-- 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
-        <input type="hidden" name="searchType" value="${searchType}" />
-        <input type="hidden" name="searchValue" value="${searchValue}" />
-        <input type="hidden" name="curPage" value="${curPage}" />
-    </form>
-
 
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
