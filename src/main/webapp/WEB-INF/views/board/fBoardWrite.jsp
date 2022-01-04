@@ -116,7 +116,7 @@ $(document).ready(function(){
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading">
-                        <div class="category">
+                        <div class="category2">
                             <h2>Sharing your experiences</h2>
                             <p>WRITING</p>
                         </div>

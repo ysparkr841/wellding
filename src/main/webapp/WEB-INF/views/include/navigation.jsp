@@ -67,7 +67,7 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="sub1"><a class="suba" href="/">Home</a></li> <!-- 보현수정: class="active"뺌 -->
-                            <li class="sub1"><a class="suba" href="about.html">About</a></li>
+                            <li class="sub1"><a class="suba" href="/about">About</a></li>
                             <li class="sub1"><a class="suba" href="/hsdm/halllist">Wedding Hall</a></li>
                             <li class="sub1">
                                 <a class="suba" href="#">Wedding Collection</a>

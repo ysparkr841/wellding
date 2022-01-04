@@ -151,7 +151,19 @@ public class IndexController
 		return "/board/regform";
 	}
 
-     
+	
+	/* 어바웃 페이지 */
+	@RequestMapping(value="/about")
+	public String about(ModelMap model, HttpServletRequest request, HttpServletResponse response) 
+	{
+		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		
+		WDUser wdUser = wdUserService.userSelect(cookieUserId);
+		
+		model.addAttribute("wdUser" ,wdUser);
+		
+		return "/about";
+	}
 
 }
 
