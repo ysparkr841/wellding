@@ -87,9 +87,9 @@ $(document).ready(function(){
 			    <div class="col-lg-12">
 				   <div class="post-slider">
 				        <div class="post-wrapper">
-				          <div class="post"><img src="../resources/images/studio_det/${wdStudio.sCode}_1.jpg" alt=""></div>
-				          <div class="post"><img src="../resources/images/studio_det/${wdStudio.sCode}_2.jpg" alt=""></div>
-				          <div class="post"><img src="../resources/images/studio_det/${wdStudio.sCode}_3.jpg" alt=""></div>
+				        	<c:forEach var="i" items="${subImg }" varStatus="status">
+				          		<div class="post"><img src="../resources/images/studio_det/${i}" alt=""></div>
+				            </c:forEach>
 				        </div>
 					</div>
 			    </div>

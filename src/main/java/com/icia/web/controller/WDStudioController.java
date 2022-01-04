@@ -1,5 +1,6 @@
 package com.icia.web.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -178,6 +179,16 @@ public class WDStudioController
 		{
 			wdStudio = wdStudioService.studioSelect(sCode);
 		}
+		
+		String imgName = wdStudio.getsImgname();
+		imgName = imgName.replace(".jpg", "");
+		imgName = imgName.replace(".png", "");
+		
+		ArrayList<String> subImg = new ArrayList<String>();
+		for(int i=0;i<wdStudio.getsSubImg();i++) {
+			subImg.add(imgName + "_" + (i+1)+".jpg");
+		}
+		model.addAttribute("subImg",subImg);
 		
 		model.addAttribute("sCode", sCode);
 		model.addAttribute("wdStudio", wdStudio);
