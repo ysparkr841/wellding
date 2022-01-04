@@ -25,5 +25,8 @@ public interface WDHallDao {
 	//홀 개수 체크
 	public long WDHallListCount(WDHall wdHall);
 	
+	//동일회사 홀 리스트 조회 선택된 홀 제외
+	public List<WDHall> hallSameCom(WDHall wdHall);
+	
 																																																																																																																																													
 }

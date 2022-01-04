@@ -110,7 +110,7 @@
                 
 <c:if test="${!empty list }">
 	<c:forEach var="wdHall" items="${list}" varStatus="status">          
-                <div class="col-lg-4">
+                <div class="col-lg-4" onclick="fn_view('${wdHall.WHCode}', '${wdHall.HCode}')">
                     <div class="ticket-item">
                         <div class="thumb3">
                             <img src="../resources/images/hallrepimage/${wdHall.HImgName }" alt="">

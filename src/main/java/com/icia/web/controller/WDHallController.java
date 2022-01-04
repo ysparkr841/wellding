@@ -133,6 +133,8 @@ public class WDHallController {
 		   
 		   WDHall wdHall = new WDHall();
 		   
+		   List<WDHall> sameCom = null;
+		   
 		   if(!StringUtil.isEmpty(whCode) && !StringUtil.isEmpty(hCode)) {
 			   
 			   wdHall.setWHCode(whCode);
@@ -141,7 +143,16 @@ public class WDHallController {
 			   wdHall = wdHallService.WDHallSelect(wdHall);
 			   
 			   model.addAttribute("wdHall",wdHall);
+			   
+			   sameCom = wdHallService.hallSameCom(wdHall);
+			   
+			   model.addAttribute("sameCom", sameCom);
 		   }
+		   
+		  
+		   
+		   
+		   
 		   
 		   
 		   return "/hsdm/HallView";
