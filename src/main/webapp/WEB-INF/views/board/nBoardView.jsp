@@ -60,12 +60,13 @@ $(document).ready(function(){
          </thead>
          <tbody>
             <tr>
-               <td colspan="2" style="text-align:center" bgcolor="#F5F5F5"><pre><c:out value="${nBoard.bContent}" /></pre></td>
+               <td colspan="2" style="text-align:center" bgcolor="#F5F5F5">
+               <div style="padding:10px"><pre><c:out value="${nBoard.bContent}" /></pre></div></td>
             </tr>
          </tbody>
          <tfoot>
          <tr>
-               <td colspan="2"><button type="button" id="btnList" class="btn btn-outline-secondary" style="float: right">리스트</button></td>
+               <td colspan="2"><button type="button" id="btnList" class="w-btn w-btn-green2" style="float: right">리스트</button></td>
          </tr>
          </tfoot>
       </table>
