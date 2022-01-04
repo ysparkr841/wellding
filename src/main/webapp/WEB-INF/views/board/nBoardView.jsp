@@ -4,67 +4,77 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 	<%@ include file="/WEB-INF/views/include/head.jsp" %>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+<style>
+.Wtitle{
+font-family: 'Gamja Flower', cursive;
+font-size: 64px;
+text-align: center;
+}
+</style>
+<script>
+$(document).ready(function(){
+	$("#btnList").on("click", function(){
+		document.bbsForm.action = "/board/nBoard";
+		document.bbsForm.submit();
+	});
+});
+</script>
 </head>
 <body>
-   	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
-   	
-                <div class="col-lg-12">
-                    <ul>
-                        <li>
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr style="background-color: #dee2e6;">
-                                    <th scope="col" class="text-center" style="width:10%">번호</th>
-                                    <th scope="col" class="text-center" style="width:50%">제목</th>
-                                    <th scope="col" class="text-center" style="width:20%">작성자</th>
-                                    <th scope="col" class="text-center" style="width:10%">날짜</th>
-                                    <th scope="col" class="text-center" style="width:10%">조회수</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </li>
-                    </ul>
-                </div>
-                
+   	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
+       <jsp:param name="userName" value="${wdUser.userNickname}" />
+       </jsp:include>
+       
+    <div class="page-heading-rent-venue">
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+    </div>
+    <br />
+    <h2 class="Wtitle">Wellding Notice</h2>
+    <p style="text-align:center">우리들의 웨딩이야기를 지금 들려드려요</p>
+    <br />
 <div class="container">
-   <h2>게시물 보기</h2>
    <div class="row" style="margin-right:0; margin-left:0;">
       <table class="table">
          <thead>
-            <tr class="table-active">
-               <th scope="col" style="width:60%">
-                  <c:out value="${hiBoard.hiBbsTitle}"/><br/>
-                  <c:out value="${hiBoard.userName}"/>&nbsp;&nbsp;&nbsp;
-                  <a href="mailto:${hiBoard.userEmail}" style="color:#828282;">${hiBoard.userEmail}</a>
-                  <!-- 첨부파일은 있을 때만 보여주면 됨 -->
-			<c:if test="${!empty hiBoard.hiBoardFile}">
-                  &nbsp;&nbsp;&nbsp;<a href="/board/download?hiBbsSeq=${hiBoard.hiBoardFile.hiBbsSeq}" style="color:#000;">[첨부파일]${hiBoard.hiBoardFile.fileOrgName}</a>
-            </c:if>
-               </th>
-               <th scope="col" style="width:40%" class="text-right">
-                                         조회 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${hiBoard.hiBbsReadCnt}" /><br/>
-                  ${hiBoard.regDate}
-               </th>
+            <tr class="table-active dongdong">
+               <td scope="col" style="width:60%">
+                  <c:out value="${nBoard.bTitle}"/>
+               </td>
+               <td scope="col" style="width:40%" class="text-right">
+                                         조회 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${nBoard.bReadCnt}" />
+               </td>
             </tr>
+               <td scope="col" style="width:60%">
+               	작성자 : <c:out value="${nBoard.adminId}"/>
+               </td>
+               <td scope="col" style="width:40%" class="text-right">
+                  <div>${nBoard.regDate}</div>
+               </td>
          </thead>
          <tbody>
             <tr>
-               <td colspan="2"><pre><c:out value="${hiBoard.hiBbsContent}" /></pre></td>
+               <td colspan="2" style="text-align:center">
+               <div style="padding:10px"><pre><c:out value="${nBoard.bContent}" /></pre></div></td>
             </tr>
          </tbody>
          <tfoot>
          <tr>
-               <td colspan="2"></td>
-           </tr>
+               <td colspan="2"><button type="button" id="btnList" class="w-btn w-btn-green2" style="float: right">리스트</button></td>
+         </tr>
          </tfoot>
       </table>
    </div>
 </div>
 
 <form name="bbsForm" id="bbsForm" method="post">
-   <input type="hidden" name="hiBbsSeq" value="${hiBbsSeq}" />
+   <input type="hidden" name="bSeq" value="${bSeq}" />
    <input type="hidden" name="searchType" value="${searchType}" />
    <input type="hidden" name="searchValue" value="${searchValue}" />
    <input type="hidden" name="curPage" value="${curPage}" />

@@ -11,13 +11,17 @@ public class WDHall implements Serializable{
 	private String HName;
 	private String whName;
 	private String WHLocation;
-	private String HPrice;
+	private long HPrice;
 	private long HFood;
 	private long HMin;
 	private long HMax;
+	private String whContent;
 	private String HContent;
 	private String HImgName;
 	private long RezCount;
+	private long hDiscount;
+	private String whNumber;
+	private int hSubImg;
 	
 	private String searchType;		//검색타입(1:이름, 2:제목, 3:내용)
 	private String searchValue;		//검색 값
@@ -33,10 +37,11 @@ public class WDHall implements Serializable{
 		  HName = "";
 		  whName = "";
 		  WHLocation = "";
-		  HPrice = "";
+		  HPrice = 0;
 		  HFood = 0;
 		  HMin = 0;
 		  HMax = 0;
+		  whContent = "";
 		  HContent = "";
 		  HImgName = "";
 		  RezCount = 0;
@@ -47,21 +52,56 @@ public class WDHall implements Serializable{
 		  
 		  searchType = "";
 		  searchValue = "";
+		  
+		  hDiscount = 0;
+		  whNumber = "";
+		  hSubImg = 0;
 	}
 	
-	
+
+	public int gethSubImg() {
+		return hSubImg;
+	}
+
+
+	public void sethSubImg(int hSubImg) {
+		this.hSubImg = hSubImg;
+	}
+
+
+	public String getWhNumber() {
+		return whNumber;
+	}
+
+	public void setWhNumber(String whNumber) {
+		this.whNumber = whNumber;
+	}
+
+	public long gethDiscount() {
+		return hDiscount;
+	}
+
+
+	public void sethDiscount(long hDiscount) {
+		this.hDiscount = hDiscount;
+	}
+
+
+	public String getWhContent() {
+		return whContent;
+	}
+
+	public void setWhContent(String whContent) {
+		this.whContent = whContent;
+	}
 
 	public String getWhName() {
 		return whName;
 	}
 
-
-
 	public void setWhName(String whName) {
 		this.whName = whName;
 	}
-
-
 
 	public long getStartRow() {
 		return startRow;
@@ -155,11 +195,11 @@ public class WDHall implements Serializable{
 		HName = hName;
 	}
 
-	public String getHPrice() {
+	public long getHPrice() {
 		return HPrice;
 	}
 
-	public void setHPrice(String hPrice) {
+	public void setHPrice(long hPrice) {
 		HPrice = hPrice;
 	}
 

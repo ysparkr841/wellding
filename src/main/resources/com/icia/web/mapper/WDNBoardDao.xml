@@ -35,7 +35,7 @@ FROM (SELECT
                     NVL(B_TITLE, '') B_TITLE,
                     NVL(B_CONTENT, '') B_CONTENT,
                     NVL(B_READ_CNT, 0) B_READ_CNT,
-                    NVL(TO_CHAR(REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') REG_DATE
+                    NVL(TO_CHAR(REG_DATE, 'YYYY.MM.DD'), '') REG_DATE
                 FROM
                     WD_NBOARD
                WHERE
@@ -83,7 +83,7 @@ SELECT
     NVL(B_TITLE, '') B_TITLE,
     NVL(B_CONTENT, '') B_CONTENT,
     NVL(B_READ_CNT, 0) B_READ_CNT,
-    NVL(TO_CHAR(REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') REG_DATE
+    NVL(TO_CHAR(REG_DATE, 'YYYY.MM.DD'), '') REG_DATE
 FROM
     WD_NBOARD
 WHERE

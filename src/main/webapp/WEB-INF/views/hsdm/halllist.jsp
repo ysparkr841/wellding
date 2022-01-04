@@ -20,15 +20,18 @@
 	      
 	   });
 	   
+
 	});
 
-	function fn_view(bbsSeq)
-	{
-	   document.bbsForm.hiBbsSeq.value = bbsSeq; //실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
-	   document.bbsForm.action = "/hsdm/view";   //서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
-	   document.bbsForm.submit();
-	}     
-
+	
+   function fn_view(whCode, hCode)
+   {
+      document.hallForm.WHCode.value = whCode;
+      document.hallForm.HCode.value = hCode;
+      document.hallForm.action = "/hsdm/HallView";  
+      document.hallForm.submit();
+   }   
+	   
 	function fn_list(curPage)
 	{
        document.hallForm.WHCode.value = "";
@@ -107,7 +110,7 @@
                 
 <c:if test="${!empty list }">
 	<c:forEach var="wdHall" items="${list}" varStatus="status">          
-                <div class="col-lg-4">
+                <div class="col-lg-4" onclick="fn_view('${wdHall.WHCode}', '${wdHall.HCode}')">
                     <div class="ticket-item">
                         <div class="thumb3">
                             <img src="../resources/images/hallrepimage/${wdHall.HImgName }" alt="">
@@ -119,11 +122,11 @@
                             </ul>
                                 <div class="sd_detail_hall">${wdHall.HContent}</div>
                             <ul>    
-                                <!-- <li class="price">550,000원</li> -->
-                                <li class="dis_price"><span class="discount"></span> <span class="dis-price">${wdHall.HPrice}원</span></li>
+                                <li class="price">${wdHall.HPrice}원</li>
+                                <li class="dis_price"><span class="discount"><c:out value="${wdHall.hDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdHall.HPrice * (1-wdHall.hDiscount*0.01)}" />원</span></li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="ticket-details.html">홀 자세히보기</a>
+                                <a href="javascript:void(0)" onclick="fn_view('${wdHall.WHCode}', '${wdHall.HCode}')">홀 자세히보기</a>
                             </div>
                         </div>
                     </div>
@@ -137,7 +140,7 @@
                         <ul>
 							<c:if test="${!empty paging}">
 							   <c:if test="${paging.prevBlockPage gt 0}"> <!-- 페이징의 프리뷰블럭이 0보다 크냐 -->
-							         <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.prevBlockPage})">이전</a></li>
+							         <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.prevBlockPage})">Prev</a></li>
 							   </c:if>
 							    <c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">
 							       <c:choose>
@@ -150,7 +153,7 @@
 							      </c:choose>
 							   </c:forEach>
 							    <c:if test="${paging.nextBlockPage gt 0}">        
-							         <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.nextBlockPage})">다음</a></li>
+							         <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.nextBlockPage})">Next</a></li>
 							   </c:if>
 							</c:if>
                         </ul>
@@ -160,8 +163,8 @@
         </div>
     </div>
    <form name="hallForm" id="hallForm" method="post">
-      <input type="hidden" name="WHCode" value="" /> <!-- 제목눌러서 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
-      <input type="hidden" name="HCode" value="" /> <!-- 제목눌러서 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
+      <input type="hidden" name="WHCode" value="" /> 
+      <input type="hidden" name="HCode" value="" /> 
       <input type="hidden" name="searchType" value="${searchType}" />
       <input type="hidden" name="searchValue" value="${searchValue}" />
       <input type="hidden" name="curPage" value="${curPage}" />

@@ -21,7 +21,7 @@ $(document).ready(function(){
 function fn_view(mCode)
 {
 	document.bbsForm.mCode.value = mCode; //실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
-	document.bbsForm.action = "/hsdm/makeUp";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
+	document.bbsForm.action = "/hsdm/makeupView";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
 	document.bbsForm.submit();
 }     
 
@@ -107,16 +107,15 @@ function fn_list(curPage)
                             <img src="../resources/images/makeup/${wdMakeup.mImgName}" alt="">
                         </div>
                         <div class="down-content">
-                        	<div class="sd_title1"><c:out value="${wdMakeup.mName}" /></div>
                         	<div class="sd_title2"><c:out value="${wdMakeup.mName}" /></div>
                             <!-- <div class="sd_detail"><c:out value="" /></div>-->
                             <ul>    
                             	<li class="sd_adress"><i class="fa fa-map-marker"></i><c:out value="${wdMakeup.mLocation}" /></li>
                                 <li class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdMakeup.mPrice}" />원</li>
-                                <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
+                                <li class="dis_price"><span class="discount"><c:out value="${wdMakeup.mDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdMakeup.mPrice * (1-wdMakeup.mDiscount*0.01)}" />원</span></li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="ticket-details.html">메이크업 예약하기</a>
+                                <a href="javascript:void(0)" onclick="fn_view('${wdMakeup.mCode}')">자세히 보기</a>
                             </div>
                         </div>
                     </div>
@@ -134,7 +133,7 @@ function fn_list(curPage)
 				    <c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">
 				    	<c:choose>
 				    		<c:when test="${i ne curPage}">
-    		         		<li class="active page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${i})">${i}</a></li>
+    		         		<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${i})">${i}</a></li>
 							</c:when>
 							<c:otherwise>
 											<li class="page-item active"><a class="page-link" href="javascript:void(0)" style="cursor:default;">${i}</a></li>

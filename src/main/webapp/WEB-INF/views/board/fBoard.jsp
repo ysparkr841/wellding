@@ -70,8 +70,8 @@ function fn_list(curPage)
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading">
-                        <div class="category">
-                            <h2>wellding Free Board</h2>
+                        <div class="category2">
+                            <!-- h2>wellding Free Board</h2 -->
                             <p>Know-How</p>
                         </div>
                     </div>
@@ -165,30 +165,32 @@ function fn_list(curPage)
                                 
                               <c:forEach var="fboard" items="${list}" varStatus="status">                                
                                 <li>
-                                	
-                                    <div class="row">
-                                        <div class="col-lg-1">
-                                            <div class="title">
-                                                <span>${fboard.bSeq}</span>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-lg-5" style="text-align: left;">
-                                            <div class="time"><a>${fboard.bTitle}</a></div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="place"><span>${fboard.userNickname}</span></div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="place"><span>${fboard.regDate}</span></div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="place">
-                                                <span>${fboard.bReadCnt}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                	
+                                	<a href="javascript:void(0)" onclick="fn_view(${fboard.bSeq})">
+	                                    <div class="row">
+	                                        <div class="col-lg-1">
+	                                            <div class="title">
+	                                                <span>${fboard.bSeq}</span>
+	                                            </div>
+	                                        </div>
+	                                        
+	                                        <div class="col-lg-5" style="text-align: left;">
+	                                            <div class="time"><span>${fboard.bTitle}</span></div>
+	                                        </div>
+	                                        <div class="col-lg-2">
+	                                            <div class="place"><span>${fboard.userNickname}</span></div>
+	                                        </div>
+	                                        <div class="col-lg-2">
+	                                            <div class="place"><span>${fboard.regDate}</span></div>
+	                                        </div>
+	                                        <div class="col-lg-1">
+	                                        </div>
+	                                        <div class="col-lg-1">
+	                                            <div class="place">
+	                                                <span>${fboard.bReadCnt}</span>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+                                	</a>
                                 </li>
                                 
                               </c:forEach>
@@ -213,9 +215,9 @@ function fn_list(curPage)
                                                     <div class="col-lg-6">
                                                     </div>
                                                     <div class="col-lg-3">
-                                                        <fieldset>
-                                                        <button type="button" id="btnWrite" class="main-dark-button2">글쓰기</button>
-                                                        </fieldset>
+
+                                                        <button type="button" id="btnWrite" class="main-dark-button3">글쓰기</button>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -231,7 +233,9 @@ function fn_list(curPage)
                     
                         <ul>
                         	<c:if test="${!empty paging}">
-	                            <li><a href="javascript:void(0)" onclick="fn_list(${paging.prevBlockPage})">Prev</a></li>
+                        		<c:if test="${paging.prevBlockPage gt 0}">
+	                            	<li><a href="javascript:void(0)" onclick="fn_list(${paging.prevBlockPage})">Prev</a></li>
+	                        	</c:if>
 	                        </c:if>
 	                        
 	                        

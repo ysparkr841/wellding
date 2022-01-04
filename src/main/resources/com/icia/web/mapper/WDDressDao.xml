@@ -12,7 +12,9 @@
 	<result column="DC_NUMBER" property="dcNumber" />
 	<result column="D_IMGNAME" property="dImgname" />
 	<result column="D_PRICE" property="dPrice" />
+	<result column="DC_CONTENT" property="dcContent" />
 	<result column="D_CONTENT" property="dContent" />
+	<result column="D_DISCOUNT" property="dDiscount" />
 </resultMap>
 <!-- 드레스 resultMap 끝 -->
 
@@ -40,7 +42,9 @@ SELECT
     DC_NUMBER,
     D_IMGNAME,
     D_PRICE,
-    D_CONTENT
+    D_CONTENT,
+    DC_CONTENT,
+    D_DISCOUNT
 FROM (SELECT 
             ROWNUM AS RNUM,
             DC_CODE,
@@ -51,7 +55,9 @@ FROM (SELECT
             DC_NUMBER,
             D_IMGNAME,
             D_PRICE,
-            D_CONTENT
+            D_CONTENT,
+            DC_CONTENT,
+            D_DISCOUNT
         FROM (SELECT
                     A.DC_CODE AS DC_CODE,
                     NVL(A.D_NO, '') AS D_NO,
@@ -61,7 +67,9 @@ FROM (SELECT
                     NVL(B.DC_NUMBER, '') AS DC_NUMBER,
                     NVL(A.D_IMGNAME, '') AS D_IMGNAME,
                     NVL(A.D_PRICE, 0) AS D_PRICE,
-                    NVL(A.D_CONTENT, '') AS D_CONTENT
+                    NVL(B.DC_CONTENT, '') AS DC_CONTENT,
+                    NVL(A.D_CONTENT, '') AS D_CONTENT,
+                    NVL(A.D_DISCOUNT, 0) AS D_DISCOUNT
                 FROM
                     WD_DRESS A, WD_DRESS_COM B
                 WHERE
@@ -109,5 +117,114 @@ AND
 </if>
 </select>
 <!-- 드레스 총 수 끝 -->
+
+<!-- 드레스 상세페이지 보기 시작 -->
+<select id="dressSelect" parameterType="string" resultMap="WDDressResultMap">
+SELECT
+    A.DC_CODE AS DC_CODE,
+    A.D_NO AS D_NO,
+    NVL(B.DC_NAME, '') AS DC_NAME,
+    NVL(B.DC_CONTENT, '') AS DC_CONTENT,
+    NVL(B.DC_NUMBER, '') AS DC_NUMBER,
+    NVL(B.DC_LOCATION, '') AS DC_LOCATION,
+    NVL(A.D_NAME, '') AS D_NAME,
+    NVL(A.D_IMGNAME, '') AS D_IMGNAME,
+    NVL(A.D_PRICE, 0) AS D_PRICE,
+    NVL(A.D_CONTENT, '') AS D_CONTENT,
+    NVL(A.D_DISCOUNT, 0) AS D_DISCOUNT
+FROM
+    WD_DRESS A, WD_DRESS_COM B
+WHERE
+    A.D_NO = #{value}
+AND
+    A.DC_CODE = B.DC_CODE
+</select>
+
+
+<!-- 드레스 상세페이지 보기 끝 -->
+
+<!-- 드레스 상세페이지 같은 회사 상품 조회 시작(단, 동일제품은 제외) -->
+<select id="dressSameCom" parameterType="com.icia.web.model.WDDress" resultMap="WDDressResultMap">
+SELECT
+    DC_CODE,
+    D_NO,
+    D_NAME,
+    DC_NAME,
+    D_IMGNAME,
+    D_PRICE,
+    D_CONTENT,
+    D_DISCOUNT
+FROM(
+        SELECT
+            ROWNUM AS RNUM,
+            DC_CODE,
+            D_NO,
+            D_NAME,
+            DC_NAME,
+            D_IMGNAME,
+            D_PRICE,
+            D_CONTENT,
+            D_DISCOUNT
+        FROM(
+                SELECT
+                    A.DC_CODE,
+                    A.D_NO,
+                    NVL(A.D_NAME, '') AS D_NAME,
+                    NVL(B.DC_NAME, '') AS DC_NAME,
+                    NVL(A.D_IMGNAME, '') AS D_IMGNAME,
+                    NVL(A.D_PRICE, 0) AS D_PRICE,
+                    NVL(A.D_CONTENT, '') AS D_CONTENT,
+                    NVL(A.D_DISCOUNT, 5) AS D_DISCOUNT
+                FROM
+                    WD_DRESS A, WD_DRESS_COM B
+                WHERE
+                    A.DC_CODE = #{dcCode}
+                AND
+                    A.DC_CODE = B.DC_CODE
+                AND
+                    A.D_NO NOT IN(#{dNo}))
+         ORDER BY DBMS_RANDOM.VALUE)
+WHERE
+    RNUM <![CDATA[<=]]> 4
+</select>
+<!-- 드레스 상세페이지 같은 회사 상품 조회 종료 -->
+
+<!-- 드레스 무작위 가져오기 이거수정필요할듯 ,,-->
+<select id="dressRandom" parameterType="com.icia.web.model.WDDress" resultMap="WDDressResultMap">
+SELECT
+    DC_CODE,
+    D_NO,
+    D_NAME,
+    DC_NAME,
+    D_IMGNAME,
+    D_PRICE,
+    D_CONTENT,
+    D_DISCOUNT
+FROM(SELECT
+            DC_CODE,
+            D_NO,
+            D_NAME,
+            DC_NAME,
+            D_IMGNAME,
+            D_PRICE,
+            D_CONTENT,
+            D_DISCOUNT
+        FROM(SELECT
+                    A.DC_CODE,
+                    A.D_NO,
+                    NVL(A.D_NAME, '') AS D_NAME,
+                    NVL(B.DC_NAME, '') AS DC_NAME,
+                    NVL(A.D_IMGNAME, '') AS D_IMGNAME,
+                    NVL(A.D_PRICE, 0) AS D_PRICE,
+                    NVL(A.D_CONTENT, '') AS D_CONTENT,
+                    NVL(A.D_DISCOUNT, 5) AS D_DISCOUNT
+                FROM
+                    WD_DRESS A, WD_DRESS_COM B
+                WHERE
+                    A.DC_CODE = B.DC_CODE)
+         ORDER BY DBMS_RANDOM.VALUE)
+WHERE
+    ROWNUM <![CDATA[<=]]> 4
+</select>
 
 </mapper>

@@ -58,5 +58,22 @@ public class WDMakeUpService
 		return list;
 	}
 	
+	//메이크업 상세보기페이지
+	public WDMakeUp makeupSelect(String mCode)
+	{
+		WDMakeUp wdMakeup = null;
+		
+		try 
+		{
+			wdMakeup = wdMakeUpDao.makeupSelect(mCode);
+		}
+		catch(Exception e) 
+		{
+			logger.error("[WDMakeUpService] makeupSelect Exception", e);
+		}
+		
+		return wdMakeup;
+	}
+	
 	
 }

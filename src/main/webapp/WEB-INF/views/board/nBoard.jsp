@@ -6,6 +6,16 @@
 <meta charset="UTF-8">
 <title>공지사항</title>
 	<%@ include file="/WEB-INF/views/include/head.jsp" %>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+<style>
+.Wtitle{
+font-family: 'Gamja Flower', cursive;
+font-size: 64px;
+text-align: center;
+}
+</style>
 <script>
 $(function(){
 	//조회버튼
@@ -40,7 +50,9 @@ function fn_list(curPage)
 
 </head>
 <body>
-   	<%@ include file="/WEB-INF/views/include/navigation.jsp" %>
+   	<jsp:include page="/WEB-INF/views/include/navigation.jsp" >
+       <jsp:param name="userName" value="${wdUser.userNickname}" />
+       </jsp:include>
 
 	    <!-- ***** About Us Page ***** -->
     <div class="page-heading-rent-venue">
@@ -49,51 +61,76 @@ function fn_list(curPage)
             </div>
         </div>
     </div>
-
-    <div class="shows-events-schedule">
+	<br />
+	<h2 class="Wtitle">Wellding Notice</h2>
+	<p style="text-align:center">우리들의 웨딩이야기를 지금 들려드려요</p>
+	<br />
+    <div class="tickets-page">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="section-heading">
-                        <h2>공지사항</h2>
+                    <div class="search-box">
+                        <form id="subscribe" method="get">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="search-heading">
+                                        <h4> 필요한 공지사항을 검색 해보세요.</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <select value="searchType" name="_searchType" id="_searchType">
+                                                <option value="1" <c:if test="${searchType eq '1'}">selected</c:if>>제목</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="text" name="_searchValue" id="_searchValue" value="${searchValue}" maxlength="25" class="svalue" placeholder="조회값을 입력하세요." />
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <fieldset>
+                                            <button type="button" id="btnSearch" class="main-dark-button">조회</button>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-					<div class="ml-auto input-group" style="width:50%;">
-						<select name="_searchType" id="_searchType" class="custom-select" style="width:auto;">
-							<option value="">조회 항목</option>
-							<option value="1" <c:if test="${searchType eq '1'}">selected</c:if>>제목</option>
-						</select>
-						<input type="text" name="_searchValue" id="_searchValue" value="${searchValue}" class="form-control mx-1" maxlength="20" style="width:auto;ime-mode:active;" placeholder="조회값을 입력하세요." />
-					   <button type="button" id="btnSearch" class="btn btn-secondary mb-3 mx-1">조회</button>
-					</div>
                 <div class="col-lg-12">
+                	<div class="heading">
+                		<h2></h2>
+                	</div>
+                </div>
+                <div class="col-lg-12" style="border-bottom: 1px solid black">
                     <ul>
                         <li>
                             <table class="table table-hover">
                                 <thead>
-                                    <tr style="background-color: #dee2e6;">
+                                    <tr style="background-color: #e9e8e8;">
                                     <th scope="col" class="text-center" style="width:10%">번호</th>
                                     <th scope="col" class="text-center" style="width:50%">제목</th>
                                     <th scope="col" class="text-center" style="width:20%">작성자</th>
                                     <th scope="col" class="text-center" style="width:10%">날짜</th>
-                                    <th scope="col" class="text-center" style="width:10%">조회수</th>
+                                    <th scope="col" class="text-center" style="width:10%">조회</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <c:if test="${!empty list}">
                                        <c:forEach var="hiBoard" items="${list}" varStatus="status">   
                                             <tr>
-                                                <td>
+                                                <td style="text-align:center">
                                                     <a href="javascript:void(0)" onclick="fn_view(${hiBoard.bSeq})">
                                                         <c:out value="${hiBoard.bSeq}" />
                                                     </a>
                                                 </td>
-                                                	<td class="test-center">
+                                                	<td style="text-align:left">
                                                 		<a href="javascript:void(0)" onclick="fn_view(${hiBoard.bSeq})">${hiBoard.bTitle}</a>
                                                 	</td>
-                                                	<td class="text-center">${hiBoard.adminId}</td>
-                                                    <td class="text-center">${hiBoard.regDate}</td>
-                                                    <td class="text-center"><fmt:formatNumber type="number" maxFractionDigits="3" value="${hiBoard.bReadCnt}" /></td>
+                                                	<td style="text-align:center">${hiBoard.adminId}</td>
+                                                    <td style="text-align:center">${hiBoard.regDate}</td>
+                                                    <td style="text-align:center"><fmt:formatNumber type="number" maxFractionDigits="3" value="${hiBoard.bReadCnt}" /></td>
                                             </tr>
                                        </c:forEach>
                                     </c:if>      
@@ -108,7 +145,7 @@ function fn_list(curPage)
 						<ul class="pagination justify-content-center">
 							<c:if test="${!empty paging}">
 								<c:if test="${paging.prevBlockPage gt 0}">	<!-- prevBlockPage이 0 보다 크냐 -->
-								<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.prevBlockPage})">Prev</a></li>
+								<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.prevBlockPage})">이전</a></li>
 								</c:if>
 								<c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">
 									<c:choose>
@@ -121,7 +158,7 @@ function fn_list(curPage)
 									</c:choose>
 								</c:forEach>
 								<c:if test="${paging.nextBlockPage gt 0}">         
-									<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.nextBlockPage})">Next</a></li>
+									<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="fn_list(${paging.nextBlockPage})">다음</a></li>
 								</c:if>       
 							</c:if> 
 						</ul>
