@@ -60,8 +60,6 @@ public class WDFBoardController
 		long curPage = HttpUtil.get(request, "curPage", (long)1);
 		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
 		
-		logger.debug("============searchType========= : "+ searchType);
-		logger.debug("============searchValue========= : "+ searchValue);
 		
 		WDUser wdUser = wdUserService.userSelect(cookieUserId);
 		

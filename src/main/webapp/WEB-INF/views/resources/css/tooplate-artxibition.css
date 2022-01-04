@@ -1062,7 +1062,7 @@ banner
 ---------------------------------------------
 */
 .category {
-  padding-bottom: 5px;
+  padding-bottom: 55px;
   text-align: center;
 }
 .category h2 {
@@ -1075,6 +1075,7 @@ banner
   text-transform: uppercase;
   color: #aaaaaa;
   font-family: "Poppins", sans-serif;
+  margin-top: 20px;
 }
 .category h2::after {
   content: "";
