@@ -15,4 +15,7 @@ public interface WDStudioDao
 	//게시물 리스트 조회
 	public List<WDStudio> studioList(WDStudio wdStudio);
 	
+	//상세보기
+	public WDStudio studioSelect(String sCode);
+	
 }

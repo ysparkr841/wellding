@@ -10,6 +10,7 @@
 	<result column="S_NUMBER" property="sNumber" />
 	<result column="S_IMGNAME" property="sImgname" />
 	<result column="S_CONTENT" property="sContent" />
+	<result column="S_DISCOUNT" property="sDiscount" />
 </resultMap>
 
 <!-- 첨부파일 -->
@@ -34,7 +35,8 @@ SELECT
     S_LOCATION,
     S_NUMBER,
     S_IMGNAME,
-    S_CONTENT
+    S_CONTENT,
+    S_DISCOUNT
 FROM (SELECT
             ROWNUM RNUM,
             S_CODE,
@@ -43,7 +45,8 @@ FROM (SELECT
             S_LOCATION,
             S_NUMBER,
             S_IMGNAME,
-            S_CONTENT
+            S_CONTENT,
+            S_DISCOUNT
         FROM (SELECT
                     S_CODE AS S_CODE,
                     NVL(S_NAME, '') AS S_NAME,
@@ -51,7 +54,8 @@ FROM (SELECT
                     NVL(S_LOCATION, '') AS S_LOCATION,
                     NVL(S_NUMBER, '') AS S_NUMBER,
                     NVL(S_IMGNAME, '') AS S_IMGNAME,
-                    NVL(S_CONTENT, '') AS S_CONTENT
+                    NVL(S_CONTENT, '') AS S_CONTENT,
+                    NVL(S_DISCOUNT, 0) AS S_DISCOUNT
                 FROM
                     WD_STUDIO
                 WHERE 1=1
@@ -97,6 +101,23 @@ AND
 </if>
 </select>
 <!-- 게시물 총 수 끝 -->
+
+<!-- 스튜디오 상세보기 시작 -->
+<select id="studioSelect" parameterType="string" resultMap="WDStudioMap">
+SELECT
+    S_CODE AS S_CODE,
+    NVL(S_NAME, '') AS S_NAME,
+    NVL(S_PRICE, 0) AS S_PRICE,
+    NVL(S_LOCATION, '')  AS S_LOCATION,
+    NVL(S_NUMBER, '')  AS S_NUMBER,
+    NVL(S_IMGNAME, '')  AS S_IMGNAME,
+    NVL(S_CONTENT, '')  AS S_CONTENT
+FROM
+    WD_STUDIO
+WHERE
+    S_CODE = #{value}
+</select>
+<!-- 스튜디오 상세보기 끝 -->
 
 
 </mapper>

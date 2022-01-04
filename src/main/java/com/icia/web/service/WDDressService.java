@@ -51,13 +51,13 @@ public class WDDressService
 		}
 		catch(Exception e)
 		{
-			logger.error("[WDStudioService] studioList Exception", e);
+			logger.error("[WDDressService] studioList Exception", e);
 		}
 		
 		return list;
 	}
 	
-	//22.01.03 게시물 조회
+	//22.01.03 게시물 조회 = 상세보기
 	public WDDress dressSelect(String dNo)
 	{
 		WDDress wdDress = null;
@@ -68,7 +68,7 @@ public class WDDressService
 		}
 		catch(Exception e)
 		{
-			logger.error("[WDStudioService] dressSelect Exception", e);
+			logger.error("[WDDressService] dressSelect Exception", e);
 		}
 		
 		return wdDress;
@@ -86,7 +86,7 @@ public class WDDressService
 		}
 		catch(Exception e)
 		{
-			logger.error("[WDStudioService] dressSelect Exception", e);
+			logger.error("[WDDressService] dressSameCom Exception", e);
 		}
 		
 		return sameCom;

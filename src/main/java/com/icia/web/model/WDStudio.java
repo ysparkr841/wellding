@@ -18,6 +18,7 @@ public class WDStudio implements Serializable
 	private String searchValue;      	//검색값
 	private long startRow;         		//시작 rownum
 	private long endRow;         		//끝rownum
+	private long sDiscount;
 	
 	private WDStudioFile wdStudoiFile;
 	
@@ -36,6 +37,16 @@ public class WDStudio implements Serializable
 	    startRow = 0;
 	    endRow = 0;
 	    wdStudoiFile = null;
+	    sDiscount = 0;
+	}
+	
+
+	public long getsDiscount() {
+		return sDiscount;
+	}
+
+	public void setsDiscount(long sDiscount) {
+		this.sDiscount = sDiscount;
 	}
 
 
