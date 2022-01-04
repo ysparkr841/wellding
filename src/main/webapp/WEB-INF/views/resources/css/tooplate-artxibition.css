@@ -2035,6 +2035,54 @@ About Us Page
     margin-bottom: 15px;
 }
 
+/******* 스튜디오 상세페이지 *******/
+.com_detail9
+{
+  border-top: 3px solid #262626;
+  width: 100%;
+}
+
+.com_detail9 .det_price9
+{
+	padding-top: 20px;
+	border-top: 1px solid #ccc;
+	margin-top: 40px;
+}
+
+.com_detail9 .det_price9 .price
+{
+	color: #888!important;
+	text-decoration: line-through #999;
+	margin: 0;
+	height: 20px;
+	float: right;
+	font-size: 20px;
+}
+
+.com_detail9 .det_price9 .discount
+{
+  font-size: 35px;
+  font-weight: 700;
+  color: #ee3e61;
+  /*padding-right:5px;*/
+  border-bottom: none;
+  float: left;
+  height: 80px;
+  line-height: 65px;
+  
+}
+
+.com_detail9 .det_price9 .dis-price
+{
+	font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    border-bottom: none;
+    float: right;
+    margin-bottom: 15px;
+}
+/*************/
+
 /*욱채**/
 .det_price2 .price2
 {
@@ -2080,6 +2128,17 @@ About Us Page
 #chae{
 	float:right;
 }
+
+/*****************/
+#wook{
+	font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    float : right;
+    border-bottom: none;
+    margin-bottom: 15px;
+}
+/*****************/
 
 .det_navi-hall
 {
@@ -3455,6 +3514,89 @@ Ticket Details Page : 보현 수정 쭉한다
   color: #2a2a2a;
 }
 
+
+/** 스튜디오  **/
+.ticket-details-page .right-content2 {
+  margin-left: 15px;
+}
+
+/** 보현수정 **/
+.ticket-details-page .right-content2 h4 {
+  font-size: 40px;
+  font-weight: 500;
+  color: #2a2a2a;
+  padding:52px 0 15px;
+  font-family: 'Jua', sans-serif;
+}
+
+.ticket-details-page .right-content2 span {
+  font-size: 16px;
+  line-height: 27px;
+  font-weight: 500;
+  color: #756c74; 
+  display: inline-block;
+  /*border-bottom: 1px solid #ccc; */
+  width: 100%;
+  /*padding-bottom: 42px;
+  margin-top: 15px;*/
+  margin-bottom: 20px;
+}
+
+.ticket-details-page .right-content2 ul {
+  /*border-bottom: 1px solid #ccc; 보현수정 */
+  width: 100%;
+  padding-bottom: 20px;
+  margin-bottom: 2px;
+}
+
+.ticket-details-page .right-content2 ul li {/* 보현수정 */
+  font-size: 14px;
+  color: #6a6a6a;
+  /*font-weight: 700;*/
+  margin-bottom: 4px;
+}
+
+.ticket-details-page .right-content2 ul li p 
+{/* 보현수정 */
+  float: left;
+  color: #666!important
+}
+
+.ticket-details-page .right-content2 ul li:last-child
+{
+ margin-bottom: 0px;
+}
+
+.ticket-details-page .right-content2 ul li i {
+  color: #7c838b;
+  margin-right: 10px;
+  width: 15px;
+  height: 25px;
+  float: left;
+}
+
+.ticket-details-page .right-content2 .quantity-content {
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.ticket-details-page .right-content2 .quantity-content .left-content {
+  float: left;
+  margin-right: 30px;
+}
+
+.ticket-details-page .right-content2 .quantity-content .right-content {
+  text-align: right;
+}
+
+.ticket-details-page .right-content2 .quantity-content .left-content h6 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+/*********/
 
 /*****욱채 여기서부터*****/
 .ticket-details-page-hall .right-content .total h4 {
