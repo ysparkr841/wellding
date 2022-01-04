@@ -1913,24 +1913,53 @@ About Us Page
 }
 
 .big_title_hall {
-  padding-top: 30px;
+  padding-top: 55px;
 }
-
+/*
 .hibixbi{
 	float : left;
 	width : 350px;
 	height : 50px;
 	margin-left : 30px;
 }
-
 .big_title_hall h2 {
   float : left;
   font-size: 45px;
   color: #333;
-  /*font-weight: 800;*/
   margin-bottom: 15px;
   font-family: 'Jua', sans-serif;
-  /*letter-spacing: 2px;*/
+}*/
+.align
+{
+	text-align: center;
+}
+.hibixbi{
+	width : 350px;
+	height : 50px;
+	/*margin-left : 30px;*/
+	display: inline-block;
+	margin-bottom: 10px;
+}
+/*
+.big_title_hall h2 {
+  font-size: 45px;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: 'Jua', sans-serif;
+}*/
+.big_title_hall .whname {
+  font-size: 22px;
+  font-weight: 500;
+  color: #777;
+  margin-bottom: 10px;
+  /*font-family: 'Jua', sans-serif;*/
+}
+
+.hibixbi h2 {
+  font-size: 52px;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: 'Jua', sans-serif;
 }
 
 .big_title_hall span {
@@ -2014,8 +2043,8 @@ About Us Page
 }
 .line
 {
-   border-top:4px solid #000;
-   padding-bottom:20px;
+   border-top:1px solid #ccc;
+   padding-bottom:50px;
 }
 .about-item .left-image img {
   width: 100%;
@@ -2173,6 +2202,7 @@ About Us Page
 	border-bottom: 1px solid #c9c9c9;
 	padding: 25px 0;
 	text-align: center;
+	background-color: rgba(255,128,128,0.2);
 }
 
 .det_navi-hall ul
@@ -2212,6 +2242,7 @@ About Us Page
 	border-bottom: 1px solid #c9c9c9;
 	padding: 25px 0;
 	text-align: center;
+	background-color: rgba(255,128,128,0.2);
 }
 
 .det_navi ul
@@ -2248,6 +2279,7 @@ About Us Page
 	border-top: 3px solid #262626;
 	border-bottom: 1px solid #c9c9c9;
 	padding: 25px 0;
+	background-color: rgba(255,128,128,0.2);
 }
 
 .det_navi2 ul
@@ -3297,7 +3329,8 @@ Shows Events Page
 
 .ticket-item2 .thumb-hall {
   position: relative;
-  height: 207px;
+  /*height: 207px;*/
+  height: 100%;
   overflow: hidden;
 }
 
@@ -3803,16 +3836,19 @@ Ticket Details Page : 보현 수정 쭉한다
 }
 
 .ticket-details-page-hall .right-content span {
-  font-size: 15px;
+  font-size: 18px;
   line-height: 27px;
-  font-weight: 700;
+  font-weight: 500;
   color: #756c74; /* 보현수정 */
   display: inline-block;
   border-bottom: 1px solid #ccc;   /*보현수정 */
   width: 100%;
-  padding-bottom: 42px;
+  /*padding-bottom: 42px;*/
   margin-top: 15px;
   margin-bottom: 20px;
+  padding: 0 5% 42px;
+  text-align: center;
+  
 }
 
 .ticket-details-page-hall .right-content ul {
@@ -5482,4 +5518,5 @@ responsive
     border-right: 5px solid #ff8080; /* 선 두께 */
     transform: rotate(45deg); /* 각도 */
 }
+
 /***************/

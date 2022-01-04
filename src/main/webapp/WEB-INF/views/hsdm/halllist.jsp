@@ -59,7 +59,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>WEDDING HALL</h2>
+	                	<h2>WEDDING HALL</h2>
                     <!-- span>Check out upcoming and past shows & events and grab your ticket right now.</span -->
                 </div>
             </div>
@@ -102,7 +102,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="text-align: center;">
                     <div class="heading">
                         <h2>Wedding Hall</h2>
                     </div>
@@ -116,6 +116,7 @@
                             <img src="../resources/images/hallrepimage/${wdHall.HImgName }" alt="">
                         </div>
                         <div class="down-content">
+                        	<div class="sd_title1">${wdHall.whName}</div>
                         	<div class="sd_title">${wdHall.HName}</div>
                             <ul>
                                 <li class="sd_adress"><i class="fa fa-map-marker"></i>${wdHall.WHLocation }</li>
