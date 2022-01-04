@@ -4,7 +4,22 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
+$(document).ready(function(){
+	//다른화보보기 슬라이더
+	$('.post-wrapper').slick({
+		  slidesToShow: 1,
+		  slidesToScroll: 1,
+		  autoplay: true,
+		  autoplaySpeed : 2000,
+		  pauseOnHover : true,
+		  prevArrow : "<button type='button' class='slick-prev'></button>",		// 이전 화살표 모양 설정
+		  nextArrow : "<button type='button' class='slick-next'></button>"		// 다음 화살표 모양 설정
+		});
+	
+});
+
 function fn_view(whCode, hCode)
 {
    document.hallForm.WHCode.value = whCode;
@@ -44,27 +59,23 @@ function fn_view(whCode, hCode)
             <div class="row">
             <div class="col-lg-12 line">
             </div>
-                <div class="col-lg-1">
-                </div>
-                <div class="col-lg-10">
+
+               
                 	
 	                    <div class="left-image-hall">
-	                    		    <div class="slider">
-								       <div class="row">
-								         </div>  
-								        <div class="innerbox">
-								            <ul class="bxslider" id="wookchae" style="text-align: center;"> 
-								            <img src="../resources/images/hallrepimage/${wdHall.HImgName }" height="auto" width="100%" alt="">
-										    <c:forEach var="i" items="${subImg }" varStatus="status" >				
-											      <li><img src="../resources/images/hallrepimage/hallsubimage/${i}" height="auto" width="100%" alt=""></li>								  
-											</c:forEach>
-								            </ul>
-								        </div>
-							        </div>	                 
+	                    <div class="col-lg-12">
+	                    				   <div class="post-slider">
+										        <div class="post-wrapper">
+										        <div class="post"><img src="../resources/images/hallrepimage/${wdHall.HImgName }" alt=""></div>
+										        	<c:forEach var="i" items="${subImg }" varStatus="status">
+										          		<div class="post"><img src="../resources/images/hallrepimage/hallsubimage/${i}" alt=""></div>
+										            </c:forEach>
+										        </div>
+											</div>
+                 			</div>
 	                    </div>
-                </div>
-                <div class="col-lg-1">
-                </div>
+                
+
                 <div class="col-lg-12">	
                 <br>
                     <div class="com_detail">

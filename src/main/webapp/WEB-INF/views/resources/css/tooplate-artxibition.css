@@ -5077,7 +5077,7 @@ responsive
 {
 	margin-top: 20px;
 	margin-bottom: 30px;
-	width: 150px;
+	width: 200px;
 }
 
 .divLineAb
@@ -5294,7 +5294,6 @@ responsive
   transition: all ease-in-out 0.3s;
   background: #1a1814;
   background-color: #DC6A79;
-  
 }
 .why-us .box span {
   display: block;
@@ -5316,9 +5315,10 @@ responsive
   padding: 0;
 }
 .why-us .box:hover {
-  background: #f8fda5;
+  background: #ffb6ad;
   padding: 30px 30px 70px 30px;
   box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+  color: #DC6A79;
 }
 .why-us .box:hover span, .why-us .box:hover h4, .why-us .box:hover p {
   color: #fff;

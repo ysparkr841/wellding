@@ -31,20 +31,10 @@ $(document).ready(function(){
 
 </head>
 <body>
-    <jsp:include page="/WEB-INF/views/include/navigation.jsp" >
-    <jsp:param name="userName" value="${wdUser.userNickname}" />
-    </jsp:include>
 
 
 <!-- ***** About Us Page ***** -->
-    <div class="page-heading-rent-venue2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <div class="shows-events-schedule2">
         <div class="container">
@@ -53,7 +43,7 @@ $(document).ready(function(){
                     <div class="section-heading">
                         <div class="category2">
                             <!-- h2>wellding Free Board</h2 -->
-                            <p>Know-How</p>
+                            <p>내 쿠폰</p>
                         </div>
                     </div>
                 </div>
@@ -110,24 +100,18 @@ $(document).ready(function(){
 
                                 <li>
                                     <div class="row">
-                                        <div class="col-lg-1">
-                                            <div class="title" style="text-align: center;">                                                
-                                                <span>번호</span>
-                                            </div>
+
+                                        <div class="col-lg-3" style="text-align: center;">
+                                            <div class="time"><span>쿠폰 명</span></div>
                                         </div>
-                                        <div class="col-lg-5" style="text-align: center;">
-                                            <div class="time"><span>내용</span></div>
+                                        <div class="col-lg-4" style="text-align: center;">
+                                            <div class="place"><span>쿠폰 내용</span></div>
                                         </div>
-                                        <div class="col-lg-2" style="text-align: center;">
-                                            <div class="place"><span>작성자</span></div>
-                                        </div>
-                                        <div class="col-lg-2" style="text-align: center;">
-                                            <div class="place"><span>작성시간</span></div>
+                                        <div class="col-lg-3" style="text-align: center;">
+                                            <div class="place"><span>할인가</span></div>
                                         </div>
                                         <div class="col-lg-2" style="text-align: center;">
-                                            <div class="main-dark-button">
-                                                <span>조회수</span>
-                                            </div>
+                                                <div class="status" ><span>사용여부</span></div>
                                         </div>
                                     </div>
                                 </li>
@@ -179,15 +163,7 @@ $(document).ready(function(){
                                             </div>
                                             <div class="col-lg-7">
                                                 <div class="row">
-                                                    <div class="col-lg-3">
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                    </div>
-                                                    <div class="col-lg-3">
 
-                                                        <button type="button" id="btnWrite" class="main-dark-button3">글쓰기</button>
-
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -232,7 +208,5 @@ $(document).ready(function(){
             </div>
         </div>
     </div>
-
-<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
 </html>
