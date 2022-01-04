@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-lg-1">
                 </div>
-                <div class="col-lg-4">	
+                <div class="col-lg-12">	
                 <br>
                     <div class="com_detail">
                         <div class="right-content">
@@ -56,11 +56,11 @@
                                 <!-- li><i class="fa fa-map-marker"></i>${wdHall.WHLocation }</li -->
                                 <li>Tel. 02-514-7600</li>
                             </ul>
-                            <div class="banner">
+                            <!-- div class="banner">
                                 <img src="../resources/images/halltour.PNG" width="100%" height="200px">
-                            </div>
+                            </div -->
                            <!---- 추가인원계산할때 쓸거 ---->
-                            <div class="quantity-content">
+                            <!-- div class="quantity-content">
                                 <div class="left-content">
                                     <h6>Standard Ticket</h6>
                                     <p>$65 per ticket</p>
@@ -70,15 +70,15 @@
                                         <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
                                     </div>
                                 </div>
-                            </div>
+                            </div -->
                             <!---- 추가인원계산할때 쓸거 끝 ---->
                             <div class="total">
                                 <h4>Total: $210.00</h4>
                                 <div class="main-dark-button"><a href="#">Purchase Tickets</a></div>
                             </div>
-                            <div class="warn">
+                            <!--  div class="warn">
                                 <p>*You Can Only Buy 10 Tickets For This Show</p>
-                            </div>
+                            </div -->
                         </div>
                     </div>
                 </div>

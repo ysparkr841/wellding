@@ -141,7 +141,7 @@ SET
     FROM 
     WD_REZ A, WD_HALL B, WD_STUDIO C, WD_DRESS D, WD_MAKEUP E
 WHERE
-    A.USER_ID = 'test'
+    A.USER_ID = #{userId}
 AND
     A.WH_CODE = B.WH_CODE
 AND
@@ -155,9 +155,9 @@ AND
 AND
     A.M_CODE = E.M_CODE)
 WHERE
-    REZ_NO = '10000001'
+    REZ_NO = #{rezNo}
 AND
-    USER_ID = 'test'
+    USER_ID = #{userId}
 </update>
 <!-- 결혼식 날짜를 입력받아 삽입했으면 가격도 삽입 끝 -->
 

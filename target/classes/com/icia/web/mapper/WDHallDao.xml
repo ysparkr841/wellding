@@ -62,7 +62,7 @@ FROM (SELECT
             REZCOUNT
         FROM (SELECT
                     A.WH_CODE WH_CODE,
-                    NVL(A.H_CODE, '') H_CODE,
+                    A.H_CODE H_CODE,
                     NVL(A.H_NAME, '') H_NAME,
                     NVL(B.WH_LOCATION, '') WH_LOCATION,
                     NVL(A.H_PRICE, 0) H_PRICE,

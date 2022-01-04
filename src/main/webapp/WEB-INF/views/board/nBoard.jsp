@@ -108,7 +108,7 @@ function fn_list(curPage)
                         <li>
                             <table class="table table-hover">
                                 <thead>
-                                    <tr style="background-color: #dee2e6;">
+                                    <tr style="background-color: #e9e8e8;">
                                     <th scope="col" class="text-center" style="width:10%">번호</th>
                                     <th scope="col" class="text-center" style="width:50%">제목</th>
                                     <th scope="col" class="text-center" style="width:20%">작성자</th>
