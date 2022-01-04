@@ -65,6 +65,7 @@
     <!-- Bootstrap -->
     <script src="../resources/js/popper.js"></script>
     <script src="../resources/js/bootstrap.min.js"></script>
+    <script src="../resources/js/bootstrap.js"></script>
 
     <!-- Plugins -->
 

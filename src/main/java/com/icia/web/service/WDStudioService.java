@@ -17,7 +17,7 @@ public class WDStudioService
 	private static Logger logger = LoggerFactory.getLogger(WDStudioService.class);
 
 	@Autowired
-	private WDStudioDao wdStudiodao;
+	private WDStudioDao wdStudioDao;
 	
 	//파일저장 디렉토리
 	@Value("#{env['upload.save.dir']}")
@@ -30,7 +30,7 @@ public class WDStudioService
 		
 		try
 		{
-			count = wdStudiodao.studioListCount(wdStudio);
+			count = wdStudioDao.studioListCount(wdStudio);
 		}
 		catch(Exception e)
 		{
@@ -47,7 +47,7 @@ public class WDStudioService
 		
 		try
 		{
-			list = wdStudiodao.studioList(wdStudio);
+			list = wdStudioDao.studioList(wdStudio);
 		}
 		catch(Exception e)
 		{
@@ -56,4 +56,22 @@ public class WDStudioService
 		
 		return list;
 	}
+	
+	//뷰 상세보기 페이지
+	public WDStudio studioSelect(String sCode)
+	{
+		WDStudio wdStudio = null;
+		
+		try
+		{
+			wdStudio = wdStudioDao.studioSelect(sCode);
+		}
+		catch(Exception e)
+		{
+			logger.error("[WDStudioService] studioSelect Exception", e);
+		}
+		
+		return wdStudio;
+	}
+	
 }
