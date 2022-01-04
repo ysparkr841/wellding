@@ -80,26 +80,6 @@ function fn_view(dNo)
                             <div class="banner">
                                 <img src="../resources/images/tour.png" width="100%">
                             </div>
-                           <!---- 추가인원계산할때 쓸거
-                            <div class="quantity-content">
-                                <div class="left-content">
-                                    <h6>Standard Ticket</h6>
-                                    <p>$65 per ticket</p>
-                                </div>
-                                <div class="right-content">
-                                    <div class="quantity buttons_added">
-                                        <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="total">
-                                <h4>Total: $210.00</h4>
-                                <div class="main-dark-button"><a href="#">Purchase Tickets</a></div>
-                            </div>
-                            <div class="warn">
-                                <p>*You Can Only Buy 10 Tickets For This Show</p>
-                            </div> ---->
                             <div class="main-dark-button2"><a href="#">이 드레스 담기</a></div>
                         </div>
                     </div>

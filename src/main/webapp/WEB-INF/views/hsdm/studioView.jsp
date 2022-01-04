@@ -94,7 +94,7 @@ $(document).ready(function(){
 </c:if>
 
 <form name="bbsForm" id="bbsForm" method="post">
-   <input type="hidden" name="dNo" value="${sCode}" />
+   <input type="hidden" name="sCode" value="${sCode}" />
    <input type="hidden" name="searchType" value="${searchType}" />
    <input type="hidden" name="searchValue" value="${searchValue}" />
    <input type="hidden" name="curPage" value="${curPage}" />

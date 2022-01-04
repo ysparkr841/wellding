@@ -119,7 +119,7 @@ function fn_list(curPage)
                                 <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="javascript:void(0)" onclick="fn_view('${wdDress.dNo}')">드레스 예약하기</a>
+                                <a href="javascript:void(0)" onclick="fn_view('${wdDress.dNo}')">자세히 보기</a>
                             </div>
                         </div>
                     </div>

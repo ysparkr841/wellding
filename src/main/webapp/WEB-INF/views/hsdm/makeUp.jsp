@@ -107,7 +107,6 @@ function fn_list(curPage)
                             <img src="../resources/images/makeup/${wdMakeup.mImgName}" alt="">
                         </div>
                         <div class="down-content">
-                        	<div class="sd_title1"><c:out value="${wdMakeup.mName}" /></div>
                         	<div class="sd_title2"><c:out value="${wdMakeup.mName}" /></div>
                             <!-- <div class="sd_detail"><c:out value="" /></div>-->
                             <ul>    
@@ -116,7 +115,7 @@ function fn_list(curPage)
                                 <li class="dis_price"><span class="discount"><c:out value="${wdMakeup.mDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdMakeup.mPrice * (1-wdMakeup.mDiscount*0.01)}" />원</span></li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="javascript:void(0)" onclick="fn_view('${wdMakeup.mCode}')">메이크업샵 담기</a>
+                                <a href="javascript:void(0)" onclick="fn_view('${wdMakeup.mCode}')">자세히 보기</a>
                             </div>
                         </div>
                     </div>

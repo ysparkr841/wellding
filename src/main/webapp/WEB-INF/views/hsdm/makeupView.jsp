@@ -6,23 +6,45 @@
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
 <script>
 $(document).ready(function(){
-	<c:choose>
-		<c:when test="${empty wdMakeup}">
-			alert("조회하신 상품이 존재하지 않습니다.");
-			document.bbsForm.action = "/hsdm/makeUp";
-			document.bbsForm.submit();
-		</c:when>
-	</c:choose>
+	//증감버튼
+	var count = 0;
+		
+	if(count < 0)
+	{
+		$(".minus").prop("disabled", true);
+	}
+	else
+	{
+		$(".minus").prop("disabled", false);
+		
+		$(".minus").on("click", function(){
+			count --;
+			$("#quantity").val(count);
+		});
+		$(".plus").on("click", function(){
+			count ++;
+			$("#quantity").val(count);
+		});
+	}
 });
-
-function fn_view(mCode)
+function fn_view(sCode)
 {
-	document.bbsForm.mCode.value = mCode;
-	document.bbsForm.searchType.value = $("#_searchType").val();
-	document.bbsForm.searchValue.value = $("#_searchValue").val();
-	document.bbsForm.action = "/hsdm/makeupView";
-	document.bbsForm.submit();
-}   
+	document.bbsForm_studio.sCode.value = sCode;
+	document.bbsForm_studio.action = "/hsdm/studioView";
+	document.bbsForm_studio.submit();
+} 
+
+function fn_view(dNo)
+{
+	document.bbsForm_dress.dNo.value = dNo;
+	document.bbsForm_dress.searchType.value = $("#_searchType").val();
+	document.bbsForm_dress.searchValue.value = $("#_searchValue").val();
+	document.bbsForm_dress.action = "/hsdm/dressView";
+	document.bbsForm_dress.submit();
+} 
+
+
+
 </script>
 </head> 
 <body>
@@ -76,7 +98,9 @@ function fn_view(mCode)
                                 </div>
                                 <div class="right-content">
                                     <div class="quantity buttons_added">
-                                        <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+                                        <div class="quantity buttons_added">
+		                                    <input type="button" value="-" class="minus"><input type="number" step="1" min="0" max="" name="quantity" id="quantity" value="0" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+		                                </div>
                                     </div>
                                 </div>
                             </div>
@@ -87,14 +111,58 @@ function fn_view(mCode)
                 </div>
                 
                 <div class="col-lg-12">
-                	<div class="det_navi">
+                	<div class="det_navi3">
                 		<ul>
-                			<li><a href="">웰딩 추천 메이크업샵</a></li>
-                			<li><a href="">이용 후기</a></li>
+                			<li><a href="">스튜디오 추천받기</a></li>
                 		</ul>
                 	</div>
                 </div>
                 
+                <!-- 랜덤 스튜디오 추가 -->
+<c:if test="${!empty studioRandom}">        
+	<c:forEach var="wdStudio" items="${studioRandom}" varStatus="status">
+               	<div class="col-lg-4">
+                    <div class="ticket-item2" onclick="fn_view('${wdStudio.sCode}')" style="cursor:pointer">
+                        <div class="thumb_ss">
+                            <img src="../resources/images/studio/${wdStudio.sImgname}" alt="">
+                        </div>
+                        <div class="down-content dtbox">
+                        	<div class="sd_title_ss"><c:out value="${wdStudio.sName}" /></div>
+                            <ul>
+                                <li class="dis_price2"><span class="discount2"><c:out value="${wdStudio.sDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdStudio.sPrice * (1-wdStudio.sDiscount*0.01)}" />원</span></li>
+                            </ul>
+                        </div>
+                    </div>
+               	</div>    
+     </c:forEach>
+</c:if>
+                <!-- 랜덤스튜디오 추가 끝 -->
+				<div class="col-lg-12">
+                	<div class="det_navi3">
+                		<ul>
+                			<li><a href="">드레스 추천받기</a></li>
+                		</ul>
+                	</div>
+                </div>
+                <!-- 랜덤 드레스 추가 -->
+<c:if test="${!empty dressRandom}">        
+	<c:forEach var="wdDress" items="${dressRandom}" varStatus="status">
+               	<div class="col-lg-3">
+                    <div class="ticket-item2" onclick="fn_view('${wdDress.dNo}')" style="cursor:pointer">
+                        <div class="thumb1">
+                            <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
+                        </div>
+                        <div class="down-content dtbox">
+                        	<div class="sd_title3">[<c:out value="${wdDress.dcName}" />] <c:out value="${wdDress.dName}" /></div>
+                            <ul>
+                                <li class="dis_price2"><span class="discount2"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
+                            </ul>
+                        </div>
+                    </div>
+               	</div>    
+     </c:forEach>
+</c:if>
+                <!-- 랜덤드레스 추가 끝 -->            
 
             </div>
         </div>
@@ -103,6 +171,20 @@ function fn_view(mCode)
 
 <form name="bbsForm" id="bbsForm" method="post">
    <input type="hidden" name="mCode" value="${mCode}" />
+   <input type="hidden" name="searchType" value="${searchType}" />
+   <input type="hidden" name="searchValue" value="${searchValue}" />
+   <input type="hidden" name="curPage" value="${curPage}" />
+</form>
+
+<form name="bbsForm_studio" id="bbsForm_studio" method="post">
+   <input type="hidden" name="sCode" value="${sCode}" />
+   <input type="hidden" name="searchType" value="${searchType}" />
+   <input type="hidden" name="searchValue" value="${searchValue}" />
+   <input type="hidden" name="curPage" value="${curPage}" />
+</form>
+
+<form name="bbsForm_dress" id="bbsForm_dress" method="post">
+   <input type="hidden" name="dNo" value="${dNo}" />
    <input type="hidden" name="searchType" value="${searchType}" />
    <input type="hidden" name="searchValue" value="${searchValue}" />
    <input type="hidden" name="curPage" value="${curPage}" />

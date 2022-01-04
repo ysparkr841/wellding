@@ -18,4 +18,7 @@ public interface WDStudioDao
 	//상세보기
 	public WDStudio studioSelect(String sCode);
 	
+	//스튜디오 무작위로 가져오기 4개
+	public List<WDStudio> studioRandom(WDStudio wdStudio);
+	
 }

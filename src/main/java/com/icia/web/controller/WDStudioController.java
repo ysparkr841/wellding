@@ -185,7 +185,8 @@ public class WDStudioController
 		imgName = imgName.replace(".png", "");
 		
 		ArrayList<String> subImg = new ArrayList<String>();
-		for(int i=0;i<wdStudio.getsSubImg();i++) {
+		for(int i=0;i<wdStudio.getsSubImg();i++) 
+		{
 			subImg.add(imgName + "_" + (i+1)+".jpg");
 		}
 		model.addAttribute("subImg",subImg);

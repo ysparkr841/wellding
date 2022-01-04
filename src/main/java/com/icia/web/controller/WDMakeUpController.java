@@ -15,9 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.icia.common.util.StringUtil;
 import com.icia.web.model.Paging;
+import com.icia.web.model.WDDress;
 import com.icia.web.model.WDMakeUp;
+import com.icia.web.model.WDStudio;
 import com.icia.web.model.WDUser;
+import com.icia.web.service.WDDressService;
 import com.icia.web.service.WDMakeUpService;
+import com.icia.web.service.WDStudioService;
 import com.icia.web.service.WDUserService;
 import com.icia.web.util.CookieUtil;
 import com.icia.web.util.HttpUtil;
@@ -37,6 +41,12 @@ public class WDMakeUpController
 	
 	@Autowired
 	private WDMakeUpService wdMakeUpService;
+	
+	@Autowired
+	private WDStudioService wdStudioService;
+	
+	@Autowired
+	private WDDressService wdDressService;
 	
 	//유저서비스
 	@Autowired
@@ -164,10 +174,20 @@ public class WDMakeUpController
 		long curPage = HttpUtil.get(request, "curPage", (long)1);
 		
 		WDMakeUp wdMakeup = null;
+		List<WDStudio> studioRandom = null;/*랜덤추가*/
+		List<WDDress> dressRandom = null; /*랜덤추가*/
 		
 		if(mCode != null)
 		{
 			wdMakeup = wdMakeUpService.makeupSelect(mCode);
+			
+			//스튜디오업체 가져오기/*랜덤추가*/
+			WDStudio s_search = new WDStudio();
+			studioRandom = wdStudioService.studioRandom(s_search);
+			
+			//드레스업체 가져오기 /*랜덤추가*/
+			WDDress d_search = new WDDress();
+			dressRandom = wdDressService.dressRandom(d_search);
 		}
 		
 		model.addAttribute("mCode", mCode);
@@ -175,6 +195,10 @@ public class WDMakeUpController
 		model.addAttribute("searchType", searchType);
 		model.addAttribute("searchValue", searchValue);
 		model.addAttribute("curPage", curPage);
+		
+		/*랜덤추가*/
+		model.addAttribute("studioRandom", studioRandom);
+		model.addAttribute("dressRandom", dressRandom);
 		
 		return "/hsdm/makeupView";
 	}

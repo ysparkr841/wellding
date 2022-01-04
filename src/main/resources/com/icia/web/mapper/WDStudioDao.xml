@@ -125,5 +125,37 @@ WHERE
 </select>
 <!-- 스튜디오 상세보기 끝 -->
 
+<!-- 스튜디오 무작위로 4개 가져오기 시작 -->
+<select id="studioRandom" parameterType="com.icia.web.model.WDStudio" resultMap="WDStudioMap">
+SELECT
+    S_CODE,
+    S_NAME,
+    S_PRICE,
+    S_LOCATION,
+    S_NUMBER,
+    S_IMGNAME,
+    S_CONTENT
+FROM (SELECT 
+		    ROWNUM AS RNUM,
+		    S_CODE,
+		    S_NAME,
+		    S_PRICE,
+		    S_LOCATION,
+		    S_NUMBER,
+		    S_IMGNAME,
+		    S_CONTENT
+		FROM(SELECT 
+		            S_CODE,
+		            S_NAME,
+		            S_PRICE,
+		            S_LOCATION,
+		            S_NUMBER,
+		            S_IMGNAME,
+		            S_CONTENT
+		        FROM WD_STUDIO
+		        ORDER BY DBMS_RANDOM.VALUE))
+WHERE ROWNUM <![CDATA[<=]]> 3
+</select>
+<!-- 스튜디오 무작위로 가져오기 끝 -->
 
 </mapper>
