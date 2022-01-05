@@ -58,7 +58,7 @@ $('.post-wrapper').slick({
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>STUDIO</h1>
+                    <h2>STUDIO</h2>
                     <!-- span>Check out upcoming and past shows & events and grab your ticket right now.</span -->
                 </div>
             </div>

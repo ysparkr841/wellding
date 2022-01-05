@@ -70,6 +70,8 @@
 
     <!-- jQuery -->
     <script src="../resources/js/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery.colorbox.js"></script>
+   
     
     <!-- 보현추가 -->
 	<script type="text/javascript" src="../resources/js/slick.min.js"></script>
@@ -90,12 +92,6 @@
     <script src="../resources/js/mixitup.js"></script> 
     <script src="../resources/js/accordions.js"></script>
     <script src="../resources/js/owl-carousel.js"></script>
-    <script>
-function termsofuse(){
-	$('#MoaModal .modal-content').load("/Termsofuse");
-	$('#MoaModal').modal();
-}
-</script>
     
     <!-- Global Init -->
 

@@ -83,7 +83,10 @@
             			
             			<value>/hsdm/dressView</value>   
             			<value>/hsdm/studioView</value> 
-            			<value>/hsdm/makeupView</value>  			
+            			<value>/hsdm/makeupView</value> 
+            			
+            			<value>/board/specialist</value> 
+            			<value>/board/gosu</value>			
 
 
             		</list>
