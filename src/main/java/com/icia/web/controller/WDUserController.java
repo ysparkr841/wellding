@@ -99,6 +99,52 @@ public class WDUserController
 		
 		return "redirect:/";
 	}
+	//회원가입
+	@RequestMapping(value="/user/regform", method=RequestMethod.GET)
+	public String regform(HttpServletRequest request, HttpServletResponse response)
+	{
+		String cookieUserId = CookieUtil.getHexValue(request,  AUTH_COOKIE_NAME);
+		
+		if(StringUtil.isEmpty(cookieUserId))
+		{
+			return "/user/regform";
+		}
+		else
+		{
+			CookieUtil.deleteCookie(request, response,  AUTH_COOKIE_NAME);	
+			
+			return "redirect:/";
+		}
+	}
+	
+	//중복아이디 체크
+		@RequestMapping(value="/user/idCheck", method=RequestMethod.POST)
+		@ResponseBody
+		public Response<Object> idCheck(HttpServletRequest request, HttpServletResponse response)
+		{
+			String userId = HttpUtil.get(request, "userId");
+			Response<Object> ajaxResponse = new Response<Object>();
+			
+			if(!StringUtil.isEmpty(userId))
+			{
+				if(wduserService.userSelect(userId) == null)
+				{
+					ajaxResponse.setResponse(0, "Success");
+				}
+				else
+				{
+					ajaxResponse.setResponse(100, "Duplicate ID");
+				}
+			}
+			else
+			{
+				ajaxResponse.setResponse(400, "Bad Request");
+			}
+			
+			return ajaxResponse;
+		}
+		
+	
 	
 
 }
