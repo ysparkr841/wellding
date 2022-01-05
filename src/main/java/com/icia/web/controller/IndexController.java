@@ -165,5 +165,31 @@ public class IndexController
 		return "/about";
 	}
 
+	@RequestMapping(value="/include/PrivacyPolicy")
+	public String policy(ModelMap model, HttpServletRequest request, HttpServletResponse response)
+	{
+		return "/include/PrivacyPolicy";
+	}
+	
+	@RequestMapping(value="/user/myPage")
+	public String myPage(ModelMap model, HttpServletRequest request, HttpServletResponse response) 
+	{
+		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		
+		WDUser wdUser = wdUserService.userSelect(cookieUserId);
+		
+		if(wdUser == null) 
+		{
+			return "/";
+		}
+		
+		return "/user/myPage";
+	}
+	
+	@RequestMapping(value="/popUpRoad")
+	public String myPage(HttpServletRequest request, HttpServletResponse response) 
+	{
+		return "/popUpRoad";
+	}
 }
 
