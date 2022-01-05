@@ -55,35 +55,7 @@ $(document).ready(function(){
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="search-box">
-                                    <form id="subscribe" action="" method="get">
-                                        <div class="row">
-                                            <div class="col-lg-5">
-                                                <div class="search-heading">
-                                                    <h4> 검색 조건이 있으신가요? </h4>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <div class="row">
-                                                    <div class="col-lg-3">
-                                                        <select value="searchType" name="searchTypeR" id="searchTypeR">
-                                                            <option value="">조회 항목</option>
-                                                            <option value="1" <c:if test="${searchType eq '1'}">selected</c:if>>닉네임</option>
-                                                            <option value="2" <c:if test="${searchType eq '2'}">selected</c:if>>제목</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" name="searchValueR" id="searchValueR" value="${searchValue}" maxlength="25" class="svalue" placeholder="조회값을 입력하세요." />
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <fieldset>
-                                                        <button type="button" id="btnSearch" class="main-dark-button2">검색</button>
-                                                        </fieldset>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+                                <div class="search-box" id="subscribe">
                                 </div>
                             </div>                            
                             
@@ -116,34 +88,28 @@ $(document).ready(function(){
                                     </div>
                                 </li>
                                 
-                              <c:forEach var="fboard" items="${list}" varStatus="status">                                
+                              <c:forEach var="coupon" items="${list}" varStatus="status">                                
                                 <li>
-                                	<a href="javascript:void(0)" onclick="fn_view(${fboard.bSeq})">
 	                                    <div class="row">
 	                                        <div class="col-lg-1">
-	                                            <div class="title">
-	                                                <span>${fboard.bSeq}</span>
-	                                            </div>
-	                                        </div>
 	                                        
 	                                        <div class="col-lg-5" style="text-align: left;">
-	                                            <div class="time"><span>${fboard.bTitle}</span></div>
+	                                            <div class="time"><span>${coupon.cName}</span></div>
 	                                        </div>
 	                                        <div class="col-lg-2">
-	                                            <div class="place"><span>${fboard.userNickname}</span></div>
+	                                            <div class="place"><span>${coupon.cContent}</span></div>
 	                                        </div>
 	                                        <div class="col-lg-2">
-	                                            <div class="place"><span>${fboard.regDate}</span></div>
+	                                            <div class="place"><span>${coupon.cPrice}</span></div>
 	                                        </div>
 	                                        <div class="col-lg-1">
 	                                        </div>
 	                                        <div class="col-lg-1">
 	                                            <div class="place">
-	                                                <span>${fboard.bReadCnt}</span>
+	                                                <span>${coupon.cEndDate}</span>
 	                                            </div>
 	                                        </div>
 	                                    </div>
-                                	</a>
                                 </li>
                                 
                               </c:forEach>
@@ -153,25 +119,7 @@ $(document).ready(function(){
                 </div>
                 
                    <div class="tickets-page2">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="search-box2">
-                                    <form id="subscribe" action="" method="get">
-                                        <div class="row">
-                                            <div class="col-lg-5">
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <div class="row">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                           </div>
-                         
+                    <div class="container">                         
                     
                 <div class="col-lg-12">
                     <div class="pagination">
