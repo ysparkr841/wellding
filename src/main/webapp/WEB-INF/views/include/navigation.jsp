@@ -74,8 +74,8 @@
                                 <a class="suba" href="#">Wedding Collection</a>
                                 <ul>
                                     <li class="subul"><a href="/hsdm/studio" class="sub">Studio</a></li>
-                                    <li class="subul"><a href="/hsdm/makeUp" class="sub">MakeUp</a></li>
                                     <li class="subul"><a href="/hsdm/dress" class="sub">Dress</a></li>
+                                    <li class="subul"><a href="/hsdm/makeUp" class="sub">MakeUp</a></li>
                                 </ul>
                             </li>
                             <li class="sub1">
