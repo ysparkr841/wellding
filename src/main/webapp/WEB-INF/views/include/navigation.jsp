@@ -21,10 +21,9 @@ function openPop(){
                 <div class="col-lg-6 col-sm-6">
                     <div class="text-button ourperson">
 
-                        <a href="#">마이페이지</a>
+                        <a href="/user/myPage">마이페이지</a>
                         <a href="/loginOut">로그아웃</a>
                         <a href="javascript:void(0)" target="_blank" onclick="openPop()">내 쿠폰</a>
-
                     </div>
                 </div>
             </div>
@@ -67,7 +66,7 @@ function openPop(){
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <h1 class="logo">
-                            <a href="/"><img src="/resources/images/logob.png" width="auto" height="40px"></a>
+                            <a href="/"><img class="imgNav" src="/resources/images/icons/theWellding2.png" width="auto" height="40px"></a>
                         </h1>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
