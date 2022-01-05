@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.icia.web.dao.WDHallDao;
+import com.icia.web.model.WDDress;
 import com.icia.web.model.WDHall;
 import com.icia.web.model.WDHallFile;
 
@@ -87,6 +88,24 @@ public class WDHallService {
       
       return count;
    }
+   
+	//동일 업체 홀 정보 가져오기.
+   public List<WDHall> hallSameCom(WDHall wdHall)
+	{
+		List<WDHall> sameCom = null;
+	
+		try 
+		{
+			sameCom = wdHallDao.hallSameCom(wdHall);
+		}
+		catch(Exception e)
+		{
+			logger.error("[WDHallService] hallSameCom Exception", e);
+		}
+		
+		return sameCom;
+	}
+	
    
 
 }

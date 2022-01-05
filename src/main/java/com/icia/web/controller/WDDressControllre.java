@@ -172,9 +172,8 @@ public class WDDressControllre
 		String searchValue = HttpUtil.get(request, "searchValue", ""); 
 		long curPage = HttpUtil.get(request, "curPage", (long)1);
 		
-		WDDress wdDress = null;
-		
-		List<WDDress> sameCom = null;
+		WDDress wdDress = null; //내가 선택한 드레스 상세보기
+		List<WDDress> sameCom = null; //같은업체의 다른드레스 보기
 		
 		if(dNo != null)
 		{

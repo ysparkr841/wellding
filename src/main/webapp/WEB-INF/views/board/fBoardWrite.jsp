@@ -116,7 +116,7 @@ $(document).ready(function(){
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading">
-                        <div class="category">
+                        <div class="category2">
                             <h2>Sharing your experiences</h2>
                             <p>WRITING</p>
                         </div>
@@ -137,10 +137,10 @@ $(document).ready(function(){
 		   <form name="writeForm" id="writeForm" method="post" enctype="multipart/form-data">
 		      <div class="row">
 		      	<div class="col-lg-6">
-			      <input type="text" name="userName" id="userName" maxlength="20" value="${wdUser.userNickname}" style="ime-mode:active;" class="form-control mb-2" placeholder="" readonly />		      	
+			      <input type="text" name="userName" id="userName" maxlength="20" value="${wdUser.userNickname}" style="ime-mode:active;" class="form-control mb-2 nickInput" placeholder="" readonly />		      	
 		      	</div>
 		      	<div class="col-lg-6">
-			      <input type="text" name="userEmail" id="userEmail" maxlength="30" value="${wdUser.userEmail}" style="ime-mode:inactive;" class="form-control mb-2" placeholder="" readonly />		      	
+			      <input type="text" name="userEmail" id="userEmail" maxlength="30" value="${wdUser.userEmail}" style="ime-mode:inactive;" class="form-control mb-2 emailInput" placeholder="" readonly />		      	
 		      	</div>
 		      </div>
 		      

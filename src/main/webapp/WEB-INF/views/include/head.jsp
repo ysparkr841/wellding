@@ -41,6 +41,14 @@
     
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <script src="../resources/js/jquery-3.5.1.js"></script>
+    
+    <!-- 보현추가 -->
+    <!-- <link rel="stylesheet" type="text/css" href="../resources/css/slick.css" />
+	<link rel="stylesheet" type="text/css" href="../resources/css/slick-theme.css" />-->
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	
+	<link rel="stylesheet" type="text/css" href="../resources/css/bootstrap-theme.min.css">
+				
 <!--
 
 Tooplate 2125 ArtXibition

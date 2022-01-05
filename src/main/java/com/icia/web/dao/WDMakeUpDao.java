@@ -13,4 +13,7 @@ public interface WDMakeUpDao
 	public long makeUpListCount(WDMakeUp wdMakeUp);
 	
 	public List<WDMakeUp> makeUpList(WDMakeUp wdMakeUp);
+	
+	//메이크업 상세보기페이지
+	public WDMakeUp makeupSelect(String mCode);
 }

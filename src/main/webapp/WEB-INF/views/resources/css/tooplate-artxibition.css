@@ -485,6 +485,25 @@ a{ text-decoration: none; color: inherit; }
   width: 100%;
 }
 
+.main-dark-button3 a {
+  display: inline-block;
+  font-size: 15px;
+  padding: 18px;
+  background-color: #ff8080;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: all .3s;
+  width: 100%;
+  margin-top: 35px;
+}
+
+.main-dark-button3
+{
+	border-top: 1px solid #ccc;
+}
+
 .main-dark-button a:hover {
   opacity: 0.9;
 }
@@ -1894,24 +1913,53 @@ About Us Page
 }
 
 .big_title_hall {
-  padding-top: 30px;
+  padding-top: 55px;
 }
-
+/*
 .hibixbi{
 	float : left;
 	width : 350px;
 	height : 50px;
 	margin-left : 30px;
 }
-
 .big_title_hall h2 {
   float : left;
   font-size: 45px;
   color: #333;
-  /*font-weight: 800;*/
   margin-bottom: 15px;
   font-family: 'Jua', sans-serif;
-  /*letter-spacing: 2px;*/
+}*/
+.align
+{
+	text-align: center;
+}
+.hibixbi{
+	width : 350px;
+	height : 50px;
+	/*margin-left : 30px;*/
+	display: inline-block;
+	margin-bottom: 10px;
+}
+/*
+.big_title_hall h2 {
+  font-size: 45px;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: 'Jua', sans-serif;
+}*/
+.big_title_hall .whname {
+  font-size: 22px;
+  font-weight: 500;
+  color: #777;
+  margin-bottom: 10px;
+  /*font-family: 'Jua', sans-serif;*/
+}
+
+.hibixbi h2 {
+  font-size: 52px;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: 'Jua', sans-serif;
 }
 
 .big_title_hall span {
@@ -1981,6 +2029,13 @@ About Us Page
   overflow: hidden;
 }
 
+.left-image2
+{
+  height: 470px;
+  width:100%;
+  overflow: hidden;
+}
+
 .left-image-hall
 {
   overflow: hidden;
@@ -1988,8 +2043,8 @@ About Us Page
 }
 .line
 {
-   border-top:4px solid #000;
-   padding-bottom:20px;
+   border-top:1px solid #ccc;
+   padding-bottom:50px;
 }
 .about-item .left-image img {
   width: 100%;
@@ -2035,12 +2090,159 @@ About Us Page
     margin-bottom: 15px;
 }
 
+/******* 스튜디오 상세페이지 *******/
+.com_detail9
+{
+  border-top: 3px solid #262626;
+  width: 100%;
+}
+
+.com_detail9 .det_price9
+{
+	padding-top: 20px;
+	border-top: 1px solid #ccc;
+	margin-top: 40px;
+}
+
+.com_detail9 .det_price9 .price
+{
+	color: #888!important;
+	text-decoration: line-through #999;
+	margin: 0;
+	height: 20px;
+	float: right;
+	font-size: 20px;
+}
+
+.com_detail9 .det_price9 .discount
+{
+  font-size: 35px;
+  font-weight: 700;
+  color: #ee3e61;
+  /*padding-right:5px;*/
+  border-bottom: none;
+  float: left;
+  height: 80px;
+  line-height: 65px;
+  
+}
+
+.com_detail9 .det_price9 .dis-price
+{
+	font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    border-bottom: none;
+    float: right;
+    margin-bottom: 15px;
+}
+/*************/
+
+/*욱채**/
+.det_price2 .price2
+{
+	color: #888!important;
+	text-decoration: line-through #999;
+	margin: 0;
+	height: 20px;
+	float: right;
+	font-size: 20px;
+}
+
+.det_price2 .discount2
+{
+  font-size: 35px;
+  font-weight: 700;
+  color: #ee3e61;
+  /*padding-right:5px;*/
+  border-bottom: none;
+  float: left;
+  height: 80px;
+  line-height: 65px;
+  
+}
+
+.det_price2 .dis-price2
+{
+	font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    border-bottom: none;
+    float: right;
+    margin-bottom: 15px;
+}
+#wook{
+	font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    float : right;
+    border-bottom: none;
+    margin-bottom: 15px;
+}
+
+#chae{
+	float:right;
+}
+
+/*****************/
+#wook{
+	font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    float : right;
+    border-bottom: none;
+    margin-bottom: 15px;
+}
+/*****************/
+
+.det_navi-hall
+{
+	margin: 50px 0;
+	border-top: 3px solid #262626;
+	border-bottom: 1px solid #c9c9c9;
+	padding: 25px 0;
+	text-align: center;
+	background-color: rgba(255,128,128,0.2);
+}
+
+.det_navi-hall ul
+{
+	margin-bottom: 20px;
+	width: 100%;
+	padding: 0 25%;
+}
+
+.det_navi-hall li
+{
+	/*float: left;*/
+	margin: 0 auto;
+	text-align: center;
+	width: 50%;
+	float: left;
+}
+
+.det_navi-hall li:first-child a
+{
+	font-weight: 700;
+	color: #333;
+}
+
+.det_navi-hall li:hover a
+{
+	color: #ff675d;
+}
+
+/*욱채**/
+
+
 .det_navi
 {
 	margin: 80px 0;
 	border-top: 3px solid #262626;
 	border-bottom: 1px solid #c9c9c9;
 	padding: 25px 0;
+	text-align: center;
+	background-color: rgba(255,128,128,0.2);
 }
 
 .det_navi ul
@@ -2070,7 +2272,78 @@ About Us Page
 	color: #ff675d;
 }
 
-/*****************/
+/** 스튜디오 **/
+.det_navi2
+{
+	margin: 80px 0;
+	border-top: 3px solid #262626;
+	border-bottom: 1px solid #c9c9c9;
+	padding: 25px 0;
+	background-color: rgba(255,128,128,0.2);
+}
+
+.det_navi2 ul
+{
+	margin-bottom: 20px;
+	width: 100%;
+	padding: 0 25%;
+}
+
+.det_navi2 li
+{
+	/*float: left;*/
+	margin: 0 auto;
+	text-align: center;
+	width: 50%;
+	float: left;
+}
+
+.det_navi2 li:first-child a
+{
+	font-weight: 700;
+	color: #333;
+}
+
+.det_navi2 li:hover a
+{
+	color: #ff675d;
+}
+
+/********* 메이크업 ********/
+.det_navi3
+{
+	margin: 80px 0 40px 0;
+	border-top: 3px solid #262626;
+	border-bottom: 1px solid #c9c9c9;
+	padding: 25px 0;
+	text-align: center;
+	background-color: rgba(255,128,128,0.2);
+}
+
+.det_navi3 ul
+{
+	width: 100%;
+}
+
+.det_navi3 li
+{
+	margin: 0 auto;
+	text-align: center;
+	padding: 0 40px;
+	display: inline-block;
+}
+
+.det_navi3 li:first-child a
+{
+	font-weight: 700;
+	color: #333;
+}
+
+.det_navi3 li:hover a
+{
+	color: #ff675d;
+}
+/**************/
 
 .page-heading-about {
   background-image: url(../images/about_bg.jpg);
@@ -2578,6 +2851,44 @@ Shows Events Page
   text-shadow: 2px 3px 15px #82623b;
 }
 
+/*이벤트 리스트*/
+.page-heading-shows-events5 {
+	background-image: url(../images/eBoard\ banner.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 70px 0px;
+	text-align: center;
+	background-position: center 36%;
+}
+
+.page-heading-shows-events5 h2 {
+	font-size: 140px;
+	color: #fff;
+	font-weight: 500;
+	/*margin-bottom: 15px;*/
+	font-family: 'Nanum Brush Script', cursive;
+	text-shadow: 2px 3px 15px #82623b;
+}
+
+#eback {
+	background-color: #efefef;
+	font-family: 'Jua', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	padding:0px;
+}
+
+#eback2 {padding:0px;}
+
+#etitle {
+	text-align: center;
+	font-family: 'Jua', sans-serif;
+}
+
+#search-box{padding:0px;}
+
+
 /*
 .page-heading-shows-events span {
   font-size: 20px;
@@ -2882,6 +3193,7 @@ Shows Events Page
   width: 100%;
 }
 
+
 .tickets-page .search-box .main-dark-button:hover {
   background-color: #656c74;
 }
@@ -3053,6 +3365,13 @@ Shows Events Page
   overflow: hidden;
 }
 
+.ticket-item2 .thumb-hall {
+  position: relative;
+  /*height: 207px;*/
+  height: 100%;
+  overflow: hidden;
+}
+
 .ticket-item2 .thumb1 img {
   height: auto;
   width: 100%;
@@ -3080,6 +3399,55 @@ Shows Events Page
   font-size: 20px;
   font-style: normal;
 }
+
+/*** 메이크업에서 스튜디오업체보기할떄 ***/
+.ticket-item2 .thumb_ss {
+  position: relative;
+  height: 185px;
+  overflow: hidden;
+}
+
+.ticket-item2 .thumb_ss img {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+.ticket-item2 .thumb_ss .price {
+  background-color: rgba(101,108,116,0.9);
+  display: inline-block;
+  padding: 20px;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+}
+
+.ticket-item2 .thumb_ss .price span {
+  color: #fff;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.ticket-item2 .thumb_ss .price span em {
+  font-weight: 700;
+  font-size: 20px;
+  font-style: normal;
+}
+
+.sd_title_ss{
+  font-size: 17px;
+  font-weight: 500;
+  color: #656565;
+  height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 8px;
+  /*margin-bottom: 10px;*/
+}
+
+/****/
+
 
 .sd_title3{
   font-size: 15px;
@@ -3264,7 +3632,6 @@ Shows Events Page
 }
 
 
-
 /*
 -------------------------------
 Ticket Details Page : 보현 수정 쭉한다
@@ -3281,14 +3648,35 @@ Ticket Details Page : 보현 수정 쭉한다
 {
   vertical-align: top;
 }
+
+.banner2
+{
+  height: auto;
+  width: 100%;
+  margin-bottom: 70px;
+}
+
+.banner3
+{
+  height: auto;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
 .ticket-details-page {
   margin: 25px 0 100px 0px;
 }
 
-.ticket-details-page img {
+.ticket-details-page .left-image img {
   max-width: 100%;
   overflow: hidden;
 }
+
+.ticket-details-page .left-image2 img {
+	/*height: 100%;*/
+    overflow: hidden;
+}
+
 
 .ticket-details-page .right-content {
   margin-left: 15px;
@@ -3364,6 +3752,194 @@ Ticket Details Page : 보현 수정 쭉한다
   color: #2a2a2a;
 }
 
+
+/** 스튜디오  **/
+.ticket-details-page .right-content2 {
+  margin-left: 15px;
+}
+
+/** 보현수정 **/
+.ticket-details-page .right-content2 h4 {
+  font-size: 40px;
+  font-weight: 500;
+  color: #2a2a2a;
+  padding:52px 0 20px;
+  font-family: 'Jua', sans-serif;
+}
+
+.ticket-details-page .right-content2 span {
+  font-size: 16px;
+  line-height: 27px;
+  font-weight: 500;
+  color: #756c74; 
+  display: inline-block;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  /*padding-bottom: 42px;
+  margin-top: 15px;*/
+  margin-bottom: 40px;
+  padding-bottom: 35px;
+}
+
+.ticket-details-page .right-content2 ul {
+  /*border-bottom: 1px solid #ccc; 보현수정 */
+  width: 100%;
+  padding-bottom: 20px;
+  margin-bottom: 2px;
+}
+
+.ticket-details-page .right-content2 ul li {/* 보현수정 */
+  font-size: 14px;
+  color: #6a6a6a;
+  /*font-weight: 700;*/
+  margin-bottom: 4px;
+}
+
+.ticket-details-page .right-content2 ul li p 
+{/* 보현수정 */
+  float: left;
+  color: #666!important
+}
+
+.ticket-details-page .right-content2 ul li:last-child
+{
+ margin-bottom: 0px;
+}
+
+.ticket-details-page .right-content2 ul li i {
+  color: #7c838b;
+  margin-right: 10px;
+  width: 15px;
+  height: 25px;
+  float: left;
+}
+
+.ticket-details-page .right-content2 .quantity-content {
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.ticket-details-page .right-content2 .quantity-content .left-content {
+  float: left;
+  margin-right: 30px;
+}
+
+.ticket-details-page .right-content2 .quantity-content .right-content {
+  text-align: right;
+}
+
+.ticket-details-page .right-content2 .quantity-content .left-content h6 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+/*********/
+
+/*****욱채 여기서부터*****/
+.ticket-details-page-hall .right-content .total h4 {
+  float: left;
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.ticket-details-page-hall .right-content .total .main-dark-button {
+  text-align: right;
+}
+.ticket-details-page-hall .right-content .warn p {
+  margin-top: 45px;
+}
+
+.ticket-details-page-hall .right-content {
+    margin-left: 0px;
+    margin-top: 30px;
+  }
+.ticket-details-page-hall {
+  margin: 25px 0 100px 0px;
+}
+.ticket-details-page-hall img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.ticket-details-page-hall .right-content {
+  margin-left: 15px;
+}
+
+.ticket-details-page-hall .right-content h4 {
+  font-size: 35px;
+  font-weight: 800;
+  color: #2a2a2a;
+}
+
+.ticket-details-page-hall .right-content span {
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 500;
+  color: #756c74; /* 보현수정 */
+  display: inline-block;
+  border-bottom: 1px solid #ccc;   /*보현수정 */
+  width: 100%;
+  /*padding-bottom: 42px;*/
+  margin-top: 15px;
+  margin-bottom: 20px;
+  padding: 0 5% 42px;
+  text-align: center;
+  
+}
+
+.ticket-details-page-hall .right-content ul {
+  /*border-bottom: 1px solid #ccc; 보현수정 */
+  width: 100%;
+  padding-bottom: 20px;
+  margin-bottom: 2px;
+}
+
+.ticket-details-page-hall .right-content ul li {/* 보현수정 */
+  font-size: 16px;
+  color: #5a5a5a;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.ticket-details-page-hall .right-content ul li:last-child
+{
+ margin-bottom: 0px;
+}
+
+.ticket-details-page-hall .right-content ul li i {
+  color: #7c838b;
+  margin-right: 10px;
+  width: 15px;
+  height: 25px;
+  float: left;
+}
+
+.ticket-details-page-hall .right-content .quantity-content {
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.ticket-details-page-hall .right-content .quantity-content .left-content {
+  float: left;
+  margin-right: 30px;
+}
+
+.ticket-details-page-hall .right-content .quantity-content .right-content {
+  text-align: right;
+}
+
+.ticket-details-page-hall .right-content .quantity-content .left-content h6 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+
+
+/*******욱채 여기까지****/
 .ticket-details-page .right-content .total h4 {
   float: left;
   font-size: 20px;
@@ -4093,8 +4669,8 @@ responsive
 
 .tickets-page2 .search-box2 {
   background-color: #edacb1;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .tickets-page2 .search-box h4 {
@@ -4195,6 +4771,11 @@ responsive
   outline: none;
 }
 
+.category2 {
+  padding-bottom: 0px;
+  text-align: center;
+}
+
 .shows-events-scheduleW {
   margin-top: 0px;
   padding-bottom: 0px;
@@ -4269,6 +4850,39 @@ responsive
     color: #d7fff1;
 }
 
+.category2
+{
+	
+}
+
+.category2 h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 15px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  font-family: "Poppins", sans-serif;
+  margin-top: 20px;
+}
+.category2 h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #d3d3d3;
+  margin: 4px 10px;
+}
+.category2 p {
+  font-size: 38px;
+  font-weight: 800;
+  color: #2a2a2a;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
 /* 버튼 */
 
 .w-btn {
@@ -4312,13 +4926,13 @@ responsive
 
 .w-btn-green {
     background-color: #77af9c;
-    color: #d7fff1;
+    color: #fff;
     float: right;
 }
 
 .w-btn-green2 {
     background-color: #519d9e;
-    color: #d7fff1;
+    color: #fff;
 }
 
 .w-btn-green-outline {
@@ -4571,6 +5185,306 @@ responsive
 }
 /* 버튼 */
 
+.containerfW .nickInput
+{
+	background-color: #91DDDB;
+	color: #fff;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.containerfW .emailInput
+{
+	background-color: #91DDDB;
+	color: #fff;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.page-heading-shows-eventsAb
+{
+  background-image: url(../images/629.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 70px 0px;
+  text-align: center;
+  background-position: center 43%;
+}
+
+.page-heading-shows-eventsAb h2 {
+  font-size: 140px;
+  color: #fff;
+  font-weight: 1000;
+  /*margin-bottom: 15px;*/
+  font-family: 'Nanum Brush Script', cursive;
+}
+
+.page-heading-shows-eventsAb h1 {
+  font-size: 70px;
+  color: #fff;
+  font-weight: 200;
+  /*margin-bottom: 15px;*/
+  font-family: 'Nanum Brush Script', cursive;
+}
+
+.page-heading-shows-eventsAb span
+{
+	padding: 0px;
+}
+
+.logoImg
+{
+	margin-top: 20px;
+	margin-bottom: 30px;
+	width: 200px;
+}
+
+.divLineAb
+{
+	/*
+	border-top: 5px solid #f26dab;
+	*/
+	margin-top: 50px;
+	border-radius: 6px 40px 40px 40px;
+	
+	font-family: 'Malgun Gothic', cursive;
+	font-size: 60px;
+	font-weight: 1000;
+}
+
+.divIntro
+{
+	padding-left: 15%;
+	font-family: 'Malgun Gothic', cursive;
+	font-size: 20px;
+	font-weight: 100;
+}
+
+.containerAb
+{
+	background: linear-gradient(white, #f5e8e6, #ffefe5);
+}
+
+.divImg
+{
+	text-align: center;	
+}
+
+/* 어바웃 시작 */
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.breadcrumbs {
+  padding: 15px 0;
+  background: #1d1b16;
+  margin-top: 110px;
+}
+@media (max-width: 992px) {
+  .breadcrumbs {
+    margin-top: 98px;
+  }
+}
+.breadcrumbs h2 {
+  font-size: 26px;
+  font-weight: 300;
+}
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+.breadcrumbs ol li + li {
+  padding-left: 10px;
+}
+.breadcrumbs ol li + li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: #37332a;
+  content: "/";
+}
+@media (max-width: 768px) {
+  .breadcrumbs .d-flex {
+    display: block !important;
+  }
+  .breadcrumbs ol {
+    display: block;
+  }
+  .breadcrumbs ol li {
+    display: inline-block;
+  }
+}
+
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.about {
+  background: linear-gradient(white, #f5e8e6, #ffefe5);
+  background-size: cover;
+  position: relative;
+  padding: 80px 0;
+}
+.about:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.about .about-img {
+  position: relative;
+  transition: 0.5s;
+}
+.about .about-img img {
+  max-width: 100%;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+.about .about-img::before {
+  /*
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+  content: "";
+  border-left: 5px solid #cda45e;
+  border-top: 5px solid #cda45e;
+  transition: 0.5s;
+  */
+}
+.about .about-img::after {
+  /*
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 2;
+  content: "";
+  border-right: 5px solid #cda45e;
+  border-bottom: 5px solid #cda45e;
+  transition: 0.5s;
+  */
+}
+.about .about-img:hover {
+  transform: scale(1.03);
+}
+.about .about-img:hover::before {
+  left: 10px;
+  top: 10px;
+}
+.about .about-img:hover::after {
+  right: 10px;
+  bottom: 10px;
+}
+.about .content h3 {
+  font-weight: 600;
+  font-size: 26px;
+}
+
+.about .content::before
+{
+  position: absolute;
+  left: -1px;
+  top: 18px;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+  content: "";
+  border-left: 5px solid #f26dab;
+  border-top: 5px solid #f26dab;
+  transition: 0.5s;
+}
+
+.about .content::after {
+  position: absolute;
+  right: 4px;
+  bottom: 47px;
+  width: 60px;
+  height: 60px;
+  z-index: 2;
+  content: "";
+  border-right: 5px solid #f26dab;
+  border-bottom: 5px solid #f26dab;
+  transition: 0.5s;
+}
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+.about .content ul li {
+  padding-bottom: 10px;
+}
+.about .content ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: #cda45e;
+}
+.about .content p:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 1024px) {
+  .about {
+    background-attachment: fixed;
+  }
+}
+
+/* 어바웃 종료 */
+
+
+/* 왜 우리 시작 */
+/*--------------------------------------------------------------
+# Why Us
+--------------------------------------------------------------*/
+.why-us
+{
+  margin-bottom: 10%;
+}
+
+.why-us .box {
+  padding: 50px 30px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  transition: all ease-in-out 0.3s;
+  background: #1a1814;
+  background-color: #DC6A79;
+}
+.why-us .box span {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.why-us .box h4 {
+  font-size: 24px;
+  font-weight: 600;
+  padding: 0;
+  margin: 20px 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+.why-us .box p {
+  color: #ffffff;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+.why-us .box:hover {
+  background: #ffb6ad;
+  padding: 30px 30px 70px 30px;
+  box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+  color: #DC6A79;
+}
+.why-us .box:hover span, .why-us .box:hover h4, .why-us .box:hover p {
+  color: #fff;
+}
+
+
+/* 왜 우리 종료 */
 
 /* 의수 추가 내용  종료==========*/
 
@@ -4579,4 +5493,73 @@ responsive
 {
 	background-color: #e9e8e8;
 }
+
+.container .dongdong2
+{
+	background-color: #edacb1;;
+}
 /* 동욱 추가 끝 */
+
+/****** 보현 슬라이더ㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓ *******/
+.post-slider{
+  /*border:1px solid red;*/
+  text-align: center;
+  width: 100%;
+}
+.post-slider .post-wrapper{
+  width:80%;
+  margin:0px auto;
+  /*border:1px dashed red;*/
+}
+.post-slider .post-wrapper .post{
+  width:80%;
+  height:auto;
+  display:inline-block;
+}
+
+.post-slider .post-wrapper .post img{
+  width:100%;
+  height:auto;
+}
+
+.slick-arrow{
+  z-index: 2; /* prev버튼은 위치 이동시 이미지 뒤로 숨겨짐 */
+  position:absolute;  /* 원하는 위치에 지정  */
+  top: 50%; 
+  width: 50px;
+  height: 50px; 
+  transform: translateY(-25px);
+  border:none;
+  background: none;
+}
+.slick-prev.slick-arrow{ /* prev 이전 */
+	left: -10%!important;
+	outline: none
+    
+}
+.slick-next.slick-arrow{ /* next 다음 */
+	right: -8%!important;
+	outline: none
+}
+
+.slick-prev::after {
+    position: absolute;
+    content: '';
+    width: 24px; /* 사이즈 */
+    height: 24px; /* 사이즈 */
+    border-top: 5px solid #ff8080; /* 선 두께 */
+    border-right: 5px solid #ff8080; /* 선 두께 */
+    transform: rotate(225deg); /* 각도 */
+}
+
+.slick-next::after {
+    position: absolute;
+    content: '';
+    width: 24px; /* 사이즈 */
+    height: 24px; /* 사이즈 */
+    border-top: 5px solid #ff8080; /* 선 두께 */
+    border-right: 5px solid #ff8080; /* 선 두께 */
+    transform: rotate(45deg); /* 각도 */
+}
+
+/***************/
