@@ -12,7 +12,7 @@ $(document).ready(function(){
 	      iframe:true, 
 	      innerWidth:1235,
 	      innerHeight:700,
-	      scrolling:true,
+	      scrolling:false,
 	      onComplete:function()
 	      {
 	         $("#colorbox").css("width", "1235px");

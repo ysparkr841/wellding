@@ -75,7 +75,7 @@ header .logo{float:left;}
 header nav {float:right;}
 header nav ul{float:left;}
 header nav ul li{float:left;}
-header.sticky {position: fixed; /*padding: 9px 0;*/ background-color: rgba(201, 201, 201, 0.9); top:0;}  /* 보현수정 */
+header.sticky {position: fixed; /*padding: 9px 0;*/ background-color: rgba(225, 225, 225, 0.9); top:0;}  /* 보현수정 */
 header.sticky .back{ height: 0px;}
 
 
@@ -2771,7 +2771,11 @@ Rent Venue Page
 }
 
 .rent-venue-application {
-  margin: 100px 0px;
+  margin: 50px 0px;
+  padding: 50px 0 90px 0;
+  margin-left: 20px;
+  padding-left: 50px;
+  border-left: 1px solid #ccc;
 }
 
 .rent-venue-application .heading-text h4 {
@@ -2795,7 +2799,7 @@ Rent Venue Page
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  margin-bottom: 30px;
+  margin-bottom: 15px; /*보현수정*/
 }
 
 .rent-venue-application .contact-form textarea {
@@ -5732,3 +5736,53 @@ responsive
   float: left;
 }
 
+.com_detail8
+{
+  /*border-top: 3px solid #262626;*/
+  width: 100%;
+  margin-top: 30px;
+}
+
+.left-side
+{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	margin-top: 55px;
+}
+
+.left-side img
+{
+	width: 100%;
+	height: auto;
+}
+
+.main-dark-button4 a {
+  display: inline-block;
+  font-size: 15px;
+  padding: 18px;
+  background-color: #ff8080;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: all .3s;
+  width: 100%;
+  margin-top: 35px;
+}
+
+.main-dark-button4
+{
+	/*border-top: 1px solid #ccc;*/
+}
+
+.h44
+{
+	padding-bottom: 15px;
+	font-weight: 700;
+}
+
+.com_detail8 span
+{
+	color: #444;
+}
