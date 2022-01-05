@@ -100,7 +100,7 @@ function fn_list(curPage)
                 </div>
                 <div class="col-lg-12">
                 	<div class="heading">
-                		<h2></h2>
+                		<h3>&nbsp;</h3>
                 	</div>
                 </div>
                 <div class="col-lg-12" style="border-bottom: 1px solid black">

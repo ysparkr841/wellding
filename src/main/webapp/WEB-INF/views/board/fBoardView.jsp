@@ -45,26 +45,33 @@ $(document).ready(function(){
          <thead>
             <tr class="table-active dongdong">
                <td scope="col" style="width:60%">
-                  <c:out value="${fBoard.bTitle}"/>
+                  <c:out value="${wdFBoard.bTitle}"/>
                </td>
                <td scope="col" style="width:40%" class="text-right">
-                                         조회 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${fBoard.bReadCnt}" />
+                                         조회 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${wdFBoard.bReadCnt}" />
                </td>
             </tr>
                <td scope="col" style="width:60%">
-               	작성자 : <c:out value="${fBoard.userNickname}"/>
+               	작성자 : <c:out value="${wdFBoard.userNickname}"/>
                </td>
                <td scope="col" style="width:40%" class="text-right">
-                  <div>${fBoard.regDate}</div>
+                  <div>${wdFBoard.regDate}</div>
                </td>
          </thead>
          <tbody>
             <tr>
                <td colspan="2" style="text-align:center">
-               <div style="padding:10px"><pre><c:out value="${fBoard.bContent}" /></pre></div></td>
+               <div style="padding:10px"><pre><c:out value="${wdFBoard.bContent}" /></pre></div></td>
             </tr>
+            <div>
+            </div>
          </tbody>
          <tfoot>
+         <tr>
+         <td colspan="2">
+         
+         </td>
+         </tr>
          <tr>
                <td colspan="2"><button type="button" id="btnList" class="w-btn w-btn-green2" style="float: right">리스트</button></td>
          </tr>
@@ -72,6 +79,7 @@ $(document).ready(function(){
       </table>
    </div>
 </div>
+
 
 <form name="bbsForm" id="bbsForm" method="post">
    <input type="hidden" name="bSeq" value="${bSeq}" />
