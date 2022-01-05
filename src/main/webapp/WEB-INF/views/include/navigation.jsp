@@ -5,6 +5,11 @@
 	if(com.icia.web.util.CookieUtil.getCookie(request, (String)request.getAttribute("AUTH_COOKIE_NAME")) != null)
 	{
 %>
+<script>
+function openPop(){
+	var popup = window.open("/board/Coupon", 'pop', 'width=1000px,height=600px,scrollbars=yes');
+}
+</script>
 	<c:set var = "name" value="${param.userName }" />
     <!-- ***** 맨뒤 HEader ***** -->
     <div class="pre-header">
@@ -18,7 +23,7 @@
 
                         <a href="#">마이페이지</a>
                         <a href="/loginOut">로그아웃</a>
-                        <a href="/board/Coupon">내 쿠폰</a>
+                        <a href="javascript:void(0)" target="_blank" onclick="openPop()">내 쿠폰</a>
 
                     </div>
                 </div>

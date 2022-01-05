@@ -58,6 +58,16 @@ html, body
 
 
 
+#closebtn{
+	float : right;
+	margin-top:15px;
+	margin-right:3%;
+}
+
+#leezxc{
+	padding-bottom : 48px;
+}
+
 /*김현아 수정*/
 
 
