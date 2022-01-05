@@ -199,51 +199,56 @@ $("#name").keyup(function(){
 		});
 	});
 	$("#btnReg").on("click",function(){
-	    var form = $("#regform")[0];
-	    var formData = new FormData(form);
-	   
-	   $.ajax({
-	           type:"POST",
-	           url:"/user/regProc",
-	           data:formData,
-	           processData:false,
-	          contentType:false,
-	           cache:false,
-	           timeout:600000,
-	           beforeSend:function(xhr){
-	              xhr.setRequestHeader("AJAX", "true");
-	           },
-	           success:function(response){
-	              if(response.code == 0)
-	              {
-	                 alert("회원가입이 완료되었습니다.");
-	                 document.bbsForm.action = "/";
-	                 document.bbsForm.submit();
-	                 $("#btnReg").prop("disabled", false);
-	              }
-	              else if(response.code == 400)
-	              {
-	                 alert("파라미터 값이 올바르지 않습니다.");
-	                 $("#btnReg").prop("disabled", false);
-	              }
-	              else if(response.code == 404)
-	              {
-	                 alert("오류가 발생했습니다.");
-	                 location.href = "/";
-	              }
-	              else
-	              {
-	                 alert("회원가입중 오류가 발생했습니다.");
-	                 $("#btnReg").prop("disabled", false);
-	              }
-	           },
-	           complete:function(data){
-	              icia.common.log(data);
-	           },
-	           error:function(xhr, status, error){
-	              icia.common.error(error);
-	           }
-	        });
+	    $.ajax({
+	    	  type: "POST",
+	    	  url: "/user/regProc",
+	    	  data:{
+	    		  id: $("#id").val(),
+	    		  pwd1: $("#pwd1").val(),
+	    		  name: $("#name").val(),
+	    		  number : $("#number").val(),
+	    		  year : $("#year").val(),
+	    		  month : $("#month").val(),
+	    		  day : $("#day").val(),
+	    		  gender : $("#gender").val(),
+	    		  nickname : $("#nickname").val(),
+	    		  email : $("#email").val()
+	    	  },
+	    	  datatype: "JSON",
+	    	  beforeSend: function(xhr){
+	    		  xhr.setRequestHeader("AJAX", "true");
+	    	  },
+	    	  success: function(response){
+	    		  if(response.code == 0)
+	    		  {
+	    			  alert("회원가입이 완료되었습니다.");
+	    			  location.href = "/board/login";
+	    		  } 
+	    		  else if(response.code == 400)
+	    		  {
+	    			  alert("파라미터값이 잘못되었습니다.");
+	    			  $("#userId").focus();
+	    		  }
+	    		  else if(response.code == 500)
+	    		  {
+	    			  alert("회원가입 중 오휴가 발생했습니다.");
+	    			  $("#userId").focus();
+	    		  }
+	    		  else
+	    		  {
+	    			  alert("오류가 발생했습니다.");
+	    			  $("#userId").focus();
+	    		  }
+	    	  },
+	    	  complete: function(data)
+	    	  {
+	    		  icia.common.log(data);
+	    	  },
+	    	  error: function(xhr, status, error)
+	    	  {
+	    		  icia.common.error(error);
+	    	  }
+	      });
 	});
 
 });
@@ -306,7 +311,7 @@ function fn_validateEmail(value)
 			   <dt>전화번호</dt>
                <dd>
                   <div class="input">
-                     <input type="text" id="number" placeholder="전화번호를 입력해주세요">
+                     <input type="text" id="number" name="number" placeholder="전화번호를 입력해주세요">
       
                   </div>
                   <p class="msg"></p>
