@@ -2,10 +2,15 @@
 <%@ include file="/WEB-INF/views/include/taglib.jsp" %>
 
 <%
-	if(com.icia.web.util.CookieUtil.getCookie(request, (String)request.getAttribute("AUTH_COOKIE_NAME")) != null)
-	{
+   if(com.icia.web.util.CookieUtil.getCookie(request, (String)request.getAttribute("AUTH_COOKIE_NAME")) != null)
+   {
 %>
-	<c:set var = "name" value="${param.userName }" />
+<script>
+function openPop(){
+   var popup = window.open("/board/Coupon", 'pop', 'width=1000px,height=600px,scrollbars=yes');
+}
+</script>
+   <c:set var = "name" value="${param.userName }" />
     <!-- ***** 맨뒤 HEader ***** -->
     <div class="pre-header">
         <div class="container">
@@ -16,19 +21,18 @@
                 <div class="col-lg-6 col-sm-6">
                     <div class="text-button ourperson">
 
-                        <a href="#">마이페이지</a>
+                        <a href="/user/myPage">마이페이지</a>
                         <a href="/loginOut">로그아웃</a>
-                        <a href="/board/Coupon">내 쿠폰</a>
-
+                        <a href="javascript:void(0)" target="_blank" onclick="openPop()">내 쿠폰</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 <%
-	}
-	else
-	{
+   }
+   else
+   {
 %>
     <!-- ***** 맨뒤 HEader ***** -->
 
@@ -51,7 +55,7 @@
     </div>
 
 <%
-	}
+   }
 %>
 
     <!-- ***** 보현수정 Header Area Start ***** -->
@@ -62,7 +66,7 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <h1 class="logo">
-                            <a href="/"><img src="/resources/images/logob.png" width="auto" height="40px"></a>
+                            <a href="/"><img class="imgNav" src="/resources/images/icons/theWellding2.png" width="auto" height="40px"></a>
                         </h1>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
