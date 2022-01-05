@@ -271,7 +271,6 @@ function fn_validateEmail(value)
                   <h1 class="logo"><img src="../resources/images/icons/logo1.png" width="100px" height="90px"/></h1>
                  
    </div>
-   <form id="regform" name="regform" method="post">
    <div class="join_form">
 
       <dl class="join_write">
@@ -393,8 +392,7 @@ function fn_validateEmail(value)
             <dt>이메일</dt>
             <dd>
                <div class="input"><input id="email" name="email" data-bind="email" type="text" placeholder="이메일을 입력해주세요" value=""></div>
-               <p class="msg"></p>
-         </form>     
+               <p class="msg"></p>     
                  
   		 <div class="button_area">
 		<button class="btn_type" id="btnReg">가입 완료하기</button>
