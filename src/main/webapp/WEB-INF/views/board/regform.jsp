@@ -251,7 +251,7 @@ $("#name").keyup(function(){
    $("#btnCC").on("click", function(){
 		 
 		 alert("회원가입이 취소되었습니다.");
-		 location.href = "/board/login";
+		 location.href = "/";
 		
 	   	}); 
    });
@@ -274,7 +274,6 @@ function fn_validateEmail(value)
                   <h1 class="logo"><img src="../resources/images/icons/logo1.png" width="100px" height="90px"/></h1>
                  
    </div>
-   <form id="regform" name="regform" method="post">
    <div class="join_form">
 
       <dl class="join_write">
@@ -397,7 +396,6 @@ function fn_validateEmail(value)
             <dd>
                <div class="input"><input id="email" name="email" data-bind="email" type="text" placeholder="이메일을 입력해주세요" value=""></div>
                <p class="msg"></p>
-         </form>     
                  
          <div class="button_area">
       <button class="btn_type" id="btnReg">가입 완료하기</button>
