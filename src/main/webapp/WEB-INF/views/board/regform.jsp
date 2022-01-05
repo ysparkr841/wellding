@@ -24,7 +24,7 @@
     // 영문 대소문자, 숫자로만 이루어진 4~12자리 정규식
     var idPwCheck = /^[a-zA-Z0-9]{3,12}$/;
 
-   $("#id").keydown(function(e){
+   $("#id").keyup(function(e){
 
       
   
