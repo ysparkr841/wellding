@@ -6,7 +6,7 @@
        <%@ include file="/WEB-INF/views/include/head.jsp" %>
        <title>이벤트</title>
 <style>
-a:hover h1{transform: scale(1.2); transition: all 0.2s linear; color:red;}
+a:hover h1{transform: scale(1.2); transition: all 0.2s linear;}
 
 .hover_effect_box {
     overflow: hidden;
@@ -161,6 +161,7 @@ a:hover h1{transform: scale(1.2); transition: all 0.2s linear; color:red;}
     -o-transition-delay: 0s;
     -ms-transition-delay: 0s;
     transition-delay: 0s;
+    opacity:0;
  }
  .hover_effect_3:hover .caption_title {
     -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
@@ -325,7 +326,7 @@ function fn_view(eBSeq)
 	                                      <div class="row">
 	                                          <div class="col-lg-4" id="eback">
 	                                              <div class="left-content">
-	                                              		<a href="javascript:void(0)" onclick="fn_view(${wdEBoard.eBSeq})">
+	                                              		<a href="javascript:void(0)" onclick="fn_view(${eboard.eBSeq})">
 			                                                  <h1 class="display-5 fw-bolder p-3" id="etitle">${eboard.eBTitle}</h1></a>
 			                        							
 	                                              </div>
@@ -335,12 +336,12 @@ function fn_view(eBSeq)
 	                                              	<div class="hover_effect_box hover_effect_3">
 	                                              		<div class="content_bg">
 	                                              		
-	                                                  		<img  src="/resources/board/${eboard.eBImgName}" alt="">
+	                                                  		<img src="/resources/board/${eboard.eBImgName}" alt="">
 	                                                  	</div>
 	                                                  	<div class="caption">
 	                                                  		<div class="caption_title">${eboard.eBTitle}</div>
 	                                                  		<div class="caption_desc">${eboard.eBContent}</div>
-	                                                  		<a href="javascript:void(0)" onclick="fn_view(${wdEBoard.eBSeq})" class="caption_link">더 보기</a>
+	                                                  		<a href="javascript:void(0)" onclick="fn_view(${eboard.eBSeq})" class="caption_link">더 보기</a>
 	                                                  	</div>
 	                                                </div>
 	                                              </div>

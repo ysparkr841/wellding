@@ -4,9 +4,16 @@
 <html>
 <head>
  	<%@ include file="/WEB-INF/views/include/head.jsp" %>
- 	
+ 	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
 <script>
-
+$(document).ready(function(){
+	$("#btnList").on("click", function(){
+		document.eBoardForm.action = "/board/eBoard";
+		document.eBoardForm.submit();
+	});
+});
 </script> 	
 </head>
 <body>
@@ -26,75 +33,50 @@
                 </div>
             </div>
         </div>
-    </div>   
+    </div>
+    
+<div class="container">
+   <div class="row" style="margin-right:0; margin-left:0;">
+      <table class="table">
+         <thead>
+            <tr class="table-active dongdong2">
+               <td scope="col" style="width:60%">
+                  <c:out value="${eBoard.eBTitle}"/>
+               </td>
+               
+               <td scope="col" style="width:40%" class="text-right">
+                                         조회 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${eBoard.eBReadCnt}" />
+               </td>
+            </tr>
+               <td scope="col" style="width:60%">
+               	작성자 : <c:out value="${eBoard.adminId}"/>
+               </td>
+               <td scope="col" style="width:40%" class="text-right">
+                  <div>${eBoard.regDate}</div>
+               </td>
+         </thead>
+         <tbody>
+            <tr>
+               <td colspan="2" style="text-align:center">
+               <div style="padding:10px"><pre><img src="/resources/board/${eBoard.eBImgName}"><br /><br /><c:out value="${eBoard.eBContent}" /></pre></div></td>
+            </tr>
+         </tbody>
+         <tfoot>
+         <tr>
+               <td colspan="2"><button type="button" id="btnList" class="w-btn w-btn-green2" style="float: right">리스트</button></td>
+         </tr>
+         </tfoot>
+      </table>
+   </div>
+</div>
 
-	<div class="tickets-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="search-box" id="search-box">
-                        <form id="subscribe" action="" method="get">
-                            <div class="row">
-                                <div class="col-lg-5">
-                                    <div class="search-heading">
-                                        <h4>이벤트를 검색합니다</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-7">
-                                    <div class="row">
-                                        <div class="col-lg-3">
-                                            <select value="searchType" name="_searchType" id="_searchType">
-                                            	<option value="">조회 항목</option>
-                                                <option value="1" <c:if test="${searchType eq '1'}">selected</c:if>>제목</option>
-                                                <option value="2" <c:if test="${searchType eq '2'}">selected</c:if>>내용</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input type="text" name="_searchValue" id="_searchValue" value="${searchValue}" maxlength="25" class="svalue" placeholder="조회값을 입력하세요." />
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <fieldset>
-                                            <button type="button" id="btnSearch" class="main-dark-button">Submit</button>
-                                            </fieldset>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="heading">
-                        <h2><!-- Event --></h2>
-                    </div>
-                </div>
-
-		   <!-- Product section-->
-        <section class="py-5">
-        <c:forEach var="eboard" items="${eBoard}" varStatus="status">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><a href="javascript:void(0)" onclick="fn_view(${eboard.eBSeq})"><</a>
-                    <img class="card-img-top mb-5 mb-md-0"  src="/resources/board/${eboard.eBImgName}" />
-                    </div>
-                    <div class="col-md-6">
-                        <h1 class="display-5 fw-bolder">${eboard.eBTitle}</h1>
-                        <p class="lead">${eboard.eBContent}</p>
-                    </div>
-                </div>
-            </div>
-      	</c:forEach>
-        </section>
-        
-        <form name="eBoardForm" id="eBoardForm" method="post">
-			<input type="hidden" name="eBSeq" value="${eBSeq}" />
+<form name="eBoardForm" id="eBoardForm" method="post">
+			<input type="hidden" name="eBSeq" value="" />
 			<input type="hidden" name="searchType" value="${searchType}" />
 			<input type="hidden" name="searchValue" value="${searchValue}" />
 			<input type="hidden" name="curPage" value="${curPage}" />
 		</form>
-    </div>
 
-	  <%@ include file="/WEB-INF/views/include/footer.jsp" %>
+	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
 </html>
