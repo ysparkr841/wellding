@@ -134,7 +134,6 @@ $(document).ready(function(){
             </tr>
 			<!-- 댓글 내용이 들어갈 곳 -->
 			<c:if test="${!empty commentList}">
-			<h1>아아아아아아아아ㅏ</h1>
             <c:forEach items="${commentList}" var="comment" >
             <tr>
             <td>${comment.wdFBoardComment }</td><td>작성자 : ${comment.uNickName } <br>${comment.regDate }</td>

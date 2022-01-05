@@ -61,7 +61,6 @@
             			<value>/board/login</value>
             			<value>/board/regform</value>
             			<value>/user/loginOut</value>
-            			<value>/user/regForm</value>
             			<value>/user/regProc</value>
             			<value>/user/idCheck</value>
 
@@ -78,7 +77,7 @@
             			<value>/board/fBoardView</value>
             			<value>/about</value>
             			<value>/board/Coupon</value>
-            			<value>/Termsofuse</value>          			          			
+            			<value>/Termsofuse</value>        			          			
  
              			<value>/hsdm/makeUp</value>
             			<value>/hsdm/dressView</value>   

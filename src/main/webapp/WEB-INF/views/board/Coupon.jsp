@@ -91,25 +91,27 @@ $(document).ready(function(){
                               <c:forEach var="coupon" items="${list}" varStatus="status">                                
                                 <li>
 	                                    <div class="row">
-	                                        <div class="col-lg-1">
-	                                        
-	                                        <div class="col-lg-5" style="text-align: left;">
+	                                        <div class="col-lg-3">
 	                                            <div class="time"><span>${coupon.cName}</span></div>
 	                                        </div>
-	                                        <div class="col-lg-2">
+	                                        <div class="col-lg-4">
 	                                            <div class="place"><span>${coupon.cContent}</span></div>
 	                                        </div>
-	                                        <div class="col-lg-2">
+	                                        <div class="col-lg-3">
 	                                            <div class="place"><span>${coupon.cPrice}</span></div>
 	                                        </div>
-	                                        <div class="col-lg-1">
-	                                        </div>
-	                                        <div class="col-lg-1">
+	                                        <div class="col-lg-2">
+	                                        <c:if test="${coupon.cStatus eq 'Y'}">
 	                                            <div class="place">
-	                                                <span>${coupon.cEndDate}</span>
+	                                                <span>사용 완료</span>
 	                                            </div>
+	                                        </c:if>
+	                                        <c:if test="${coupon.cStatus eq 'N'}">
+	                                            <div class="place">
+	                                                <span>사용 가능</span>
+	                                            </div>
+	                                        </c:if>
 	                                        </div>
-	                                    </div>
                                 </li>
                                 
                               </c:forEach>

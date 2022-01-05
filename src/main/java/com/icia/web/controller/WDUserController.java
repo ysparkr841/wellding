@@ -144,7 +144,52 @@ public class WDUserController
 			return ajaxResponse;
 		}
 		
-	
-	
+	//회원가입
+	@RequestMapping(value="/user/regProc" )
+	@ResponseBody
+	public Response<Object> regProc(HttpServletRequest request, HttpServletResponse response)
+	{
+		Response<Object> ajaxResponse = new Response<Object>();
+		String userId = HttpUtil.get(request, "id", "");
+		String userPwd = HttpUtil.get(request, "pwd1", "");
+		String userName = HttpUtil.get(request, "name", "");
+		String phone = HttpUtil.get(request, "number", "");
+		String year = HttpUtil.get(request, "year", "");
+		String month = HttpUtil.get(request, "month", "");
+		String day = HttpUtil.get(request, "day", "");
+		String marry = year + month + day;
+		
+		String gender = HttpUtil.get(request, "gender", "");
+		String nickName = HttpUtil.get(request, "nickname", "");
+		String email = HttpUtil.get(request, "email", "");
+		
+		WDUser wdUser = new WDUser();
+		
+		wdUser.setUserId(userId);
+		wdUser.setUserPwd(userPwd);
+		wdUser.setUserName(userName);
+		wdUser.setUserNumber(phone);
+		wdUser.setMarrtDate(marry);
+		wdUser.setUserGender(gender);
+		wdUser.setUserNickname(nickName);
+		wdUser.setUserEmail(email);
+		wdUser.setStatus("Y");
+		if(!StringUtil.isEmpty(userId) && !StringUtil.isEmpty(userPwd) && !StringUtil.isEmpty(userName) && !StringUtil.isEmpty(phone) &&
+			!StringUtil.isEmpty(marry) && !StringUtil.isEmpty(gender) && !StringUtil.isEmpty(nickName) && !StringUtil.isEmpty(email)) 
+		{
+			System.out.println("다 들어왔어용 : "+userId );
+			if(wduserService.userInsert(wdUser) > 0) {
+				ajaxResponse.setResponse(0, "Success");
+			}
+			else {
+				ajaxResponse.setResponse(500, "Bad Request");
+			}
+		}
+		else {
+			ajaxResponse.setResponse(400, "Bad Request");
+		}		
+		
+		return ajaxResponse;
+	}
 
 }
