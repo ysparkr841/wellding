@@ -20,6 +20,8 @@ public class WDStudio implements Serializable
 	private long endRow;         		//끝rownum
 	private long sDiscount;
 	
+	private int sSubImg;
+	
 	private WDStudioFile wdStudoiFile;
 	
 	
@@ -38,8 +40,20 @@ public class WDStudio implements Serializable
 	    endRow = 0;
 	    wdStudoiFile = null;
 	    sDiscount = 0;
+	    
+	    sSubImg = 0;
 	}
-	
+		
+
+	public int getsSubImg() {
+		return sSubImg;
+	}
+
+
+	public void setsSubImg(int sSubImg) {
+		this.sSubImg = sSubImg;
+	}
+
 
 	public long getsDiscount() {
 		return sDiscount;

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/taglib.jsp" %>
 
+
+
  <!-- *** 욱채수정Footer *** -->
  <footer>
     <div class="container">
@@ -55,6 +57,13 @@
             </div>
         </div>
     </div>
+    
+ <div class="modal fade" id="MoaModal" tabindex="-1" role="dialog" aria-labelledby="historyModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
 </footer>
 <!-- 욱채 수정 푸터 종료 -->
 
@@ -82,6 +91,7 @@
     <script src="../resources/js/accordions.js"></script>
     <script src="../resources/js/owl-carousel.js"></script>
 
+
 <script>    
 	$(document).ready(function(){
 		   $("#policy").colorbox({
@@ -103,6 +113,7 @@
 			   });
 	});
 </script>    
+
     <!-- Global Init -->
 
     <!-- script src="../resources/js/custom.js"></script -->

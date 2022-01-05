@@ -11,6 +11,7 @@
 	<result column="S_IMGNAME" property="sImgname" />
 	<result column="S_CONTENT" property="sContent" />
 	<result column="S_DISCOUNT" property="sDiscount" />
+	<result column="S_SUBIMG" property="sSubImg" />
 </resultMap>
 
 <!-- 첨부파일 -->
@@ -36,7 +37,8 @@ SELECT
     S_NUMBER,
     S_IMGNAME,
     S_CONTENT,
-    S_DISCOUNT
+    S_DISCOUNT,
+    S_SUBIMG
 FROM (SELECT
             ROWNUM RNUM,
             S_CODE,
@@ -46,7 +48,8 @@ FROM (SELECT
             S_NUMBER,
             S_IMGNAME,
             S_CONTENT,
-            S_DISCOUNT
+            S_DISCOUNT,
+            S_SUBIMG
         FROM (SELECT
                     S_CODE AS S_CODE,
                     NVL(S_NAME, '') AS S_NAME,
@@ -55,7 +58,8 @@ FROM (SELECT
                     NVL(S_NUMBER, '') AS S_NUMBER,
                     NVL(S_IMGNAME, '') AS S_IMGNAME,
                     NVL(S_CONTENT, '') AS S_CONTENT,
-                    NVL(S_DISCOUNT, 0) AS S_DISCOUNT
+                    NVL(S_DISCOUNT, 0) AS S_DISCOUNT,
+                    NVL(S_SUBIMG, 0) AS S_SUBIMG
                 FROM
                     WD_STUDIO
                 WHERE 1=1
@@ -112,7 +116,8 @@ SELECT
     NVL(S_NUMBER, '')  AS S_NUMBER,
     NVL(S_IMGNAME, '')  AS S_IMGNAME,
     NVL(S_CONTENT, '')  AS S_CONTENT,
-    NVL(S_DISCOUNT, 0) AS S_DISCOUNT
+    NVL(S_DISCOUNT, 0) AS S_DISCOUNT,
+    NVL(S_SUBIMG, 0) AS S_SUBIMG
 FROM
     WD_STUDIO
 WHERE
@@ -120,5 +125,37 @@ WHERE
 </select>
 <!-- 스튜디오 상세보기 끝 -->
 
+<!-- 스튜디오 무작위로 4개 가져오기 시작 -->
+<select id="studioRandom" parameterType="com.icia.web.model.WDStudio" resultMap="WDStudioMap">
+SELECT
+    S_CODE,
+    S_NAME,
+    S_PRICE,
+    S_LOCATION,
+    S_NUMBER,
+    S_IMGNAME,
+    S_CONTENT
+FROM (SELECT 
+		    ROWNUM AS RNUM,
+		    S_CODE,
+		    S_NAME,
+		    S_PRICE,
+		    S_LOCATION,
+		    S_NUMBER,
+		    S_IMGNAME,
+		    S_CONTENT
+		FROM(SELECT 
+		            S_CODE,
+		            S_NAME,
+		            S_PRICE,
+		            S_LOCATION,
+		            S_NUMBER,
+		            S_IMGNAME,
+		            S_CONTENT
+		        FROM WD_STUDIO
+		        ORDER BY DBMS_RANDOM.VALUE))
+WHERE ROWNUM <![CDATA[<=]]> 3
+</select>
+<!-- 스튜디오 무작위로 가져오기 끝 -->
 
 </mapper>

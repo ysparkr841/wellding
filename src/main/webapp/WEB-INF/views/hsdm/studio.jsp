@@ -124,7 +124,7 @@ $('.post-wrapper').slick({
                                 <li class="dis_price2"><span class="discount2"><c:out value="${wdStudio.sDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdStudio.sPrice * (1-wdStudio.sDiscount*0.01)}" />원</span></li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="javascript:void(0)" onclick="fn_view('${wdStudio.sCode}')">스튜디오 예약하기</a>
+                                <a href="javascript:void(0)" onclick="fn_view('${wdStudio.sCode}')">자세히 보기</a>
                             </div>
                         </div>
                     </div>

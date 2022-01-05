@@ -99,6 +99,97 @@ public class WDUserController
 		
 		return "redirect:/";
 	}
+	//회원가입
+	@RequestMapping(value="/user/regform", method=RequestMethod.GET)
+	public String regform(HttpServletRequest request, HttpServletResponse response)
+	{
+		String cookieUserId = CookieUtil.getHexValue(request,  AUTH_COOKIE_NAME);
+		
+		if(StringUtil.isEmpty(cookieUserId))
+		{
+			return "/user/regform";
+		}
+		else
+		{
+			CookieUtil.deleteCookie(request, response,  AUTH_COOKIE_NAME);	
+			
+			return "redirect:/";
+		}
+	}
 	
+	//중복아이디 체크
+		@RequestMapping(value="/user/idCheck", method=RequestMethod.POST)
+		@ResponseBody
+		public Response<Object> idCheck(HttpServletRequest request, HttpServletResponse response)
+		{
+			String userId = HttpUtil.get(request, "userId");
+			Response<Object> ajaxResponse = new Response<Object>();
+			
+			if(!StringUtil.isEmpty(userId))
+			{
+				if(wduserService.userSelect(userId) == null)
+				{
+					ajaxResponse.setResponse(0, "Success");
+				}
+				else
+				{
+					ajaxResponse.setResponse(100, "Duplicate ID");
+				}
+			}
+			else
+			{
+				ajaxResponse.setResponse(400, "Bad Request");
+			}
+			
+			return ajaxResponse;
+		}
+		
+	//회원가입
+	@RequestMapping(value="/user/regProc" )
+	@ResponseBody
+	public Response<Object> regProc(HttpServletRequest request, HttpServletResponse response)
+	{
+		Response<Object> ajaxResponse = new Response<Object>();
+		String userId = HttpUtil.get(request, "id", "");
+		String userPwd = HttpUtil.get(request, "pwd1", "");
+		String userName = HttpUtil.get(request, "name", "");
+		String phone = HttpUtil.get(request, "number", "");
+		String year = HttpUtil.get(request, "year", "");
+		String month = HttpUtil.get(request, "month", "");
+		String day = HttpUtil.get(request, "day", "");
+		String marry = year + month + day;
+		
+		String gender = HttpUtil.get(request, "gender", "");
+		String nickName = HttpUtil.get(request, "nickname", "");
+		String email = HttpUtil.get(request, "email", "");
+		
+		WDUser wdUser = new WDUser();
+		
+		wdUser.setUserId(userId);
+		wdUser.setUserPwd(userPwd);
+		wdUser.setUserName(userName);
+		wdUser.setUserNumber(phone);
+		wdUser.setMarrtDate(marry);
+		wdUser.setUserGender(gender);
+		wdUser.setUserNickname(nickName);
+		wdUser.setUserEmail(email);
+		wdUser.setStatus("Y");
+		if(!StringUtil.isEmpty(userId) && !StringUtil.isEmpty(userPwd) && !StringUtil.isEmpty(userName) && !StringUtil.isEmpty(phone) &&
+			!StringUtil.isEmpty(marry) && !StringUtil.isEmpty(gender) && !StringUtil.isEmpty(nickName) && !StringUtil.isEmpty(email)) 
+		{
+			System.out.println("다 들어왔어용 : "+userId );
+			if(wduserService.userInsert(wdUser) > 0) {
+				ajaxResponse.setResponse(0, "Success");
+			}
+			else {
+				ajaxResponse.setResponse(500, "Bad Request");
+			}
+		}
+		else {
+			ajaxResponse.setResponse(400, "Bad Request");
+		}		
+		
+		return ajaxResponse;
+	}
 
 }

@@ -58,6 +58,16 @@ html, body
 
 
 
+#closebtn{
+	float : right;
+	margin-top:15px;
+	margin-right:3%;
+}
+
+#leezxc{
+	padding-bottom : 48px;
+}
+
 /*김현아 수정*/
 
 
@@ -483,6 +493,25 @@ a{ text-decoration: none; color: inherit; }
   text-transform: capitalize;
   transition: all .3s;
   width: 100%;
+}
+
+.main-dark-button3 a {
+  display: inline-block;
+  font-size: 15px;
+  padding: 18px;
+  background-color: #ff8080;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: all .3s;
+  width: 100%;
+  margin-top: 35px;
+}
+
+.main-dark-button3
+{
+	border-top: 1px solid #ccc;
 }
 
 .main-dark-button a:hover {
@@ -1894,24 +1923,53 @@ About Us Page
 }
 
 .big_title_hall {
-  padding-top: 30px;
+  padding-top: 55px;
 }
-
+/*
 .hibixbi{
 	float : left;
 	width : 350px;
 	height : 50px;
 	margin-left : 30px;
 }
-
 .big_title_hall h2 {
   float : left;
   font-size: 45px;
   color: #333;
-  /*font-weight: 800;*/
   margin-bottom: 15px;
   font-family: 'Jua', sans-serif;
-  /*letter-spacing: 2px;*/
+}*/
+.align
+{
+	text-align: center;
+}
+.hibixbi{
+	width : 350px;
+	height : 50px;
+	/*margin-left : 30px;*/
+	display: inline-block;
+	margin-bottom: 10px;
+}
+/*
+.big_title_hall h2 {
+  font-size: 45px;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: 'Jua', sans-serif;
+}*/
+.big_title_hall .whname {
+  font-size: 22px;
+  font-weight: 500;
+  color: #777;
+  margin-bottom: 10px;
+  /*font-family: 'Jua', sans-serif;*/
+}
+
+.hibixbi h2 {
+  font-size: 52px;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: 'Jua', sans-serif;
 }
 
 .big_title_hall span {
@@ -1981,6 +2039,13 @@ About Us Page
   overflow: hidden;
 }
 
+.left-image2
+{
+  height: 470px;
+  width:100%;
+  overflow: hidden;
+}
+
 .left-image-hall
 {
   overflow: hidden;
@@ -1988,8 +2053,8 @@ About Us Page
 }
 .line
 {
-   border-top:4px solid #000;
-   padding-bottom:20px;
+   border-top:1px solid #ccc;
+   padding-bottom:50px;
 }
 .about-item .left-image img {
   width: 100%;
@@ -2146,6 +2211,8 @@ About Us Page
 	border-top: 3px solid #262626;
 	border-bottom: 1px solid #c9c9c9;
 	padding: 25px 0;
+	text-align: center;
+	background-color: rgba(255,128,128,0.2);
 }
 
 .det_navi-hall ul
@@ -2184,6 +2251,8 @@ About Us Page
 	border-top: 3px solid #262626;
 	border-bottom: 1px solid #c9c9c9;
 	padding: 25px 0;
+	text-align: center;
+	background-color: rgba(255,128,128,0.2);
 }
 
 .det_navi ul
@@ -2213,7 +2282,78 @@ About Us Page
 	color: #ff675d;
 }
 
-/*****************/
+/** 스튜디오 **/
+.det_navi2
+{
+	margin: 80px 0;
+	border-top: 3px solid #262626;
+	border-bottom: 1px solid #c9c9c9;
+	padding: 25px 0;
+	background-color: rgba(255,128,128,0.2);
+}
+
+.det_navi2 ul
+{
+	margin-bottom: 20px;
+	width: 100%;
+	padding: 0 25%;
+}
+
+.det_navi2 li
+{
+	/*float: left;*/
+	margin: 0 auto;
+	text-align: center;
+	width: 50%;
+	float: left;
+}
+
+.det_navi2 li:first-child a
+{
+	font-weight: 700;
+	color: #333;
+}
+
+.det_navi2 li:hover a
+{
+	color: #ff675d;
+}
+
+/********* 메이크업 ********/
+.det_navi3
+{
+	margin: 80px 0 40px 0;
+	border-top: 3px solid #262626;
+	border-bottom: 1px solid #c9c9c9;
+	padding: 25px 0;
+	text-align: center;
+	background-color: rgba(255,128,128,0.2);
+}
+
+.det_navi3 ul
+{
+	width: 100%;
+}
+
+.det_navi3 li
+{
+	margin: 0 auto;
+	text-align: center;
+	padding: 0 40px;
+	display: inline-block;
+}
+
+.det_navi3 li:first-child a
+{
+	font-weight: 700;
+	color: #333;
+}
+
+.det_navi3 li:hover a
+{
+	color: #ff675d;
+}
+/**************/
 
 .page-heading-about {
   background-image: url(../images/about_bg.jpg);
@@ -2721,6 +2861,44 @@ Shows Events Page
   text-shadow: 2px 3px 15px #82623b;
 }
 
+/*이벤트 리스트*/
+.page-heading-shows-events5 {
+	background-image: url(../images/eBoard\ banner.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 70px 0px;
+	text-align: center;
+	background-position: center 36%;
+}
+
+.page-heading-shows-events5 h2 {
+	font-size: 140px;
+	color: #fff;
+	font-weight: 500;
+	/*margin-bottom: 15px;*/
+	font-family: 'Nanum Brush Script', cursive;
+	text-shadow: 2px 3px 15px #82623b;
+}
+
+#eback {
+	background-color: #efefef;
+	font-family: 'Jua', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	padding:0px;
+}
+
+#eback2 {padding:0px;}
+
+#etitle {
+	text-align: center;
+	font-family: 'Jua', sans-serif;
+}
+
+#search-box{padding:0px;}
+
+
 /*
 .page-heading-shows-events span {
   font-size: 20px;
@@ -3199,7 +3377,8 @@ Shows Events Page
 
 .ticket-item2 .thumb-hall {
   position: relative;
-  height: 207px;
+  /*height: 207px;*/
+  height: 100%;
   overflow: hidden;
 }
 
@@ -3230,6 +3409,55 @@ Shows Events Page
   font-size: 20px;
   font-style: normal;
 }
+
+/*** 메이크업에서 스튜디오업체보기할떄 ***/
+.ticket-item2 .thumb_ss {
+  position: relative;
+  height: 185px;
+  overflow: hidden;
+}
+
+.ticket-item2 .thumb_ss img {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+.ticket-item2 .thumb_ss .price {
+  background-color: rgba(101,108,116,0.9);
+  display: inline-block;
+  padding: 20px;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+}
+
+.ticket-item2 .thumb_ss .price span {
+  color: #fff;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.ticket-item2 .thumb_ss .price span em {
+  font-weight: 700;
+  font-size: 20px;
+  font-style: normal;
+}
+
+.sd_title_ss{
+  font-size: 17px;
+  font-weight: 500;
+  color: #656565;
+  height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 8px;
+  /*margin-bottom: 10px;*/
+}
+
+/****/
+
 
 .sd_title3{
   font-size: 15px;
@@ -3414,7 +3642,6 @@ Shows Events Page
 }
 
 
-
 /*
 -------------------------------
 Ticket Details Page : 보현 수정 쭉한다
@@ -3431,14 +3658,35 @@ Ticket Details Page : 보현 수정 쭉한다
 {
   vertical-align: top;
 }
+
+.banner2
+{
+  height: auto;
+  width: 100%;
+  margin-bottom: 70px;
+}
+
+.banner3
+{
+  height: auto;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
 .ticket-details-page {
   margin: 25px 0 100px 0px;
 }
 
-.ticket-details-page img {
+.ticket-details-page .left-image img {
   max-width: 100%;
   overflow: hidden;
 }
+
+.ticket-details-page .left-image2 img {
+	/*height: 100%;*/
+    overflow: hidden;
+}
+
 
 .ticket-details-page .right-content {
   margin-left: 15px;
@@ -3525,7 +3773,7 @@ Ticket Details Page : 보현 수정 쭉한다
   font-size: 40px;
   font-weight: 500;
   color: #2a2a2a;
-  padding:52px 0 15px;
+  padding:52px 0 20px;
   font-family: 'Jua', sans-serif;
 }
 
@@ -3535,11 +3783,12 @@ Ticket Details Page : 보현 수정 쭉한다
   font-weight: 500;
   color: #756c74; 
   display: inline-block;
-  /*border-bottom: 1px solid #ccc; */
+  border-bottom: 1px solid #ccc;
   width: 100%;
   /*padding-bottom: 42px;
   margin-top: 15px;*/
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  padding-bottom: 35px;
 }
 
 .ticket-details-page .right-content2 ul {
@@ -3635,16 +3884,19 @@ Ticket Details Page : 보현 수정 쭉한다
 }
 
 .ticket-details-page-hall .right-content span {
-  font-size: 15px;
+  font-size: 18px;
   line-height: 27px;
-  font-weight: 700;
+  font-weight: 500;
   color: #756c74; /* 보현수정 */
   display: inline-block;
   border-bottom: 1px solid #ccc;   /*보현수정 */
   width: 100%;
-  padding-bottom: 42px;
+  /*padding-bottom: 42px;*/
   margin-top: 15px;
   margin-bottom: 20px;
+  padding: 0 5% 42px;
+  text-align: center;
+  
 }
 
 .ticket-details-page-hall .right-content ul {
@@ -5258,6 +5510,11 @@ responsive
 {
 	background-color: #e9e8e8;
 }
+
+.container .dongdong2
+{
+	background-color: #edacb1;;
+}
 /* 동욱 추가 끝 */
 
 /****** 보현 슬라이더ㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓ *******/
@@ -5321,4 +5578,5 @@ responsive
     border-right: 5px solid #ff8080; /* 선 두께 */
     transform: rotate(45deg); /* 각도 */
 }
+
 /***************/

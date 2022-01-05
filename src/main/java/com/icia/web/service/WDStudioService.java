@@ -74,4 +74,21 @@ public class WDStudioService
 		return wdStudio;
 	}
 	
+	//업체 랜덤으로 불러오기
+	public List<WDStudio> studioRandom(WDStudio wdStudio)
+	{
+		List<WDStudio> studioRandom = null;
+		
+		try
+		{
+			studioRandom = wdStudioDao.studioRandom(wdStudio);
+		}
+		catch(Exception e)
+		{
+			logger.error("[WDStudioService] studioRandom Exception", e);
+		}
+		
+		return studioRandom;
+	}
+	
 }

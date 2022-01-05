@@ -21,4 +21,7 @@ public interface WDDressDao
 	//동일 회사 드레스 조회, 동일제품은 제외
 	public List<WDDress> dressSameCom(WDDress wdDress);
 	
+	//드레스 랜덤가져오기
+	public List<WDDress> dressRandom(WDDress wdDress);
+	
 }

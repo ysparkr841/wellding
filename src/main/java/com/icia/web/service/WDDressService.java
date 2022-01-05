@@ -92,4 +92,22 @@ public class WDDressService
 		return sameCom;
 	}
 	
+	//드레스 랜덤 가져오기
+	
+	public List<WDDress> dressRandom(WDDress wdDress)
+	{
+		List<WDDress> dressRandom = null;
+		
+		try 
+		{
+			dressRandom = wdDressDao.dressRandom(wdDress);
+		}
+		catch(Exception e)
+		{
+			logger.error("[WDDressService] dressRandom Exception", e);
+		}
+		
+		return dressRandom;
+	}
+	
 }

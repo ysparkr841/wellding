@@ -5,6 +5,11 @@
 	if(com.icia.web.util.CookieUtil.getCookie(request, (String)request.getAttribute("AUTH_COOKIE_NAME")) != null)
 	{
 %>
+<script>
+function openPop(){
+	var popup = window.open("/board/Coupon", 'pop', 'width=1000px,height=600px,scrollbars=yes');
+}
+</script>
 	<c:set var = "name" value="${param.userName }" />
     <!-- ***** 맨뒤 HEader ***** -->
     <div class="pre-header">
@@ -18,7 +23,7 @@
 
                         <a href="/user/myPage">마이페이지</a>
                         <a href="/loginOut">로그아웃</a>
-
+                        <a href="javascript:void(0)" target="_blank" onclick="openPop()">내 쿠폰</a>
                     </div>
                 </div>
             </div>
@@ -40,7 +45,7 @@
                 <div class="col-lg-6 col-sm-6">
                     <div class="text-button ourperson">
 
-                        <a>회원가입</a>
+                        <a href="/board/regform">회원가입</a>
                         <a href="/board/login">로그인</a>
 
                     </div>
@@ -73,8 +78,8 @@
                                 <a class="suba" href="#">Wedding Collection</a>
                                 <ul>
                                     <li class="subul"><a href="/hsdm/studio" class="sub">Studio</a></li>
-                                    <li class="subul"><a href="/hsdm/makeUp" class="sub">MakeUp</a></li>
                                     <li class="subul"><a href="/hsdm/dress" class="sub">Dress</a></li>
+                                    <li class="subul"><a href="/hsdm/makeUp" class="sub">MakeUp</a></li>
                                 </ul>
                             </li>
                             <li class="sub1">
