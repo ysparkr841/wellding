@@ -21,7 +21,9 @@
     ordered & tabbed in a way that represents the nesting of the generated HTML.
 */
 /*#cboxOverlay{background:url(/img/jquery.colorbox/overlay.png) repeat 0 0;}*/
+
 #cboxOverlay{background:rgba(0,0,0,0.9);}
+
 #colorbox{outline:0;}
     
     */
