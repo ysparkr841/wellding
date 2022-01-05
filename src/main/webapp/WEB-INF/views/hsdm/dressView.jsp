@@ -14,6 +14,15 @@ $(document).ready(function(){
 		</c:when>
 	</c:choose>
 });
+
+function fn_view(dNo)
+{
+	document.bbsForm.dNo.value = dNo;
+	document.bbsForm.searchType.value = $("#_searchType").val();
+	document.bbsForm.searchValue.value = $("#_searchValue").val();
+	document.bbsForm.action = "/hsdm/dressView";
+	document.bbsForm.submit();
+}   
 </script>
 </head> 
 <body>
@@ -71,26 +80,6 @@ $(document).ready(function(){
                             <div class="banner">
                                 <img src="../resources/images/tour.png" width="100%">
                             </div>
-                           <!---- 추가인원계산할때 쓸거
-                            <div class="quantity-content">
-                                <div class="left-content">
-                                    <h6>Standard Ticket</h6>
-                                    <p>$65 per ticket</p>
-                                </div>
-                                <div class="right-content">
-                                    <div class="quantity buttons_added">
-                                        <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="total">
-                                <h4>Total: $210.00</h4>
-                                <div class="main-dark-button"><a href="#">Purchase Tickets</a></div>
-                            </div>
-                            <div class="warn">
-                                <p>*You Can Only Buy 10 Tickets For This Show</p>
-                            </div> ---->
                             <div class="main-dark-button2"><a href="#">이 드레스 담기</a></div>
                         </div>
                     </div>
@@ -111,67 +100,21 @@ $(document).ready(function(){
 <c:if test="${!empty sameCom}">        
 	<c:forEach var="wdDress" items="${sameCom}" varStatus="status">
                	<div class="col-lg-3">
-                    <div class="ticket-item2">
+                    <div class="ticket-item2" onclick="fn_view('${wdDress.dNo}')">
                         <div class="thumb1">
                             <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
                         </div>
                         <div class="down-content dtbox">
                         	<div class="sd_title3">[<c:out value="${wdDress.dcName}" />] <c:out value="${wdDress.dName}" /></div>
                             <ul>
-                                <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
+                                <li class="dis_price2"><span class="discount2"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
                             </ul>
                         </div>
                     </div>
                	</div>    
      </c:forEach>
 </c:if>
-              	
-               	<!-- 02 -->
-               	<!--  div class="col-lg-3">
-                    <div class="ticket-item2">
-                        <div class="thumb1">
-                            <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
-                        </div>
-                        <div class="down-content dtbox">
-                        	<div class="sd_title3">[<c:out value="${wdDress.dcName}" />] <c:out value="${wdDress.dName}" /></div>
-                            <ul>
-                                <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
-                            </ul>
-                        </div>
-                    </div>
-               	</div-->   
-               	 
-               	<!-- 03 -->
-               	<!--div class="col-lg-3">
-                    <div class="ticket-item2">
-                        <div class="thumb1">
-                            <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
-                        </div>
-                        <div class="down-content dtbox">
-                        	<div class="sd_title3">[<c:out value="${wdDress.dcName}" />] <c:out value="${wdDress.dName}" /></div>
-                            <ul>    
-                                <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
-                            </ul>
-                        </div>
-                    </div>
-               	</div--> 
-               	
-               	<!-- 04 -->
-               	<!--div class="col-lg-3">
-                    <div class="ticket-item2">
-                        <div class="thumb1">
-                            <img src="../resources/images/dress/${wdDress.dImgname}" alt="">
-                        </div>
-                        <div class="down-content dtbox">
-                        	<div class="sd_title3">[<c:out value="${wdDress.dcName}" />] <c:out value="${wdDress.dName}" /></div>
-                            <ul>    
-                                <li class="dis_price"><span class="discount"><c:out value="${wdDress.dDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdDress.dPrice * (1-wdDress.dDiscount*0.01)}" />원</span></li>
-                            </ul>
-                        </div>
-                    </div>
-               	</div--> 
-              <!-- 같은 샵 다른상품 보기 끝 -->	
-              
+			<!-- 같은 샵 다른상품 보기 끝 -->
             </div>
         </div>
     </div>

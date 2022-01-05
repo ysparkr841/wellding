@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icia.web.dao.WDCommentDao">
+
+<!-- 댓글 resultMap 시작 -->
+<resultMap id="WDFBoardCommentResultMap" type="com.icia.web.model.WDComment">
+	<id column="PARENT_SEQ" property="parentSeq" />
+	<id column="COMMENT_SEQ" property="commentSeq" />
+	<id column="USER_ID" property="userId" />
+	<result column="WD_FBOARD_COMMENT" property="wdFBoardComment" />
+	<result column="REG_DATE" property="regDate" />
+	<result column="U_NICKNAME" property="uNickName" />
+	<result column="U_EMAIL" property="uEmail" />
+</resultMap>
+<!-- 댓글 resultMap 끝 -->
+
+
+<!-- 게시물에 대한 댓글 리스트 시작 -->
+<select id="commentList" parameterType="long" resultMap="WDFBoardCommentResultMap">
+SELECT
+    PARENT_SEQ,
+    COMMENT_SEQ,
+    USER_ID,
+    WD_FBOARD_COMMENT,
+    REG_DATE,
+    U_NICKNAME,
+    U_EMAIL
+FROM ( SELECT
+    ROWNUM RNUM,
+    PARENT_SEQ,
+    COMMENT_SEQ,
+    USER_ID,
+    WD_FBOARD_COMMENT,
+    REG_DATE,
+    U_NICKNAME,
+    U_EMAIL
+FROM (SELECT
+    A.PARENT_SEQ,
+    A.COMMENT_SEQ,
+    A.USER_ID,
+    NVL(A.WD_FBOARD_COMMENT, '') WD_FBOARD_COMMENT,
+    NVL(TO_CHAR(A.REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') REG_DATE,
+    NVL(B.U_NICKNAME, '') U_NICKNAME,
+    NVL(B.U_EMAIL, '') U_EMAIL
+FROM
+    WD_COMMENT A, WD_USER B
+WHERE
+    PARENT_SEQ = #{value}
+AND
+    A.USER_ID = B.USER_ID
+ORDER BY A.REG_DATE DESC))
+WHERE
+    RNUM <![CDATA[>=]]> 1
+AND
+    RNUM <![CDATA[<=]]> 10
+</select>
+<!-- 게시물에 대한 댓글 리스트 끝 -->
+
+<!-- 게시물 댓글 총 수 시작 -->
+<select id="commentListCount" parameterType="com.icia.web.model.WDComment" resultType="long">
+SELECT
+    MAX(COMMENT_SEQ)
+FROM
+    WD_COMMENT
+WHERE 
+    PARENT_SEQ = #{parentSeq}
+</select>
+<!-- 게시물 댓글 총 수 끝 -->
+
+<!-- 댓글 등록 시작 -->
+<insert id="WDCommentInsert" parameterType="com.icia.web.model.WDComment">
+INSERT INTO WD_COMMENT (
+    USER_ID,
+    WD_FBOARD_COMMENT,
+    REG_DATE,
+    PARENT_SEQ,
+    COMMENT_SEQ
+) VALUES (
+    #{userId},
+    #{wdFBoardComment},
+    SYSDATE,
+    #{parentSeq},
+    #{commentSeq}
+)
+</insert>
+<!-- 댓글 등록 끝 -->
+
+<!-- 게시물 댓글 갯수 확인 -->
+<select id="WDCommentMax" parameterType="long" resultType="int">
+SELECT
+    NVL(MAX(COMMENT_SEQ), 0) COMMENT_SEQ
+FROM
+    WD_COMMENT
+WHERE 
+    PARENT_SEQ = #{value}
+</select>
+<!-- 게시물 댓글 갯수 확인 -->
+
+
+</mapper>

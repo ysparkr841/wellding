@@ -70,7 +70,7 @@ function fn_list(curPage)
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading">
-                        <div class="category">
+                        <div class="category2">
                             <!-- h2>wellding Free Board</h2 -->
                             <p>Know-How</p>
                         </div>

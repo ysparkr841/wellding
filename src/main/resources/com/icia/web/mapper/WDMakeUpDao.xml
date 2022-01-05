@@ -112,5 +112,22 @@ AND
 </select>
 <!-- 메이크업 업체 정보 불러오기 종료 -->
 
-
+<!-- 메이트업 상세보기 시작 -->
+<select id="makeupSelect" parameterType="string" resultMap="WDMakeUpMap">
+SELECT
+    M_CODE AS M_CODE,
+    NVL(M_NAME, '') AS M_NAME,
+    NVL(M_LOCATION, '') AS M_LOCATION,
+    NVL(M_NUMBER, '') AS M_NUMBER,
+    NVL(M_IMGNAME, '') AS M_IMGNAME,
+    NVL(M_PRICE, 0) AS M_PRICE,
+    NVL(M_CONTENT, '') AS M_CONTENT,
+    NVL(M_PLUS, 0) AS M_PLUS,
+    NVL(M_DISCOUNT, '') AS M_DISCOUNT
+FROM
+    WD_MAKEUP
+WHERE
+    M_CODE = #{value}
+</select>
+<!-- 메이크업 상세보기 끝 -->
 </mapper>

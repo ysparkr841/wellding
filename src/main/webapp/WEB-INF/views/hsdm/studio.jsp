@@ -21,7 +21,7 @@ $(document).ready(function(){
 function fn_view(sCode)
 {
 	document.bbsForm.sCode.value = sCode; //실행하면 bbsForm 안에 <input type="hidden" name="hiBbsSeq" value="" />의 value에 값이 들어가게됨
-	document.bbsForm.action = "/hsdm/view";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
+	document.bbsForm.action = "/hsdm/studioView";	//서치타입과 서치밸유는 이미 들어가있으니까(위에서 설정) 넣을 필요없음
 	document.bbsForm.submit();
 }     
 
@@ -32,6 +32,13 @@ function fn_list(curPage)
    document.bbsForm.action = "/hsdm/studio";
    document.bbsForm.submit();
 }
+
+$('.post-wrapper').slick({
+	  slidesToShow: 3,
+	  slidesToScroll: 1,
+	  autoplay: true,
+	  autoplaySpeed: 2000,
+	});
 </script>  
 </head> 
 <body>
@@ -51,7 +58,7 @@ function fn_list(curPage)
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>STUDIO</h2>
+                    <h1>STUDIO</h1>
                     <!-- span>Check out upcoming and past shows & events and grab your ticket right now.</span -->
                 </div>
             </div>
@@ -114,10 +121,10 @@ function fn_list(curPage)
                                 <div class="sd_detail"><c:out value="${wdStudio.sContent}" /></div>
                             <ul>    
                                 <li class="price"><fmt:formatNumber type="number" maxFractionDigits="3" value="${wdStudio.sPrice}" />원</li>
-                                <li class="dis_price"><span class="discount">28%</span> <span class="dis-price">396,000원</span></li>
+                                <li class="dis_price2"><span class="discount2"><c:out value="${wdStudio.sDiscount}" />%</span> <span class="dis-price"><fmt:formatNumber type="number" maxFractionDigits="0" value="${wdStudio.sPrice * (1-wdStudio.sDiscount*0.01)}" />원</span></li>
                             </ul>
                             <div class="main-dark-button">
-                                <a href="ticket-details.html">스튜디오 자세히보기</a>
+                                <a href="javascript:void(0)" onclick="fn_view('${wdStudio.sCode}')">자세히 보기</a>
                             </div>
                         </div>
                     </div>

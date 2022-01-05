@@ -11,7 +11,7 @@ public class WDEBoard implements Serializable
 	private String eBTitle;
 	private String eBContent;
 	private String eBImgName;
-	private int eBReadCnt;
+	private long eBReadCnt;
 	private String regDate;
 	
 	private String adminName; 	//사용자 이름
@@ -69,7 +69,7 @@ public class WDEBoard implements Serializable
 		this.eBContent = eBContent;
 	}
 
-	public int geteBReadCnt() {
+	public long geteBReadCnt() {
 		return eBReadCnt;
 	}
 

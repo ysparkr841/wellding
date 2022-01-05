@@ -24,8 +24,10 @@ import com.icia.common.util.StringUtil;
 import com.icia.web.model.Paging;
 import com.icia.web.model.Response;
 import com.icia.web.model.WDBoardFile;
+import com.icia.web.model.WDComment;
 import com.icia.web.model.WDFBoard;
 import com.icia.web.model.WDUser;
+import com.icia.web.service.WDCommentService;
 import com.icia.web.service.WDFBoardService;
 import com.icia.web.service.WDUserService;
 import com.icia.web.util.CookieUtil;
@@ -45,6 +47,9 @@ public class WDFBoardController
 	@Autowired
 	private WDUserService wdUserService;
 	
+	@Autowired
+	private WDCommentService wdCommentService;
+	
 	//파일 저장경로
 	@Value("#{env['upload.save.dir']}")
 	private String UPLOAD_SAVE_DIR;
@@ -60,8 +65,6 @@ public class WDFBoardController
 		long curPage = HttpUtil.get(request, "curPage", (long)1);
 		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
 		
-		logger.debug("============searchType========= : "+ searchType);
-		logger.debug("============searchValue========= : "+ searchValue);
 		
 		WDUser wdUser = wdUserService.userSelect(cookieUserId);
 		
@@ -139,7 +142,7 @@ public class WDFBoardController
 	
 	
 	
-	//상세페이지
+	//상세 뷰페이지
 	@RequestMapping(value="/board/fBoardView")
 	public String fBoardView(ModelMap model, HttpServletRequest request, HttpServletResponse response) 
 	{
@@ -151,16 +154,28 @@ public class WDFBoardController
 		long curPage = HttpUtil.get(request, "curPage", (long)1);
 		
 		String boardMe = "N";
-		WDFBoard wdFBoard =null;
+		WDFBoard wdFBoard = null;
 		
+		//댓글 리스트 객체
+		List<WDComment> commentList = null;
+		WDComment wdComment = new WDComment();
+		
+		int maxComment = 0;
+		System.out.println("여기 사람있어요");
 		if(bSeq > 0) 
 		{
+			System.out.println("시퀀스 번호 제대로 들어옴");
 			wdFBoard = wdFBoardService.wdFBoardView(bSeq);
 			
 			if(wdFBoard != null && StringUtil.equals(wdFBoard.getUserId(), cookieUserId)) 
 			{
 				boardMe = "Y";
 			}
+			commentList = wdCommentService.commentList(bSeq);
+			maxComment = wdCommentService.WDCommentMax(bSeq);
+			
+			model.addAttribute("commentList",commentList);
+			model.addAttribute("maxComment",maxComment);
 		}
 		
 		if(wdFBoard.getWdBoardFile() != null) 
@@ -346,5 +361,49 @@ public class WDFBoardController
 		return modelAndView;
 	}
 	
+	//게시물 댓글 등록
+	   @RequestMapping(value="/board/CommentProc", method=RequestMethod.POST)
+	   @ResponseBody
+	   public Response<Object> CommentProc(HttpServletRequest request, HttpServletResponse response){
+		   Response<Object> ajaxResponse = new Response<Object>();
+		   String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		   long bSeq = HttpUtil.get(request, "bSeq", (long)0);
+		   String wdFBoardComment = HttpUtil.get(request, "wdFBoardComment", "");
+		   
+		   WDComment wdComment = new WDComment();
+		   WDUser wdUser = null;
+
+		   if(bSeq > 0 && !StringUtil.isEmpty(wdFBoardComment)) {
+			   WDFBoard wdFBoard = wdFBoardService.wdFBoardView(bSeq);
+			   if(wdFBoard != null) {
+				   int maxcomment = wdCommentService.WDCommentMax(wdFBoard.getbSeq());
+				   wdUser = wdUserService.userSelect(cookieUserId);
+				  
+				   wdComment.setParentSeq(wdFBoard.getbSeq());
+				   wdComment.setCommentSeq(maxcomment+1);
+				   wdComment.setUserId(cookieUserId);
+				   wdComment.setuNickName(wdUser.getUserNickname());
+				   wdComment.setuEmail(wdUser.getUserEmail());
+				   wdComment.setWdFBoardComment(wdFBoardComment);
+				   
+				   if(wdCommentService.WDCommentInsert(wdComment) > 0) {
+					   ajaxResponse.setResponse(0, "Success");
+				   }
+				   else {
+					   ajaxResponse.setResponse(500, "Internal Server Error");
+				   }				   
+			   }
+			   else {
+				   	//계정이 없음
+		            ajaxResponse.setResponse(404, "Not Found");
+			   }
+		   }
+		   else {
+			   //파라미터값 잘못된 경우
+			   ajaxResponse.setResponse(400, "Bad Request");
+		   }
+		   
+		   return ajaxResponse;
+	   }	
 	
 }

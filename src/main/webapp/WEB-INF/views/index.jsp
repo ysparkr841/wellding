@@ -4,6 +4,15 @@
 <html>
 <head>
 	<%@ include file="/WEB-INF/views/include/head.jsp" %>
+	<script>
+	   function fn_view(whCode, hCode)
+	   {
+	      document.hallForm.WHCode.value = whCode;
+	      document.hallForm.HCode.value = hCode;
+	      document.hallForm.action = "/hsdm/HallView";  
+	      document.hallForm.submit();
+	   }
+	</script>
 </head> 
     <body>  
     <!-- 메뉴바 시작 -->
@@ -38,10 +47,10 @@
 			        </div>
                 </div>
                 <c:forEach var="hallList" items="${hall}" varStatus="status">
-	                <div class="col-lg-4">
+	                <div class="col-lg-4" onclick="fn_view('${hallList.WHCode}', '${hallList.HCode}')">
 	                    <div class="event-item2">
 	                        <div class="thumb2">
-	                            <a href="event-details.html"><img src="/resources/hsdm/${hallList.HImgName}" alt=""></a>
+	                            <a href="event-details.html"><img src="/resources/hsdm/${hallList.HImgName}" alt=""></a>	              
 	                        </div>
 	                        <div class="down-content2">
 	                            <a href="event-details.html"><h4>${hallList.HName}</h4></a>
@@ -53,7 +62,7 @@
 	                                </li>
 	                            </ul>
 		                        <div class="main-white-button">
-		                            <a href="ticket-details.html">VIEW MORE ▶</a>
+		                            <a href="javascript:void(0)" onclick="fn_view('${hallList.WHCode}', '${hallList.HCode}')" >VIEW MORE ▶</a>
 		                        </div>
 	                        </div>
 	                    </div>
@@ -114,9 +123,9 @@
                 <div class="col-lg-4">
                     <div class="venue-item">
                         <div class="thumb sdmimg">
-                        <a href="#">
+                        <a href="/hsdm/studio">
                             <img src="/resources/images/S68.jpg" width="100%" height="auto">
-                            <a class="sdm_title" href="#">Studio</a>
+                            <a class="sdm_title" href="/hsdm/studio">Studio</a>
                         </a>
                         </div>
                     </div>
@@ -124,9 +133,9 @@
                 <div class="col-lg-4">
                     <div class="venue-item">
                         <div class="thumb sdmimg">
-                        	<a href="#">
+                        	<a href="/hsdm/dress">
 	                            <img src="/resources/images/D10.jpg" width="100%" height="auto">
-	                        	<a class="sdm_title" href="#">Dress</a>                       	
+	                        	<a class="sdm_title" href="/hsdm/dress">Dress</a>                       	
                         	</a>
                         </div>
                     </div>
@@ -134,9 +143,9 @@
                 <div class="col-lg-4">
                     <div class="venue-item">
                         <div class="thumb sdmimg">
-                      		<a href="#">
+                      		<a href="/hsdm/makeUp">
 	                            <img src="/resources/images/M00.jpg" width="100%" height="auto">
-	                        	<a class="sdm_title" href="#">Makeup</a>
+	                        	<a class="sdm_title" href="/hsdm/makeUp">Makeup</a>
                         	</a>
                         </div>
                     </div>
@@ -293,6 +302,13 @@
             </div>
         </div>
     </div>
+    
+    <!-- 홀 랭킹 뷰를 위한 폼 -->
+    <form name="hallForm" id="hallForm" method="post">
+      <input type="hidden" name="WHCode" value="" /> 
+      <input type="hidden" name="HCode" value="" /> 
+   </form>
+   <!-- 홀 랭킹 뷰를 위한 폼 -->
 
  <!-- *** 욱채수정Footer 시작 *** -->
  	<%@ include file="/WEB-INF/views/include/footer.jsp" %>

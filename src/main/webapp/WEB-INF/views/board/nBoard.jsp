@@ -99,8 +99,7 @@ function fn_list(curPage)
                     </div>
                 </div>
                 <div class="col-lg-12">
-                	<div class="heading">
-                		<h2></h2>
+                	<div class="heading" style="margin-bottom:20px">
                 	</div>
                 </div>
                 <div class="col-lg-12" style="border-bottom: 1px solid black">
@@ -108,7 +107,7 @@ function fn_list(curPage)
                         <li>
                             <table class="table table-hover">
                                 <thead>
-                                    <tr style="background-color: #dee2e6;">
+                                    <tr style="background-color: #e9e8e8;">
                                     <th scope="col" class="text-center" style="width:10%">번호</th>
                                     <th scope="col" class="text-center" style="width:50%">제목</th>
                                     <th scope="col" class="text-center" style="width:20%">작성자</th>

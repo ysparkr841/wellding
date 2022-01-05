@@ -67,6 +67,7 @@
 
             			<value>/board/nBoard</value>
             			<value>/board/eBoard</value>
+            			<value>/board/eView</value>
             			<value>/hsdm/studio</value>
             			<value>/board/fBoard</value>
             			<value>/hsdm/halllist</value>  
@@ -74,11 +75,16 @@
 						<value>/hsdm/HallView</value>
             			<value>/imokay</value>
             			<value>/board/fBoardWrite</value>
-            			<value>/board/fBoardView</value>          			
+            			<value>/board/fBoardView</value>
+            			<value>/about</value>
+            			<value>/board/Coupon</value>
+            			<value>/Termsofuse</value>          			          			
  
-            			<value>/hsdm/makeUp</value>
-            			
-            			<value>/hsdm/dressView</value>     			
+             			<value>/hsdm/makeUp</value>
+            			<value>/hsdm/dressView</value>   
+            			<value>/hsdm/studioView</value> 
+            			<value>/hsdm/makeupView</value>  			
+
 
 
             		</list>
