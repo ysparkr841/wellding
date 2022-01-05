@@ -114,7 +114,7 @@ $(document).ready(function(){
                	작성자 : <c:out value="${wdFBoard.userNickname}"/>
                </td>
                <td scope="col" style="width:40%" class="text-right">
-                  <div>${fBoard.regDate}</div>
+                  <div>${wdFBoard.regDate}</div>
                </td>
          </thead>
          <tbody>
@@ -122,6 +122,8 @@ $(document).ready(function(){
                <td colspan="2" style="text-align:center">
                <div style="padding:10px"><pre><c:out value="${wdFBoard.bContent}" /></pre></div></td>
             </tr>
+            <div>
+            </div>
          </tbody>
          <form name="commentForm" id="commentForm" method="post">
          <tbody>
@@ -147,12 +149,18 @@ $(document).ready(function(){
          </form>
          <tfoot>
          <tr>
+         <td colspan="2">
+         
+         </td>
+         </tr>
+         <tr>
                <td colspan="2"><button type="button" id="btnList" class="w-btn w-btn-green2" style="float: right">리스트</button></td>
          </tr>
          </tfoot>
       </table>
    </div>
 </div>
+
 
 <form name="bbsForm" id="bbsForm" method="post">
    <input type="hidden" name="bSeq" value="${bSeq}" />

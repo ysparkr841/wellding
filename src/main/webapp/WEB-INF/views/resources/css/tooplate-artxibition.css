@@ -2851,6 +2851,44 @@ Shows Events Page
   text-shadow: 2px 3px 15px #82623b;
 }
 
+/*이벤트 리스트*/
+.page-heading-shows-events5 {
+	background-image: url(../images/eBoard\ banner.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 70px 0px;
+	text-align: center;
+	background-position: center 36%;
+}
+
+.page-heading-shows-events5 h2 {
+	font-size: 140px;
+	color: #fff;
+	font-weight: 500;
+	/*margin-bottom: 15px;*/
+	font-family: 'Nanum Brush Script', cursive;
+	text-shadow: 2px 3px 15px #82623b;
+}
+
+#eback {
+	background-color: #efefef;
+	font-family: 'Jua', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	padding:0px;
+}
+
+#eback2 {padding:0px;}
+
+#etitle {
+	text-align: center;
+	font-family: 'Jua', sans-serif;
+}
+
+#search-box{padding:0px;}
+
+
 /*
 .page-heading-shows-events span {
   font-size: 20px;
@@ -5454,6 +5492,11 @@ responsive
 .container .dongdong
 {
 	background-color: #e9e8e8;
+}
+
+.container .dongdong2
+{
+	background-color: #edacb1;;
 }
 /* 동욱 추가 끝 */
 

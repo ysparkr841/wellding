@@ -103,4 +103,12 @@ SELECT
             AND
                 A.ADMIN_ID = B.ADMIN_ID
 </select>
+
+<!-- 게시물 조회수 증가 시작 -->
+<update id="eBoardReadCntPlus" parameterType="long">
+UPDATE WD_EBOARD
+   SET B_READ_CNT = B_READ_CNT + 1
+ WHERE B_SEQ = #{value}
+</update>
+<!-- 게시물 조회수 증가 종료 -->
 </mapper>
