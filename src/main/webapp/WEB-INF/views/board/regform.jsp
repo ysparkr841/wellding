@@ -3,19 +3,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-   	<%@ include file="/WEB-INF/views/include/head.jsp" %>
+      <%@ include file="/WEB-INF/views/include/head.jsp" %>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!--===============================================================================================-->
-   	<link rel="stylesheet" type="text/css" href="../resources/css/regform.css">
+      <link rel="stylesheet" type="text/css" href="../resources/css/regform.css">
 <!--===============================================================================================-->
    <script type="text/javascript">
   
    
    $(document).ready(function() {
+      
+     
 	   
-	  
 
    $("#id").focus();
     // 모든 공백 체크 정규식
@@ -147,114 +148,116 @@ $("#name").keyup(function(){
 
 
 
-	$("#id").keyup(function(){
-		
-	
-		$("#pwd1").val($("#pwd2").val());
-		
-		$.ajax({
-			
-			type: "POST",
-			url : "/user/idCheck",
-			data : {
-				userId :$("#id").val()
-			},
-			datatype : "JSON",
-			beforeSend : function(xhr)
-			{
-				 xhr.setRequestHeader("AJAX", "true");
-			},
-			
-			success: function(response)
-			{
-				if(response.code == 0)
-					{
-					fn_userReg(); //성공
-					}
-				else if(response.code == 100)
-					{
-					 $('p').eq(0).text("중복된 아이디입니다.");
-				     $('p').eq(0).css('color', 'red');
-					}
-				else if(response.code == 400)
-					{
-					$('p').eq(6).text("파라미터 값이 잘못되었습니다.");
-				    $('p').eq(6).css('color', 'red');
-					}
-				else
-					{
-					$('p').eq(6).text("오류가 발생했습니다.");
-				    $('p').eq(6).css('color', 'red');
-					}
-			},
-			 complete:function(data)
-	    	 {
-	    		 icia.common.log(data);
-	    	 },
-	    	 error:function(xhr,status,error)
-	    	 {
-	    		 icia.common.error(error);
-	    	 }
-	    	 
-		});
-	});
-	$("#btnReg").on("click",function(){
-	    $.ajax({
-	    	  type: "POST",
-	    	  url: "/user/regProc",
-	    	  data:{
-	    		  id: $("#id").val(),
-	    		  pwd1: $("#pwd1").val(),
-	    		  name: $("#name").val(),
-	    		  number : $("#number").val(),
-	    		  year : $("#year").val(),
-	    		  month : $("#month").val(),
-	    		  day : $("#day").val(),
-	    		  gender : $("#gender").val(),
-	    		  nickname : $("#nickname").val(),
-	    		  email : $("#email").val()
-	    	  },
-	    	  datatype: "JSON",
-	    	  beforeSend: function(xhr){
-	    		  xhr.setRequestHeader("AJAX", "true");
-	    	  },
-	    	  success: function(response){
-	    		  if(response.code == 0)
-	    		  {
-	    			  alert("회원가입이 완료되었습니다.");
-	    			  location.href = "/board/login";
-	    		  } 
-	    		  else if(response.code == 400)
-	    		  {
-	    			  alert("파라미터값이 잘못되었습니다.");
-	    			  $("#userId").focus();
-	    		  }
-	    		  else if(response.code == 500)
-	    		  {
-	    			  alert("회원가입 중 오휴가 발생했습니다.");
-	    			  $("#userId").focus();
-	    		  }
-	    		  else
-	    		  {
-	    			  alert("오류가 발생했습니다.");
-	    			  $("#userId").focus();
-	    		  }
-	    	  },
-	    	  complete: function(data)
-	    	  {
-	    		  icia.common.log(data);
-	    	  },
-	    	  error: function(xhr, status, error)
-	    	  {
-	    		  icia.common.error(error);
-	    	  }
-	      });
-	});
+   $("#id").keyup(function(){
+      
+   
+      $("#pwd1").val($("#pwd2").val());
+      
+      $.ajax({
+         
+         type: "POST",
+         url : "/user/idCheck",
+         data : {
+            userId :$("#id").val()
+         },
+         datatype : "JSON",
+         beforeSend : function(xhr)
+         {
+             xhr.setRequestHeader("AJAX", "true");
+         },
+         
+         success: function(response)
+         {
+            if(response.code == 0)
+               {
+               fn_userReg(); //성공
+               }
+            else if(response.code == 100)
+               {
+                $('p').eq(0).text("중복된 아이디입니다.");
+                 $('p').eq(0).css('color', 'red');
+               }
+         
+         },
+          complete:function(data)
+           {
+              icia.common.log(data);
+           },
+           error:function(xhr,status,error)
+           {
+              icia.common.error(error);
+           }
+           
+      });
+   });
+   $("#btnReg").on("click",function(){
+      
+      
+       $.ajax({
+            type: "POST",
+            url: "/user/regProc",
+            data:{
+               id: $("#id").val(),
+               pwd1: $("#pwd1").val(),
+               name: $("#name").val(),
+               number : $("#number").val(),
+               year : $("#year").val(),
+               month : $("#month").val(),
+               day : $("#day").val(),
+               gender : $("#gender").val(),
+               nickname : $("#nickname").val(),
+               email : $("#email").val()
+            },
+            datatype: "JSON",
+            beforeSend: function(xhr){
+               xhr.setRequestHeader("AJAX", "true");
+            },
+            success: function(response){
+               if(response.code == 0)
+               {
+                  alert("회원가입이 완료되었습니다.");
+                  location.href = "/board/login";
+               } 
+               else if(response.code == 400)
+               {
+                  alert("회원가입 중 오류가 발생했습니다..");
+                  location.href = "/board/regform";
+               }
+               else if(response.code == 500)
+               {
+                  alert("회원가입 중 오류가 발생했습니다.");
+                  location.href = "/board/regform";
+               }
+               else
+               {
+                  alert("오류가 발생했습니다.");
+                  $("#id").focus();
+               }
+            },
+            complete: function(data)
+            {
+               icia.common.log(data);
+            },
+            error: function(xhr, status, error)
+            {
+               icia.common.error(error);
+            }
+       
+         });
+   
 
-});
+      });
    
+   $("#btnCC").on("click", function(){
+		 
+		 alert("회원가입이 취소되었습니다.");
+		 location.href = "/board/login";
+		
+	   	}); 
+   });
    
- 
+  
+   
 function fn_validateEmail(value)
 {
   var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
@@ -282,11 +285,11 @@ function fn_validateEmail(value)
                <input type="text" id="id" name="id" placeholder="아이디를 입력해 주세요" value=""></div>
                <p class="msg">영문/숫자 4자 이상을 입력해 주세요.</p>
                </dd>
-			   
+            
                <dt>비밀번호</dt>
                <dd>
                   <div class="input">
-					<input type="password" id="pwd1" name="pwd1" placeholder="비밀번호를 입력해 주세요" maxlength="20">
+               <input type="password" id="pwd1" name="pwd1" placeholder="비밀번호를 입력해 주세요" maxlength="20">
 
                   </div>
                   <p class="msg">4~16자의 영문 대/소문자, 숫자를 사용하세요.</p>
@@ -303,12 +306,12 @@ function fn_validateEmail(value)
                <dd>
                   <div class="input">
                      <input type="text" id="name" name="name" placeholder="이름을 입력해주세요">
-					 <p class="msg"></p>
+                <p class="msg"></p>
       
                   </div>
                  
                </dd>
-			   <dt>전화번호</dt>
+            <dt>전화번호</dt>
                <dd>
                   <div class="input">
                      <input type="text" id="number" name="number" placeholder="전화번호를 입력해주세요">
@@ -382,28 +385,28 @@ function fn_validateEmail(value)
                <label class="selector"><input type="radio" name="gender" id="gender" value="M"><span>남자</span></label>
                <label class="selector"><input type="radio" name="gender" id="gender"  value="F"><span>여자</span></label>
             </dd>
-			<dt>닉네임</dt>
-			<dd>
-			   <div class="input">
-				  <input type="text" id="nickname" name="nickname" placeholder="닉네임을 입력해주세요">
-			   </div>
-			   <p class="msg"></p>
-			  
-			</dd>
+         <dt>닉네임</dt>
+         <dd>
+            <div class="input">
+              <input type="text" id="nickname" name="nickname" placeholder="닉네임을 입력해주세요">
+            </div>
+            <p class="msg"></p>
+           
+         </dd>
             <dt>이메일</dt>
             <dd>
                <div class="input"><input id="email" name="email" data-bind="email" type="text" placeholder="이메일을 입력해주세요" value=""></div>
                <p class="msg"></p>
          </form>     
                  
-  		 <div class="button_area">
-		<button class="btn_type" id="btnReg">가입 완료하기</button>
-		<button class="btn_type" >취소</button>
-		<input type="hidden" id="pwd" name="pwd" value="" />
+         <div class="button_area">
+      <button class="btn_type" id="btnReg">가입 완료하기</button>
+      <button class="btn_type" id="btnCC">취소</button>
+      <input type="hidden" id="pwd" name="pwd" value="" />
 
-	
-		
-		   </div>
+   
+      
+         </div>
                      </div>
                   </div>
                </dd>
@@ -412,7 +415,7 @@ function fn_validateEmail(value)
    </div>
 
    <div class="footer">
-	   <div class="copyright">COPYRIGHT. WELLDING INC. ALL RIGHTS RESERVED</div>
+      <div class="copyright">COPYRIGHT. WELLDING INC. ALL RIGHTS RESERVED</div>
    </div>
 
   
