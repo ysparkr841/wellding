@@ -9,7 +9,7 @@
 </head>
 <body>
 
-		<table>
+		<table style="font-size: 2px">
 		<tr>
 		<td>
 				1 개인정보의 처리 목적
