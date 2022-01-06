@@ -85,15 +85,39 @@
 					<div class="col-lg-1">
 					</div>
 					
+						<div class="col-lg-10">
+							<h2 style="font-family: 'Bitter', serif; margin-top: 10px; padding-left: 10px;">My Page</h2>
+							<nav class="bcItem">
+								<ol class="breadcrumb bc" >
+									<li class="breadcrumb-item">
+										<a href="#" class="bcFirst">장바구니</a>
+									</li>
+									<li class="breadcrumb-item">
+										<a href="#">결제내역</a>
+									</li>
+									<li class="breadcrumb-item">
+										<a href="#">쿠폰보유현황</a>
+									</li>
+									<li class="breadcrumb-item">
+										<a href="#">회원정보수정</a>
+									</li>
+								</ol>
+							</nav>
+						
+						</div>
+						<div class="col-lg-1">
+						</div>
+>>>>>>> 01afc9da66a1f317affb8de2a754a2716077c08b
 					
 				</div>
 			</div>
-		</div>
-		<div class="row">
+			
 			<div class="col-lg-12">
 			dddd
 			</div>
+			
 		</div>
+	</div>	
 	
 		<%@ include file="/WEB-INF/views/include/footer.jsp" %>
   </body>
