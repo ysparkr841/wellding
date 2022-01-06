@@ -66,6 +66,17 @@ $(function(){
 
 function fn_loginCheck()
 {
+	var check;
+	if($('#id1').hasClass('selected')){
+		check = 1;
+	}
+	if($('#id2').hasClass('selected')){
+		check = 2;
+	}
+	if($('#id3').hasClass('selected')){
+		check = 3;
+	}
+	
 	if($.trim($("#userId").val()).length <= 0)
 	{
 		alert("아이디를 입력하세요.");
@@ -153,7 +164,12 @@ function fn_loginCheck()
 }
 
 
-
+function classChange(id){
+	document.getElementById('id1').classList.remove('selected');
+	document.getElementById('id2').classList.remove('selected');
+	document.getElementById('id3').classList.remove('selected');
+	id.setAttribute('class','selected');
+}
 </script>
 </head>
 <body>
@@ -171,9 +187,9 @@ function fn_loginCheck()
 						<div class="mTab eTab">
 							<ul>
 								
-								<li class="selected"><a href="#" onclick="changeLogin('3', 'F', 'F');">회원</a></li>
-								<li><a href="loginform2.html" onclick="changeLogin('2', 'F', 'F');">관리자</a></li>
-								<li><a href="loginform3.html" onclick="changeLogin('2', 'F', 'F');">전문가</a></li>
+								<li id="id1" class="selected" onclick="classChange(this)"><a href="javascript:void(0)">회원</a></li>
+								<li id="id2" onclick="classChange(this)"><a href="javascript:void(0)" >관리자</a></li>
+								<li id="id3" onclick="classChange(this)"><a href="javascript:void(0)" >전문가</a></li>
 								<!-- <li class="selected"><a href="#" onclick="changeLogin('3', 'F', 'F');">전문가</a></li> -->
 							</ul>
 						</div>
