@@ -5900,4 +5900,9 @@ responsive
 	background-color: #F0F9F8;
 }
 
+#minthover:hover
+{
+	color:#212529;background-color:rgba(0,0,0,.075)
+}
+
 /* 동욱 추가 민트테마 끝 */
