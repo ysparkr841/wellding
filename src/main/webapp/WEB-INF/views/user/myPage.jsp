@@ -43,7 +43,7 @@
 							<a href="#" class="list-group-item list-group-item-action">장바구니</a>
 							<a href="#" class="list-group-item list-group-item-action">결제내역</a>
 							<a href="#" class="list-group-item list-group-item-action">쿠폰보유현황</a>
-							<a href="#" class="list-group-item list-group-item-action justify-content-between">회원정보수정 <span class="badge badge-info badge-pill">수정</span></a>
+							<a href="/user/modify" class="list-group-item list-group-item-action justify-content-between">회원정보수정 <span class="badge badge-info badge-pill">수정</span></a>
 						</div>
 					</div>
 					<div class="col-md-9">
@@ -76,7 +76,7 @@
 									<a href="#">쿠폰보유현황</a>
 								</li>
 								<li class="breadcrumb-item">
-									<a href="#">회원정보수정</a>
+									<a href="/user/modify">회원정보수정</a>
 								</li>
 							</ol>
 						</nav>

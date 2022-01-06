@@ -92,7 +92,7 @@
     <script src="../resources/js/mixitup.js"></script> 
     <script src="../resources/js/accordions.js"></script>
     <script src="../resources/js/owl-carousel.js"></script>
-<<<<<<< HEAD
+
     <script>
 function termsofuse(){
    $('#MoaModal .modal-content').load("/Termsofuse");
@@ -100,7 +100,7 @@ function termsofuse(){
 }
 </script>
     
-=======
+
 
 <script>    
 	$(document).ready(function(){
@@ -128,7 +128,7 @@ function termsofuse(){
 	});
 </script>    
 
->>>>>>> 99752df3767c7b645b0e21af459eab9b6c6eb488
+
     <!-- Global Init -->
 
     <!-- script src="../resources/js/custom.js"></script -->
