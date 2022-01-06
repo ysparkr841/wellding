@@ -35,7 +35,7 @@
                             <div class="menu">
                                 <ul>
                                     <li><a href="index.html" class="active">메인페이지</a></li>
-                                    <li><a href="">이용약관</a></li>
+                                    <li><a id="terms" href="/include/Terms" data-lightbox="Terms" data-title="My caption">이용약관</a></li>
                                     <li><a id="policy" href="/include/PrivacyPolicy" data-lightbox="Privacy Policy" data-title="My caption">개인정보처리방침</a></li>
                                     <li><a href="/about">오시는 길</a></li> 
                                     <li><a href="">고객센터</a></li> 
@@ -103,6 +103,30 @@ function termsofuse(){
 <script>    
 	$(document).ready(function(){
 		   $("#policy").colorbox({
+			      iframe:true, 
+			      innerWidth:1235,
+			      innerHeight:400,
+			      overlayClose:true,
+			      escKey:true,
+			      closeButton:true,
+			      scrolling:true,
+			      onComplete:function()
+			      {
+			         $("#colorbox").css("width", "1235px");
+			         $("#colorbox").css("height", "400px");
+			         $("#colorbox").css("border-radius", "10px");
+			         
+			         $('html').css("overflow","hidden");
+			      },
+			      onClosed:function()
+			      {
+			    	 $('html').css("overflow","auto");
+			      }
+			   });
+	});
+	
+	$(document).ready(function(){
+		   $("#terms").colorbox({
 			      iframe:true, 
 			      innerWidth:1235,
 			      innerHeight:400,

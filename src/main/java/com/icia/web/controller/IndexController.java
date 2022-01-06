@@ -195,6 +195,12 @@ public class IndexController
 		return "/include/PrivacyPolicy";
 	}
 	
+	@RequestMapping(value="/include/Terms")
+	public String term(ModelMap model, HttpServletRequest request, HttpServletResponse response)
+	{
+		return "/include/Terms";
+	}
+	
 	@RequestMapping(value="/user/myPage")
 	public String myPage(ModelMap model, HttpServletRequest request, HttpServletResponse response) 
 	{
