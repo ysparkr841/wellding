@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.icia.web.model.Paging;
+import com.icia.web.model.User;
 import com.icia.web.model.WDEBoard;
 import com.icia.web.model.WDFBoard;
 import com.icia.web.model.WDHall;
@@ -153,7 +154,20 @@ public class IndexController
 	{
 		return "/board/regform";
 	}
-
+	
+	//회원수정화면
+	@RequestMapping(value="/user/modify", method=RequestMethod.GET)
+	public String modify(ModelMap model, HttpServletRequest request, HttpServletResponse response)
+	{
+		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		
+		WDUser wdUser = wdUserService.userSelect(cookieUserId);
+		
+		model.addAttribute("wdUser", wdUser);
+		
+		
+		return "/user/modify";
+	}
 	
 	/* 어바웃 페이지 */
 	@RequestMapping(value="/about")

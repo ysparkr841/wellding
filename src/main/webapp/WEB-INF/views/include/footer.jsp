@@ -100,6 +100,8 @@ function termsofuse(){
 }
 </script>
     
+
+
 <script>    
 	$(document).ready(function(){
 		   $("#policy").colorbox({
@@ -149,6 +151,7 @@ function termsofuse(){
 			   });
 	});
 </script>    
+
 
     <!-- Global Init -->
 

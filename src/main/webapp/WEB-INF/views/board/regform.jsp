@@ -345,7 +345,7 @@ function fn_validateEmail(value)
                </select>
                <select id="day" class="day">
                   <option>일</option>
-                  <option value="01">1</option>
+               <option value="01">1</option>
                <option value="02">2</option>
                <option value="03">3</option>
                <option value="04">4</option>
@@ -397,7 +397,9 @@ function fn_validateEmail(value)
                <div class="input"><input id="email" name="email" data-bind="email" type="text" placeholder="이메일을 입력해주세요" value=""></div>
 
                <p class="msg"></p>
-                 
+
+               <p class="msg"></p>     
+
          <div class="button_area">
       <button class="btn_type" id="btnReg">가입 완료하기</button>
       <button class="btn_type" id="btnCC">취소</button>
