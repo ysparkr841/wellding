@@ -42,6 +42,8 @@ $(function(){
 		
 		var id = $("#userId").val();
 		var pwd = $("#userPwd").val();
+		var check;
+		
 		
 		if(id <= 0)
 			{
@@ -49,38 +51,25 @@ $(function(){
 			$("#userId").focus();
 			return;
 			}
-		else if(pwd <= 0)
+		if(pwd <= 0)
 			{
 			$('p').text("비밀번호를 입력해주세요.");
 			$("#userPwd").focus();
 			return;
 			}
 		
-<<<<<<< HEAD
-=======
-		if(e.which == 13)
-		{	
-
-			fn_loginCheck();
+		if($('#id1').hasClass('selected')){
+			check = 1;
 		}
+		if($('#id2').hasClass('selected')){
+			check = 2;
+		}
+		if($('#id3').hasClass('selected')){
+			check = 3;
+		}
+
 		
-	});
-	
 
-});
-
-function fn_loginCheck()
-{
-	var check;
-	if($('#id1').hasClass('selected')){
-		check = 1;
-	}
-	if($('#id2').hasClass('selected')){
-		check = 2;
-	}
-	if($('#id3').hasClass('selected')){
-		check = 3;
-	}
 	
 	if($.trim($("#userId").val()).length <= 0)
 	{
@@ -95,7 +84,7 @@ function fn_loginCheck()
 		$("#userPwd").focus();
 		return;
 	}
->>>>>>> f37e623f86aa102ccb92007acdb8f20b65937cd1
+
 	
 	$.ajax({
 		type : "POST",
@@ -166,13 +155,13 @@ function fn_loginCheck()
 			icia.common.error(error);
 		}
 	});
-
-
-
+	});
 
 });
 
-});
+
+
+
 
 
 function classChange(id){
