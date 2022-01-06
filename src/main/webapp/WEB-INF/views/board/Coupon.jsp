@@ -119,38 +119,22 @@ $(document).ready(function(){
                         </div>
                     </div>
                 </div>
-                
+                <div class="tickets-page2" id="leezxc">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="search-box2">
+
+                                </div>
+                            </div>
+                            
+                           </div>
+                           <button type="button" id="closebtn" class="btn btn-secondary" onclick="self.close();">닫기</button>
                    <div class="tickets-page2">
                     <div class="container">                         
                     
                 <div class="col-lg-12">
-                    <div class="pagination">
-                    
-                        <ul>
-                        	<c:if test="${!empty paging}">
-                        		<c:if test="${paging.prevBlockPage gt 0}">
-	                            	<li><a href="javascript:void(0)" onclick="fn_list(${paging.prevBlockPage})">Prev</a></li>
-	                        	</c:if>
-	                        </c:if>
-	                        
-	                        
-	                        <c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">
-	                        	<c:choose>
-	                        		<c:when test="${i ne curPage}">
-	                            		<li><a href="javascript:void(0)" onclick="fn_list(${i})">${i}</a></li>
-	                            	</c:when>
-	                            	<c:otherwise>
-	                            		<li class="active"><a href="javascript:void(0)" style="cursor: default;">${i}</a></li>
-	                            	</c:otherwise>
-                        		</c:choose>
-                        	</c:forEach>	
 
-							<c:if test="${paging.nextBlockPage gt 0}">
-	                            <li><a href="javascript:void(0)" onclick="fn_list(${paging.nextBlockPage})">Next</a></li>
-	                        </c:if>    
-                        </ul>
-                        
-                    </div>
                         <div class="boxing">
                         <br>
                         </div>

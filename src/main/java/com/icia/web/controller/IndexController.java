@@ -20,9 +20,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.icia.web.model.Paging;
 import com.icia.web.model.WDEBoard;
 import com.icia.web.model.WDFBoard;
 import com.icia.web.model.WDHall;
@@ -171,6 +173,47 @@ public class IndexController
 		
 		return "/Termsofuse";
 	}
+	
+	/** 전문가매칭 페이지 불러오기 **/
+	@RequestMapping(value="/board/specialist", method=RequestMethod.GET)
+	public String specialist(HttpServletRequest request, HttpServletResponse response)
+	{
+		
+		return "/board/specialist";
+	}
+	
+	@RequestMapping(value="/board/gosu")
+	public String gosu(HttpServletRequest request, HttpServletResponse response)
+	{
+		
+		return "/board/gosu";
+	}
 
+	@RequestMapping(value="/include/PrivacyPolicy")
+	public String policy(ModelMap model, HttpServletRequest request, HttpServletResponse response)
+	{
+		return "/include/PrivacyPolicy";
+	}
+	
+	@RequestMapping(value="/user/myPage")
+	public String myPage(ModelMap model, HttpServletRequest request, HttpServletResponse response) 
+	{
+		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		
+		WDUser wdUser = wdUserService.userSelect(cookieUserId);
+		
+		if(wdUser == null) 
+		{
+			return "/";
+		}
+		
+		return "/user/myPage";
+	}
+	
+	@RequestMapping(value="/popUpRoad")
+	public String myPage(HttpServletRequest request, HttpServletResponse response) 
+	{
+		return "/popUpRoad";
+	}
 }
 

@@ -77,12 +77,17 @@
             			<value>/board/fBoardView</value>
             			<value>/about</value>
             			<value>/board/Coupon</value>
-            			<value>/Termsofuse</value>        			          			
- 
+            			<value>/user/myPage</value>
+            			<value>/popUpRoad</value>
+
+       			          			
              			<value>/hsdm/makeUp</value>
             			<value>/hsdm/dressView</value>   
             			<value>/hsdm/studioView</value> 
-            			<value>/hsdm/makeupView</value>  			
+            			<value>/hsdm/makeupView</value> 
+            			
+            			<value>/board/specialist</value> 
+            			<value>/board/gosu</value>			
 
 
 
