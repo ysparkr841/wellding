@@ -175,6 +175,8 @@ public class WDFBoardController
 			
 			model.addAttribute("commentList",commentList);
 			model.addAttribute("maxComment",maxComment);
+			
+			
 		}
 		
 		if(wdFBoard.getWdBoardFile() != null) 
@@ -407,5 +409,187 @@ public class WDFBoardController
 		   return ajaxResponse;
 	   }	
 	
+	   
+	   //게시물 수정 페이지
+	   @RequestMapping(value="/board/fUpdateForm")
+	   public String fUpdateForm(ModelMap model, HttpServletRequest request, HttpServletResponse response) 
+	   {
+		   String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		   
+		   long bSeq = HttpUtil.get(request, "bSeq", (long)0);
+		   String searchType = HttpUtil.get(request, "searchType", "");
+		   String searchValue = HttpUtil.get(request, "searchValue", "");
+		   long curPage = HttpUtil.get(request, "curPage", (long)1);
+
+		   WDFBoard wdFBoard = null;
+		   WDUser wdUser = null;
+		   
+		   if(bSeq > 0) 
+		   {
+			   wdFBoard = wdFBoardService.wdFBoardView(bSeq);
+			   
+			   if(wdFBoard != null) 
+			   {
+				   if(!StringUtil.equals(cookieUserId, wdFBoard.getUserId())) 
+				   {
+					   wdFBoard = null;
+				   }
+				   else 
+				   {
+					   wdUser = wdUserService.userSelect(cookieUserId);
+				   }
+			   }
+		   }
+		   
+		   model.addAttribute("searchType", searchType);
+		   model.addAttribute("searchvalue", searchValue);
+		   model.addAttribute("curPage", curPage);
+		   model.addAttribute("wdFBoard", wdFBoard);
+		   model.addAttribute("wdUser", wdUser);
+		   
+		   return "/board/fUpdateForm";
+	   }
+	   
+	   
+		@RequestMapping(value="/board/updateProc", method=RequestMethod.POST)
+		@ResponseBody
+		public Response<Object> updateProc(MultipartHttpServletRequest request, HttpServletResponse response)
+		{
+			Response<Object> ajaxResponse = new Response<Object>();
+			
+			String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+			
+			long bSeq = HttpUtil.get(request, "bSeq", (long)0);
+			String bTitle = HttpUtil.get(request, "bTitle", "");
+			String bContent = HttpUtil.get(request, "bContent", "");
+			
+			FileData fileData = HttpUtil.getFile(request, "hiBbsFile", UPLOAD_SAVE_DIR);
+			WDFBoard wdFBoard = null;
+			
+			if(bSeq >0 && !StringUtil.isEmpty(bTitle) && !StringUtil.isEmpty(bContent)) 
+			{
+				//게시글 존재, 제목, 내용도 넘어옴.
+				wdFBoard = wdFBoardService.wdFBoardView(bSeq);
+				if(wdFBoard != null) 
+				{
+					if(StringUtil.equals(cookieUserId, wdFBoard.getUserId())) 
+					{
+						//게시물 작성자 아이디와 쿠키 아이디가 같음
+						//얘는 변경이 없지만 해두자
+						wdFBoard.setbSeq(bSeq);
+						wdFBoard.setbTitle(bTitle);
+						wdFBoard.setbContent(bContent);
+						if(fileData != null && fileData.getFileSize()>0) 
+						{
+							//파일 존재
+							WDBoardFile wdBoardFile = new WDBoardFile();
+
+							//새로운 값들을 넣어줌
+							wdBoardFile.setFileName(fileData.getFileName());
+							wdBoardFile.setFileOrgName(fileData.getFileOrgName());
+							wdBoardFile.setFileExt(fileData.getFileExt());
+							wdBoardFile.setFileSize(fileData.getFileSize());
+							
+							wdFBoard.setWdBoardFile(wdBoardFile);
+						}
+						
+						//업데이트 할 것인데, 파일첨부까지 생각해야 함. 그래서 트랜잭션을 걸어야 하기 때문에 try catch
+						try 
+						{
+							//의수 여기서 잠시멈춤
+							if(wdFBoardService.boardUpdate(wdFBoard) > 0) 
+							{
+								ajaxResponse.setResponse(0, "Success");
+							}
+							else 
+							{
+								ajaxResponse.setResponse(500, "Internal Server Error");
+							}
+						}
+						catch(Exception e) 
+						{
+							logger.error("[WDFBoardController] updateProc Exception", e);
+							ajaxResponse.setResponse(500, "Internal Server Error");
+						}
+						
+					}
+					else 
+					{
+						//본인 게시물이 아님
+						ajaxResponse.setResponse(404, "Not The Owner");
+					}
+				}
+				else 
+				{
+					ajaxResponse.setResponse(401, "Not Found");
+				}
+			}
+			else 
+			{
+				ajaxResponse.setResponse(400, "Bad Request");
+			}
+			
+			
+			return ajaxResponse;
+		}
+		
+		
+		
+		//수정페이지에서 파일 삭제
+		@RequestMapping(value="/board/deleteFileProc", method=RequestMethod.POST)
+		@ResponseBody
+		public Response<Object> deleteFileProc(HttpServletRequest request, HttpServletResponse response)
+		{
+			Response<Object> ajaxResponse = new Response<Object>();
+			String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+			long bSeq = HttpUtil.get(request, "bSeq", (long)0);
+			
+			if(bSeq>0) 
+			{
+				WDFBoard wdFBoard = wdFBoardService.wdFBoardView(bSeq);
+				
+				if(wdFBoard != null) 
+				{
+					if(StringUtil.equals(cookieUserId, wdFBoard.getUserId())) 
+					{
+						WDBoardFile wdFBoardFile = wdFBoardService.fBoardFileSelect(bSeq);
+						
+						wdFBoard.setWdBoardFile(wdFBoardFile);
+						
+						if(wdFBoardFile != null) 
+						{
+							//파일 삭제
+							try 
+							{
+								if(wdFBoardService.boardFileDelete(wdFBoard) > 0) 
+								{
+									ajaxResponse.setResponse(0, "Success");
+								}							
+							}
+							catch(Exception e) 
+							{
+								logger.debug("[WDFBoardController] deleteFileProc Exception", e);
+								ajaxResponse.setResponse(500, "Bad Request");
+							}
+						}
+						else 
+						{
+							ajaxResponse.setResponse(404, "Bad Request");
+						}
+					}
+					else 
+					{
+						ajaxResponse.setResponse(401, "Bad Request");
+					}
+				}
+			}
+			else 
+			{
+				ajaxResponse.setResponse(404, "Bad Request");
+
+			}
+			
+			return ajaxResponse;
+		}
 	   
 }
