@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: becan
+=======
+Built-By: user
+>>>>>>> e00941cb5bff3f481ce878b02a39b9e53952cf12
 Build-Jdk: 1.8.0_301
 Created-By: Maven Integration for Eclipse
 
