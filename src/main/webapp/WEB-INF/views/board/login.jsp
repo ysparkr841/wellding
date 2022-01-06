@@ -39,46 +39,23 @@
 $(function(){
 	
 	$("#loginbtn").on("click", function(){
-		fn_loginCheck();		
-	});
-	
-	$("#userId").on("keypress", function(e){
 		
-		if(e.which == 13)
-		{	
-			fn_loginCheck();
-		}
+		var id = $("#userId").val();
+		var pwd = $("#userPwd").val();
 		
-	});
-	
-	$("#userPwd").on("keypress", function(e){
+		if(id <= 0)
+			{
+			$('p').text("아이디를 입력해주세요.");
+			$("#userId").focus();
+			return;
+			}
+		else if(pwd <= 0)
+			{
+			$('p').text("비밀번호를 입력해주세요.");
+			$("#userPwd").focus();
+			return;
+			}
 		
-		if(e.which == 13)
-		{	
-
-			fn_loginCheck();
-		}
-		
-	});
-	
-
-});
-
-function fn_loginCheck()
-{
-	if($.trim($("#userId").val()).length <= 0)
-	{
-		alert("아이디를 입력하세요.");
-		$("#userId").focus();
-		return;
-	}
-	
-	if($.trim($("#userPwd").val()).length <= 0)
-	{
-		alert("비밀번호를 입력하세요.");
-		$("#userPwd").focus();
-		return;
-	}
 	
 	$.ajax({
 		type : "POST",
@@ -108,34 +85,34 @@ function fn_loginCheck()
 				{
 					if(code == -1)
 					{
-						alert("비밀번호가 올바르지 않습니다.");
+						$('p').text("비밀번호가 올바르지 않습니다.");
 						$("#userPwd").focus();
 					}
 					else if(code == 404)
 					{
-						alert("아이디와 일치하는 사용자 정보가 없습니다.");
+						$('p').text("아이디와 일치하는 사용자 정보가 없습니다.");
 						$("#userId").focus();
 					}
 					else if(code == 400)
 					{
-						alert("파라미터 값이 올바르지 않습니다.");
+						$('p').text("파라미터 값이 올바르지 않습니다.");
 						$("#userId").focus();
 					}
 					else if(code == 403)
 					{
-						alert("이용이 정지된 사용자입니다.");
+						$('p').text("이용이 정지된 사용자입니다.");
 						$("#userId").focus();
 					}
 					else
 					{
-						alert("오류가 발생하였습니다.");
+						$('p').text("오류가 발생하였습니다.");
 						$("#userId").focus();
 					}	
 				}	
 			}
 			else
 			{
-				alert("오류가 발생하였습니다.");
+				$('p').text("오류가 발생하였습니다.");
 				$("#userId").focus();
 			}
 		},
@@ -150,7 +127,12 @@ function fn_loginCheck()
 		}
 	});
 
-}
+
+
+
+});
+
+});
 
 
 
@@ -196,6 +178,8 @@ function fn_loginCheck()
 						<input class="input100" type="password" name="userPwd" id="userPwd" >
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
+					
+					<p class="msg"></p>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">

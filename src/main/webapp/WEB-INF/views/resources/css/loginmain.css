@@ -176,6 +176,17 @@ iframe {
   margin: 0 auto;
 }
 
+.msg
+{
+  margin-top: 5px;
+  margin-left: 130px;
+  font-size: 12px;
+  line-height: 14px;
+
+  letter-spacing: -.17px;
+  color: red;
+  
+}
 .container-login100 {
   width: 100%;  
   min-height: 100vh;
