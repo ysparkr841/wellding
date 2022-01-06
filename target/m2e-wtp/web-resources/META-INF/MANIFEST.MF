@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: KHA
-=======
-Built-By: USER
->>>>>>> 99752df3767c7b645b0e21af459eab9b6c6eb488
 Build-Jdk: 1.8.0_301
 Created-By: Maven Integration for Eclipse
 
