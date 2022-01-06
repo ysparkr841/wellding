@@ -43,7 +43,7 @@
 							<a href="#" class="list-group-item list-group-item-action">장바구니</a>
 							<a href="#" class="list-group-item list-group-item-action">결제내역</a>
 							<a href="#" class="list-group-item list-group-item-action">쿠폰보유현황</a>
-							<a href="#" class="list-group-item list-group-item-action justify-content-between">회원정보수정 <span class="badge badge-info badge-pill">수정</span></a>
+							<a href="/user/modify" class="list-group-item list-group-item-action justify-content-between">회원정보수정 <span class="badge badge-info badge-pill">수정</span></a>
 						</div>
 					</div>
 					<div class="col-md-9">
@@ -62,6 +62,29 @@
 				<div class="row">
 					<div class="col-lg-1">
 					</div>
+					<div class="col-lg-10">
+						<h2 style="font-family: 'Bitter', serif; margin-top: 10px; padding-left: 10px;">My Page</h2>
+						<nav class="bcItem">
+							<ol class="breadcrumb bc" >
+								<li class="breadcrumb-item">
+									<a href="#" class="bcFirst">장바구니</a>
+								</li>
+								<li class="breadcrumb-item">
+									<a href="#">결제내역</a>
+								</li>
+								<li class="breadcrumb-item">
+									<a href="#">쿠폰보유현황</a>
+								</li>
+								<li class="breadcrumb-item">
+									<a href="/user/modify">회원정보수정</a>
+								</li>
+							</ol>
+						</nav>
+					
+					</div>
+					<div class="col-lg-1">
+					</div>
+					
 						<div class="col-lg-10">
 							<h2 style="font-family: 'Bitter', serif; margin-top: 10px; padding-left: 10px;">My Page</h2>
 							<nav class="bcItem">
@@ -84,6 +107,7 @@
 						</div>
 						<div class="col-lg-1">
 						</div>
+>>>>>>> 01afc9da66a1f317affb8de2a754a2716077c08b
 					
 				</div>
 			</div>

@@ -63,6 +63,8 @@
             			<value>/user/loginOut</value>
             			<value>/user/regProc</value>
             			<value>/user/idCheck</value>
+            			<value>/user/modify</value>
+            			
 
             			<value>/board/nBoard</value>
             			<value>/board/eBoard</value>

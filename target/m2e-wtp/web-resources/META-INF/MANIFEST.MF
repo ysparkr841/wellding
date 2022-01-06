@@ -1,5 +1,25 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: gh563
+=======
+<<<<<<< HEAD
+Built-By: KHA
+=======
+<<<<<<< HEAD
+Built-By: gh563
+=======
+<<<<<<< HEAD
+Built-By: user
+=======
+<<<<<<< HEAD
+Built-By: KHA
+=======
+Built-By: USER
+>>>>>>> 99752df3767c7b645b0e21af459eab9b6c6eb488
+>>>>>>> c149a9a8cb4018bc93d1164f61fa965c12793ae8
+>>>>>>> 69a30d1632b26d0d47443a03ffe21df2abab270a
+>>>>>>> b08f6d0b1a7b3b4d10d73e2baae16bdcc7179803
+>>>>>>> 1c99392adf28e500b299c44c52c4c04211ad3341
 Build-Jdk: 1.8.0_301
 Created-By: Maven Integration for Eclipse
 
