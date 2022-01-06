@@ -161,10 +161,10 @@ public class WDFBoardController
 		WDComment wdComment = new WDComment();
 		
 		int maxComment = 0;
-		System.out.println("여기 사람있어요");
+		
 		if(bSeq > 0) 
 		{
-			System.out.println("시퀀스 번호 제대로 들어옴");
+			
 			wdFBoard = wdFBoardService.wdFBoardView(bSeq);
 			
 			if(wdFBoard != null && StringUtil.equals(wdFBoard.getUserId(), cookieUserId)) 
