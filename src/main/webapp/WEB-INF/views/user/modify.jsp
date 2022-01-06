@@ -124,12 +124,12 @@
 		    		else if(response.code == 400)
 		    			{
 		    			alert("파라미터 값이 잘못되어 있습니다.");
-		    			location.href ="/";
+		    			location.href ="/user/modify";
 		    			}
 		    		else
 		    			{
 		    			alert("오류가 발생했습니다");
-		    			location.href ="/";
+		    			location.href ="/user/modify";
 		    			}
 		    	},
 		    	 complete: function(data)
@@ -141,6 +141,11 @@
 		               icia.common.error(error);
 		            }
 		    	});
+		    });
+		    
+		    
+		    $("#back").on("click",function(){
+		    	location.href ="/user/myPage";
 		    });
 	  });
 	  
@@ -272,7 +277,7 @@
                  
   		 <div class="button_area">
 		<button class="btn_type" id="btn">수정</button>
-		<button class="btn_type" >돌아가기</button>
+		<button class="btn_type" id="back">돌아가기</button>
 
 	
 		

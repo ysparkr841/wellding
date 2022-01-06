@@ -9,6 +9,11 @@
     	<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Bitter:ital@0;1&family=The+Nautigal&display=swap" rel="stylesheet">
+		<script>
+			function openPop(){
+			   var popup = window.open("/board/Coupon", 'pop', 'width=1000px,height=600px,scrollbars=yes');
+			}
+		</script>
     </head>
     
     <body>
@@ -42,7 +47,7 @@
 						<div class="list-group subMenuList">
 							<a href="#" class="list-group-item list-group-item-action">장바구니</a>
 							<a href="#" class="list-group-item list-group-item-action">결제내역</a>
-							<a href="#" class="list-group-item list-group-item-action">쿠폰보유현황</a>
+							<a href="javascript:void(0)" target="_blank" onclick="openPop()" class="list-group-item list-group-item-action">쿠폰보유현황</a>
 							<a href="/user/modify" class="list-group-item list-group-item-action justify-content-between">회원정보수정 <span class="badge badge-info badge-pill">수정</span></a>
 						</div>
 					</div>

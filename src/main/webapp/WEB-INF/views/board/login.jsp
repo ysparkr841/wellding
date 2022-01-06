@@ -39,20 +39,25 @@
 $(function(){
 	
 	$("#loginbtn").on("click", function(){
-		fn_loginCheck();		
-	});
-	
-	$("#userId").on("keypress", function(e){
 		
-		if(e.which == 13)
-		{	
-			fn_loginCheck();
-		}
+		var id = $("#userId").val();
+		var pwd = $("#userPwd").val();
 		
-	});
-	
-	$("#userPwd").on("keypress", function(e){
+		if(id <= 0)
+			{
+			$('p').text("아이디를 입력해주세요.");
+			$("#userId").focus();
+			return;
+			}
+		else if(pwd <= 0)
+			{
+			$('p').text("비밀번호를 입력해주세요.");
+			$("#userPwd").focus();
+			return;
+			}
 		
+<<<<<<< HEAD
+=======
 		if(e.which == 13)
 		{	
 
@@ -66,6 +71,17 @@ $(function(){
 
 function fn_loginCheck()
 {
+	var check;
+	if($('#id1').hasClass('selected')){
+		check = 1;
+	}
+	if($('#id2').hasClass('selected')){
+		check = 2;
+	}
+	if($('#id3').hasClass('selected')){
+		check = 3;
+	}
+	
 	if($.trim($("#userId").val()).length <= 0)
 	{
 		alert("아이디를 입력하세요.");
@@ -79,6 +95,7 @@ function fn_loginCheck()
 		$("#userPwd").focus();
 		return;
 	}
+>>>>>>> f37e623f86aa102ccb92007acdb8f20b65937cd1
 	
 	$.ajax({
 		type : "POST",
@@ -108,34 +125,34 @@ function fn_loginCheck()
 				{
 					if(code == -1)
 					{
-						alert("비밀번호가 올바르지 않습니다.");
+						$('p').text("비밀번호가 올바르지 않습니다.");
 						$("#userPwd").focus();
 					}
 					else if(code == 404)
 					{
-						alert("아이디와 일치하는 사용자 정보가 없습니다.");
+						$('p').text("아이디와 일치하는 사용자 정보가 없습니다.");
 						$("#userId").focus();
 					}
 					else if(code == 400)
 					{
-						alert("파라미터 값이 올바르지 않습니다.");
+						$('p').text("파라미터 값이 올바르지 않습니다.");
 						$("#userId").focus();
 					}
 					else if(code == 403)
 					{
-						alert("이용이 정지된 사용자입니다.");
+						$('p').text("이용이 정지된 사용자입니다.");
 						$("#userId").focus();
 					}
 					else
 					{
-						alert("오류가 발생하였습니다.");
+						$('p').text("오류가 발생하였습니다.");
 						$("#userId").focus();
 					}	
 				}	
 			}
 			else
 			{
-				alert("오류가 발생하였습니다.");
+				$('p').text("오류가 발생하였습니다.");
 				$("#userId").focus();
 			}
 		},
@@ -150,10 +167,20 @@ function fn_loginCheck()
 		}
 	});
 
+
+
+
+});
+
+});
+
+
+function classChange(id){
+	document.getElementById('id1').classList.remove('selected');
+	document.getElementById('id2').classList.remove('selected');
+	document.getElementById('id3').classList.remove('selected');
+	id.setAttribute('class','selected');
 }
-
-
-
 </script>
 </head>
 <body>
@@ -171,9 +198,9 @@ function fn_loginCheck()
 						<div class="mTab eTab">
 							<ul>
 								
-								<li class="selected"><a href="#" onclick="changeLogin('3', 'F', 'F');">회원</a></li>
-								<li><a href="loginform2.html" onclick="changeLogin('2', 'F', 'F');">관리자</a></li>
-								<li><a href="loginform3.html" onclick="changeLogin('2', 'F', 'F');">전문가</a></li>
+								<li id="id1" class="selected" onclick="classChange(this)"><a href="javascript:void(0)">회원</a></li>
+								<li id="id2" onclick="classChange(this)"><a href="javascript:void(0)" >관리자</a></li>
+								<li id="id3" onclick="classChange(this)"><a href="javascript:void(0)" >전문가</a></li>
 								<!-- <li class="selected"><a href="#" onclick="changeLogin('3', 'F', 'F');">전문가</a></li> -->
 							</ul>
 						</div>
@@ -196,6 +223,8 @@ function fn_loginCheck()
 						<input class="input100" type="password" name="userPwd" id="userPwd" >
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
+					
+					<p class="msg"></p>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">

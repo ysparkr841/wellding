@@ -165,6 +165,7 @@ function fn_list(curPage)
                                 
                               <c:forEach var="fboard" items="${list}" varStatus="status">                                
                                 <li id="divB">
+
                                 	<a href="javascript:void(0)" onclick="fn_view(${fboard.bSeq})">
 	                                    <div class="row" id="minthover">
 	                                        <div class="col-lg-1">
