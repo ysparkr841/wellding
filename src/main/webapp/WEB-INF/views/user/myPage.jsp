@@ -107,7 +107,6 @@
 						</div>
 						<div class="col-lg-1">
 						</div>
->>>>>>> 01afc9da66a1f317affb8de2a754a2716077c08b
 					
 				</div>
 			</div>

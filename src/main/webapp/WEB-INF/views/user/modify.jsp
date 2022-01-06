@@ -44,7 +44,7 @@
 		          $("#pwd1").focus();
 		          return;
 		        }
-
+		    	
 		      
 		          else 
 		      {
@@ -91,6 +91,51 @@
 			          
 			            return;
 		    		}
+		    });
+		    
+		    $("#btn").on("click", function(){
+		    	
+		    	$.ajax({
+		    		type: "POST",
+		    		url: "/user/update",
+		    		data :
+		    	{
+		    		userPwd : $("#pwd1").val(),
+		    		userName : $("#name").val(),
+		    		number : $("#number").val()
+		    	},
+		    	datatype : "JSON",
+		    	beforeSend : function(xhr)
+		    	{
+		    		xhr.setRequestHeader("AJAX", "true");
+		    	},
+		    	success: function(response)
+		    	{
+		    		if(response.code == 0)
+		    			{
+		    				alert("회원수정이 완료되었습니다");
+		    				location.href = "/";
+		    			}
+		    		else if(response.code == 400)
+		    			{
+		    			alert("회원수정 중 오류가 발생했습니다.");
+		    			location.href ="/";
+		    			}
+		    		else
+		    			{
+		    			alert("오류가 발생했습니다");
+		    			location.href ="/";
+		    			}
+		    	},
+		    	 complete: function(data)
+		            {
+		               icia.common.log(data);
+		            },
+		            error: function(xhr, status, error)
+		            {
+		               icia.common.error(error);
+		            }
+		    	});
 		    });
 	  });
 	  
@@ -142,65 +187,7 @@
                   </div>
                   <p class="msg"></p>
                </dd>
-               <dt>결혼예정일</dt>
-               <dd class="date">
-                  <select id="year" class="year">
-                     <option>년도</option>
-                     <option value="2022">2022</option>
-                  <option value="2023">2023</option>
-                  
-                  
-               </select>
-               <select id="month" class="month">
-                  <option>월</option>
-                  <option value="1">1</option>
-               <option value="2">2</option>
-               <option value="3">3</option>
-               <option value="4">4</option>
-               <option value="5">5</option>
-               <option value="6">6</option>
-               <option value="7">7</option>
-               <option value="8">8</option>
-               <option value="9">9</option>
-               <option value="10">10</option>
-               <option value="11">11</option>
-               <option value="12">12</option>
-               </select>
-               <select id="day" class="day">
-                  <option>일</option>
-               <option value="1">1</option>
-               <option value="2">2</option>
-               <option value="3">3</option>
-               <option value="4">4</option>
-               <option value="5">5</option>
-               <option value="6">6</option>
-               <option value="7">7</option>
-               <option value="8">8</option>
-               <option value="9">9</option>
-               <option value="10">10</option>
-               <option value="11">11</option>
-               <option value="12">12</option>
-               <option value="13">13</option>
-               <option value="14">14</option>
-               <option value="15">15</option>
-               <option value="16">16</option>
-               <option value="17">17</option>
-               <option value="18">18</option>
-               <option value="19">19</option>
-               <option value="20">20</option>
-               <option value="21">21</option>
-               <option value="22">22</option>
-               <option value="23">23</option>
-               <option value="24">24</option>
-               <option value="25">25</option>
-               <option value="26">26</option>
-               <option value="27">27</option>
-               <option value="28">28</option>
-               <option value="29">29</option>
-               <option value="30">30</option>
-               <option value="31">31</option>
-               </select>
-            </dd>
+              
            
 			<!-- dt>닉네임</dt>
 			<dd>
@@ -218,7 +205,7 @@
               
                  
   		 <div class="button_area">
-		<button class="btn_type" id="btnReg">수정</button>
+		<button class="btn_type" id="btn">수정</button>
 		<button class="btn_type" >돌아가기</button>
 
 	
