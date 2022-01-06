@@ -8,6 +8,7 @@
 
    <c:set var = "name" value="${param.userName }" />
 
+
     <!-- ***** 맨뒤 HEader ***** -->
     <div class="pre-header">
         <div class="container">

@@ -37,4 +37,7 @@ public interface WDFBoardDao
 	
 	//게시물 첨부파일 삭제
 	public int fBoardFileDelete(long bSeq);
+	
+	//게시판 수정
+	public int boardUpdate(WDFBoard wdFBoard);
 }

@@ -5092,7 +5092,7 @@ responsive
 }
 
 .w-btn-red {
-    background-color: #ff0202;
+    background-color: #f00000;
     color: #e1eef6;
 }
 
@@ -5888,7 +5888,7 @@ responsive
 	color: #444;
 }
 
-/* 동욱 추가 */
+/* 동욱 추가 민트테마 */
 #mint
 {
 	background-color: #91DDDB;
@@ -5899,3 +5899,10 @@ responsive
 {
 	background-color: #F0F9F8;
 }
+
+#minthover:hover
+{
+	color:#fff; background-color:#91DDDB;
+}
+
+/* 동욱 추가 민트테마 끝 */

@@ -84,13 +84,6 @@ $(document).ready(function(){
 	</c:if>
 	
 	
-	
-	
-	
-	
-	
-	
-	
     $("#btnComment").on("click",function(){
   	  
   	  $("#btnComment").prop("disabled", true);// 수정 버튼 비활성화 
@@ -167,9 +160,11 @@ $(document).ready(function(){
     <h2 class="Wtitle">Know-How</h2>
     <p style="text-align:center">여러분들의 노하우를 공유해보세요</p>
     <br />
+
 <div class="container">
    <div class="row" style="margin-right:0; margin-left:0;">
-      <table class="table">
+   	  <div class="col-lg-12">
+      <table class="table" style="width: 100%;">
          <thead>
             <tr class="table-active dongdong">
                <td scope="col" style="width:60%">
@@ -232,13 +227,18 @@ $(document).ready(function(){
          </tr>
          <tr>
                	<td colspan="2">
+         <c:if test="${boardMe eq 'Y'}">
                		<button type="button" id="btnDelete" class="w-btn w-btn-red">삭제</button>
+         </c:if>
                		<button type="button" id="btnList" class="w-btn w-btn-green2" style="float: right">리스트</button>
+         <c:if test="${boardMe eq 'Y'}">
                		<button type="button" id="btnUpdate" class="w-btn w-btn-green" style="margin-right: 10px;">수정</button>
+         </c:if>      	
                	</td>
          </tr>
          </tfoot>
       </table>
+      </div>
    </div>
 </div>
 
