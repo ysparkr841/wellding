@@ -100,9 +100,14 @@
 		    		url: "/user/update",
 		    		data :
 		    	{
-		    		userPwd : $("#pwd1").val(),
-		    		userName : $("#name").val(),
-		    		number : $("#number").val()
+	    			pwd1: $("#pwd1").val(),
+	                name: $("#name").val(),
+	                number : $("#number").val(),
+	                year : $("#year").val(),
+	                month : $("#month").val(),
+	                day : $("#day").val(),
+	                nickname : $("#nickname").val(),
+	                email : $("#email").val()
 		    	},
 		    	datatype : "JSON",
 		    	beforeSend : function(xhr)
@@ -118,7 +123,7 @@
 		    			}
 		    		else if(response.code == 400)
 		    			{
-		    			alert("회원수정 중 오류가 발생했습니다.");
+		    			alert("파라미터 값이 잘못되어 있습니다.");
 		    			location.href ="/";
 		    			}
 		    		else
@@ -189,7 +194,7 @@
                </dd>
               
            
-			<!-- dt>닉네임</dt>
+			<dt>닉네임</dt>
 			<dd>
 			   <div class="input">
 				  <input type="text" id="nickname" placeholder="닉네임을 입력해주세요">
@@ -198,10 +203,71 @@
 			   <p class="msg"></p>
 			</dd-->
          <!--이메일 주석-->
-            <!-- <dt>이메일</dt>
+            <dt>이메일</dt>
             <dd>
-               <div class="input"><input id="userEmail" data-bind="email" type="text" placeholder="이메일을 입력해주세요" value=""></div>
-               <p class="msg"></p> -->
+               <div class="input"><input id="email" data-bind="email" type="text" placeholder="이메일을 입력해주세요" value=""></div>
+               <p class="msg"></p>
+               
+            <dt>결혼예정일</dt>
+               <dd class="date">
+                  <select id="year" class="year">
+                     <option>년도</option>
+                     <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                  
+                  
+               </select>
+               <select id="month" class="month">
+                  <option>월</option>
+                  <option value="01">1</option>
+               <option value="02">2</option>
+               <option value="03">3</option>
+               <option value="04">4</option>
+               <option value="05">5</option>
+               <option value="06">6</option>
+               <option value="07">7</option>
+               <option value="08">8</option>
+               <option value="09">9</option>
+               <option value="10">10</option>
+               <option value="11">11</option>
+               <option value="12">12</option>
+               </select>
+               <select id="day" class="day">
+                  <option>일</option>
+               <option value="01">1</option>
+               <option value="02">2</option>
+               <option value="03">3</option>
+               <option value="04">4</option>
+               <option value="05">5</option>
+               <option value="06">6</option>
+               <option value="07">7</option>
+               <option value="08">8</option>
+               <option value="09">9</option>
+               <option value="10">10</option>
+               <option value="11">11</option>
+               <option value="12">12</option>
+               <option value="13">13</option>
+               <option value="14">14</option>
+               <option value="15">15</option>
+               <option value="16">16</option>
+               <option value="17">17</option>
+               <option value="18">18</option>
+               <option value="19">19</option>
+               <option value="20">20</option>
+               <option value="21">21</option>
+               <option value="22">22</option>
+               <option value="23">23</option>
+               <option value="24">24</option>
+               <option value="25">25</option>
+               <option value="26">26</option>
+               <option value="27">27</option>
+               <option value="28">28</option>
+               <option value="29">29</option>
+               <option value="30">30</option>
+               <option value="31">31</option>
+               </select>
+            </dd>  
+                       
               
                  
   		 <div class="button_area">

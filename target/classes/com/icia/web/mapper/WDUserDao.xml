@@ -76,8 +76,6 @@ SET
     U_NICKNAME = #{userNickname},
     U_NUMBER = #{userNumber},
     U_EMAIL =  #{userEmail},
-    U_GENDER =  #{userGender},
-    U_STATUS = #{status},
     U_MARRYDATE =  #{marrytDate}
 WHERE
         USER_ID = #{userId}
