@@ -5902,7 +5902,7 @@ responsive
 
 #minthover:hover
 {
-	color:#212529;background-color:rgba(0,0,0,.075)
+	color:#fff; background-color:#91DDDB;
 }
 
 /* 동욱 추가 민트테마 끝 */
