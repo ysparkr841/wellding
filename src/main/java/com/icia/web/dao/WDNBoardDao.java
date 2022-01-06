@@ -24,9 +24,6 @@ public interface WDNBoardDao
 	//조회수 증가
 	public int nBoardReadCntPlus(long bSeq);
 	
-	//게시물 삭제시 답변글수 체크
-	//public int nBoardAnswersCount(long bSeq);
-	
 	//게시물 삭제
 	//public int nBoardDelete(long bSeq);
 	
