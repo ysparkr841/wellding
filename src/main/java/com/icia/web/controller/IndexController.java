@@ -69,10 +69,11 @@ public class IndexController
 	@Autowired
 	private WDFBoardService wdFBoardService;
 		
-	@RequestMapping(value = "/index", method=RequestMethod.GET)
+	@RequestMapping(value = "/index",method = {RequestMethod.GET, RequestMethod.POST})
 	public String index(ModelMap model, HttpServletRequest request, HttpServletResponse response)
 	{
 		
+		 
 		//쿠키 확인
 		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
 		

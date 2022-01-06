@@ -107,7 +107,7 @@ function fn_list(curPage)
                 <!-- 전문가목록 시작 -->
                 <!-- 01 -->
                  <div class="col-lg-3">
-                    <div class="ticket-item2">
+                    <div class="ticket-item2 gosu_modal" href="/board/gosu">
                         <div class="thumb_go">
                             <img src="../resources/images/gosu/gosu1.jpg" alt="">
                         </div>
@@ -127,7 +127,7 @@ function fn_list(curPage)
                 
                 <!-- 02 -->
                  <div class="col-lg-3">
-                    <div class="ticket-item2">
+                    <div class="ticket-item2 gosu_modal" href="/board/gosu">
                         <div class="thumb_go">
                             <img src="../resources/images/gosu/gosu2.jpg" alt="">
                         </div>
@@ -146,7 +146,7 @@ function fn_list(curPage)
                 
                 <!-- 03 -->
                  <div class="col-lg-3">
-                    <div class="ticket-item2">
+                    <div class="ticket-item2 gosu_modal" href="/board/gosu">
                         <div class="thumb_go">
                             <img src="../resources/images/gosu/gosu3.jpg" alt="">
                         </div>
@@ -165,7 +165,7 @@ function fn_list(curPage)
                 
                 <!-- 04 -->
                  <div class="col-lg-3">
-                    <div class="ticket-item2">
+                    <div class="ticket-item2 gosu_modal" href="/board/gosu">
                         <div class="thumb_go">
                             <img src="../resources/images/gosu/gosu4.jpg" alt="">
                         </div>
@@ -184,7 +184,7 @@ function fn_list(curPage)
                 
                 <!-- 05 -->
                  <div class="col-lg-3">
-                    <div class="ticket-item2">
+                    <div class="ticket-item2 gosu_modal" href="/board/gosu">
                         <div class="thumb_go">
                             <img src="../resources/images/gosu/gosu5.jpg" alt="">
                         </div>
@@ -203,7 +203,7 @@ function fn_list(curPage)
                 
                 <!-- 06 -->
                  <div class="col-lg-3">
-                    <div class="ticket-item2">
+                    <div class="ticket-item2 gosu_modal" href="/board/gosu">
                         <div class="thumb_go">
                             <img src="../resources/images/gosu/gosu6.jpg" alt="">
                         </div>
@@ -223,7 +223,7 @@ function fn_list(curPage)
                 <!-- 7번째부터는 다시반복 ㅎㅎ -->
                 <!-- 01 -->
                  <div class="col-lg-3">
-                    <div class="ticket-item2">
+                    <div class="ticket-item2 gosu_modal" href="/board/gosu">
                         <div class="thumb_go">
                             <img src="../resources/images/gosu/gosu1.jpg" alt="">
                         </div>
@@ -242,7 +242,7 @@ function fn_list(curPage)
                 
                 <!-- 02 -->
                  <div class="col-lg-3">
-                    <div class="ticket-item2">
+                    <div class="ticket-item2 gosu_modal" href="/board/gosu">
                         <div class="thumb_go">
                             <img src="../resources/images/gosu/gosu2.jpg" alt="">
                         </div>
@@ -261,7 +261,7 @@ function fn_list(curPage)
                 
                 <!-- 03 -->
                  <div class="col-lg-3">
-                    <div class="ticket-item2">
+                    <div class="ticket-item2 gosu_modal" href="/board/gosu">
                         <div class="thumb_go">
                             <img src="../resources/images/gosu/gosu3.jpg" alt="">
                         </div>
@@ -280,7 +280,7 @@ function fn_list(curPage)
                 
                 <!-- 04 -->
                  <div class="col-lg-3">
-                    <div class="ticket-item2">
+                    <div class="ticket-item2 gosu_modal" href="/board/gosu">
                         <div class="thumb_go">
                             <img src="../resources/images/gosu/gosu4.jpg" alt="">
                         </div>
@@ -299,7 +299,7 @@ function fn_list(curPage)
                 
                 <!-- 05 -->
                  <div class="col-lg-3">
-                    <div class="ticket-item2">
+                    <div class="ticket-item2 gosu_modal" href="/board/gosu">
                         <div class="thumb_go">
                             <img src="../resources/images/gosu/gosu5.jpg" alt="">
                         </div>
@@ -318,7 +318,7 @@ function fn_list(curPage)
                 
                 <!-- 06 -->
                  <div class="col-lg-3">
-                    <div class="ticket-item2">
+                    <div class="ticket-item2 gosu_modal" href="/board/gosu">
                         <div class="thumb_go">
                             <img src="../resources/images/gosu/gosu6.jpg" alt="">
                         </div>

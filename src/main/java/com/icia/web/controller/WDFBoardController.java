@@ -161,7 +161,6 @@ public class WDFBoardController
 		WDComment wdComment = new WDComment();
 		
 		int maxComment = 0;
-		
 		if(bSeq > 0) 
 		{
 			
@@ -273,6 +272,8 @@ public class WDFBoardController
 		String cookieUserId =  CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
 		long bSeq = HttpUtil.get(request, "bSeq", (long)0);
 		
+		System.out.println("bSeq"+ bSeq);
+		
 		if(bSeq > 0) 
 		{
 			WDFBoard wdFBoard = wdFBoardService.wdFBoardView(bSeq);
@@ -339,7 +340,7 @@ public class WDFBoardController
 				logger.debug("UPLOAD_SAVE_DIR : "+ UPLOAD_SAVE_DIR);
 				//os버전에 따라서 슬래쉬 혹은 역슬래쉬 해주는 기능이 getFIleSeparator()임
 				logger.debug("FileUtil.getFileSeparator() : "+ FileUtil.getFileSeparator());
-				logger.debug("hiBoardFile.getFileName() : "+ wdBoardFile.getFileName());
+				logger.debug("wdBoardFile.getFileName() : "+ wdBoardFile.getFileName());
 
 				if(FileUtil.isFile(file)) 
 				{
@@ -406,4 +407,5 @@ public class WDFBoardController
 		   return ajaxResponse;
 	   }	
 	
+	   
 }

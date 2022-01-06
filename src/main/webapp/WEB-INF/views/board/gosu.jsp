@@ -22,9 +22,9 @@
 	                            <!--ul  class="loc_li">
 				                    <li>입력</li>
 				                    <li><p style="margin-right:7px">Tel.</p><p style="font-weight:700">플래너 연락처?</p></li>
-				                </ul-->
+				                </ul>-->
 	                           
-	                            <div class="main-dark-button4"><a href="#">견적요청하기</a></div>
+	                            <div class="main-dark-button4"><a href="mailto:bohyong2@gmail.com">직접 문의하기</a></div>
 	                        </div>
                     	</div>
                     	
@@ -46,7 +46,7 @@
                             </div>
                             <div class="col-lg-12">
                               <fieldset>
-                                <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="이메일을 입력하세요*" required="">
+                                <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="이메일을 입력하세요* ex)id@email.com" required="">
                               </fieldset>
                             </div>
                             <div class="col-lg-12">
@@ -61,7 +61,7 @@
                             </div>
                             <div class="col-lg-12">
                               <fieldset>
-                                <button type="submit" id="form-submit" class="main-dark-button">Submit Request</button>
+                                <button type="submit" id="form-submit" class="main-dark-button">견적 요청하기</button>
                               </fieldset>
                             </div>
                           </div>
