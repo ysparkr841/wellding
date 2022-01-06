@@ -64,8 +64,8 @@ function fn_list(curPage)
             </div>
         </div>
     </div>
-
-    <div class="shows-events-schedule2">
+<div id="divB">
+    <div class="shows-events-schedule2" id="divB">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -80,11 +80,11 @@ function fn_list(curPage)
         </div>
     </div>        
 
-                <div class="tickets-page2">
+                <div class="tickets-page2" id="divB">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="search-box">
+                                <div class="search-box" id="mint">
                                     <form id="subscribe" action="" method="get">
                                         <div class="row">
                                             <div class="col-lg-5">
@@ -132,12 +132,12 @@ function fn_list(curPage)
                     </div>
                 </div>
 
-                <div class="shows-events-schedule2">
+                <div class="shows-events-schedule2" id="divB">
                     <div class="container">
                         <div class="row">
 						
                         <div class="col-lg-12">
-                            <ul >
+                            <ul>
 
                                 <li>
                                     <div class="row">
@@ -199,11 +199,11 @@ function fn_list(curPage)
                     </div>
                 </div>
                 
-                   <div class="tickets-page2">
+                   <div class="tickets-page2" id="divB">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="search-box2">
+                                <div class="search-box2" id="mint">
                                     <form id="subscribe" action="" method="get">
                                         <div class="row">
                                             <div class="col-lg-5">
@@ -263,7 +263,7 @@ function fn_list(curPage)
             </div>
         </div>
     </div>
-
+</div>
     <form name="bbsForm" id="bbsForm" method="post">
         <input type="hidden" name="bSeq" value="${fboard.bSeq}" /> <!-- 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
         <input type="hidden" name="searchType" value="${searchType}" />
