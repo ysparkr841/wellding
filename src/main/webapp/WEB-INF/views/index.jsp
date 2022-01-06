@@ -12,6 +12,15 @@
 	      document.hallForm.action = "/hsdm/HallView";  
 	      document.hallForm.submit();
 	   }
+	   
+       $(document).ready(function(){
+       	var cookieData = document.cookie;
+       	if(cookieData.indexOf("close=Yes") < 0)
+       	{
+	            var option="width = 500, height = 500, top = 100, left = 200, location = no, menubar = no, scrollbars=no";
+	            window.open("/popUpRoad", "PopUP", option);        		
+       	}
+       });
 	</script>
 </head> 
     <body>  
@@ -50,10 +59,10 @@
 	                <div class="col-lg-4" onclick="fn_view('${hallList.WHCode}', '${hallList.HCode}')">
 	                    <div class="event-item2">
 	                        <div class="thumb2">
-	                            <a href="event-details.html"><img src="/resources/hsdm/${hallList.HImgName}" alt=""></a>	              
+	                            <img src="/resources/hsdm/${hallList.HImgName}" alt="">            
 	                        </div>
 	                        <div class="down-content2">
-	                            <a href="event-details.html"><h4>${hallList.HName}</h4></a>
+	                            <h4>${hallList.HName}</h4>
 	                            <ul>
 	                                <li class="main_location"><i class="fa fa-map-marker"></i> <p>${hallList.WHLocation}</p></li>
 	                                <li class="main_person"><i class="fa fa-user"></i> ${hallList.HMax}명 수용 가능</li>

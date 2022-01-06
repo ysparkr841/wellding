@@ -2,10 +2,13 @@
 <%@ include file="/WEB-INF/views/include/taglib.jsp" %>
 
 <%
-	if(com.icia.web.util.CookieUtil.getCookie(request, (String)request.getAttribute("AUTH_COOKIE_NAME")) != null)
-	{
+   if(com.icia.web.util.CookieUtil.getCookie(request, (String)request.getAttribute("AUTH_COOKIE_NAME")) != null)
+   {
 %>
-	<c:set var = "name" value="${param.userName }" />
+
+   <c:set var = "name" value="${param.userName }" />
+
+
     <!-- ***** 맨뒤 HEader ***** -->
     <div class="pre-header">
         <div class="container">
@@ -16,19 +19,17 @@
                 <div class="col-lg-6 col-sm-6">
                     <div class="text-button ourperson">
 
-                        <a href="#">마이페이지</a>
+                        <a href="/user/myPage">마이페이지</a>
                         <a href="/loginOut">로그아웃</a>
-                        <a href="/board/Coupon">내 쿠폰</a>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 <%
-	}
-	else
-	{
+   }
+   else
+   {
 %>
     <!-- ***** 맨뒤 HEader ***** -->
 
@@ -41,7 +42,7 @@
                 <div class="col-lg-6 col-sm-6">
                     <div class="text-button ourperson">
 
-                        <a>회원가입</a>
+                        <a href="/board/regform">회원가입</a>
                         <a href="/board/login">로그인</a>
 
                     </div>
@@ -51,7 +52,7 @@
     </div>
 
 <%
-	}
+   }
 %>
 
     <!-- ***** 보현수정 Header Area Start ***** -->
@@ -62,7 +63,7 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <h1 class="logo">
-                            <a href="/"><img src="/resources/images/logob.png" width="auto" height="40px"></a>
+                            <a href="/"><img class="imgNav" src="/resources/images/icons/theWellding2.png" width="auto" height="40px"></a>
                         </h1>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
@@ -91,7 +92,7 @@
                                 <ul>
                                     <li class="subul"><a href="/board/reviews" class="sub">Reviews</a></li>
                                     <li class="subul"><a href="/board/fBoard" class="sub">노하우공유</a></li>
-                                    <li class="subul"><a href="tickets.html" class="sub">전문가 매칭</a></li>
+                                    <li class="subul"><a href="/board/specialist" class="sub">전문가 매칭</a></li>
                                 </ul>
                             </li> 
                         </ul>        

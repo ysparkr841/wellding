@@ -61,9 +61,10 @@
             			<value>/board/login</value>
             			<value>/board/regform</value>
             			<value>/user/loginOut</value>
-            			<value>/user/regForm</value>
             			<value>/user/regProc</value>
             			<value>/user/idCheck</value>
+            			<value>/user/modify</value>
+            			
 
             			<value>/board/nBoard</value>
             			<value>/board/eBoard</value>
@@ -78,15 +79,31 @@
             			<value>/board/fBoardView</value>
             			<value>/about</value>
             			<value>/board/Coupon</value>
-            			<value>/Termsofuse</value>          			          			
- 
-            			<value>/hsdm/makeUp</value>
+            			<value>/user/myPage</value>
+            			<value>/popUpRoad</value>
+            			<value>/board/fUpdateForm</value>
+            			<value>/board/updateProc</value>
             			
+
+            			<value>/include/PrivacyPolicy</value>
+            			<value>/include/Terms</value>
+
+
+       			          			
+             			<value>/hsdm/makeUp</value>
             			<value>/hsdm/dressView</value>   
             			<value>/hsdm/studioView</value> 
+<<<<<<< HEAD
             			<value>/hsdm/makeupView</value>
             			<value>/cart</value>
             			<value>/checkout</value>  			
+=======
+            			<value>/hsdm/makeupView</value> 
+            			
+            			<value>/board/specialist</value> 
+            			<value>/board/gosu</value>			
+
+>>>>>>> d40e875ca0c9451ee34aa8521516090fcfc77b5d
 
 
             		</list>

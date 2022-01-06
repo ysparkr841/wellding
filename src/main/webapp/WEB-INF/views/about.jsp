@@ -4,6 +4,9 @@
 <html>
 <head>
 	<%@ include file="/WEB-INF/views/include/head.jsp" %>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=The+Nautigal&display=swap');
+</style>
 </head>
 <body class="containerAb">
     <jsp:include page="/WEB-INF/views/include/navigation.jsp" >
@@ -14,7 +17,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>WELLDING</h2>
+                    <h2 style="font-family: 'The Nautigal', cursive;">About</h2>
                     <!-- span>Check out upcoming and past shows & events and grab your ticket right now.</span -->
                 </div>
             </div>
@@ -27,7 +30,7 @@
 				<div class="row">
 					
 					<div class="col-lg-12 divImg" style="padding-left: 5%;">
-		    			<img class="logoImg" alt="wellding" src="../resources/images/icons/logo.png">					
+		    			<img class="logoImg" alt="wellding" src="../resources/images/icons/theWellding2.png">					
 					</div>
 				</div>    			
 			
@@ -46,17 +49,16 @@
             </div>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-            <h3> <br/> Wishing you a wonderful beginning!</h3>
-            
+          <br>
+            <h3> <br/> TEAM WELLDING, 당신의 행복과 함께합니다.</h3>
+            <br>
             <p>
-            <br/>
-             	-수많은 웨딩홀에서 가장 중요한 것은 내가 투어할 웨딩홀 리스트를 뽑는 것입니다. 방법은 간단합니다. 
-             	<p>
-             	-내가 우선시하는 순서로 항목을 정합니다. 그 뒤 해당 웨딩홀의 견적을 낸 후 예산에 맞는 곳을 투어하는 방법입니다. 웰딩에서는 우선순위에 따라 견적을 내주고 웨딩홀 투어날짜, 시간을 조정해드립니다. 
-            	</p>
-            	<p>
-            	-홀에 대한 문의, 혹은 취소나 변경 등도 직접 할 필요없이 웰딩에서 하실 수 있습니다. 뿐만 아니라 그 예식장에서 있었던 사례나 장단점도 확인하실 수 있습니다. 
-            	</p>
+				<ul class="aboutUl">
+					<li><i class="fas fa-angle-right"></i>홀부터 스튜디오 메이크업 드레스까지, 결혼에 대한 다양한 상품을 확인해 보세요. 기억에 남을 결혼식을 위한 많은 것이 준비되어 있습니다.</li>
+					<li><i class="fas fa-angle-right"></i>실제 결제한 커플들의 다양한 리뷰와 후기를 통해 더 많은 정보를 얻어보세요.</li>
+					<li><i class="fas fa-angle-right"></i>결혼식에서 제일 중요한 부분은? 이제 웰딩에서 결혼 노하우를 공유해보세요.</li>
+					<li><i class="fas fa-angle-right"></i>결혼에 필요한 다른 부분들을 위한 전문가 1대1 매칭도 준비되어 있습니다.</li>
+				</ul>
             </p>
           </div>
         </div>

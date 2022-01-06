@@ -20,10 +20,16 @@ public interface WDReviewDao {
 	public WDReview ReviewSelect(long RSeq);
 	
 	//리뷰 게시글 조회수 증가
-	public long ReviewReadCntPlus(long RSeq);
+	public int ReviewReadCntPlus(long RSeq);
 	
 	//리뷰 첨부파일 조회
 	public WDReviewFile ReviewFileSelect(WDReviewFile wdReviewFile);
+	
+	//리뷰 작성 가능여부 조회
+	public String ReviewRezCheck(String userId);
+	
+	//리뷰 작성
+	public int ReviewInsert(WDReview wdReview);
 	
 	
 

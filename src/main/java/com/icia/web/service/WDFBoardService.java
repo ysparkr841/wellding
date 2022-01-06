@@ -157,4 +157,57 @@ public class WDFBoardService
 		
 		return cnt;
 	}
+	
+	//게시물 수정
+	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
+	public int boardUpdate(WDFBoard wdFBoard) throws Exception
+	{
+		int cnt = 0;
+		
+		cnt = wdFBoardDao.boardUpdate(wdFBoard);
+		if(cnt > 0 && wdFBoard.getWdBoardFile() != null) 
+		{
+			WDBoardFile delWDBoardFile = wdFBoardDao.fBoardFileSelect(wdFBoard.getbSeq());
+			
+			if(delWDBoardFile != null) 
+			{
+				wdFBoardDao.fBoardFileDelete(wdFBoard.getbSeq());
+				
+				FileUtil.deleteFile(UPLOAD_SAVE_DIR + FileUtil.getFileSeparator()+delWDBoardFile.getFileName());
+			}
+			
+			WDBoardFile wdBoardFile = wdFBoard.getWdBoardFile();
+			wdBoardFile.setbSeq(wdFBoard.getbSeq());
+			wdBoardFile.setFileSeq((short)1);
+			
+			wdFBoardDao.boardFileInsert(wdBoardFile);
+			
+		}
+		
+		return cnt;
+	}
+	
+	//게시물 첨부파일만 삭제
+   @Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
+   public int boardFileDelete(WDFBoard wdFBoard) throws Exception
+   {
+	   int count = 0;
+	   
+
+	   if(wdFBoard.getWdBoardFile() != null) 
+	   {
+		   WDBoardFile delWDBoardFile = wdFBoardDao.fBoardFileSelect(wdFBoard.getbSeq());
+		   
+		   if(delWDBoardFile != null) 
+		   {
+			   //테이블 날리기
+			   count = wdFBoardDao.fBoardFileDelete(wdFBoard.getbSeq());
+			   
+			   //삭제할 애가 존재함, 파일 삭제
+			   FileUtil.deleteFile(UPLOAD_SAVE_DIR + FileUtil.getFileSeparator()+delWDBoardFile.getFileName());
+			   
+		   }
+	   }
+	   return count;
+   }
 }

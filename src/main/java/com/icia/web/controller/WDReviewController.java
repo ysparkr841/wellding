@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.icia.common.util.StringUtil;
 import com.icia.web.model.Paging;
+import com.icia.web.model.WDReview;
+import com.icia.web.model.WDUser;
 import com.icia.web.service.WDReviewService;
+import com.icia.web.service.WDUserService;
+import com.icia.web.util.CookieUtil;
 import com.icia.web.util.HttpUtil;
 
 @Controller("WDReviewController")
@@ -34,24 +38,55 @@ public class WDReviewController {
    @Autowired
    private WDReviewService wdReviewService;
    
-   private static final int LIST_COUNT = 5;    //한페이지의 게시물 수
+   @Autowired
+   private WDUserService wdUserService;
+   
+   private static final int LIST_COUNT = 10;    //한페이지의 게시물 수
    private static final int PAGE_COUNT = 5;      //페이징 수
    
-   @RequestMapping(value = "/board/reviewList")
-   public String reviewList(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
+
+   @RequestMapping(value = "/board/reviews")
+   public String review(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
 	   
-	   //조회항목 (1:제목, 2:내용)
-	   String searchType = HttpUtil.get(request, "searchType");
-	  //조회값
-	  String searchValue = HttpUtil.get(request, "searchValue");
-	  //현재페이지
-	  long curPage = HttpUtil.get(request, "curPage", (long)1);
-	  
-	  long totalCount = 0;
-	 
+		  //조회값
+		  String searchValue = HttpUtil.get(request, "searchValue", "");
+		  //현재페이지
+		  long curPage = HttpUtil.get(request, "curPage", (long)1);
+		  
+		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
+		WDUser wdUser = wdUserService.userSelect(cookieUserId);
+		  
+		  List<WDReview> list = null;
+		  WDReview wdReview = new WDReview();
+		  long totalCount = 0;
+		  
+		  Paging paging = null;
+		  
+		  if(!StringUtil.isEmpty(searchValue)) {
+			  wdReview.setSearchValue(searchValue);
+		  }
+		  
+		  totalCount = wdReviewService.ReviewListCount(wdReview);
+		  
+		logger.debug("[totalCount] = "+totalCount);
+		
+		if(totalCount > 0) {
+			paging = new Paging("/board/fboard", totalCount, LIST_COUNT, PAGE_COUNT, curPage, "curPage");
+			paging.addParam("searchValue",searchValue);
+			paging.addParam("curPage", curPage);
+			
+			wdReview.setStartRow(paging.getStartRow());
+			wdReview.setEndRow(paging.getEndRow());
+			
+			list = wdReviewService.ReviewList(wdReview);
+		}
+		model.addAttribute("list",list);
+		model.addAttribute("searchValue", searchValue);
+		model.addAttribute("curPage", curPage);
+		model.addAttribute("paging", paging);
+		model.addAttribute("wdUser", wdUser);
 	   
-	   return "/board/reviewList";
+	   return "/board/reviews";
    }
-   
 
 }

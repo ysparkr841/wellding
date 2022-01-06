@@ -4,6 +4,7 @@
 <!-- 리뷰 resultMap 시작 -->
 <resultMap id="ReviewResultMap" type="com.icia.web.model.WDReview">
 		<id column="R_SEQ" property="RSeq" />
+		<id column="REZ_NO" property="rezNo" />
     	<result column="USER_ID" property="UserId" />
     	<result column="U_NICKNAME" property="UNickName" />
         <result column="WDATE" property="WDate" />
@@ -12,7 +13,7 @@
         <result column="R_READ_CNT" property="RReadCnt" />
         <result column="REG_DATE" property="RegDate" />
         <result column="R_SCORE" property="RScore" />
-        <result column="Z_STATUS" property="ZStatus" />
+        <result column="REZ_STATUS" property="rezStatus" />
 </resultMap>
 <!-- 리뷰 resultMap 끝 -->
 
@@ -33,20 +34,16 @@
 SELECT
     COUNT(A.R_SEQ) CNT
 FROM
-    WD_REVIEW A, WD_USER B
+    WD_REVIEW A, WD_REZ B, WD_HALL C
 WHERE
-    A.USER_ID = B.USER_ID
-<if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
-	<choose>
-		<when test='searchType == "1"'>
-		AND
-		    A.R_TITLE LIKE '%' || #{searchValue} || '%'
-		</when>
-		<when test='searchType == "2"'>
-		AND
-		    A.R_CONTENT LIKE '%' || #{searchValue} || '%'
-		</when>
-    </choose>
+    A.REZ_NO = B.REZ_NO
+<if test='searchValue != null and searchValue != ""'> 
+AND
+    C.H_NAME LIKE '%' || #{value} || '%'
+AND 
+    B.WH_CODE = C.WH_CODE
+AND
+    B.H_CODE = C.H_CODE
 </if>
 </select>
 <!-- 리뷰 게시물 총 수 체크 끝 -->
@@ -56,77 +53,78 @@ WHERE
 SELECT
     R_SEQ,
     USER_ID,
+    U_NICKNAME,
     WDATE,
     R_TITLE,
     R_CONTENT,
     R_READ_CNT,
     REG_DATE,
     R_SCORE,
-    Z_STATUS
+    REZ_NO
 FROM (SELECT
-        ROWNUM RNUM,
-        R_SEQ,
-        USER_ID,
-        WDATE,
-        R_TITLE,
-        R_CONTENT,
-        R_READ_CNT,
-        REG_DATE,
-        R_SCORE,
-        Z_STATUS
-    FROM (SELECT
-            A.R_SEQ,
-            A.USER_ID,
-            NVL(B.U_NICKNAME, '') U_NICKNAME,
-            NVL(TO_CHAR(A.WDATE, 'YYYY.MM.DD HH24:MI:SS'), '') WDATE,
-            NVL(A.R_TITLE, '') R_TITLE,
-            NVL(A.R_CONTENT, '') R_CONTENT,
-            NVL(A.R_READ_CNT, 0) R_READ_CNT,
-            NVL(TO_CHAR(A.REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') REG_DATE,
-            NVL(A.R_SCORE, 0) R_SCORE,
-            NVL(A.Z_STATUS, 'N') Z_STATUS
-        FROM
-            WD_REVIEW A, WD_USER B
-        WHERE
-            A.USER_ID = B.USER_ID
-<if test='searchType != null and searchType != "" and searchValue != null and searchValue != ""'>
-	<choose>
-		<when test='searchType == "1"'>
-		AND
-		    A.R_TITLE LIKE '%' || #{searchValue} || '%'
-		</when>
-		<when test='searchType == "2"'>
-		AND
-		    A.R_CONTENT LIKE '%' || #{searchValue} || '%'
-		</when>
-    </choose>
-</if>))
+            ROWNUM RNUM,
+            R_SEQ,
+            USER_ID,
+            U_NICKNAME,
+            WDATE,
+            R_TITLE,
+            R_CONTENT,
+            R_READ_CNT,
+            REG_DATE,
+            R_SCORE,
+            REZ_NO
+        FROM ( SELECT
+                    A.R_SEQ,
+                    A.USER_ID,
+                    NVL(B.U_NICKNAME , '') U_NICKNAME,
+                    NVL(A.WDATE, '') WDATE,
+                    NVL(A.R_TITLE, '') R_TITLE,
+                    NVL(A.R_CONTENT, '') R_CONTENT,
+                    NVL(A.R_READ_CNT, 0) R_READ_CNT,
+                    NVL(TO_CHAR(A.REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') REG_DATE,
+                    NVL(A.R_SCORE, 0), R_SCORE,
+                    A.REZ_NO
+                FROM
+                    WD_REVIEW A, WD_USER B, WD_REZ C, WD_HALL D
+                WHERE
+                    A.USER_ID = B.USER_ID
+                AND
+                    A.REZ_NO = C.REZ_NO
+                AND
+                    C.WH_CODE = D.WH_CODE
+                AND
+                    C.H_CODE =  D.H_CODE
+<if test='searchValue != null and searchValue != ""'>                    
+                AND
+                    D.H_NAME LIKE '%' || #{searchValue} || '%'
+</if>                          
+                ORDER BY R_SEQ ASC))
 WHERE
-    RNUM <![CDATA[>=]]> 1
+    RNUM <![CDATA[>=]]> #{startRow}
 AND
-    RNUM <![CDATA[<=]]> 10
+    RNUM <![CDATA[<=]]> #{endRow}
 </select>
 <!-- 리뷰 리스트 끝 -->
 
 <!-- 리뷰 조회 시작 -->
 <select id="ReviewSelect" parameterType="long" resultMap="ReviewResultMap">
 SELECT
-    A.R_SEQ,
-    A.USER_ID,
-    NVL(B.U_NICKNAME, '') U_NICKNAME,
-    NVL(TO_CHAR(A.WDATE, 'YYYY.MM.DD HH24:MI:SS'), '') WDATE,
-    NVL(A.R_TITLE, '') R_TITLE,
-    NVL(A.R_CONTENT, '') R_CONTENT,
-    NVL(A.R_READ_CNT, 0) R_READ_CNT,
-    NVL(TO_CHAR(A.REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') REG_DATE,
-    NVL(A.R_SCORE, 0) R_SCORE,
-    NVL(A.Z_STATUS, 'N') Z_STATUS
-FROM
-    WD_REVIEW A, WD_USER B
-WHERE
-	R_SEQ = #{value}
-AND
-    A.USER_ID = B.USER_ID
+        A.R_SEQ,
+        A.USER_ID,
+        NVL(B.U_NICKNAME , '') U_NICKNAME,
+        NVL(A.WDATE, '') WDATE,
+        NVL(A.R_TITLE, '') R_TITLE,
+        NVL(A.R_CONTENT, '') R_CONTENT,
+        NVL(A.R_READ_CNT, 0) R_READ_CNT,
+        NVL(TO_CHAR(A.REG_DATE, 'YYYY.MM.DD HH24:MI:SS'), '') REG_DATE,
+        NVL(A.R_SCORE, 0), R_SCORE,
+        A.REZ_NO
+    FROM
+        WD_REVIEW A, WD_USER B
+    WHERE
+        R_SEQ = #{value}
+    AND
+        A.USER_ID = B.USER_ID
 </select>
 <!-- 리뷰 조회 끝 -->
 
@@ -156,5 +154,49 @@ AND
     R_FILE_SEQ = #{RFileSeq}
 </select>
 <!-- 리뷰 첨부파일 조회 끝 -->
+
+<!-- 리뷰 작성버튼 클랙했을때 예약내역 조회해서 결제상태 확인 시작 -->
+<select id="ReviewRezCheck" parameterType="string" resultType="string">
+SELECT 
+    NVL(A.REZ_STATUS, 'N') REZ_STATUS
+FROM
+    WD_REZ A, WD_USER B
+WHERE
+    B.USER_ID = #{value}
+AND
+    B.USER_ID = A.USER_ID
+</select>
+<!-- 리뷰 작성버튼 클랙했을때 예약내역 조회해서 결제상태 확인 종료 -->
+
+<!-- 리뷰 작성 시작 -->
+<insert id="ReviewInsert" parameterType="com.icia.web.model.WDReview">
+<!-- ###### 선행처리기(시퀀스번호 생성 시작) : 인서트문 실행하기전에 여기 있는거 먼저 실행해~ ###### -->
+<selectKey resultType = "long" keyProperty="RSeq" order = "BEFORE">
+   SELECT SEQ_R_SEQ.NEXTVAL FROM DUAL
+</selectKey>
+<!-- ###### 선행처리기(시퀀스번호 생성 끝) ###### -->
+INSERT INTO WD_REVIEW (
+    R_SEQ,
+    USER_ID,
+    WDATE,
+    R_TITLE,
+    R_CONTENT,
+    R_READ_CNT,
+    REG_DATE,
+    R_SCORE,
+    REZ_NO
+) VALUES (
+    #{RSeq},
+    #{UserId},
+    #{WDate},
+    #{RTitle},
+    #{RContent},
+    0,
+    SYSDATE,
+    #{RScore},
+    #{rezNo}
+)
+</insert>
+<!-- 리뷰 작성 끝 -->
 
 </mapper>

@@ -1,0 +1,231 @@
+* {
+  margin: 0px; 
+  padding: 0px; 
+  box-sizing: border-box;
+ 
+  
+}
+
+body
+{
+  background-color: #fff4f3;
+}
+
+.date
+{
+  margin-right: 93px;
+}
+dt
+{
+  font-weight: 600;
+    margin-top: 30px;
+    margin-left: 40px;
+    font-size: 16px;
+    line-height: 30px;
+    color: #000;
+    letter-spacing: -.25px;
+    text-align: left;
+}
+
+
+
+dd {
+    display: block;
+    margin-inline-start: 40px;
+    
+    
+}
+
+
+.msg {
+  margin-top: 5px;
+ 
+  font-size: 11px;
+  line-height: 14px;
+  color: #666;
+  letter-spacing: -.17px;
+}
+
+h1{
+  text-align: center;
+  margin: 20px;
+}
+
+.join_write
+{
+
+  width: 700px;
+<<<<<<< HEAD
+    height: 800px;
+=======
+    height: 1100px;
+>>>>>>> f37e623f86aa102ccb92007acdb8f20b65937cd1
+    background: #fff;
+    border-radius: 10px;
+    border-radius: 10px;
+    padding: 77px 55px 33px 55px;
+    box-shadow: 0 5px 10px 0px rgb(0 0 0 / 10%);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgb(0 0 0 / 10%);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    
+}
+/*------------------------------------------------------------------
+[ Form ]*/
+
+.join_header {
+ height: 100px;
+ border-bottom: 1px solid #dfe2e6;
+ text-align: center;
+ margin-bottom: 30px;
+}
+
+.join_form
+{
+ width: 100%;
+text-align: center;
+ /* background-color: aqua; */
+}
+
+.input {
+  display: inline-block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 84%;
+  height: 50px;
+  padding: 0 40px 0 4px;
+  border: 1px solid #ccd2d8;
+  background-color: #fff;
+  margin-right: 110px;
+}
+
+
+
+.input input[type=password], .input input[type=text] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 0 none;
+  font-size: 16px;
+  color: #000;
+  letter-spacing: -.25px;
+  outline: 0 none;
+ 
+}
+
+select{
+  appearance: none;
+  -moz-appearance: none; /* Firefox */ 
+  -webkit-appearance: none; /* Safari and Chrome */
+  display: inline-block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 150px;
+    height: 50px;
+    margin: 0 -1px;
+    
+    border: 1px solid #ccd2d8;
+    border-radius: 0;
+    background-color: #fff;
+    font-size: 15px;
+    color: rgb(10, 10, 10);
+    padding-left: 13px;
+    
+    
+}
+
+.selector input
+{
+display: none;
+
+}
+
+label.selector input[type=radio]:checked+span {
+    
+    border: 1px solid #9e9e9b;
+    font-weight: 700;
+    background-color: #f0ebee;
+}
+
+label.selector input[type=radio]+span {
+  display: inline-block;
+  position: absolute;
+  
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  font-size: 16px;
+  line-height: 48px;
+  color: #a6a9ad;
+  letter-spacing: -.18px;
+  cursor: pointer;
+  
+}
+label.selector {
+  display: inline-block;
+  position: relative;
+  width: 220px;
+  height: 50px;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  border-color: #ccd2d8;
+  text-align: center;
+}
+
+.button_area
+{
+  padding: 30px;
+  text-align: center;
+ 
+  
+}
+
+.button_area .btn_type{
+  width: 40%;
+    height: 53px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 25px;
+    background: -webkit-linear-gradient(right, #f5a4aa, #f3c4c7 ,#f5a4aa, #f3c4c7);
+    background: -o-linear-gradient(right, #f5a4aa, #f3c4c7,#f5a4aa, #f3c4c7);
+    background: -moz-linear-gradient(right, #f5a4aa, #f3c4c7,#f5a4aa, #f3c4c7);
+    background: linear-gradient(right, #f5a4aa, #f3c4c7,#f5a4aa, #f3c4c7);
+    letter-spacing: -.28px;
+    float: none;
+    cursor: pointer;
+    border: none;
+    
+}
+
+.copyright {
+  font-size: 12px;
+  line-height: 12px;
+  color: #979797;
+  text-align: center;
+}
+
+.footer
+{
+  padding: 60px;
+}
+
+.msg
+{
+  
+    margin-top: 5px;
+    font-size: 11px;
+    line-height: 14px;
+    color: #666;
+    letter-spacing: -.17px;
+    text-align: left;
+}
