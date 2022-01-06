@@ -139,7 +139,7 @@ function fn_list(curPage)
                         <div class="col-lg-12">
                             <ul>
 
-                                <li>
+                                <li id="divB">
                                     <div class="row">
                                         <div class="col-lg-1">
                                             <div class="title" style="text-align: center;">                                                
@@ -164,7 +164,7 @@ function fn_list(curPage)
                                 </li>
                                 
                               <c:forEach var="fboard" items="${list}" varStatus="status">                                
-                                <li>
+                                <li id="divB">
                                 	<a href="javascript:void(0)" onclick="fn_view(${fboard.bSeq})">
 	                                    <div class="row">
 	                                        <div class="col-lg-1">
