@@ -192,5 +192,58 @@ public class WDUserController
 		
 		return ajaxResponse;
 	}
+	
+	@RequestMapping(value="/user/update")
+	@ResponseBody
+	public Response<Object> modify(HttpServletRequest request, HttpServletResponse response){
+		
+		Response<Object> ajaxResponse = new Response<Object>();
+		
+		String cookieUserId = CookieUtil.getHexValue(request,  AUTH_COOKIE_NAME);
+		
+		String userPwd = HttpUtil.get(request, "pwd1", "");
+		String userName = HttpUtil.get(request, "name", "");
+		String phone = HttpUtil.get(request, "number", "");
+		String year = HttpUtil.get(request, "year", "");
+		String month = HttpUtil.get(request, "month", "");
+		String day = HttpUtil.get(request, "day", "");
+		String marry = year + month + day;
+		String nickName = HttpUtil.get(request, "nickname", "");
+		String email = HttpUtil.get(request, "email", "");
+		
+		WDUser wdUser = new WDUser();
+		
+		wdUser.setUserId(cookieUserId);
+		wdUser.setUserPwd(userPwd);
+		wdUser.setUserName(userName);
+		wdUser.setUserNumber(phone);
+		wdUser.setMarrtDate(marry);
+		wdUser.setUserNickname(nickName);
+		wdUser.setUserEmail(email);
+		
+		if(!StringUtil.isEmpty(wdUser.getUserId())) {
+			if(!StringUtil.isEmpty(userPwd) && !StringUtil.isEmpty(userName) && !StringUtil.isEmpty(phone) &&
+					!StringUtil.isEmpty(marry) && !StringUtil.isEmpty(nickName) && !StringUtil.isEmpty(email)) 
+				{
+					if(wduserService.userUpdate(wdUser) > 0) {
+						ajaxResponse.setResponse(0, "Success");
+					}
+					else {
+						ajaxResponse.setResponse(500, "Bad Request");
+					}
+				}
+				else {
+					ajaxResponse.setResponse(400, "Bad Request");
+				}	
+		}
+		else {
+			ajaxResponse.setResponse(500, "Bad Request");
+		}
+		
+		return ajaxResponse;
+		
+	}
+	
+	
 
 }

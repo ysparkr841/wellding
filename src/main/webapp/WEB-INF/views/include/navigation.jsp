@@ -6,11 +6,7 @@
    {
 %>
 
-<script>
-function openPop(){
-   var popup = window.open("/board/Coupon", 'pop', 'width=1000px,height=600px,scrollbars=yes');
-}
-</script>
+
    <c:set var = "name" value="${param.userName }" />
     <!-- ***** 맨뒤 HEader ***** -->
     <div class="pre-header">
