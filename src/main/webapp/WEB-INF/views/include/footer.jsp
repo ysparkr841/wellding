@@ -74,7 +74,7 @@
    
     
     <!-- 보현추가 -->
-	<script type="text/javascript" src="../resources/js/slick.min.js"></script>
+   <script type="text/javascript" src="../resources/js/slick.min.js"></script>
 
     <!-- Bootstrap -->
     <script src="../resources/js/popper.js"></script>
@@ -92,6 +92,15 @@
     <script src="../resources/js/mixitup.js"></script> 
     <script src="../resources/js/accordions.js"></script>
     <script src="../resources/js/owl-carousel.js"></script>
+<<<<<<< HEAD
+    <script>
+function termsofuse(){
+   $('#MoaModal .modal-content').load("/Termsofuse");
+   $('#MoaModal').modal();
+}
+</script>
+    
+=======
 
 <script>    
 	$(document).ready(function(){
@@ -110,12 +119,16 @@
 			         $("#colorbox").css("border-radius", "10px");
 			         
 			         $('html').css("overflow","hidden");
-			      }      
+			      },
+			      onClosed:function()
+			      {
+			    	 $('html').css("overflow","auto");
+			      }
 			   });
 	});
 </script>    
 
+>>>>>>> 99752df3767c7b645b0e21af459eab9b6c6eb488
     <!-- Global Init -->
 
     <!-- script src="../resources/js/custom.js"></script -->
-

@@ -16,12 +16,14 @@ public class WDReview implements Serializable{
 	private long RReadCnt;
 	private String RegDate;
 	private double RScore;
-	private char rezStatus;
+	private String rezStatus;
 	
 	private WDReviewFile reviewFile;
 	
-	private String searchType;      //검색타입(1:제묵, 2:내용)
     private String searchValue;      //검색값
+    
+	private long startRow;
+	private long endRow;
 	
 	public WDReview() {
 		  RSeq = 0;
@@ -34,12 +36,33 @@ public class WDReview implements Serializable{
 		  RReadCnt = 0;
 		  RegDate = "";
 		  RScore = 0;
-		  rezStatus = 'N';
+		  rezStatus = "N";
 		  reviewFile = null;
-		  searchType = "";
 		  searchValue = "";
+		startRow = 0;
+		endRow = 0;
 	}
-	
+		
+
+	public long getStartRow() {
+		return startRow;
+	}
+
+
+	public void setStartRow(long startRow) {
+		this.startRow = startRow;
+	}
+
+
+	public long getEndRow() {
+		return endRow;
+	}
+
+
+	public void setEndRow(long endRow) {
+		this.endRow = endRow;
+	}
+
 
 	public String getRezNo() {
 		return rezNo;
@@ -51,25 +74,14 @@ public class WDReview implements Serializable{
 	}
 
 
-	public char getRezStatus() {
+	public String getRezStatus() {
 		return rezStatus;
 	}
 
 
-	public void setRezStatus(char rezStatus) {
+	public void setRezStatus(String rezStatus) {
 		this.rezStatus = rezStatus;
 	}
-
-
-	public String getSearchType() {
-		return searchType;
-	}
-
-
-	public void setSearchType(String searchType) {
-		this.searchType = searchType;
-	}
-
 
 	public String getSearchValue() {
 		return searchValue;

@@ -2,17 +2,15 @@
 <%@ include file="/WEB-INF/views/include/taglib.jsp" %>
 
 <%
-	if(com.icia.web.util.CookieUtil.getCookie(request, (String)request.getAttribute("AUTH_COOKIE_NAME")) != null)
-	{
+   if(com.icia.web.util.CookieUtil.getCookie(request, (String)request.getAttribute("AUTH_COOKIE_NAME")) != null)
+   {
 %>
-
 <script>
 function openPop(){
-	var popup = window.open("/board/Coupon", 'pop', 'width=1000px,height=600px,scrollbars=yes');
+   var popup = window.open("/board/Coupon", 'pop', 'width=1000px,height=600px,scrollbars=yes');
 }
 </script>
-	<c:set var = "name" value="${param.userName }" />
-
+   <c:set var = "name" value="${param.userName }" />
     <!-- ***** 맨뒤 HEader ***** -->
     <div class="pre-header">
         <div class="container">
@@ -32,9 +30,9 @@ function openPop(){
         </div>
     </div>
 <%
-	}
-	else
-	{
+   }
+   else
+   {
 %>
     <!-- ***** 맨뒤 HEader ***** -->
 
@@ -57,7 +55,7 @@ function openPop(){
     </div>
 
 <%
-	}
+   }
 %>
 
     <!-- ***** 보현수정 Header Area Start ***** -->

@@ -129,6 +129,7 @@ public class WDUserController
 			{
 				if(wduserService.userSelect(userId) == null)
 				{
+					
 					ajaxResponse.setResponse(0, "Success");
 				}
 				else
@@ -145,7 +146,7 @@ public class WDUserController
 		}
 		
 	//회원가입
-	@RequestMapping(value="/user/regProc" )
+	@RequestMapping(value="/user/regProc", method = {RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody
 	public Response<Object> regProc(HttpServletRequest request, HttpServletResponse response)
 	{
