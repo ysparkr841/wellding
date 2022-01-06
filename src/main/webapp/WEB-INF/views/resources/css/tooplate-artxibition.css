@@ -75,7 +75,7 @@ header .logo{float:left;}
 header nav {float:right;}
 header nav ul{float:left;}
 header nav ul li{float:left;}
-header.sticky {position: fixed; /*padding: 9px 0;*/ background-color: rgba(201, 201, 201, 0.9); top:0;}  /* 보현수정 */
+header.sticky {position: fixed; /*padding: 9px 0;*/ background-color: rgba(225, 225, 225, 0.9); top:0;}  /* 보현수정 */
 header.sticky .back{ height: 0px;}
 
 
@@ -1603,6 +1603,58 @@ Coming Events
   float: left;
   margin-right: 6px;
 }
+/******************* 전문가매칭 이미지 *******************/
+.thumb_go
+{
+	width: 100%;
+	border: 1px solid #ccc;
+	border-bottom: none;
+}
+
+.thumb_go img
+{
+	width: 100%;
+	height: auto;
+}
+
+.hashtag
+{
+	color: #ff4a4a;
+    font-size: 12px;
+    font-weight: 600;
+    width: 100%;
+    height: 40px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title_go{
+  font-size: 25px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+
+.adress_go
+{
+	color: #4a4a4a!important;
+	margin-bottom: 18px;
+}
+
+.go_coment
+{
+	color: #777;
+	font-size: 15px;
+	width: 100%;
+	display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 /**************************************/
 
@@ -2719,14 +2771,19 @@ Rent Venue Page
 }
 
 .rent-venue-application {
-  margin: 100px 0px;
+  margin: 50px 0px;
+  padding: 90px 0 48px 0;
+  margin-left: 20px;
+  padding-left: 50px;
+  border-left: 2px dashed #ccc;
+  /*text-align: center;*/
 }
 
 .rent-venue-application .heading-text h4 {
-  font-size: 22px;
+  font-size: 32px;
   font-weight: 700;
-  color: #2a2a2a;
-  margin-bottom: 50px;
+  color: #4a4a4a;
+  margin-bottom: 30px;
 }
 
 .rent-venue-application .contact-form input,
@@ -2743,7 +2800,7 @@ Rent Venue Page
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  margin-bottom: 30px;
+  margin-bottom: 15px; /*보현수정*/
 }
 
 .rent-venue-application .contact-form textarea {
@@ -2766,8 +2823,8 @@ Rent Venue Page
 .rent-venue-application form .main-dark-button {
   display: inline-block;
   font-size: 14px;
-  padding: 12px 18px;
-  background-color: #343a3e;
+  padding: 18px;
+  background-color: #ff8080;
   color: #fff;
   text-align: center;
   font-weight: 500;
@@ -2775,6 +2832,10 @@ Rent Venue Page
   transition: all .3s;
   border: none;
   outline: none;
+  margin-top: 10px;
+  width: 250px;
+  float: right;
+  
 }
 
 .rent-venue-application form .main-dark-button:hover {
@@ -2983,6 +3044,7 @@ Shows Events Page
   margin-bottom: 40px;
 }
 
+
 .shows-events-tabs .tabs-content .sidebar {
   background-color: #fff;
   padding: 30px;
@@ -3134,7 +3196,8 @@ Shows Events Page
 }
 
 .tickets-page {
-  margin-bottom: 100px;
+  /*margin-bottom: 100px;*/
+  padding-bottom: 100px;
 }
 
 .tickets-page .search-box {
@@ -3216,6 +3279,16 @@ Shows Events Page
   margin-top: 80px;
   margin-bottom: 60px;
 }
+
+.tickets-page .heading .h22 {
+  font-size: 38px;
+  font-weight: 800;
+  color: #2a2a2a;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
 /** 여기저기 보현 수정 ,,, **/
 .tickets-page .ticket-item .thumb {
   position: relative;
@@ -3456,8 +3529,6 @@ Shows Events Page
   /*margin-bottom: 10px;*/
 }
 
-/****/
-
 
 .sd_title3{
   font-size: 15px;
@@ -3496,6 +3567,29 @@ Shows Events Page
 .tickets-page .ticket-item .down-content {
   background-color: #efefef;
   padding: 30px;
+}
+
+.tickets-page .ticket-item2 .down-content2 {
+  background-color: #fff;
+  padding: 30px;
+  margin-bottom: 45px;
+  border: 1px solid #ccc;
+}
+
+.boxx
+{
+	width: 100px;
+	height: 50px;
+}
+
+.backgroundd
+{
+	background-color: rgba(255,239,239,0.8);/*#ffefef;*/
+}
+
+.btn_go
+{
+	margin-top: 20px;
 }
 
 /** 드레스만 추가 시작 **/
@@ -5675,4 +5769,121 @@ responsive
     transform: rotate(45deg); /* 각도 */
 }
 
-/***************/
+/** 모달띄운거 **/
+.ticket-details-page {
+  margin: 25px 0 100px 0px;
+}
+
+.ticket-details-page .left-image img {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.ticket-details-page .left-image2 img {
+	/*height: 100%;*/
+    overflow: hidden;
+}
+
+
+.ticket-details-page .right-content {
+  margin-left: 15px;
+}
+
+/** 보현수정 **/
+.gosu_page .right-content h4 {
+  font-size: 35px;
+  font-weight: 800;
+  color: #2a2a2a;
+  padding:52px 0 15px;
+}
+
+.gosu_page .right-content span {
+  font-size: 15px;
+  line-height: 27px;
+  font-weight: 700;
+  color: #756c74; /* 보현수정 */
+  display: inline-block;
+  border-bottom: 1px solid #ccc;   /*보현수정 */
+  width: 100%;
+  padding-bottom: 42px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.gosu_page .right-content2 ul {
+  /*border-bottom: 1px solid #ccc; 보현수정 */
+  width: 100%;
+  padding-bottom: 20px;
+  margin-bottom: 2px;
+}
+
+.gosu_page .right-content2 ul li {/* 보현수정 */
+  font-size: 16px;
+  color: #5a5a5a;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.gosu_page .right-content2 ul li:last-child
+{
+ margin-bottom: 0px;
+}
+
+.gosu_page .right-content2 ul li i {
+  color: #7c838b;
+  margin-right: 10px;
+  width: 15px;
+  height: 25px;
+  float: left;
+}
+
+.com_detail8
+{
+  /*border-top: 3px solid #262626;*/
+  width: 100%;
+  margin-top: 30px;
+}
+
+.left-side
+{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	margin-top: 55px;
+}
+
+.left-side img
+{
+	width: 100%;
+	height: auto;
+}
+
+.main-dark-button4 a {
+  display: inline-block;
+  font-size: 15px;
+  padding: 18px;
+  background-color: #ff8080;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: all .3s;
+  width: 100%;
+  margin-top: 35px;
+}
+
+.main-dark-button4
+{
+	/*border-top: 1px solid #ccc;*/
+}
+
+.h44
+{
+	padding-bottom: 15px;
+	font-weight: 700;
+}
+
+.com_detail8 span
+{
+	color: #444;
+}

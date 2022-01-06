@@ -34,7 +34,7 @@ public class WDReviewController {
    @Autowired
    private WDReviewService wdReviewService;
    
-   private static final int LIST_COUNT = 5;    //한페이지의 게시물 수
+   private static final int LIST_COUNT = 10;    //한페이지의 게시물 수
    private static final int PAGE_COUNT = 5;      //페이징 수
    
    @RequestMapping(value = "/board/reviewList")
@@ -52,6 +52,10 @@ public class WDReviewController {
 	   
 	   return "/board/reviewList";
    }
-   
+   @RequestMapping(value = "/board/reviews")
+   public String review(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
+	   
+	   return "/board/reviews";
+   }
 
 }

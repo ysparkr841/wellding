@@ -20,9 +20,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.icia.web.model.Paging;
 import com.icia.web.model.WDEBoard;
 import com.icia.web.model.WDFBoard;
 import com.icia.web.model.WDHall;
@@ -67,10 +69,11 @@ public class IndexController
 	@Autowired
 	private WDFBoardService wdFBoardService;
 		
-	@RequestMapping(value = "/index", method=RequestMethod.GET)
+	@RequestMapping(value = "/index",method = {RequestMethod.GET, RequestMethod.POST})
 	public String index(ModelMap model, HttpServletRequest request, HttpServletResponse response)
 	{
 		
+		 
 		//쿠키 확인
 		String cookieUserId = CookieUtil.getHexValue(request, AUTH_COOKIE_NAME);
 		
@@ -169,6 +172,21 @@ public class IndexController
 	public String termsofuse(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
 		
 		return "/Termsofuse";
+	}
+	
+	/** 전문가매칭 페이지 불러오기 **/
+	@RequestMapping(value="/board/specialist", method=RequestMethod.GET)
+	public String specialist(HttpServletRequest request, HttpServletResponse response)
+	{
+		
+		return "/board/specialist";
+	}
+	
+	@RequestMapping(value="/board/gosu")
+	public String gosu(HttpServletRequest request, HttpServletResponse response)
+	{
+		
+		return "/board/gosu";
 	}
 
 	@RequestMapping(value="/include/PrivacyPolicy")

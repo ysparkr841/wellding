@@ -54,6 +54,7 @@
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 	
 	<link rel="stylesheet" type="text/css" href="../resources/css/bootstrap-theme.min.css">
+	<link type="text/css" href="../resources/css/jquery.colorbox.css" rel="stylesheet" />
 				
 <!--
 
