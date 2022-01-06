@@ -109,7 +109,11 @@
 			         $("#colorbox").css("border-radius", "10px");
 			         
 			         $('html').css("overflow","hidden");
-			      }      
+			      },
+			      onClosed:function()
+			      {
+			    	 $('html').css("overflow","auto");
+			      }
 			   });
 	});
 </script>    

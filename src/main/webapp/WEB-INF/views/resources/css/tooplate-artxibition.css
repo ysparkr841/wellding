@@ -4463,16 +4463,18 @@ responsive
 .shows-events-schedule2 {
   margin-top: 0px;
   padding-bottom: 0px;
-  background-color: #F0EFF8;
+  background-color: #ffffff;
 }
 
 /* 밑줄 구현 */
 .shows-events-schedule2 ul li {
   background-color: #fff;
   padding: 10px 30px 10px 30px;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
   text-align: center;
   cursor: pointer;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 
@@ -4669,7 +4671,7 @@ responsive
 
 .tickets-page2 {
   margin-bottom: 0px;
-  background-color: #F0EFF7;
+  background-color: #ffffff;
 }
 
 .tickets-page2 .search-box {
@@ -4996,7 +4998,7 @@ responsive
 }
 
 .w-btn-red {
-    background-color: #ff5f2e;
+    background-color: #ff0202;
     color: #e1eef6;
 }
 
@@ -5502,6 +5504,100 @@ responsive
 }
 
 /* 왜 우리 종료 */
+
+/* 마이페이지 관련 추가 */
+
+.myPage
+{
+	margin: 5px;
+}
+
+.myPageLetter
+{
+    background-color: papayawhip;
+    color: #666;
+    margin-right: 5px;
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: 1000;
+    padding-left: 5%;
+    border-radius: 5px 5px 5px 5px;
+    border-bottom: 1px dotted grey;
+}
+
+.subMenu
+{
+	margin-top: 2%;
+	margin-bottom: 10%;
+}
+
+.subMenuList a
+{
+	background-color: #FFEFD5;
+	border-bottom: 3px solid white;
+	font-size: 16px;
+	color: #666;
+	font-style: oblique;
+	font-weight: bold;
+}
+
+.subMenuList a:hover
+{
+	background-color: #F5DDBA;
+}
+
+.subMenuList a:active
+{
+	background-color: #F5DDBA;
+}
+
+.subMenuList a:focus
+{
+	background-color: #F5DDBA;
+}
+
+.bcItem
+{
+	margin-top: 2%;
+	text-align: center;
+    align-items: center;
+}
+
+.bcItem a
+{
+	font-size: 18px;
+}
+
+.bcItem .bc
+{
+    background-color: #fff;
+    border-top: 4px solid lightgray;
+    border-radius: 5px 5px; 
+}
+
+.bc a
+{
+	color: gray;
+}
+
+.bc a:hover
+{
+	color: black;
+	font-weight: bold;
+}
+
+.bc a:focus
+{
+	color: black;
+	font-weight: bold;
+}
+
+.bcline
+{
+	border-bottom: 5px solid gray;
+}
+
+/* 마이페이지 관련 종료 */
 
 /* 의수 추가 내용  종료==========*/
 

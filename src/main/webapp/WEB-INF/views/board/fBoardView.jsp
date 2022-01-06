@@ -22,6 +22,75 @@ $(document).ready(function(){
 		document.bbsForm.submit();
 	});
 	
+	
+	<c:if test="${boardMe eq 'Y'}">
+	$("#btnUpdate").on("click", function(){
+		document.bbsForm.action = "/board/fUpdateForm";
+		document.bbsForm.submit();
+	});
+	
+	$("#btnDelete").on("click", function(){
+		if(confirm("정말 삭제 하시겠습니까?") == true)
+		{
+			//정말 삭제하겠다고 했을 때, ajax 통신
+			$.ajax({
+				type:"POST",
+				url:"/board/delete",
+				data:
+				{
+					bSeq: <c:out value="${wdFBoard.bSeq}" />
+				},
+				datatype:"JSON",
+				beforeSend:function(xhr){
+					xhr.setRequestHeader("AJAX", "true");
+				},
+				success:function(response){
+					if(response.code == 0)
+					{
+						alert("게시물이 삭제되었습니다.");
+						location.href = "/board/fBoard";
+					}
+					else if(response.code == 400)
+					{
+						alert("파라미터 값이 올바르지 않습니다.");
+						//이동할 필요 없음
+					}
+					else if(response.code == 404)
+					{
+						alert("게시물을 찾을 수 없습니다.");
+						location.href = "/board/fBoard";
+					}
+					else if(response.code == 405)
+					{
+						alert("사용자의 게시물이 아닙니다.");
+						location.href = "/board/fBoard";
+					}
+					else
+					{
+						alert("게시물 삭제 중 오류가 발생했습니다.");
+					}
+				},
+				complete:function(data){
+					icia.common.log(data);
+				},
+				error:function(xhr, status, error)
+				{
+					icia.common.error(error);
+				}
+			});
+			
+		}
+	});	
+	</c:if>
+	
+	
+	
+	
+	
+	
+	
+	
+	
     $("#btnComment").on("click",function(){
   	  
   	  $("#btnComment").prop("disabled", true);// 수정 버튼 비활성화 
@@ -116,8 +185,17 @@ $(document).ready(function(){
                <td scope="col" style="width:40%" class="text-right">
                   <div>${wdFBoard.regDate}</div>
                </td>
+               
+
          </thead>
          <tbody>
+             <tr>
+             <!-- 첨부파일은 있을 때만 보여주면 됨 -->
+				<c:if test="${!empty wdFBoard.wdBoardFile}">
+                <!-- GET방식으로 넘어감 -->
+                  &nbsp;&nbsp;&nbsp;<a href="/board/download?bSeq=${wdFBoard.wdBoardFile.bSeq}" style="color:#000;">[첨부파일]${wdFBoard.wdBoardFile.fileOrgName}</a>
+                </c:if>
+            </tr>
             <tr>
                <td colspan="2" style="text-align:center">
                <div style="padding:10px"><pre><c:out value="${wdFBoard.bContent}" /></pre></div></td>
@@ -153,7 +231,11 @@ $(document).ready(function(){
          </td>
          </tr>
          <tr>
-               <td colspan="2"><button type="button" id="btnList" class="w-btn w-btn-green2" style="float: right">리스트</button></td>
+               	<td colspan="2">
+               		<button type="button" id="btnDelete" class="w-btn w-btn-red">삭제</button>
+               		<button type="button" id="btnList" class="w-btn w-btn-green2" style="float: right">리스트</button>
+               		<button type="button" id="btnUpdate" class="w-btn w-btn-green" style="margin-right: 10px;">수정</button>
+               	</td>
          </tr>
          </tfoot>
       </table>

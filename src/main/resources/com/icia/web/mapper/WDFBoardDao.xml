@@ -24,11 +24,11 @@
 <!-- 첨부파일 resultMap 시작 -->
 <resultMap id="WDBFileResultMap" type="com.icia.web.model.WDBoardFile">
     <id column="B_SEQ" property="bSeq" />
-    <id column="B_FILE_SEQ" property="bFileSeq" />
-    <result column="B_FILE_ORG_NAME" property="bFileOrgName" />
-    <result column="B_FILE_NAME" property="bFileName" />
-    <result column="B_FILE_EXT" property="bFileExt" />
-    <result column="B_FILE_SIZE" property="bFileSize" />
+    <id column="B_FILE_SEQ" property="fileSeq" />
+    <result column="B_FILE_ORG_NAME" property="fileOrgName" />
+    <result column="B_FILE_NAME" property="fileName" />
+    <result column="B_FILE_EXT" property="fileExt" />
+    <result column="B_FILE_SIZE" property="fileSize" />
     <result column="REG_DATE" property="regDate" />
 </resultMap>
 <!-- 첨부파일 resultMap 종료 -->
