@@ -93,17 +93,16 @@
              			<value>/hsdm/makeUp</value>
             			<value>/hsdm/dressView</value>   
             			<value>/hsdm/studioView</value> 
-<<<<<<< HEAD
             			<value>/hsdm/makeupView</value>
             			<value>/cart</value>
             			<value>/checkout</value>  			
-=======
+
             			<value>/hsdm/makeupView</value> 
             			
             			<value>/board/specialist</value> 
             			<value>/board/gosu</value>			
 
->>>>>>> d40e875ca0c9451ee34aa8521516090fcfc77b5d
+
 
 
             		</list>
