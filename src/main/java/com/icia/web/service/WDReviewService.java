@@ -23,7 +23,7 @@ public class WDReviewService {
 	
 	@Autowired
 	private WDReviewDao wdReviewDao;
-	
+	//리뷰 게시글 총 수
 	public long ReviewListCount(WDReview wdReview) {
 		
 		long count = 0;
@@ -37,7 +37,7 @@ public class WDReviewService {
 		
 		return count;
 	}
-	
+	//리뷰 리스트
 	public List<WDReview> ReviewList(WDReview wdReview){
 		
 		List<WDReview> list = null;
@@ -51,7 +51,7 @@ public class WDReviewService {
 		
 		return list;
 	}
-	
+	//리뷰 게시글 조회
 	public WDReview ReviewSelect(long RSeq) {
 		
 		WDReview wdReview = null;
@@ -65,7 +65,7 @@ public class WDReviewService {
 		
 		return wdReview;
 	}
-	
+	//리뷰 첨부파일 조회
 	public WDReviewFile ReviewFileSelect(WDReviewFile wdReviewFile) {
 		
 		try {
@@ -78,7 +78,50 @@ public class WDReviewService {
 		return wdReviewFile;
 		
 	}
+	//리뷰 게시글 조회수 증가
+	public int ReviewReadCntPlus(long RSeq) {
+		
+		int count = 0;
+		
+		try {
+			count = wdReviewDao.ReviewReadCntPlus(RSeq);
+		}
+		catch(Exception e) {
+			logger.error("[WDReviewService] ReviewReadCntPlus Exception", e);
+		}
+		
+		return count;
+		
+	}
+
+	//리뷰 작성 가능여부 조회
+	public String ReviewRezCheck(String userId) {
+		
+		String status = "";
+		try {
+			status = wdReviewDao.ReviewRezCheck(userId);
+		}
+		catch(Exception e) {
+			logger.error("[WDReviewService] ReviewRezCheck Exception", e);
+		}
+		
+		return status;
+	}	
 	
+	//리뷰 작성
+	public int ReviewInsert(WDReview wdReview) {
+		
+		int count = 0;
+		try {
+			count = wdReviewDao.ReviewInsert(wdReview);
+		}
+		catch(Exception e) {
+			logger.error("[WDReviewService] ReviewInsert Exception", e);
+		}
+		
+		return count;
+		
+	}
 	
 
 }

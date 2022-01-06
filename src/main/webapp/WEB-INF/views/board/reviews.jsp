@@ -95,14 +95,12 @@ function fn_list(curPage)
                                             <div class="col-lg-7">
                                                 <div class="row">
                                                     <div class="col-lg-3">
-                                                        <select value="searchType" name="searchTypeR" id="searchTypeR">
-                                                            <option value="">조회 항목</option>
-                                                            <option value="1" <c:if test="${searchType eq '1'}">selected</c:if>>닉네임</option>
-                                                            <option value="2" <c:if test="${searchType eq '2'}">selected</c:if>>제목</option>
+                                                        <select value="searchType" name="_searchType" id="_searchType">
+                                                            <option value="1">홀 제목</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-6">
-                                                        <input type="text" name="searchValueR" id="searchValueR" value="${searchValue}" maxlength="25" class="svalue" placeholder="조회값을 입력하세요." />
+                                                        <input type="text" name="_searchValue" id="_searchValue" value="${searchValue}" maxlength="25" class="svalue" placeholder="조회값을 입력하세요." />
                                                     </div>
                                                     <div class="col-lg-3">
                                                         <fieldset>
@@ -114,19 +112,7 @@ function fn_list(curPage)
                                         </div>
                                     </form>
                                 </div>
-                            </div>
-                            
-	                        <div class="col-lg-12">
-								<div class="row">
-									<div class="col-lg-6">
-										<iframe width="100%" height="315" src="https://www.youtube.com/embed/rzZGx72ogRM" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-									</div>
-									<div class="col-lg-6">
-										<iframe width="100%" height="315" src="https://www.youtube.com/embed/JbD7DfPKFw8" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>									
-									</div>
-								</div>
-							</div>
-                            
+                            </div>                            
                             
                         </div>
                     </div>
@@ -163,30 +149,30 @@ function fn_list(curPage)
                                     </div>
                                 </li>
                                 
-                              <c:forEach var="fboard" items="${list}" varStatus="status">                                
+                              <c:forEach var="review" items="${list}" varStatus="status">                                
                                 <li>
-                                	<a href="javascript:void(0)" onclick="fn_view(${fboard.bSeq})">
+                                	<a href="javascript:void(0)" onclick="fn_view(${review.RSeq})">
 	                                    <div class="row">
 	                                        <div class="col-lg-1">
 	                                            <div class="title">
-	                                                <span>${fboard.bSeq}</span>
+	                                                <span>${review.RSeq}</span>
 	                                            </div>
 	                                        </div>
 	                                        
-	                                        <div class="col-lg-5" style="text-align: left;">
-	                                            <div class="time"><span>${fboard.bTitle}</span></div>
+	                                        <div class="col-lg-1" style="text-align: left;">
+	                                            <div class="time"><span>${review.RSeq}</span></div>
 	                                        </div>
 	                                        <div class="col-lg-2">
-	                                            <div class="place"><span>${fboard.userNickname}</span></div>
+	                                            <div class="place"><span>${review.UNickname}</span></div>
 	                                        </div>
 	                                        <div class="col-lg-2">
-	                                            <div class="place"><span>${fboard.regDate}</span></div>
+	                                            <div class="place"><span>${review.RegDate}</span></div>
 	                                        </div>
 	                                        <div class="col-lg-1">
 	                                        </div>
 	                                        <div class="col-lg-1">
 	                                            <div class="place">
-	                                                <span>${fboard.bReadCnt}</span>
+	                                                <span>${review.RReadCnt}</span>
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -265,8 +251,7 @@ function fn_list(curPage)
     </div>
 
     <form name="bbsForm" id="bbsForm" method="post">
-        <input type="hidden" name="bSeq" value="" /> <!-- 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
-        <input type="hidden" name="searchType" value="${searchType}" />
+        <input type="hidden" name="RSeq" value="" /> <!-- 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
         <input type="hidden" name="searchValue" value="${searchValue}" />
         <input type="hidden" name="curPage" value="${curPage}" />
     </form>
