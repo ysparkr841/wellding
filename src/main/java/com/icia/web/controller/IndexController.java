@@ -170,6 +170,6 @@ public class IndexController
 		
 		return "/Termsofuse";
 	}
-
+	
 }
 

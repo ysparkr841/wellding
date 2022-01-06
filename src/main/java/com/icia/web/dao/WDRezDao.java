@@ -1,5 +1,7 @@
 package com.icia.web.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.icia.web.model.WDRez;
@@ -22,4 +24,8 @@ public interface WDRezDao {
 	public long rezWDateInsert(WDRez wdRez);
 	
 	public long rezFullPriceInsert(WDRez wdRez);
+	
+	public WDRez rezList(String userId);
+	
+	public long rezListCount(WDRez wdRez);
 }

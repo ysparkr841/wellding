@@ -79,7 +79,6 @@ public class WDEBoardController
 				paging.addParam("curPage", curPage);
 				paging.addParam("searchType", searchType);
 				paging.addParam("searchValue", searchValue);
-				paging.addParam("curPage", curPage);
 				
 				search.setStartRow(paging.getStartRow());
 				search.setEndRow(paging.getEndRow());

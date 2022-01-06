@@ -19,6 +19,26 @@
 	<result column="REZ_FULL_PRICE" property="rezFullPrice" />
 	<result column="C_CODE" property="cCode" />
 	<result column="REZ_POINT" property="rezPoint" />
+	<result column="WH_NAME" property="whName" />
+	<result column="H_NAME" property="hName" />
+	<result column="H_PRICE" property="hPrice" />
+	<result column="H_FOOD" property="hFood" />
+	<result column="H_MIN" property="hMin" />
+	<result column="H_IMGNAME" property="hImgName" />
+	<result column="H_DISCOUNT" property="hDiscount" />
+	<result column="S_NAME" property="sName" />
+	<result column="S_PRICE" property="sPrice" />
+	<result column="S_DISCOUNT" property="sDiscount" />
+	<result column="S_IMGNAME" property="sImgName" />
+	<result column="M_NAME" property="mName" />
+	<result column="M_PRICE" property="mPrice" />
+	<result column="M_DISCOUNT" property="mDiscount" />
+	<result column="M_IMGNAME" property="mImgName" />
+	<result column="DC_NAME" property="dcName" />
+	<result column="D_NAME" property="dName" />
+	<result column="D_PRICE" property="dPrice" />
+	<result column="D_DISCOUNT" property="dDiscount" />
+	<result column="D_IMGNAME" property="dImgName" />
 </resultMap>
 
 <!-- 예약 추가여부 확인을 위한 셀렉트문 시작 -->
@@ -161,4 +181,73 @@ AND
 </update>
 <!-- 결혼식 날짜를 입력받아 삽입했으면 가격도 삽입 끝 -->
 
+<!-- 예약 현황 리스트 -->
+<select id="rezList" parameterType="string" resultMap="WDRezDaoResultMap" >
+SELECT
+    R.REZ_NO,
+    NVL(R.WH_CODE,'')AS WH_CODE ,
+    NVL(R.H_CODE,'')AS H_CODE,
+    NVL(R.S_CODE,'')AS S_CODE,
+    NVL(R.DC_CODE,'')AS DC_CODE,
+    NVL(R.D_NO,'')AS D_NO,
+    NVL(R.M_CODE,'')AS M_CODE,
+    NVL(R.M_PLUS_NUM,'')AS M_PLUS_NUM,
+    NVL(R.REZ_STATUS,'N')AS REZ_STATUS,
+    NVL(TO_CHAR(R.REZ_DATE,'YYYY.MM.DD HH24:MI:SS'), '')AS REZ_DATE,
+    R.WDATE,
+    R.USER_ID,
+    R.REZ_FULL_PRICE,
+    NVL(R.C_CODE,'')AS C_CODE,
+    NVL(R.REZ_POINT, 0)AS REZ_POINT,
+    NVL(W.WH_NAME,'')AS WH_NAME,
+    NVL(H.H_NAME,'')AS H_NAME,
+    NVL(H.H_PRICE, 0)AS H_PRICE,
+    NVL(H.H_FOOD, 0)AS H_FOOD,
+    NVL(H.H_MIN, 0)AS H_MIN,
+    NVL(H.H_IMGNAME,'')AS H_IMGNAME,
+    NVL(H.H_DISCOUNT, 0)AS H_DISCOUNT,
+    NVL(S.S_NAME,'')AS S_NAME,
+    NVL(S.S_PRICE, 0)AS S_PRICE,
+    NVL(S.S_DISCOUNT, 0)AS S_DISCOUNT,
+    NVL(S.S_IMGNAME,'')AS S_IMGNAME,
+    NVL(M.M_NAME,'')AS M_NAME,
+    NVL(M.M_PRICE, 0)AS M_PRICE,
+    NVL(M.M_PLUS, 0)AS M_PLUS,
+    NVL(M.M_DISCOUNT, 0)AS M_DISCOUNT,
+    NVL(M.M_IMGNAME,'')AS M_IMGNAME,
+    NVL(C.DC_NAME,'')AS DC_NAME,
+    NVL(D.D_NAME,'')AS D_NAME,
+    NVL(D.D_PRICE, 0)AS D_PRICE,
+    NVL(D.D_DISCOUNT, 0)AS D_DISCOUNT,
+    NVL(D.D_IMGNAME,'')AS D_IMGNAME
+FROM
+    WD_REZ R, WD_HALL H, WD_STUDIO S, WD_MAKEUP M, WD_DRESS D, WD_WEDDINGHALL W, WD_DRESS_COM C,WD_USER U
+WHERE
+    H.WH_CODE = W.WH_CODE
+AND    
+    R.WH_CODE = H.WH_CODE
+AND
+    R.H_CODE = H.H_CODE
+AND
+    R.S_CODE = S.S_CODE
+AND
+    D.DC_CODE = C.DC_CODE
+AND
+    R.DC_CODE = D.DC_CODE
+AND
+    R.D_NO = D.D_NO
+AND
+    R.M_CODE = M.M_CODE
+AND
+	R.USER_ID = #{value}
+AND
+	R.USER_ID = U.USER_ID
+</select>
+<!-- 예약 총 수 확인 -->
+<select id ="rezListCount" parameterType="com.icia.web.dao.WDRezDao" resultType ="long">
+SELECT
+    COUNT(REZ_NO) AS CNT
+FROM
+    WD_REZ
+</select>
 </mapper>

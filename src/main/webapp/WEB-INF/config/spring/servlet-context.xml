@@ -84,7 +84,9 @@
             			
             			<value>/hsdm/dressView</value>   
             			<value>/hsdm/studioView</value> 
-            			<value>/hsdm/makeupView</value>  			
+            			<value>/hsdm/makeupView</value>
+            			<value>/cart</value>
+            			<value>/checkout</value>  			
 
 
             		</list>

@@ -7,6 +7,9 @@
  	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+<style>
+#boardImg{width:100%;}
+</style>
 <script>
 $(document).ready(function(){
 	$("#btnList").on("click", function(){
@@ -58,7 +61,7 @@ $(document).ready(function(){
          <tbody>
             <tr>
                <td colspan="2" style="text-align:center">
-               <div style="padding:10px"><pre><img src="/resources/board/${eBoard.eBImgName}"><br /><br /><c:out value="${eBoard.eBContent}" /></pre></div></td>
+               <div style="padding:10px"><pre><img src="/resources/board/${eBoard.eBImgName}" id="boardImg"><br /><br /><c:out value="${eBoard.eBContent}" /></pre></div></td>
             </tr>
          </tbody>
          <tfoot>
