@@ -164,7 +164,7 @@ function fn_list(curPage)
                                 </li>
                                 
                               <c:forEach var="fboard" items="${list}" varStatus="status">                                
-                                <li>
+                                <li class="fLists">
                                 	<a href="javascript:void(0)" onclick="fn_view(${fboard.bSeq})">
 	                                    <div class="row">
 	                                        <div class="col-lg-1">

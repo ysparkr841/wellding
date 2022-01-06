@@ -163,7 +163,7 @@ UPDATE
 SET
     B_READ_CNT = B_READ_CNT + 1
 WHERE
-    B_SEQ = 2
+    B_SEQ = #{value}
 </update>
 <!-- 게시물 조회 수 증가 종료 -->
 
@@ -262,5 +262,15 @@ WHERE
 </delete>
 <!-- 게시물 첨부파일 삭제 종료 -->
 
+<!-- 게시물 수정 시작 -->
+<update id="boardUpdate" parameterType="com.icia.web.model.WDFBoard">
+UPDATE WD_FBOARD
+SET
+    B_TITLE = #{bTitle},
+    B_CONTENT = #{bContent}
+WHERE
+        B_SEQ = #{bSeq}
+</update>
+<!-- 게시물 수정 종료 -->
 
 </mapper>
