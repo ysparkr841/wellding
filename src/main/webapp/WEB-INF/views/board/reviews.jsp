@@ -72,7 +72,7 @@ function fn_list(curPage)
                     <div class="section-heading">
                         <div class="category2">
                             <!-- h2>wellding Free Board</h2 -->
-                            <p>Know-How</p>
+                            <p>Reviews</p>
                         </div>
                     </div>
                 </div>
@@ -265,7 +265,7 @@ function fn_list(curPage)
     </div>
 
     <form name="bbsForm" id="bbsForm" method="post">
-        <input type="hidden" name="bSeq" value="${fboard.bSeq}" /> <!-- 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
+        <input type="hidden" name="bSeq" value="" /> <!-- 상세페이지 들어갈때 필요하니까 그때만 이 값이 들어가면됨 -->
         <input type="hidden" name="searchType" value="${searchType}" />
         <input type="hidden" name="searchValue" value="${searchValue}" />
         <input type="hidden" name="curPage" value="${curPage}" />

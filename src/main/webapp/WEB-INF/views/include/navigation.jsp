@@ -11,6 +11,7 @@ function openPop(){
 }
 </script>
    <c:set var = "name" value="${param.userName }" />
+
     <!-- ***** 맨뒤 HEader ***** -->
     <div class="pre-header">
         <div class="container">
@@ -95,7 +96,7 @@ function openPop(){
                                 <ul>
                                     <li class="subul"><a href="/board/reviews" class="sub">Reviews</a></li>
                                     <li class="subul"><a href="/board/fBoard" class="sub">노하우공유</a></li>
-                                    <li class="subul"><a href="tickets.html" class="sub">전문가 매칭</a></li>
+                                    <li class="subul"><a href="/board/specialist" class="sub">전문가 매칭</a></li>
                                 </ul>
                             </li> 
                         </ul>        

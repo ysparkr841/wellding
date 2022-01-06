@@ -395,7 +395,8 @@ function fn_validateEmail(value)
             <dt>이메일</dt>
             <dd>
                <div class="input"><input id="email" name="email" data-bind="email" type="text" placeholder="이메일을 입력해주세요" value=""></div>
-               <p class="msg"></p>
+
+               <p class="msg"></p>     
                  
          <div class="button_area">
       <button class="btn_type" id="btnReg">가입 완료하기</button>
